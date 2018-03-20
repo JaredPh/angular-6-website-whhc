@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald|Titillium+Web');
+
+@import 'variables';
+@import 'bulma';
+@import 'base-elements';
+@import 'cards';
+
+.is-sticky {
+  position: sticky;
+  top: 3rem;
+}
+
+.title {
+  font-family: $font-title;
+  font-weight: 400;
+}
