@@ -5,8 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { NgRedux, NgReduxModule } from 'ng2-redux';
-import { IAppStore, rootReducer } from './app.store';
-
+import { IAppState, INITIAL_STATE, rootReducer } from './app.store';
 
 @NgModule({
   declarations: [
@@ -25,9 +24,9 @@ import { IAppStore, rootReducer } from './app.store';
 export class AppModule {
 
   constructor(
-    ngRedux: NgRedux<IAppStore>,
+    ngRedux: NgRedux<IAppState>,
   ) {
-    ngRedux.configureStore(rootReducer, {});
+    ngRedux.configureStore(rootReducer, INITIAL_STATE);
   }
 
 }
