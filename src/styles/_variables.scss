@@ -1,0 +1,21 @@
+$whhc-blue: #59cbe8;
+$whhc-maroon: #651D32;
+$whhc-black: #181818;
+$white: #fefefe;
+
+$bg-grey: #efefef;
+
+$primary: $whhc-maroon;
+
+$footer-background-color: $whhc-black;
+
+$font-main: 'Titillium Web', sans-serif;
+$font-title: 'Oswald', sans-serif;
+
+$link: $whhc-maroon;
+
+@import '~bulma/sass/utilities/initial-variables';
+@import '~bulma/sass/utilities/functions';
+@import '~bulma/sass/utilities/derived-variables';
+
+@import 'emoji';
