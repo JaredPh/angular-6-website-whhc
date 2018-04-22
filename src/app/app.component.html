@@ -1,6 +1,13 @@
 <router-outlet></router-outlet>
 
 <p>Counter: {{ counter | async }}</p>
+<p>Last Updated: {{ updated | async }}</p>
+<p>Status: {{ status | async }}</p>
+<p>XXX: {{ xxx | async }}</p>
 
 <button (click)="more()">More</button>
 <button (click)="less()">Less</button>
+
+<button (click)="addDay()">D</button>
+<button (click)="addWeek()">W</button>
+<button (click)="addMonth()">M</button>

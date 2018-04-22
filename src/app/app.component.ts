@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgRedux, select } from 'ng2-redux';
 import { IAppState } from './app.store';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'whhc-root',
@@ -9,17 +10,33 @@ import { IAppState } from './app.store';
 })
 export class AppComponent {
 
-  @select() counter: number;
+  @select(s => s.counter.counter) counter: number;
+  @select(s => s.counter.status) status: string;
+  @select(s => s.counter.lastUpdated) updated: number;
+  @select(s => s.date.date) xxx: number;
 
   constructor(
     private redux: NgRedux<IAppState>,
+    private appService: AppService,
   ) {}
 
   public more() {
-    this.redux.dispatch({ type: 'MORE' });
+    this.appService.increment();
   }
 
   public less() {
-    this.redux.dispatch({ type: 'LESS' });
+    this.appService.decrement();
+  }
+
+  public addDay() {
+    this.appService.addDay();
+  }
+
+  public addWeek() {
+    this.appService.addWeek();
+  }
+
+  public addMonth() {
+    this.appService.addMonth();
   }
 }

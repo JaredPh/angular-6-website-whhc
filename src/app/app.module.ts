@@ -2,10 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, isDevMode } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './app.component';
+import { AppService } from './app.service';
+
 import { NgRedux, NgReduxModule, DevToolsExtension } from 'ng2-redux';
 import { IAppState, INITIAL_STATE, rootReducer } from './app.store';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { IAppState, INITIAL_STATE, rootReducer } from './app.store';
     AppRoutingModule,
     NgReduxModule,
   ],
-  providers: [],
+  providers: [
+    AppService,
+  ],
   bootstrap: [
     AppComponent,
   ],
@@ -24,7 +28,7 @@ import { IAppState, INITIAL_STATE, rootReducer } from './app.store';
 export class AppModule {
 
   constructor(
-    redux: NgRedux<IAppState>,
+    redux: NgRedux<IAppState | any>, // TODO: update redux and remove any
     devTools: DevToolsExtension,
   ) {
     const middleware = [];
