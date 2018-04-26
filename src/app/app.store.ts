@@ -1,19 +1,21 @@
 import { combineReducers } from 'redux';
 
-import { counterReducer, ICounterState, INITIAL_COUNTER_STATE } from './counter.store';
+import { eventsReducer, IEventsState, INITIAL_EVENTS_STATE } from './components/events/events.store';
 import { dateReducer, IDateState, INITIAL_DATE_STATE } from './date.store';
 
+
 export interface IAppState {
-  counter: ICounterState;
+  events: IEventsState;
   date: IDateState;
+
 }
 
 export const INITIAL_STATE: IAppState = {
-  counter: INITIAL_COUNTER_STATE,
+  events: INITIAL_EVENTS_STATE,
   date: INITIAL_DATE_STATE,
 };
 
 export const rootReducer = combineReducers({
-  counter: counterReducer,
+  events: eventsReducer,
   date: dateReducer,
 });

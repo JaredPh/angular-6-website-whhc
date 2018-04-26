@@ -1,0 +1,47 @@
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.1);
+$easeOutQuint: cubic-bezier(0.23, 1, 0.32, 1);
+
+@keyframes bounceIn {
+  0%   {
+    width: 0%;
+  }
+  100% {
+    width:100%;
+  }
+}
+
+@keyframes bounceOut {
+  0%   { width: 100%; }
+  100% { width: 0%; }
+}
+
+@mixin on-hover-grow {
+  &:hover {
+    transform: scale(1.04);
+    transition: all .4s ease;
+  }
+}
+
+@mixin on-hover-background-slide-in-right($bg-color) {
+  position: relative;
+  z-index: 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    bottom: 0;
+    background: $bg-color;
+    z-index: -1;
+  }
+
+  &:before {
+    animation: bounceOut .2s $easeOutQuint forwards;
+  }
+
+  &:hover:before {
+    animation: bounceIn .4s $easeOutBack forwards;
+  }
+}

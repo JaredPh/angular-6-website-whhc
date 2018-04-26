@@ -3,7 +3,7 @@ import { NgModule, isDevMode } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppService } from './app.service';
+import { AppPreloader } from './app.preloader';
 
 import { NgRedux, NgReduxModule, DevToolsExtension } from 'ng2-redux';
 import { IAppState, INITIAL_STATE, rootReducer } from './app.store';
@@ -19,7 +19,7 @@ import { IAppState, INITIAL_STATE, rootReducer } from './app.store';
     NgReduxModule,
   ],
   providers: [
-    AppService,
+    AppPreloader,
   ],
   bootstrap: [
     AppComponent,

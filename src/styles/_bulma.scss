@@ -1,3 +1,7 @@
 @import "~bulma";
 @import '~bulma-tooltip';
 @import '~bulma-checkradio';
+
+a.box {
+  box-shadow: $box-shadow !important;
+}

@@ -1,0 +1,41 @@
+@import '../../../../styles/variables';
+
+a {
+   @include absolute-child;
+  @include on-hover-grow;
+
+  margin: $event-spacing 0;
+  padding-top: 0;
+  padding-bottom: 100%;
+
+  .thumb {
+    margin-top: 10%;
+    margin-bottom: 2.5%;
+    height: 52%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size:contain;
+  }
+
+  .description {
+    height: 35%;
+
+    .name {
+      text-transform: uppercase;
+      font-family: $font-title;
+      font-size: 1.2vw;
+      font-weight: 700;
+    }
+
+    .date {
+      font-family: $font-main;
+      margin-top: -0.1vw;
+      font-size: 0.85vw;
+    }
+
+    .location {
+      @extend .date;
+      font-style: oblique;
+    }
+  }
+}

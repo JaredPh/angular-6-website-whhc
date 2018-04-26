@@ -1,9 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald|Titillium+Web');
-
 @import 'variables';
 @import 'bulma';
 @import 'base-elements';
-@import 'cards';
 
 .is-sticky {
   position: sticky;
@@ -13,4 +10,55 @@
 .title {
   font-family: $font-title;
   font-weight: 400;
+}
+
+.navbar-brand .navbar-item {
+  @include on-hover-background-slide-in-right($whhc-maroon);
+}
+
+
+.whhc-label {
+  $label-height: 2vw;
+  $label-bar-height: 2px;
+  $label-bar-width: 4.5vw;
+  $label-bar-padding: 0.5vw;
+
+  position: relative;
+  user-select: none;
+
+  span {
+    position: absolute;
+    display: block;
+
+    top: 0;
+    right: $label-height;
+
+    transform: rotate(-90deg);
+    transform-origin: top right;
+
+    font-size: $label-height * 0.8;
+    line-height: $label-height;
+    font-family: $font-title;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &.left span {
+    padding-left: $label-bar-width + $label-bar-padding;
+
+    &:before {
+      content: '';
+
+      position: absolute;
+      display: block;
+
+      top: calc((#{$label-height} - #{$label-bar-height}) / 2 );
+      left: 0;
+
+      height: $label-bar-height;
+      width: $label-bar-width;
+
+      background-color: $whhc-black;
+    }
+  }
 }
