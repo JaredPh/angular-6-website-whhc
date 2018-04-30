@@ -1,5 +1,5 @@
 export interface IEvent {
-  title: string;
+  heading: string;
   image: string;
   start: string;
   end: string;

@@ -25,12 +25,13 @@
 
   position: relative;
   user-select: none;
+  margin-top: $event-spacing + $box-padding / 2;
 
   span {
+    top: 0;
     position: absolute;
     display: block;
 
-    top: 0;
     right: $label-height;
 
     transform: rotate(-90deg);
@@ -41,24 +42,21 @@
     font-family: $font-title;
     font-weight: 700;
     text-transform: uppercase;
+    padding-left: $label-bar-width + $label-bar-padding;
   }
 
-  &.left span {
-    padding-left: $label-bar-width + $label-bar-padding;
+  span:before {
+    content: '';
 
-    &:before {
-      content: '';
+    position: absolute;
+    display: block;
 
-      position: absolute;
-      display: block;
+    top: calc((#{$label-height} - #{$label-bar-height}) / 2 );
+    left: 0;
 
-      top: calc((#{$label-height} - #{$label-bar-height}) / 2 );
-      left: 0;
+    height: $label-bar-height;
+    width: $label-bar-width;
 
-      height: $label-bar-height;
-      width: $label-bar-width;
-
-      background-color: $whhc-black;
-    }
+    background-color: $whhc-black;
   }
 }

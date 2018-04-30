@@ -1,17 +1,16 @@
 import { tassign } from 'tassign';
+import { INewsState } from './news.store';
 
-import { IEventsState } from './events.store';
+export const ADD_NEWS = 'ADD_NEWS';
 
-export const ADD_EVENTS = 'ADD_EVENTS';
-
-export class EventsActions {
+export class NewsActions {
 
   constructor(
-    private state: IEventsState,
+    private state: INewsState,
     private action: any,
   ) {}
 
-  public addEvents() {
+  public addNews() {
     return tassign(this.state, { items: this.state.items.concat(this.action.items) });
   }
 }

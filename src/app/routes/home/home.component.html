@@ -1,20 +1,12 @@
-<!--<section class="hero"></section>-->
+<section class="hero"></section>
 
 <section class="section">
   <div class="columns">
     <div class="column is-3">
-
-      <!-- Events-->
-      <div class="columns">
-        <div class="column is-narrow whhc-label left">
-          <span>Events</span>
-        </div>
-        <div class="column is-8 events">
-          <whhc-home-event *ngFor="let event of events | async" [event]="event"></whhc-home-event>
-        </div>
-      </div>
-      <!-- /Events-->
-
+      <whhc-home-events></whhc-home-events>
+    </div>
+    <div class="column is-8 is-offset-1">
+      <whhc-home-news></whhc-home-news>
     </div>
   </div>
 </section>

@@ -2,7 +2,7 @@
   <div>
     <div class="thumb" [ngStyle]="{'background-image': 'url(' + event.image + ')' }"></div>
     <div class="description has-text-centered">
-      <h3 class="name">{{ event.title }}</h3>
+      <h3 class="name">{{ event.heading }}</h3>
       <p class="date">{{ getDateRange(event) }}</p>
       <p class="location">{{ event.location }}</p>
     </div>

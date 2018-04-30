@@ -1,7 +1,7 @@
-@import '../../../../styles/variables';
+@import '../../../../../styles/variables';
 
 a {
-   @include absolute-child;
+  @include absolute-child;
   @include on-hover-grow;
 
   margin: $event-spacing 0;

@@ -1,5 +1,5 @@
-import { ADD_EVENTS, EventsActions } from './events.actions';
 import { IEvent } from './events.interfaces';
+import { ADD_EVENTS, EventsActions } from './events.actions';
 
 export interface IEventsState {
   items: IEvent[];

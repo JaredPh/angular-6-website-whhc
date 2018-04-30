@@ -1,17 +1,4 @@
-@import '../../../styles/variables';
-
-
-
-.hero {
-  background: url('../../../assets/site/hero-1.png') center bottom;
-  background-size: cover;
-  min-height: calc(100vh - #{$navbar-height});
-
-}
-
-.whhc-label {
-  margin-top: $event-spacing + $box-padding / 2;
-}
+@import '../../../../styles/variables';
 
 .events {
   position: relative;

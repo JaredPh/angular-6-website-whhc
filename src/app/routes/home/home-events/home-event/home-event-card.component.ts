@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
-import { IEvent } from '../../../components/events/events.interfaces';
+import { IEvent } from '../../../../components/events/events.interfaces';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'whhc-home-event',
-  templateUrl: './home-event.component.html',
-  styleUrls: ['./home-event.component.scss']
+  selector: 'whhc-home-event-card',
+  templateUrl: './home-event-card.component.html',
+  styleUrls: ['./home-event-card.component.scss']
 })
-export class HomeEventComponent {
+export class HomeEventCardComponent {
 
   @Input() event: IEvent;
 
