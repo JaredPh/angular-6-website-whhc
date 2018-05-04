@@ -22,6 +22,10 @@ $easeOutQuint: cubic-bezier(0.23, 1, 0.32, 1);
   }
 }
 
+@mixin on-hover-lighten {
+  transition: background-color .6s ease;
+}
+
 @mixin on-hover-background-slide-in-right($bg-color) {
   position: relative;
   z-index: 0;

@@ -31,6 +31,7 @@
     "redux": "^3.7.2",
     "rxjs": "^5.5.6",
     "tassign": "^1.0.0",
+    "time-ago": "^0.2.1",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {

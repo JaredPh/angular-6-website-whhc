@@ -1,5 +1,10 @@
 export interface INews {
+  background?: string;
+  body?: string;
+  date: string;
   heading: string;
-  thumb?: string;
-  date?: string;
+  photos?: string[];
+  slug: string;
+  thumb: string;
+  video?: string;
 }

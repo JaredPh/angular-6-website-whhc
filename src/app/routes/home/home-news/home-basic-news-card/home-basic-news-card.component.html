@@ -1,4 +1,4 @@
-<a class="box">
+<a class="box" [routerLink]="['news', article.slug]">
   <div class="thumb" [ngStyle]="{'background-image': 'url(' + article.thumb + ')' }"></div>
   <div class="description">
     <h3 class="name">{{ article.heading }}</h3>

@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppPreloader } from './app.preloader';
 
 const routes: Routes = [
-  { path: '', loadChildren: './routes/home/home.module#HomeModule' },
-  // { path: 'news', loadChildren: './routes/news/news.module#NewsViewModule' },
+  { path: '', loadChildren: './routes/home/home.module#HomeViewModule' },
+  { path: 'news', loadChildren: './routes/news/news.module#NewsViewModule' },
 ];
 
 @NgModule({

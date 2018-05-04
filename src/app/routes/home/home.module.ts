@@ -27,4 +27,4 @@ import { HomeEventsComponent } from './home-events/home-events.component';
     HomeEventsComponent,
   ],
 })
-export class HomeModule { }
+export class HomeViewModule { }

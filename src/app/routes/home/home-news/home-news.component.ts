@@ -19,11 +19,7 @@ export class HomeNewsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.news.subscribe(n => {
-      if (n.length === 0) {
-        this.newsService.getLatestNews(3);
-      }
-    });
+    this.newsService.loadLatestNews(5);
   }
 
 }

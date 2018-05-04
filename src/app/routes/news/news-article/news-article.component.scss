@@ -1,0 +1,50 @@
+@import '../../../../styles/variables';
+
+.avatar {
+  display: inline-block;
+
+  border-radius: 100%;
+  overflow: hidden;
+  border: 2px solid $white
+}
+
+.video {;
+  float: right;
+  padding: 0 0 $gap $gap;
+
+  iframe {
+    width: 560px;
+    height: 316px;
+  };
+}
+
+
+/* -------------  */
+
+body {
+  margin: 0; background: #131212;
+}
+div#masonry {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  max-height: 800px;
+  font-size: 0;
+}
+div#masonry img {
+  width: 30%;
+}
+
+/* fallback for earlier versions of Firefox */
+
+@supports not (flex-wrap: wrap) {
+  div#masonry { display: block; }
+  div#masonry img {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+
+
