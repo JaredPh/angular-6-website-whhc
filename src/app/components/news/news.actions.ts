@@ -25,12 +25,8 @@ export class NewsReducerActions {
   }
 
   public success() {
-
     const fetchedArticles: INews[] = (this.action.articles) ? this.action.articles : [this.action.article];
-
     const articles: INews[] = _(fetchedArticles).union(this.state.items, 'slug').value();
-
-    console.log('=====>', this.action, fetchedArticles, articles);
 
     return tassign(this.state, { items: articles, loading: false, loaded: true });
   }

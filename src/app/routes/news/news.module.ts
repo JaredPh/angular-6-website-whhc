@@ -1,22 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { MediaModule } from '../../components/media/media.module';
+import { NewsModule } from '../../components/news/news.module';
 import { NewsRoutingModule } from './news-routing.module';
+import { UtilsModule } from '../../components/utils/utils.module';
+
 import { NewsArticleComponent } from './news-article/news-article.component';
 import { NewsComponent } from './news.component';
-import { NewsModule } from '../../components/news/news.module';
-import { UtilsModule } from '../../components/utils/utils.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    NewsRoutingModule,
+    MediaModule,
     NewsModule,
+    NewsRoutingModule,
     UtilsModule,
   ],
   declarations: [
-    NewsComponent,
     NewsArticleComponent,
+    NewsComponent,
   ],
 })
 export class NewsViewModule { }

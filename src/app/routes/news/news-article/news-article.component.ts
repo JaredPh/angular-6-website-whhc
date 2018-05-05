@@ -6,6 +6,7 @@ import { NewsService } from '../../../components/news/news.service';
 import { ActivatedRoute } from '@angular/router';
 import { IAppState } from '../../../app.store';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { IImage } from '../../../components/media/media.interfaces';
 
 @Component({
   selector: 'whhc-news-article',
@@ -37,33 +38,10 @@ export class NewsArticleComponent implements OnInit {
           this.article = article;
 
           if (this.article.video) {
-            const url = `https://www.youtube.com/embed/${this.article.video}?rel=0&amp;controls=0&amp;showinfo=0`;
+            const url = `https://www.youtube.com/embed/${this.article.video}?rel=0&amp;showinfo=0`;
             this.video = this.sanitizer.bypassSecurityTrustResourceUrl(url);
           }
         });
     });
-  }
-
-  getPhotoColumnWidth(index: number) {
-    const photoCount = this.article.photos.length;
-
-    let width: number;
-
-    switch (photoCount % 4) {
-      case 0:
-        width = 1;
-        break;
-      case 1:
-        width = (index < 3) ?  2 : 1;
-        break;
-      case 2:
-        width = (index < 2) ?  2 : 1;
-        break;
-      case 3:
-        width = (index < 1) ?  2 : 1;
-        break;
-    }
-
-    return `is-${width * 12 / 4}`;
   }
 }

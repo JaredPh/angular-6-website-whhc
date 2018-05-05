@@ -1,0 +1,33 @@
+@import '../../../../styles/variables';
+
+div {
+  $width: 50%;
+  $height: $width * 316 / 560;
+
+  position: relative;
+
+  padding-bottom: $height;
+  margin-bottom: $column-gap / 2;
+  width: $width;
+
+  &, &.left {
+    float: left;
+    margin-right: $column-gap;
+  }
+
+  &.right {
+    float: right;
+    margin-left: $column-gap;
+    margin-right: 0;
+  }
+
+  iframe {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+}
