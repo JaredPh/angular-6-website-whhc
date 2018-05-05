@@ -4,7 +4,8 @@ import { IAppState } from '../../app.store';
 import { INews } from './news.interfaces';
 import { newsActions } from './news.actions';
 import { Observable } from 'rxjs/Observable';
-import {testNews} from "./news.data";
+import { testNews } from './news.data';
+import * as _ from 'lodash';
 
 export const tempNews: INews[] = testNews;
 
@@ -32,7 +33,32 @@ export class NewsService {
     );
   }
 
-  loadArticle(slug: string): void {
+  public loadArticles(slugs: string[]): void {
+    const articlesOb = this.redux.select(s => s.news.items.map(a => a.slug));
+
+    articlesOb.subscribe(articles => {
+      const missingSlugs = _.difference(slugs, articles);
+
+      if (missingSlugs.length > 0) {
+        this.redux.dispatch({type: newsActions.NEWS_FETCH_MANY_REQUEST});
+
+        const foundArticles = tempNews.filter((a) => missingSlugs.indexOf(a.slug) >= 0);
+
+        const httpResponse = Observable.of(foundArticles);
+
+        httpResponse.subscribe(
+          (data) => {
+            this.redux.dispatch({type: newsActions.NEWS_FETCH_MANY_SUCCESS, articles: data});
+          },
+          (error) => {
+            this.redux.dispatch({type: newsActions.NEWS_FETCH_MANY_ERROR, error});
+          },
+        );
+      }
+    });
+  }
+
+  public loadArticle(slug: string): void {
     const article = this.redux.select(s =>
       s.news.items.find(a =>
         a.slug === slug

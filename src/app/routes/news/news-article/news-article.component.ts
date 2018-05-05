@@ -40,7 +40,7 @@ export class NewsArticleComponent implements OnInit {
   }
 
   private setSimilar(slugs: string[]): void {
-    slugs.forEach(slug => this.newsService.loadArticle(slug));
+    this.newsService.loadArticles(slugs);
 
     this.redux
       .select(s => s.news.items.filter(a => slugs.indexOf(a.slug) >= 0))
