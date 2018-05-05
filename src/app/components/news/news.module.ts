@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { UtilsModule } from '../utils/utils.module';
 
 import { NewsService } from './news.service';
 import { HomeBasicNewsCardComponent } from './news-basic-card/news-basic-card.component';
@@ -14,6 +15,7 @@ import { HomeFeaturedNewsCardComponent } from './news-featured-card/news-feature
   imports: [
     CommonModule,
     RouterModule,
+    UtilsModule,
   ],
   providers: [
     NewsService,

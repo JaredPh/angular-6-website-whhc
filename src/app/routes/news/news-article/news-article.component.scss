@@ -1,5 +1,33 @@
 @import '../../../../styles/variables';
 
+.hero {
+  display: flex;
+  margin-top: -$column-gap;
+  margin-left: -$column-gap;
+  margin-right: -$column-gap;
+
+  align-items: center;
+  justify-content: center;
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  min-height: 24vw;
+
+  .hero-body {
+    flex-grow: 0;
+    width: 100%;
+    padding: 1rem 20%;
+    border-radius: 4px;
+    background: rgba($black, .4);
+  }
+}
+
+h1 {
+  text-transform: capitalize;
+}
+
 .avatar {
   display: inline-block;
 
@@ -8,8 +36,9 @@
   border: 2px solid $white
 }
 
-.video {;
+.featured.image{;
   float: right;
+  width: 50%;
   padding: 0 0 $gap $gap;
 }
 

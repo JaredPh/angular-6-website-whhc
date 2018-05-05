@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, isDevMode } from '@angular/core';
+import { RouteReuseStrategy } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppPreloader } from './app.preloader';
+import { AppRouteStrategy } from './app.route-strategy';
 
 import { NgRedux, NgReduxModule, DevToolsExtension } from 'ng2-redux';
 import { IAppState, INITIAL_STATE, rootReducer } from './app.store';
@@ -20,6 +22,10 @@ import { IAppState, INITIAL_STATE, rootReducer } from './app.store';
   ],
   providers: [
     AppPreloader,
+    {
+      provide: RouteReuseStrategy,
+      useClass: AppRouteStrategy,
+    },
   ],
   bootstrap: [
     AppComponent,

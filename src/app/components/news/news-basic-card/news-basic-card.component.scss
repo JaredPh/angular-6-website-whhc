@@ -30,9 +30,10 @@ a {
   padding: $column-gap;
 
   .name {
-    text-transform: uppercase;
-    font-family: $font-title;
-    font-size: 1.2vw;
-    font-weight: 700;
+    @include title-text;
+  }
+
+  .date {
+    @include date-text;
   }
 }

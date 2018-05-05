@@ -5,7 +5,7 @@ import { NewsArticleComponent } from './news-article/news-article.component';
 
 const routes: Routes = [
   { path: '', component: NewsComponent },
-  { path: ':slug', component: NewsArticleComponent },
+  { path: ':slug', component: NewsArticleComponent, data: { reuse: false }},
 ];
 
 @NgModule({

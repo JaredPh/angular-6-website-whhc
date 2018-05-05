@@ -2,7 +2,7 @@
   <div class="column is-narrow whhc-label left">
     <span>Events</span>
   </div>
-  <div class="column is-8 events">
+  <div class="column is-9 events">
     <whhc-home-event-card
       *ngFor="let event of (events | async).slice(0, 3)"
       [event]="event"></whhc-home-event-card>

@@ -1,6 +1,13 @@
 <section class="section" *ngIf="article">
   <div class="columns">
     <article class="column box is-8">
+      <header class="hero is-dark" [ngStyle]="{'background-image': 'url(' + article.background.url + ')' }">
+        <div class="hero-body has-text-centered">
+          <whhc-media-avatar [user]="article.author" type="small"></whhc-media-avatar>
+          <h1 class="title">{{ article.heading }}</h1>
+          <p class="subtitle">{{ article.date | dateToStr:'dddd, Do of MMMM YYYY' }}</p>
+        </div>
+      </header>
 
       <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
@@ -10,19 +17,17 @@
         </ul>
       </nav>
 
-      <h1 class="title">{{ article.heading }}</h1>
-      <p class="subtitle">{{ article.date | dateToStr:'fuzzy' }}</p>
-
-      <whhc-media-youtube *ngIf="video" [code]="video" align="right"></whhc-media-youtube>
+      <whhc-media-youtube *ngIf="article.featuredVideo" [code]="article.featuredVideo" align="right"></whhc-media-youtube>
+      <figure *ngIf="article.featuredImage"class="featured image"><img [src]="article.featuredImage.url"></figure>
 
       <div class="content has-text-justified" [innerHtml]="article.body"></div>
 
-      <whhc-media-image-gallery [images]="article.photos"></whhc-media-image-gallery>
+      <whhc-media-image-gallery *ngIf="article.photos" [images]="article.photos"></whhc-media-image-gallery>
     </article>
 
     <div class="column more">
       <div class="is-sticky">
-        <whhc-news-basic-card *ngFor="let x of [1,2,3,4,5]" [article]="article"></whhc-news-basic-card>
+        <whhc-news-basic-card *ngFor="let similarArticle of similar" [article]="similarArticle"></whhc-news-basic-card>
       </div>
     </div>
   </div>

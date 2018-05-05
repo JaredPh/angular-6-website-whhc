@@ -9,3 +9,16 @@
     right: 0;
   }
 }
+
+@mixin title-text {
+  text-transform: uppercase;
+  font-family: $font-title;
+  font-size: 1.2vw;
+  font-weight: 700;
+}
+
+@mixin date-text {
+  font-family: $font-main;
+  margin-top: -0.1vw;
+  font-size: 1vw;
+}

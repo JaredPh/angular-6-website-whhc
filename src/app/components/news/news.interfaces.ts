@@ -1,12 +1,16 @@
-import {IImage} from '../media/media.interfaces';
+import { IImage } from '../media/media.interfaces';
+import { IUser } from '../users/users.interfaces';
 
 export interface INews {
-  background?: string;
-  body?: string;
-  date: string;
-  heading: string;
-  photos?: IImage[];
   slug: string;
-  thumb: string;
-  video?: string;
+  heading: string;
+  date: string;
+  thumb: IImage;
+  author: IUser;
+  background?: IImage;
+  body: string;
+  featuredImage?: IImage;
+  featuredVideo?: string;
+  photos?: IImage[];
+  similar?: string[];
 }

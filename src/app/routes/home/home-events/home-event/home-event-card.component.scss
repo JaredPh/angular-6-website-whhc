@@ -28,9 +28,7 @@ a {
     }
 
     .date {
-      font-family: $font-main;
-      margin-top: -0.1vw;
-      font-size: 0.85vw;
+      @include date-text;
     }
 
     .location {
