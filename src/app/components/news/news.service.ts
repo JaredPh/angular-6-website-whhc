@@ -16,7 +16,7 @@ export class NewsService {
     private redux: NgRedux<IAppState>,
   ) {}
 
-  loadLatestNews(count?: number): void {
+  public loadLatestNews(count: number): void {
     this.redux.dispatch({type: newsActions.NEWS_FETCH_MANY_REQUEST});
 
     const articles = tempNews.slice(0, count);

@@ -13,4 +13,5 @@ export interface INews {
   featuredVideo?: string;
   photos?: IImage[];
   similar?: string[];
+  tags?: string[];
 }

@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DatePipe } from './pipes/date/date.pipe';
-import { UrlRootPipe } from './pipes/url/urlToRoot.pipe';
 import { CapitalizePipe } from './pipes/capitalize/capitalize.pipe';
+import { TagsPipe } from './pipes/tags/tags.pipe';
 
 @NgModule({
   imports: [
@@ -12,12 +12,12 @@ import { CapitalizePipe } from './pipes/capitalize/capitalize.pipe';
   declarations: [
     CapitalizePipe,
     DatePipe,
-    UrlRootPipe,
+    TagsPipe,
   ],
   exports: [
     CapitalizePipe,
     DatePipe,
-    UrlRootPipe,
+    TagsPipe,
   ],
 })
 export class UtilsModule { }

@@ -9,13 +9,16 @@
         </div>
       </header>
 
-      <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-          <li><a routerLink="/">Home</a></li>
-          <li><a routerLink="../">News</a></li>
-          <li class="is-active"><a routerLink="./">{{ article.heading }}</a></li>
-        </ul>
-      </nav>
+      <div *ngIf="article.tags.length > 0" class="news-tags has-text-centered">
+        <a *ngFor="let tag of article.tags" [routerLink]="['../', 'tags', tag]" class="tag is-primary is-rounded is-medium">#{{ tag | tagName }}</a>
+      </div>
+      <!--<nav class="breadcrumb" aria-label="breadcrumbs">-->
+        <!--<ul>-->
+          <!--<li><a routerLink="/">Home</a></li>-->
+          <!--<li><a routerLink="../">News</a></li>-->
+          <!--<li class="is-active"><a routerLink="./">{{ article.heading }}</a></li>-->
+        <!--</ul>-->
+      <!--</nav>-->
 
       <whhc-media-youtube *ngIf="article.featuredVideo" [code]="article.featuredVideo" align="right"></whhc-media-youtube>
       <figure *ngIf="article.featuredImage"class="featured image"><img [src]="article.featuredImage.url"></figure>

@@ -42,6 +42,10 @@ h1 {
   padding: 0 0 $gap $gap;
 }
 
+.news-tags {
+  padding: $column-gap 0;
+}
+
 .more {
   margin-top: -$column-gap * 2;
 
@@ -49,3 +53,5 @@ h1 {
     padding-top: $column-gap;
   }
 }
+
+.tag { margin: 0 4px; }
