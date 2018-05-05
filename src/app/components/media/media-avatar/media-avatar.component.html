@@ -1,0 +1,10 @@
+<a
+  [routerLink]="['/', 'user', user.id]"
+  [class]="type"
+  [class.tooltip]="type === 'small'"
+  [attr.data-tooltip]="user.fname + ' ' + user.lname"
+>
+  <figure class="image is-64x64">
+    <img [src]="user.avatar.url">
+  </figure>
+</a>
