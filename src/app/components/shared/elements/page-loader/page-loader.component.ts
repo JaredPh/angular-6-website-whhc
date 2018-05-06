@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {PageLoaderService} from './page-loader.service';
 
 @Component({
@@ -15,9 +15,6 @@ export class PageLoaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pageLoaderService.getObservable().subscribe((value) => {
-      console.log('serv update', value);
-      this.value = value;
-    });
+    this.pageLoaderService.emitter.subscribe(value => this.value = value);
   }
 }

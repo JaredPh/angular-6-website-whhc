@@ -10,9 +10,7 @@ import { AppRouteStrategy } from './app.route-strategy';
 import { NgRedux, NgReduxModule, DevToolsExtension } from 'ng2-redux';
 import { IAppState, INITIAL_STATE, rootReducer } from './app.store';
 import { SharedModule } from './components/shared/shared.module';
-import { PageLoaderModule } from './components/page-loader/page-loader.module';
-import {PageLoaderService} from "./components/page-loader/page-loader.service";
-import {PageLoaderComponent} from "./components/page-loader/page-loader.component";
+import { PageLoaderService } from './components/shared/elements/page-loader/page-loader.service';
 
 
 @NgModule({
@@ -24,7 +22,6 @@ import {PageLoaderComponent} from "./components/page-loader/page-loader.componen
     AppRoutingModule,
     NgReduxModule,
     SharedModule,
-    PageLoaderModule,
   ],
   providers: [
     AppPreloader,
@@ -32,6 +29,7 @@ import {PageLoaderComponent} from "./components/page-loader/page-loader.componen
       provide: RouteReuseStrategy,
       useClass: AppRouteStrategy,
     },
+    PageLoaderService,
   ],
   bootstrap: [
     AppComponent,

@@ -4,7 +4,8 @@ import { NewsService } from '../../components/news/news.service';
 import { INews } from '../../components/news/news.interfaces';
 import { IAppState } from '../../app.store';
 import { ActivatedRoute } from '@angular/router';
-import { PageLoaderService } from '../../components/page-loader/page-loader.service';
+import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
+import { Observable } from 'rxjs/index';
 
 @Component({
   selector: 'whhc-news',
@@ -13,7 +14,8 @@ import { PageLoaderService } from '../../components/page-loader/page-loader.serv
 })
 export class NewsComponent implements OnInit {
 
-  @select(['news', 'tags']) tags: string[];
+  @select(['news', 'tags']) tags: Observable<string[]>;
+  @select(['news', 'loading']) loading: Observable<boolean>;
 
   public articles: INews[];
   public selectedTag: string;
@@ -26,6 +28,8 @@ export class NewsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.initPageLoader();
+
     this.newsService.loadTags();
 
     this.route.params.subscribe( params => {
@@ -45,8 +49,19 @@ export class NewsComponent implements OnInit {
             : articles;
         });
     });
+  }
 
-    console.log('x');
-    this.pageLoader.set('Jared');
+  private initPageLoader() {
+    const message = 'Loading Articles...';
+
+    this.pageLoader.set(message);
+
+    this.loading.subscribe((isLoading) => {
+      if (isLoading) {
+        this.pageLoader.set(message);
+      } else {
+        this.pageLoader.clear();
+      }
+    });
   }
 }

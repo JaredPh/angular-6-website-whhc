@@ -5,23 +5,24 @@ import { DatePipe } from './pipes/date/date.pipe';
 import { CapitalizePipe } from './pipes/capitalize/capitalize.pipe';
 import { TagComponent } from './elements/tag/tag.component';
 import { RouterModule} from '@angular/router';
-import { PageLoaderModule } from '../page-loader/page-loader.module';
+import { PageLoaderComponent } from './elements/page-loader/page-loader.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    PageLoaderModule,
   ],
   declarations: [
     CapitalizePipe,
     DatePipe,
     TagComponent,
+    PageLoaderComponent,
   ],
   exports: [
     CapitalizePipe,
     DatePipe,
     TagComponent,
+    PageLoaderComponent,
   ],
 })
 export class SharedModule {}
