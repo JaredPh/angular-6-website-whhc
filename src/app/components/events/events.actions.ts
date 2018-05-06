@@ -12,6 +12,6 @@ export class EventsActions {
   ) {}
 
   public addEvents() {
-    return tassign(this.state, { items: this.state.items.concat(this.action.items) });
+    return tassign(this.state, { events: this.state.events.concat(this.action.events) });
   }
 }

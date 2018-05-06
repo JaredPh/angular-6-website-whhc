@@ -2,11 +2,13 @@ import { IEvent } from './events.interfaces';
 import { ADD_EVENTS, EventsActions } from './events.actions';
 
 export interface IEventsState {
-  items: IEvent[];
+  events: IEvent[];
+  loading: boolean;
 }
 
 export const INITIAL_EVENTS_STATE: IEventsState = {
-  items: [],
+  events: [],
+  loading: false,
 };
 
 export function eventsReducer(state: IEventsState = INITIAL_EVENTS_STATE, action): IEventsState {

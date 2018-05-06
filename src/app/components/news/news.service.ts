@@ -68,7 +68,7 @@ export class NewsService {
   }
 
   public loadArticles(slugs: string[]): void {
-    const articlesOb = this.redux.select(s => s.news.items.map(a => a.slug));
+    const articlesOb = this.redux.select(s => s.news.articles.map(a => a.slug));
 
     articlesOb.subscribe(articles => {
       const missingSlugs = _.difference(slugs, articles);
@@ -94,7 +94,7 @@ export class NewsService {
 
   public loadArticle(slug: string): void {
     const article = this.redux.select(s =>
-      s.news.items.find(a =>
+      s.news.articles.find(a =>
         a.slug === slug
       )
     );

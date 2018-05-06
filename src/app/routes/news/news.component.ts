@@ -42,7 +42,7 @@ export class NewsComponent implements OnInit {
       }
 
       this.ngRedux
-        .select(s => s.news.items)
+        .select(s => s.news.articles)
         .subscribe((articles) => {
           this.articles = (this.selectedTag)
             ? articles.filter(a => a.tags.indexOf(this.selectedTag) >= 0)

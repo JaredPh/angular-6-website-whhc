@@ -12,7 +12,7 @@ import { INews } from '../../../components/news/news.interfaces';
 })
 export class HomeNewsComponent implements OnInit {
 
-  @select(['news', 'items']) news: Observable<INews[]>;
+  @select(['news', 'articles']) news: Observable<INews[]>;
 
   constructor(
     private newsService: NewsService,

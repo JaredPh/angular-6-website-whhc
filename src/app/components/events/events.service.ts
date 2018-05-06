@@ -36,7 +36,7 @@ export class EventsService {
   ) {}
 
   getLatestEvents(count?: number): void {
-    const items = tempEvents;
-    this.redux.dispatch({ type: ADD_EVENTS, items });
+    const events = tempEvents;
+    this.redux.dispatch({ type: ADD_EVENTS, events });
   }
 }

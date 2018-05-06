@@ -12,7 +12,7 @@ import { IEvent } from '../../../components/events/events.interfaces';
 })
 export class HomeEventsComponent implements OnInit {
 
-  @select(['events', 'items']) events: Observable<IEvent[]>;
+  @select(['events', 'events']) events: Observable<IEvent[]>;
 
   constructor(
     private eventsService: EventsService,

@@ -2,16 +2,14 @@ import { INews } from './news.interfaces';
 import { newsActions, NewsReducerActions } from './news.actions';
 
 export interface INewsState {
-  items: INews[];
+  articles: INews[];
   loading: boolean;
-  loaded: boolean;
   tags: string[];
 }
 
 export const INITIAL_NEWS_STATE: INewsState = {
-  items: [],
+  articles: [],
   loading: false,
-  loaded: false,
   tags: [],
 };
 

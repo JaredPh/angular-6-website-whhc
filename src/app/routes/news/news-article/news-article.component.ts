@@ -15,7 +15,6 @@ import { PageLoaderService } from '../../../components/shared/elements/page-load
 export class NewsArticleComponent implements OnInit {
 
   @select(['news', 'loading']) loading: Observable<boolean>;
-  @select(['news', 'loaded']) loaded: Observable<boolean>;
 
   public article: INews;
   public similar: INews[];
@@ -38,7 +37,7 @@ export class NewsArticleComponent implements OnInit {
   private setArticle(slug: string): void {
     this.newsService.loadArticle(slug);
     this.redux
-      .select(s => s.news.items.find(a => a.slug === slug))
+      .select(s => s.news.articles.find(a => a.slug === slug))
       .subscribe((article) => {
         this.article = article;
         this.setSimilar(article.similar);
@@ -49,7 +48,7 @@ export class NewsArticleComponent implements OnInit {
     this.newsService.loadArticles(slugs);
 
     this.redux
-      .select(s => s.news.items.filter(a => slugs.indexOf(a.slug) >= 0))
+      .select(s => s.news.articles.filter(a => slugs.indexOf(a.slug) >= 0))
       .subscribe((articles) => {
         this.similar = articles;
       });

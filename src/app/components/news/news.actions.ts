@@ -36,18 +36,19 @@ export class NewsReducerActions {
   }
 
   public newsRequest() {
-    return tassign(this.state, { loading: true, loaded: false });
+    return tassign(this.state, { loading: true });
   }
 
   public newsSuccess() {
     const fetchedArticles: INews[] = (this.action.articles) ? this.action.articles : [this.action.article];
-    let articles: INews[] = _(fetchedArticles).union(this.state.items, 'slug').value();
+
+    let articles: INews[] = _(fetchedArticles).union(this.state.articles, 'slug').value();
     articles = articles.sort((a, b) => b.date.localeCompare(a.date));
 
-    return tassign(this.state, { items: articles, loading: false, loaded: true });
+    return tassign(this.state, { articles, loading: false });
   }
 
   public newsError() {
-    return tassign(this.state, { loading: false, loaded: false });
+    return tassign(this.state, { loading: false });
   }
 }
