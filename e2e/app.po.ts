@@ -6,6 +6,6 @@ export class AppPage {
   }
 
   getParagraphText() {
-    return element(by.css('whhc-root h1')).getText();
+    return element(by.css('whhc-firstUrlChild h1')).getText();
   }
 }

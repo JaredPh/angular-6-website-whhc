@@ -1,0 +1,11 @@
+<a class="box" [routerLink]="['/', 'news', article.slug]">
+  <div class="thumb" [ngStyle]="{'background-image': 'url(' + article.thumb.url + ')' }"></div>
+  <div class="description">
+    <h3 class="name">{{ article.heading }}</h3>
+    <p class="date">{{ article.date | dateToStr:'fuzzy' }}</p>
+  </div>
+  <div *ngIf="article.tags.length > 0" class="news-tags has-text-centered">
+    <whhc-tag *ngFor="let tag of article.tags" [tag]="tag"></whhc-tag>
+  </div>
+</a>
+

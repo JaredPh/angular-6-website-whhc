@@ -1,0 +1,40 @@
+<section class="section" *ngIf="article">
+  <div class="columns">
+    <div class="column is-8">
+      <article class="box">
+        <header class="hero is-dark" [ngStyle]="{'background-image': 'url(' + article.background.url + ')' }">
+          <div class="hero-body has-text-centered">
+            <whhc-media-avatar [user]="article.author" type="small"></whhc-media-avatar>
+            <h1 class="title">{{ article.heading }}</h1>
+            <p class="subtitle">{{ article.date | dateToStr:'dddd, Do of MMMM YYYY' }}</p>
+          </div>
+        </header>
+
+        <div *ngIf="article.tags.length > 0" class="news-tags has-text-centered">
+          <whhc-tag *ngFor="let tag of article.tags" [tag]="tag" size="medium"></whhc-tag>
+        </div>
+
+        <!--<nav class="breadcrumb" aria-label="breadcrumbs">-->
+          <!--<ul>-->
+            <!--<li><a routerLink="/">Home</a></li>-->
+            <!--<li><a routerLink="../">News</a></li>-->
+            <!--<li class="is-active"><a routerLink="./">{{ article.heading }}</a></li>-->
+          <!--</ul>-->
+        <!--</nav>-->
+
+        <whhc-media-youtube *ngIf="article.featuredVideo" [code]="article.featuredVideo" align="right"></whhc-media-youtube>
+        <figure *ngIf="article.featuredImage"class="featured image"><img [src]="article.featuredImage.url"></figure>
+
+        <div class="content has-text-justified" [innerHtml]="article.body"></div>
+
+        <whhc-media-image-gallery *ngIf="article.photos" [images]="article.photos"></whhc-media-image-gallery>
+      </article>
+    </div>
+
+    <div class="column more">
+      <div class="is-sticky">
+        <whhc-news-basic-card *ngFor="let similarArticle of similar" [article]="similarArticle"></whhc-news-basic-card>
+      </div>
+    </div>
+  </div>
+</section>

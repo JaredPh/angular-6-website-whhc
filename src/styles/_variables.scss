@@ -1,19 +1,37 @@
-$whhc-blue: #59cbe8;
-$whhc-maroon: #651D32;
-$whhc-black: #181818;
-$white: #fefefe;
+@import url('https://fonts.googleapis.com/css?family=Oswald|Titillium+Web');
 
-$bg-grey: #efefef;
-
-$primary: $whhc-maroon;
-
-$footer-background-color: $whhc-black;
+@import '_animations';
 
 $font-main: 'Titillium Web', sans-serif;
 $font-title: 'Oswald', sans-serif;
 
-$link: $whhc-maroon;
+$whhc-blue: #59cbe8;
+$whhc-maroon: #651D32;
+$whhc-black: #2A2A29;;
+$white: #fefefe;
+
+$bg-grey: #efefef;
+
+$primary: $whhc-blue;
+$link: $primary;
+
+$column-gap: 1vw;
+
+$navbar-item-color: $white;
+$navbar-background-color: $whhc-black;
+$navbar-item-hover-background-color: tranparent;
+$navbar-height: 6rem;
+$navbar-item-img-max-height: $navbar-height * 0.6;
+
+$box-shadow: 0 2px 12px 0 rgba(0,0,0,0.20);
+$box-radius: 0;
+$box-padding: 1.25vw;
+
+$section-padding: 3rem;
+
+$event-spacing: 2vw;
 
 @import '~bulma/sass/utilities/initial-variables';
 @import '~bulma/sass/utilities/functions';
 @import '~bulma/sass/utilities/derived-variables';
+@import 'mixins';

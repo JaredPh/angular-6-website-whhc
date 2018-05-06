@@ -1,0 +1,7 @@
+<a
+  [routerLink]="(tag == selected) ? [firstUrlChild] : [firstUrlChild, 'tags', tag]"
+  class="tag is-rounded"
+  [ngClass]="(size) ? 'is-' + size : null"
+  [class.is-primary]="!selected || tag == selected"
+  [class.is-white]="selected && tag !== selected"
+>#{{ tagName }}</a>

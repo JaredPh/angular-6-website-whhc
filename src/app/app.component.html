@@ -1,13 +1,21 @@
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+
+  <div class="navbar-brand">
+
+    <a class="navbar-item" routerLink="/">
+      <img src="/assets/site/brand.png" alt="West Hampstead Hockey Club">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div class="navbar-end">
+    <a class="navbar-item" routerLink="/news">News</a>
+  </div>
+</nav>
 <router-outlet></router-outlet>
-
-<p>Counter: {{ counter | async }}</p>
-<p>Last Updated: {{ updated | async }}</p>
-<p>Status: {{ status | async }}</p>
-<p>XXX: {{ xxx | async }}</p>
-
-<button (click)="more()">More</button>
-<button (click)="less()">Less</button>
-
-<button (click)="addDay()">D</button>
-<button (click)="addWeek()">W</button>
-<button (click)="addMonth()">M</button>
+<whhc-page-loader></whhc-page-loader>

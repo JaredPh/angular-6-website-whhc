@@ -1,0 +1,7 @@
+<section [class.single]="images.length === 1">
+  <div *ngFor="let row of rows">
+    <figure *ngFor="let img of row" [ngStyle]="{ flex: img.width }">
+      <img class="d" [src]="img.url">
+    </figure>
+  </div>
+</section>

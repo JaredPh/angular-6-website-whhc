@@ -1,0 +1,23 @@
+@import '../../../../styles/variables';
+
+a {
+  @include on-hover-grow;
+  padding: 0;
+  // margin-bottom: 2vw;
+  height: 100%;
+}
+
+.thumb {
+  padding-bottom: 4/6 * 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.description {
+  padding: $column-gap;
+  min-height: 10vw;
+}
+
+.news-tags {
+  padding-bottom: $column-gap;
+}

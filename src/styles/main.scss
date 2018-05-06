@@ -1,16 +1,101 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald|Titillium+Web');
-
 @import 'variables';
 @import 'bulma';
 @import 'base-elements';
-@import 'cards';
 
 .is-sticky {
   position: sticky;
-  top: 3rem;
+  top: $navbar-height;
 }
 
 .title {
   font-family: $font-title;
   font-weight: 400;
+}
+
+.name {
+  @include title-text;
+}
+
+.date {
+  @include date-text;
+}
+
+.navbar-brand .navbar-item {
+  @include on-hover-background-slide-in-right($whhc-maroon);
+}
+
+
+.whhc-label {
+  $label-height: 2vw;
+  $label-bar-height: 2px;
+  $label-bar-width: 4.5vw;
+  $label-bar-padding: 0.5vw;
+
+  user-select: none;
+  position: relative;
+
+  span {
+    position: relative;
+    font-size: $label-height * 0.8;
+    line-height: $label-height;
+    font-family: $font-title;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    &[routerLink] {
+      cursor: pointer;
+    }
+  }
+
+  span:before {
+    content: '';
+
+    position: absolute;
+    display: block;
+
+    top: calc((#{$label-height} - #{$label-bar-height}) / 2 );
+
+    height: $label-bar-height;
+    width: $label-bar-width;
+
+    background-color: $whhc-black;
+  }
+
+  &.left {
+    margin-top: $event-spacing + $box-padding / 2;
+
+    span {
+      padding-left: $label-bar-width + $label-bar-padding;
+    }
+
+    span:before {
+      left: 0;
+    }
+  }
+
+  &.right {
+    margin-top: $event-spacing + $box-padding / 2;
+
+    span {
+      padding-right: $label-bar-width + $label-bar-padding;
+    }
+
+    span:before {
+      right: 0;
+      top: 50%;
+    }
+  }
+
+  &.rotate.left {
+    span {
+      top: -$column-gap;
+      position: absolute;
+      display: block;
+
+      right: $label-height;
+
+      transform: rotate(-90deg);
+      transform-origin: top right;
+    }
+  }
 }
