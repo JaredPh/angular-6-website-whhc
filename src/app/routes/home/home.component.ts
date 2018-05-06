@@ -9,7 +9,7 @@ import { select } from 'ng2-redux';
 })
 export class HomeComponent implements OnInit {
 
-  @select(s => (s.news.loading || s.events.loading)) loading: Observable<boolean>;
+  @select(s => s.news.pendingRequests + s.events.pendingRequests  > 0) loading: Observable<boolean>;
 
   constructor(
     private pageLoader: PageLoaderService,

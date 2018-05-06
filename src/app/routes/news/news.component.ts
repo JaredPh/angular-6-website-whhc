@@ -15,7 +15,7 @@ import { Observable } from 'rxjs/index';
 export class NewsComponent implements OnInit {
 
   @select(['news', 'tags']) tags: Observable<string[]>;
-  @select(['news', 'loading']) loading: Observable<boolean>;
+  @select(s => s.news.pendingRequests > 0) loading: Observable<boolean>;
 
   public articles: INews[];
   public selectedTag: string;

@@ -3,12 +3,12 @@ import { ADD_EVENTS, EventsActions } from './events.actions';
 
 export interface IEventsState {
   events: IEvent[];
-  loading: boolean;
+  pendingRequests: number;
 }
 
 export const INITIAL_EVENTS_STATE: IEventsState = {
   events: [],
-  loading: false,
+  pendingRequests: 0,
 };
 
 export function eventsReducer(state: IEventsState = INITIAL_EVENTS_STATE, action): IEventsState {

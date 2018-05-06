@@ -14,7 +14,7 @@ import { PageLoaderService } from '../../../components/shared/elements/page-load
 })
 export class NewsArticleComponent implements OnInit {
 
-  @select(['news', 'loading']) loading: Observable<boolean>;
+  @select(s => s.news.pendingRequests > 0) loading: Observable<boolean>;
 
   public article: INews;
   public similar: INews[];

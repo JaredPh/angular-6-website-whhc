@@ -3,13 +3,15 @@ import { newsActions, NewsReducerActions } from './news.actions';
 
 export interface INewsState {
   articles: INews[];
-  loading: boolean;
+  pendingRequests: number;
+  error: boolean;
   tags: string[];
 }
 
 export const INITIAL_NEWS_STATE: INewsState = {
   articles: [],
-  loading: false,
+  pendingRequests: 0,
+  error: false,
   tags: [],
 };
 

@@ -24,19 +24,19 @@ export class NewsReducerActions {
   ) {}
 
   public tagsRequest() {
-    return tassign(this.state, {});
+    return tassign(this.state, { pendingRequests: this.state.pendingRequests + 1 });
   }
 
   public tagsSuccess() {
-    return tassign(this.state, { tags: this.action.tags });
+    return tassign(this.state, { tags: this.action.tags, pendingRequests: this.state.pendingRequests - 1});
   }
 
   public tagsError() {
-    return tassign(this.state, {});
+    return tassign(this.state, { pendingRequests: this.state.pendingRequests - 1, error: true });
   }
 
   public newsRequest() {
-    return tassign(this.state, { loading: true });
+    return tassign(this.state, { pendingRequests: this.state.pendingRequests + 1 });
   }
 
   public newsSuccess() {
@@ -45,10 +45,10 @@ export class NewsReducerActions {
     let articles: INews[] = _(fetchedArticles).union(this.state.articles, 'slug').value();
     articles = articles.sort((a, b) => b.date.localeCompare(a.date));
 
-    return tassign(this.state, { articles, loading: false });
+    return tassign(this.state, { articles, pendingRequests: this.state.pendingRequests - 1 });
   }
 
   public newsError() {
-    return tassign(this.state, { loading: false });
+    return tassign(this.state, { pendingRequests: this.state.pendingRequests - 1, error: true });
   }
 }
