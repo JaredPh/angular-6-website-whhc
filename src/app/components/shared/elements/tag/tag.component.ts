@@ -10,6 +10,7 @@ export class TagComponent implements OnInit {
 
   @Input() tag: string;
   @Input() size: string;
+  @Input() selected: string;
 
   public tagName: string;
   public firstUrlChild: string;
