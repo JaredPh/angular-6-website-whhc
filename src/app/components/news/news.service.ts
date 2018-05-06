@@ -3,7 +3,7 @@ import { NgRedux } from 'ng2-redux';
 import { IAppState } from '../../app.store';
 import { INews } from './news.interfaces';
 import { newsActions } from './news.actions';
-import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs';
 import { testNews } from './news.data';
 import * as _ from 'lodash';
 
@@ -21,7 +21,7 @@ export class NewsService {
 
     const tags = _.uniq(testNews.reduce((a, e) => [...a, ...e.tags], [])).sort((a, b) => a.localeCompare(b));
 
-    const httpResponse = Observable.of(tags);
+    const httpResponse = of(tags);
 
     httpResponse.subscribe(
       (data) => {
@@ -38,7 +38,7 @@ export class NewsService {
 
     const articles = tempNews.slice(0, count);
 
-    const httpResponse = Observable.of(articles);
+    const httpResponse = of(articles);
 
     httpResponse.subscribe(
       (data) => {
@@ -55,7 +55,7 @@ export class NewsService {
 
     const articles = tempNews.filter(a => a.tags.indexOf(tag) >= 0).slice(0, count);
 
-    const httpResponse = Observable.of(articles);
+    const httpResponse = of(articles);
 
     httpResponse.subscribe(
       (data) => {
@@ -78,7 +78,7 @@ export class NewsService {
 
         const foundArticles = tempNews.filter((a) => missingSlugs.indexOf(a.slug) >= 0);
 
-        const httpResponse = Observable.of(foundArticles);
+        const httpResponse = of(foundArticles);
 
         httpResponse.subscribe(
           (data) => {
@@ -104,7 +104,7 @@ export class NewsService {
         this.redux.dispatch({type: newsActions.NEWS_FETCH_ONE_REQUEST});
 
         const foundArticle = tempNews.find(tempArticle => tempArticle.slug === slug);
-        const httpResponse = Observable.of(foundArticle);
+        const httpResponse = of(foundArticle);
 
         httpResponse.subscribe(
           (data) => {
