@@ -105,7 +105,7 @@ export const testNews: INews[] = [
       avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
     },
     featuredImage: { url: '/assets/50.jpg', width: 2789, height: 3887 },
-    tags: ['mixed', 'photos', 'summer', 'tours'],
+    tags: ['photos', 'summer', 'tours'],
   },
   {
     slug: 'news-3',
@@ -134,7 +134,7 @@ export const testNews: INews[] = [
       lname: 'Archer',
       avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
     },
-    tags: ['mixed', 'summer', 'tours'],
+    tags: ['summer', 'tours'],
   },
   {
     slug: 'news-4',
@@ -298,6 +298,6 @@ export const testNews: INews[] = [
       avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
     },
     featuredVideo: '0PSHT7H6mIo',
-    tags: ['mixed', 'summer', 'tournaments']
+    tags: ['summer', 'tournaments']
   },
 ];

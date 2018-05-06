@@ -21,7 +21,7 @@ export class TagComponent implements OnInit {
 
   ngOnInit() {
     this.firstUrlChild = this.route.url.match(/^\/[^\/]+/)[0];
+
     this.tagName = this.tag.replace('-', ' ');
   }
-
 }

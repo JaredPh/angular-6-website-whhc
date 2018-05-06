@@ -4,6 +4,7 @@ import { NewsService } from '../../components/news/news.service';
 import { INews } from '../../components/news/news.interfaces';
 import { IAppState } from '../../app.store';
 import { ActivatedRoute } from '@angular/router';
+import { PageLoaderService } from '../../components/page-loader/page-loader.service';
 
 @Component({
   selector: 'whhc-news',
@@ -21,6 +22,7 @@ export class NewsComponent implements OnInit {
     private newsService: NewsService,
     private ngRedux: NgRedux<IAppState>,
     private route: ActivatedRoute,
+    private pageLoader: PageLoaderService,
   ) {}
 
   ngOnInit() {
@@ -43,5 +45,8 @@ export class NewsComponent implements OnInit {
             : articles;
         });
     });
+
+    console.log('x');
+    this.pageLoader.set('Jared');
   }
 }

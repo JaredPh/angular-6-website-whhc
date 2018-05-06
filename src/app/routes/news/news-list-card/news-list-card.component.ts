@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { INews } from '../news.interfaces';
+import { INews } from '../../../components/news/news.interfaces';
 
 @Component({
   selector: 'whhc-news-list-card',

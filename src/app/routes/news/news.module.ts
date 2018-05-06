@@ -8,6 +8,9 @@ import { SharedModule } from '../../components/shared/shared.module';
 
 import { NewsArticleComponent } from './news-article/news-article.component';
 import { NewsComponent } from './news.component';
+import { NewsListCardComponent } from './news-list-card/news-list-card.component';
+import { PageLoaderModule } from '../../components/page-loader/page-loader.module';
+import { PageLoaderService } from '../../components/page-loader/page-loader.service';
 
 @NgModule({
   imports: [
@@ -16,10 +19,15 @@ import { NewsComponent } from './news.component';
     NewsModule,
     NewsRoutingModule,
     SharedModule,
+    PageLoaderModule,
   ],
   declarations: [
     NewsArticleComponent,
     NewsComponent,
+    NewsListCardComponent,
+  ],
+  providers: [
+    PageLoaderService,
   ],
 })
 export class NewsViewModule { }
