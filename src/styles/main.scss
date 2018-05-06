@@ -31,26 +31,20 @@
   $label-bar-width: 4.5vw;
   $label-bar-padding: 0.5vw;
 
-  position: relative;
   user-select: none;
-  margin-top: $event-spacing + $box-padding / 2;
+  position: relative;
 
   span {
-    top: 0;
-    position: absolute;
-    display: block;
-
-    right: $label-height;
-
-    transform: rotate(-90deg);
-    transform-origin: top right;
-
+    position: relative;
     font-size: $label-height * 0.8;
     line-height: $label-height;
     font-family: $font-title;
     font-weight: 700;
     text-transform: uppercase;
-    padding-left: $label-bar-width + $label-bar-padding;
+
+    &[routerLink] {
+      cursor: pointer;
+    }
   }
 
   span:before {
@@ -60,11 +54,48 @@
     display: block;
 
     top: calc((#{$label-height} - #{$label-bar-height}) / 2 );
-    left: 0;
 
     height: $label-bar-height;
     width: $label-bar-width;
 
     background-color: $whhc-black;
+  }
+
+  &.left {
+    margin-top: $event-spacing + $box-padding / 2;
+
+    span {
+      padding-left: $label-bar-width + $label-bar-padding;
+    }
+
+    span:before {
+      left: 0;
+    }
+  }
+
+  &.right {
+    margin-top: $event-spacing + $box-padding / 2;
+
+    span {
+      padding-right: $label-bar-width + $label-bar-padding;
+    }
+
+    span:before {
+      right: 0;
+      top: 50%;
+    }
+  }
+
+  &.rotate.left {
+    span {
+      top: -$column-gap;
+      position: absolute;
+      display: block;
+
+      right: $label-height;
+
+      transform: rotate(-90deg);
+      transform-origin: top right;
+    }
   }
 }

@@ -1,12 +1,14 @@
 @import '../../../../styles/variables';
 
+.whhc-label {
+  margin-top: $column-gap;
+  margin-bottom: $column-gap * 3;
+}
+
 .news {
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-top: 3vw;
-  padding-top: $column-gap !important;
 }
 
 .column {
   padding-top: 0;
+  padding-bottom: 0;
 }

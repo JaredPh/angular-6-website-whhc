@@ -1,5 +1,9 @@
 @import '../../../../styles/variables';
 
+article {
+  padding: $column-gap;
+}
+
 .hero {
   display: flex;
   margin-top: -$column-gap;
@@ -50,7 +54,7 @@ h1 {
   margin-top: -$column-gap * 2;
 
   div {
-    padding-top: $column-gap;
+    padding-top: $column-gap * 2;
   }
 }
 
