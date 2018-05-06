@@ -1,0 +1,29 @@
+@import '../../../../../styles/variables';
+
+section {
+    min-height: 16vw;
+}
+
+// footer
+.social, .copyright, .address {
+  font-family: $font-title;
+  font-size: 1.5vw;
+  font-weight: 400;
+}
+
+.social {
+  line-height: 3vw;
+
+  padding-left: 3vw;
+  background-position: left center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.copyright {
+  padding-top: 1vw;
+
+  span {
+    color: $whhc-blue;
+  }
+}

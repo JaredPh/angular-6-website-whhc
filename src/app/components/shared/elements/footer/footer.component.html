@@ -1,0 +1,33 @@
+<section class="hero is-white">
+  <div class="container">
+  </div>
+</section>
+<footer class="hero is-dark">
+  <div class="hero-body container">
+    <div class="columns">
+      <div class="column">
+        <ul>
+          <li *ngFor="let network of socialNetworks">
+            <a
+              class="social"
+              [href]="network.url" target="_blank"
+              [ngStyle]="{'background-image': 'url(' + network.logo.url + ')' }"
+            >
+              {{ network.label }}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="column has-text-right">
+        <p class="address">
+          West Hampstead Hockey Club<br>
+          25 Lymington Road<br>
+          London<br>
+          NW6 1HZ<br>
+        </p>
+        <p class="copyright"><span>&copy;</span> 2018</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
