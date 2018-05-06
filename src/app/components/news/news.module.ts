@@ -1,28 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { UtilsModule } from '../utils/utils.module';
+import { SharedModule } from '../shared/shared.module';
 
 import { NewsService } from './news.service';
-import { HomeBasicNewsCardComponent } from './news-basic-card/news-basic-card.component';
-import { HomeFeaturedNewsCardComponent } from './news-featured-card/news-featured-card.component';
+import { NewsBasicCardComponent } from './news-basic-card/news-basic-card.component';
+import { NewsFeaturedCardComponent } from './news-featured-card/news-featured-card.component';
+import { NewsListCardComponent } from './news-list-card/news-list-card.component';
 
 @NgModule({
   declarations: [
-    HomeBasicNewsCardComponent,
-    HomeFeaturedNewsCardComponent,
+    NewsBasicCardComponent,
+    NewsFeaturedCardComponent,
+    NewsListCardComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
-    UtilsModule,
+    SharedModule,
   ],
   providers: [
     NewsService,
   ],
   exports: [
-    HomeBasicNewsCardComponent,
-    HomeFeaturedNewsCardComponent,
+    NewsBasicCardComponent,
+    NewsFeaturedCardComponent,
+    NewsListCardComponent,
   ],
 })
 export class NewsModule { }

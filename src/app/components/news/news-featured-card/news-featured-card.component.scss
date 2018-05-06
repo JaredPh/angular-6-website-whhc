@@ -42,14 +42,6 @@ a {
   left: 15%;
 
   background: $white;
-
-  .name {
-    @include title-text;
-  }
-
-  .date {
-    @include date-text;
-  }
 }
 
 @keyframes featuredNewsSlideIn {

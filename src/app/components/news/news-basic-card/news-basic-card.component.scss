@@ -28,12 +28,4 @@ a {
   width: 50%;
 
   padding: $column-gap;
-
-  .name {
-    @include title-text;
-  }
-
-  .date {
-    @include date-text;
-  }
 }

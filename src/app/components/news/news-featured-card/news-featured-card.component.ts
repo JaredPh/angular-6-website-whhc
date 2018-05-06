@@ -6,7 +6,7 @@ import { INews } from '../news.interfaces';
   templateUrl: './news-featured-card.component.html',
   styleUrls: ['./news-featured-card.component.scss']
 })
-export class HomeFeaturedNewsCardComponent {
+export class NewsFeaturedCardComponent {
 
   @Input() article: INews;
 

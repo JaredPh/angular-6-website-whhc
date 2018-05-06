@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MediaModule } from '../../components/media/media.module';
 import { NewsModule } from '../../components/news/news.module';
 import { NewsRoutingModule } from './news-routing.module';
-import { UtilsModule } from '../../components/utils/utils.module';
+import { SharedModule } from '../../components/shared/shared.module';
 
 import { NewsArticleComponent } from './news-article/news-article.component';
 import { NewsComponent } from './news.component';
@@ -15,7 +15,7 @@ import { NewsComponent } from './news.component';
     MediaModule,
     NewsModule,
     NewsRoutingModule,
-    UtilsModule,
+    SharedModule,
   ],
   declarations: [
     NewsArticleComponent,

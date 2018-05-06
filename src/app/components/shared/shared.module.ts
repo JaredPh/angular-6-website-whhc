@@ -3,21 +3,23 @@ import { CommonModule } from '@angular/common';
 
 import { DatePipe } from './pipes/date/date.pipe';
 import { CapitalizePipe } from './pipes/capitalize/capitalize.pipe';
-import { TagsPipe } from './pipes/tags/tags.pipe';
+import { TagComponent } from './elements/tag/tag.component';
+import { RouterModule} from '@angular/router';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
   ],
   declarations: [
     CapitalizePipe,
     DatePipe,
-    TagsPipe,
+    TagComponent,
   ],
   exports: [
     CapitalizePipe,
     DatePipe,
-    TagsPipe,
+    TagComponent,
   ],
 })
-export class UtilsModule { }
+export class SharedModule { }

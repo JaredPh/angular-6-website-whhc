@@ -10,8 +10,9 @@
       </header>
 
       <div *ngIf="article.tags.length > 0" class="news-tags has-text-centered">
-        <a *ngFor="let tag of article.tags" [routerLink]="['../', 'tags', tag]" class="tag is-primary is-rounded is-medium">#{{ tag | tagName }}</a>
+        <whhc-tag *ngFor="let tag of article.tags" [tag]="tag" size="medium"></whhc-tag>
       </div>
+
       <!--<nav class="breadcrumb" aria-label="breadcrumbs">-->
         <!--<ul>-->
           <!--<li><a routerLink="/">Home</a></li>-->

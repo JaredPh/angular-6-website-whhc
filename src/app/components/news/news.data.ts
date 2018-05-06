@@ -39,7 +39,7 @@ export const testNews: INews[] = [
       lname: 'Archer',
       avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
     },
-    tags: ['committee', 'agm'],
+    tags: ['agm', 'committee'],
   },
   {
     slug: 'news-2',
@@ -105,7 +105,7 @@ export const testNews: INews[] = [
       avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
     },
     featuredImage: { url: '/assets/50.jpg', width: 2789, height: 3887 },
-    tags: ['photos', 'tours', 'summer', 'mixed'],
+    tags: ['mixed', 'photos', 'summer', 'tours'],
   },
   {
     slug: 'news-3',
@@ -134,7 +134,7 @@ export const testNews: INews[] = [
       lname: 'Archer',
       avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
     },
-    tags: ['tour', 'summer', 'mixed'],
+    tags: ['mixed', 'summer', 'tours'],
   },
   {
     slug: 'news-4',
@@ -202,7 +202,7 @@ export const testNews: INews[] = [
       lname: 'Archer',
       avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
     },
-    tags: ['socials', 'quiz-night', 'charity'],
+    tags: ['charity', 'quiz-night', 'socials'],
   },
   {
     slug: 'news-6',
@@ -236,7 +236,7 @@ export const testNews: INews[] = [
       lname: 'Archer',
       avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
     },
-    tags: ['mens', 'mens-fours', 'cup'],
+    tags: ['leauge', 'mens'],
   },
   {
     slug: 'news-7',
@@ -266,7 +266,7 @@ export const testNews: INews[] = [
       lname: 'Archer',
       avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
     },
-    tags: ['ladies', 'ladies-ones', 'league'],
+    tags: ['ladies', 'league'],
   },
   {
     slug: 'news-8',
@@ -298,6 +298,6 @@ export const testNews: INews[] = [
       avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
     },
     featuredVideo: '0PSHT7H6mIo',
-    tags: ['hopfest', 'summer', 'mixed']
+    tags: ['mixed', 'summer', 'tournaments']
   },
 ];

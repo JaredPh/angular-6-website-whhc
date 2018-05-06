@@ -11,6 +11,9 @@ export const newsActions = {
   NEWS_FETCH_ONE_ERROR:    'NEWS_FETCH_ONE_ERROR',
   NEWS_FETCH_ONE_REQUEST:  'NEWS_FETCH_ONE_REQUEST',
   NEWS_FETCH_ONE_SUCCESS:  'NEWS_FETCH_ONE_SUCCESS',
+  NEWS_FETCH_TAGS_ERROR:   'NEWS_FETCH_TAGS_ERROR',
+  NEWS_FETCH_TAGS_REQUEST: 'NEWS_FETCH_TAGS_REQUEST',
+  NEWS_FETCH_TAGS_SUCCESS: 'NEWS_FETCH_TAGS_SUCCESS',
 };
 
 export class NewsReducerActions {
@@ -20,11 +23,23 @@ export class NewsReducerActions {
     private action: any,
   ) {}
 
-  public request() {
+  public tagsRequest() {
+    return tassign(this.state, {});
+  }
+
+  public tagsSuccess() {
+    return tassign(this.state, { tags: this.action.tags });
+  }
+
+  public tagsError() {
+    return tassign(this.state, {});
+  }
+
+  public newsRequest() {
     return tassign(this.state, { loading: true, loaded: false });
   }
 
-  public success() {
+  public newsSuccess() {
     const fetchedArticles: INews[] = (this.action.articles) ? this.action.articles : [this.action.article];
     let articles: INews[] = _(fetchedArticles).union(this.state.items, 'slug').value();
     articles = articles.sort((a, b) => b.date.localeCompare(a.date));
@@ -32,7 +47,7 @@ export class NewsReducerActions {
     return tassign(this.state, { items: articles, loading: false, loaded: true });
   }
 
-  public error() {
+  public newsError() {
     return tassign(this.state, { loading: false, loaded: false });
   }
 }

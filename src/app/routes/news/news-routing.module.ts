@@ -5,8 +5,8 @@ import { NewsArticleComponent } from './news-article/news-article.component';
 
 const routes: Routes = [
   { path: '', component: NewsComponent },
-  { path: 'tags', redirectTo: '' },
   { path: 'tags/:tag', component: NewsComponent, data: { reuse: true }},
+  { path: 'tags', redirectTo: '' },
   { path: ':slug', component: NewsArticleComponent, data: { reuse: false }},
 ];
 

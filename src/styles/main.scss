@@ -12,6 +12,14 @@
   font-weight: 400;
 }
 
+.name {
+  @include title-text;
+}
+
+.date {
+  @include date-text;
+}
+
 .navbar-brand .navbar-item {
   @include on-hover-background-slide-in-right($whhc-maroon);
 }

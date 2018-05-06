@@ -19,7 +19,7 @@ export class HomeNewsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.newsService.loadLatestNews(5);
+    this.newsService.loadLatestArticles(5);
   }
 
 }
