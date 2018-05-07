@@ -1,7 +1,20 @@
 <section [class.single]="images.length === 1">
-  <div *ngFor="let row of rows">
-    <figure *ngFor="let img of row" [ngStyle]="{ flex: img.width }">
+  <div *ngFor="let row of rows; let rowIndex = index">
+    <figure *ngFor="let img of row; let colIndex = index" [ngStyle]="{ flex: img.width }" (click)="showModalImage(rowIndex, colIndex)">
       <img class="d" [src]="img.url">
     </figure>
   </div>
 </section>
+
+<div class="modal" [class.is-active]="modalIndex">
+  <div class="modal-background" (click)="hideModalImage()"></div>
+  <div class="modal-content">
+
+    <img *ngIf="modalIndex" [src]="rows[modalIndex.rowIndex][modalIndex.columnIndex].url">
+
+    <a *ngIf="images.length > 1" class="modal-button prev" (click)="changeModalImage('prev')">&#8678;</a>
+    <a *ngIf="images.length > 1" class="modal-button next" (click)="changeModalImage('next')">&#8680;</a>
+
+  </div>
+  <button class="modal-close is-large" aria-label="close" (click)="hideModalImage()"></button>
+</div>
