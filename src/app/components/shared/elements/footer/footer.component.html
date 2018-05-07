@@ -1,5 +1,20 @@
 <section class="hero is-white">
   <div class="container">
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h3>Sponsors, Friends, and Family</h3>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div *ngFor="let link of links" class="column is-narrow">
+        <figure
+          class="image is-128x128 tooltip"
+          [attr.data-tooltip]="link.label"
+        >
+          <img [src]="link.logo.url">
+        </figure>
+      </div>
+    </div>
   </div>
 </section>
 <footer class="hero is-dark">
@@ -7,9 +22,8 @@
     <div class="columns">
       <div class="column">
         <ul>
-          <li *ngFor="let network of socialNetworks">
+          <li *ngFor="let network of socialNetworks" class="social">
             <a
-              class="social"
               [href]="network.url" target="_blank"
               [ngStyle]="{'background-image': 'url(' + network.logo.url + ')' }"
             >
