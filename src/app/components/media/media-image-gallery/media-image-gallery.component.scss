@@ -2,15 +2,16 @@
 
 section {
   margin: 0 -$column-gap / 2;
-}
 
-div {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
+  div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 
-  @at-root figure {
-    margin: $column-gap / 2;
+    @at-root figure {
+      margin: $column-gap / 2;
+      cursor: pointer;
+    }
   }
 }
 
@@ -19,4 +20,43 @@ div {
     width: 60%;
     margin-left: 20%;
   }
+}
+
+.modal-content {
+  overflow: visible;
+  width: auto;
+
+  img {
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+}
+
+.modal-button {
+  $btn-size: 6vw;
+
+  position: absolute;
+  display: block;
+  user-select: none;
+
+  width: $btn-size;
+  height: $btn-size;
+  top: 50%;
+
+  margin-top: -$btn-size / 2;
+
+  color: $white;
+  background: $whhc-maroon;
+
+  line-height: $btn-size;
+  font-size: $btn-size / 2;
+  font-family: $font-title;
+  font-weight: 700;
+
+  text-align: center;
+
+  z-index: 41;
+
+  &.prev { left:  -$btn-size; }
+  &.next { right: -$btn-size; }
 }
