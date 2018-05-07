@@ -7,12 +7,14 @@
     </div>
     <div class="columns is-centered">
       <div *ngFor="let link of links" class="column is-narrow">
-        <figure
-          class="image is-128x128 tooltip"
-          [attr.data-tooltip]="link.label"
-        >
-          <img [src]="link.logo.url">
-        </figure>
+        <a [href]="link.url" target="_blank">
+          <figure
+            class="image is-128x128 tooltip"
+            [attr.data-tooltip]="link.label"
+          >
+            <img [src]="link.logo.url">
+          </figure>
+        </a>
       </div>
     </div>
   </div>
