@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { IImage } from '../media.interfaces';
 
 @Component({
@@ -9,6 +9,8 @@ import { IImage } from '../media.interfaces';
 export class MediaImageGalleryComponent implements OnInit {
 
   @Input() images: IImage[];
+
+  public modalIndex: { rowIndex: number; columnIndex: number};
 
   public rows: { url: string, width: number }[][];
 
@@ -50,5 +52,63 @@ export class MediaImageGalleryComponent implements OnInit {
       index += chunkSize;
       return [...array, chunk];
     }, []);
+  }
+
+  /* modal methods */
+  public showModalImage(rowIndex: number, columnIndex: number): void {
+    this.modalIndex = { rowIndex, columnIndex};
+  }
+
+  public hideModalImage(): void {
+    this.modalIndex = null;
+  }
+
+  public changeModalImage(action: 'next' | 'prev') {
+
+    let columnIndex: number;
+    let rowIndex: number = this.modalIndex.rowIndex;
+
+    if (action === 'next') {
+      columnIndex = (this.modalIndex.columnIndex + 1) % this.rows[this.modalIndex.rowIndex].length;
+
+      if (columnIndex === 0) {
+        rowIndex = (rowIndex + 1) % this.rows.length;
+      }
+    } else {
+      columnIndex = this.modalIndex.columnIndex - 1;
+
+      if (columnIndex < 0) {
+        rowIndex = (this.rows.length + rowIndex - 1) % this.rows.length;
+        columnIndex = this.rows[rowIndex].length - 1;
+      }
+    }
+
+    this.modalIndex = {rowIndex, columnIndex};
+  }
+
+  @HostListener('window:keyup', ['$event'])
+  keyEvent(event: KeyboardEvent): void {
+
+    const keys = {
+      RIGHT_ARROW: 39,
+      LEFT_ARROW: 37,
+      SPACE: 32,
+      ESCAPE: 27,
+    };
+
+    if (this.modalIndex) {
+      switch (event.keyCode) {
+        case keys.LEFT_ARROW:
+          this.changeModalImage('prev');
+          break;
+        case keys.SPACE:
+        case keys.RIGHT_ARROW:
+          this.changeModalImage('next');
+          break;
+        case keys.ESCAPE:
+          this.hideModalImage();
+          break;
+      }
+    }
   }
 }
