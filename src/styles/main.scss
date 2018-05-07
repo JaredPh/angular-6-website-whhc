@@ -2,6 +2,14 @@
 @import 'bulma';
 @import 'base-elements';
 
+.sticky-side {
+  margin-top: -$column-gap * 2;
+
+  div {
+    padding-top: $column-gap * 2;
+  }
+}
+
 .is-sticky {
   position: sticky;
   top: $navbar-height;
