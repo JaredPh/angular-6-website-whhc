@@ -21,7 +21,7 @@ export class HomeEventsComponent implements OnInit {
   ngOnInit() {
     this.events.subscribe(e => {
       if (e.length === 0) {
-        this.eventsService.getLatestEvents(3);
+        this.eventsService.loadLatestEvents(3);
       }
     });
   }
