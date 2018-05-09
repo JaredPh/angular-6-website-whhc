@@ -8,7 +8,6 @@ import { PageLoaderService } from '../../components/shared/elements/page-loader/
 import { Observable } from 'rxjs/index';
 
 @Component({
-  selector: 'whhc-news',
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.scss']
 })

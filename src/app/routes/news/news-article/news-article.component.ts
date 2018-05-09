@@ -8,7 +8,6 @@ import { INews } from '../../../components/news/news.interfaces';
 import { PageLoaderService } from '../../../components/shared/elements/page-loader/page-loader.service';
 
 @Component({
-  selector: 'whhc-news-article',
   templateUrl: './news-article.component.html',
   styleUrls: ['./news-article.component.scss']
 })
