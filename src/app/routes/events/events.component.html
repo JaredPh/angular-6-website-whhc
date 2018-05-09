@@ -5,7 +5,7 @@
         <h1 class="title">Events</h1>
 
         <div class="has-text-centered">
-          <!--<whhc-tag *ngFor="let tag of tags | async" [tag]="tag" [selected]="selectedTag"></whhc-tag>-->
+          <whhc-tag *ngFor="let tag of tags | async" [tag]="tag" [selected]="selectedTag"></whhc-tag>
         </div>
       </div>
 
@@ -13,9 +13,34 @@
 
     <div class="column is-9">
       <div class="columns is-multiline">
-        <!--<div *ngFor="let article of articles" class="column is-4">-->
-          <!--<whhc-news-list-card [article]="article"></whhc-news-list-card>-->
-        <!--</div>-->
+        <div *ngFor="let event of events" class="column is-3" [class.selected]="selectedEvent == event.slug">
+
+          <whhc-event-card [event]="event" [routerLink]="getEventLink(event.slug)"></whhc-event-card>
+
+          <div *ngIf="selectedEvent == event.slug">
+            <span class="caret"></span>
+            <div class="event-details">
+
+              <header>
+                <h1 class="title">{{ event.heading }}</h1>
+
+                <!--<whhc-media-avatar [user]="article.author" type="small"></whhc-media-avatar>-->
+                <dl>
+                  <dt>Start:</dt><dd>{{ event.start | dateToStr:'dddd, Do of MMMM YYYY h:mma' }}</dd>
+                  <dt>Finish:</dt><dd>{{ event.end | dateToStr:'dddd, Do of MMMM YYYY hh:mma' }}</dd>
+                  <dt>Location:</dt><dd>{{ event.location }}</dd>
+                </dl>
+
+                <div class="content has-text-justified" [innerHtml]="event.body"></div>
+
+                <div *ngIf="event.tags.length > 0" class="event-tags">
+                  <whhc-tag *ngFor="let tag of event.tags" [tag]="tag" size="medium"></whhc-tag>
+                </div>
+              </header>
+
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

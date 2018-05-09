@@ -1,4 +1,4 @@
-<a class="box" [routerLink]="['events', event.slug]">
+<div class="box"><!-- [routerLink]="['/events', event.slug]"> -->
   <div>
     <div class="thumb" [ngStyle]="{'background-image': 'url(' + event.thumb.url + ')' }"></div>
     <div class="description has-text-centered">
@@ -7,4 +7,4 @@
       <p class="location">{{ event.location }}</p>
     </div>
   </div>
-</a>
+</div>

@@ -14,15 +14,15 @@ export class EventsService {
   ) {}
 
   public loadLatestEvents(count: number): void {
-    this.redux.dispatch({type: eventsActions.EVENTS_FETCH_MANY_REQUEST});
+    this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_MANY_REQUEST });
 
-    const events: IEvent[] = testEvents.slice(0, count);
+    const events: IEvent[] = testEvents.sort((a, b) => a.start.localeCompare(b.start)).slice(0, count);
 
     const httpResponse = of(events);
 
     httpResponse.subscribe(
       (data) => {
-        this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_MANY_SUCCESS, articles: data });
+        this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_MANY_SUCCESS, events: data });
       },
       (error) => {
         this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_MANY_ERROR, error });

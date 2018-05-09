@@ -8,7 +8,7 @@ export interface IEvent {
   start: string;
   end: string;
   location: string;
-  body?: string; // todo: remove ?
+  body: string; // todo: remove ?
   author?: IUser; // todo: remove ?
-  tags?: string[];
+  tags: string[];
 }

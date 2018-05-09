@@ -4,20 +4,20 @@ import { IAppState } from '../../app.store';
 import { ActivatedRoute } from '@angular/router';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
 import { Observable } from 'rxjs/index';
-import { EventsService } from '../../components/events/events.service';
-import { IEvent } from '../../components/events/events.interfaces';
+import { IEvent} from '../../components/events/events.interfaces';
+import { EventsService} from '../../components/events/events.service';
 
 @Component({
-  selector: 'whhc-events',
   templateUrl: './events.component.html',
   styleUrls: ['./events.component.scss']
 })
 export class EventsComponent implements OnInit {
 
   @select(['events', 'tags']) tags: Observable<string[]>;
-  @select(s => s.events.pendingRequests > 0) loading: Observable<boolean>;
+  @select(s => s.news.pendingRequests > 0) loading: Observable<boolean>;
 
   public events: IEvent[];
+  public selectedEvent: string;
   public selectedTag: string;
 
   constructor(
@@ -31,8 +31,9 @@ export class EventsComponent implements OnInit {
     this.initPageLoader();
 
     this.route.params.subscribe( params => {
+      this.selectedEvent = params.slug;
       this.selectedTag = params.tag;
-      // this.eventsService.loadEvents();
+      this.eventsService.loadEvents();
 
       this.ngRedux
         .select(s => s.events.events)
@@ -44,8 +45,22 @@ export class EventsComponent implements OnInit {
     });
   }
 
+  public getEventLink(slug: string): string[] {
+    let url = ['/events'];
+
+    if (this.selectedTag) {
+      url = url.concat(['tags', this.selectedTag]);
+    }
+
+    if (this.selectedEvent !== slug) {
+      url.push(slug);
+    }
+
+    return url;
+  }
+
   private initPageLoader() {
-    const message = 'Loading Articles...';
+    const message = 'Loading Events...';
 
     this.pageLoader.set(message);
 

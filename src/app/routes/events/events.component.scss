@@ -1,0 +1,57 @@
+@import '../../../styles/variables';
+
+$event-detail-height: 30vw;
+$event-detail-color: $white;
+$event-detail-background-color: $whhc-black;
+
+.columns.is-multiline {
+  position: relative;
+}
+
+.selected {
+  margin-bottom: $event-detail-height;
+}
+
+.event-details {
+  position: absolute;
+
+  left: $column-gap;
+  right: $column-gap;
+
+  min-height: $event-detail-height;
+
+  padding: $column-gap;
+
+  background: $event-detail-background-color;
+
+  &, .title, .subtitle {
+    color: $event-detail-color;
+  }
+}
+
+.caret {
+  display: block;
+  margin: 0 auto;
+  width: 0;
+  height: 0;
+
+  border-style: solid;
+  border-width: 0 $column-gap $column-gap $column-gap;
+  border-color: transparent transparent $event-detail-background-color transparent;
+}
+
+dl {
+  padding: 0;
+  margin: $column-gap 0;
+}
+dt {
+  float: left;
+  display: inline-block;
+  min-width: 20%;
+  padding: 0;
+  margin: 0
+}
+dd {
+  padding: 0;
+  margin: 0
+}

@@ -22,12 +22,14 @@ export class EventsActions {
   }
 
   public eventsSuccess() {
-  const fetchedEvents: IEvent[] = (this.action.articles) ? this.action.articles : [this.action.article];
+  const fetchedEvents: IEvent[] = this.action.events;
 
     let events: IEvent[] = _(fetchedEvents).union(this.state.events, 'slug').value();
     events = events.sort((a, b) => b.start.localeCompare(a.start));
 
-    return tassign(this.state, { events, pendingRequests: this.state.pendingRequests - 1 });
+    const tags: string[] = _.uniq(events.reduce((a, e) => [...a, ...e.tags], [])).sort((a, b) => a.localeCompare(b));
+
+    return tassign(this.state, { events, tags, pendingRequests: this.state.pendingRequests - 1 });
   }
 
   public eventsError() {

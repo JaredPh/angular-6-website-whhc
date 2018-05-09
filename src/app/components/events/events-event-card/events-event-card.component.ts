@@ -3,7 +3,7 @@ import { IEvent } from '../events.interfaces';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'whhc-home-event-card',
+  selector: 'whhc-event-card',
   templateUrl: './events-event-card.component.html',
   styleUrls: ['./events-event-card.component.scss']
 })
