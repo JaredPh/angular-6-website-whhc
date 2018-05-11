@@ -1,10 +1,10 @@
-<a class="box" (click)="sayHello()">
+<div class="box"><!-- [routerLink]="['/events', event.slug]"> -->
   <div>
-    <div class="thumb" [ngStyle]="{'background-image': 'url(' + event.image + ')' }"></div>
+    <div class="thumb" [ngStyle]="{'background-image': 'url(' + event.thumb.url + ')' }"></div>
     <div class="description has-text-centered">
       <h3 class="name">{{ event.heading }}</h3>
       <p class="date">{{ getDateRange(event) }}</p>
       <p class="location">{{ event.location }}</p>
     </div>
   </div>
-</a>
+</div>

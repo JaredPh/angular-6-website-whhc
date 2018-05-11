@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald|Titillium+Web');
 
-@import '_animations';
-
 $font-main: 'Titillium Web', sans-serif;
 $font-title: 'Oswald', sans-serif;
 
@@ -33,7 +31,11 @@ $tooltip-background-color: $whhc-maroon;
 $section-padding: 3rem;
 
 $event-spacing: 2vw;
+$event-detail-height: 30vw;
+$event-detail-color: $white;
+$event-detail-background-color: $whhc-black;
 
+@import '_animations';
 @import '~bulma/sass/utilities/initial-variables';
 @import '~bulma/sass/utilities/functions';
 @import '~bulma/sass/utilities/derived-variables';

@@ -19,4 +19,8 @@
     right: 20%;
     z-index: -1;
   }
+
+  > div  {
+    margin: $event-spacing 0;
+  }
 }

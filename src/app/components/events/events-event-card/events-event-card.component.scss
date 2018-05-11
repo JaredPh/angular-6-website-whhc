@@ -1,12 +1,13 @@
-@import '../../../../../styles/variables';
+@import '../../../../styles/variables';
 
-a {
+.box {
   @include absolute-child;
   @include on-hover-grow;
 
-  margin: $event-spacing 0;
   padding-top: 0;
   padding-bottom: 100%;
+
+  cursor: pointer;
 
   .thumb {
     margin-top: 10%;

@@ -1,0 +1,80 @@
+<section class="section">
+  <div class="columns">
+    <div class="sticky-side column">
+      <div class="is-sticky">
+        <h1 class="title">Events</h1>
+
+        <div class="has-text-centered">
+          <whhc-tag *ngFor="let tag of tags | async" [tag]="tag" [selected]="selectedTag"></whhc-tag>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="column is-9">
+      <div class="columns is-multiline">
+        <div *ngFor="let event of events" class="column is-3" [class.selected]="event.slug == selectedEvent">
+          <whhc-event-card [id]="event.slug" [event]="event" [routerLink]="getEventLink(event)" [ngx-scroll-to]="event.slug"></whhc-event-card>
+          <span class="caret"></span>
+
+          <div *ngIf="event.slug == selectedEvent" class="event-details">
+
+            <div class="columns">
+              <div class="column is-narrow has-text-centered">
+                <figure class="image is-64x64">
+                  <img [src]="event.thumb.url">
+                </figure>
+              </div>
+              <div class="column">
+                <h1 class="title">{{ event.heading }}</h1>
+              </div>
+
+              <div *ngIf="event.tags.length > 0" class="column is-narrow event-tags has-text-right">
+                <whhc-tag *ngFor="let tag of event.tags" [tag]="tag" size="medium"></whhc-tag>
+              </div>
+
+            </div>
+
+            <div class="columns">
+
+              <div class="column is-3">
+                <dl>
+                  <dt>Start</dt>
+                  <dd>
+                    {{ event.start | dateToStr:'ddd, Do of MMMM YYYY' }}<br>
+                    {{ event.start | dateToStr:'h:mma' }}
+                  </dd>
+
+                  <dt>Finish</dt>
+                  <dd>
+                    {{ event.end | dateToStr:'ddd, Do of MMMM YYYY' }}<br>
+                    {{ event.end | dateToStr:'h:mma' }}
+                  </dd>
+
+                  <dt>Location</dt>
+                  <dd>{{ event.location }}</dd>
+                </dl>
+              </div>
+
+              <div class="column">
+                <div class="content has-text-justified" [innerHtml]="event.body"></div>
+
+                <div *ngIf="event.facebook" class="has-text-right">
+                  <a
+                    [href]="event.facebook"
+                    target="_blank"
+                    class="facebook button is-primary is-rounded"
+                  >View on facebook
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
