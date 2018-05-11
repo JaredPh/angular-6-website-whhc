@@ -9,6 +9,12 @@ export const testEvents: IEvent[] = [
     end: '2017-05-21T12:00:00Z',
     location: 'Delft, Holland',
     tags: [ 'x', 'y', 'z'],
+    author: {
+      id: 'sarcher',
+      fname: 'Sterling',
+      lname: 'Archer',
+      avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
+    },
     body: `<p>You’re gay! I mean, I am, too. We’re both gay. Lana: Okay, that was a fluke. No, no, it’s Woodhouse! He’s all tied up
            somewhere, sc-scared and alone! And possibly dehydrated!. Lying is like 95% of what I do. You’re not my friend, you’re a
            Decepticon!</p><p>You know, when I was little I used to pretend that you weren’t my mother. You’re gay! I mean, I am, too. We’re both
@@ -22,6 +28,12 @@ export const testEvents: IEvent[] = [
     end: '2018-05-21T12:00:00Z',
     location: 'Delft, Holland',
     tags: [ 'x', 'y', 'z'],
+    author: {
+      id: 'sarcher',
+      fname: 'Sterling',
+      lname: 'Archer',
+      avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
+    },
     body: `<p>You’re gay! I mean, I am, too. We’re both gay. Lana: Okay, that was a fluke. No, no, it’s Woodhouse! He’s all tied up
            somewhere, sc-scared and alone! And possibly dehydrated!. Lying is like 95% of what I do. You’re not my friend, you’re a
            Decepticon!</p><p>You know, when I was little I used to pretend that you weren’t my mother. You’re gay! I mean, I am, too. We’re both
@@ -35,6 +47,13 @@ export const testEvents: IEvent[] = [
     end: '2019-05-21T12:00:00Z',
     location: 'Delft, Holland',
     tags: [ 'x', 'y', 'z'],
+    author: {
+      id: 'sarcher',
+      fname: 'Sterling',
+      lname: 'Archer',
+      avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
+    },
+    facebook: 'https://www.facebook.com/events/230076704409511/',
     body: `<p>You’re gay! I mean, I am, too. We’re both gay. Lana: Okay, that was a fluke. No, no, it’s Woodhouse! He’s all tied up
            somewhere, sc-scared and alone! And possibly dehydrated!. Lying is like 95% of what I do. You’re not my friend, you’re a
            Decepticon!</p><p>You know, when I was little I used to pretend that you weren’t my mother. You’re gay! I mean, I am, too. We’re both
@@ -47,11 +66,17 @@ export const testEvents: IEvent[] = [
     start: '2017-05-26T10:00:00Z',
     end: '2017-05-26T18:00:00Z',
     location: 'Honor Oak Park',
+    tags: [ 'w', 'x', 'y'],
+    author: {
+      id: 'sarcher',
+      fname: 'Sterling',
+      lname: 'Archer',
+      avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
+    },
     body: `<p>You’re gay! I mean, I am, too. We’re both gay. Lana: Okay, that was a fluke. No, no, it’s Woodhouse! He’s all tied up
            somewhere, sc-scared and alone! And possibly dehydrated!. Lying is like 95% of what I do. You’re not my friend, you’re a
            Decepticon!</p><p>You know, when I was little I used to pretend that you weren’t my mother. You’re gay! I mean, I am, too. We’re both
            gay. Cyril, I paid her, I get to carry her corpse.</p>`,
-    tags: [ 'w', 'x', 'y'],
   },
   {
     slug: 'hopfest-2018',
@@ -61,6 +86,12 @@ export const testEvents: IEvent[] = [
     end: '2018-05-26T18:00:00Z',
     location: 'Honor Oak Park',
     tags: [ 'w', 'x', 'y'],
+    author: {
+      id: 'sarcher',
+      fname: 'Sterling',
+      lname: 'Archer',
+      avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
+    },
     body: `<p>You’re gay! I mean, I am, too. We’re both gay. Lana: Okay, that was a fluke. No, no, it’s Woodhouse! He’s all tied up
            somewhere, sc-scared and alone! And possibly dehydrated!. Lying is like 95% of what I do. You’re not my friend, you’re a
            Decepticon!</p><p>You know, when I was little I used to pretend that you weren’t my mother. You’re gay! I mean, I am, too. We’re both
@@ -74,6 +105,12 @@ export const testEvents: IEvent[] = [
     end: '2019-05-26T18:00:00Z',
     location: 'Honor Oak Park',
     tags: [ 'w', 'x', 'y'],
+    author: {
+      id: 'sarcher',
+      fname: 'Sterling',
+      lname: 'Archer',
+      avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
+    },
     body: `<p>You’re gay! I mean, I am, too. We’re both gay. Lana: Okay, that was a fluke. No, no, it’s Woodhouse! He’s all tied up
            somewhere, sc-scared and alone! And possibly dehydrated!. Lying is like 95% of what I do. You’re not my friend, you’re a
            Decepticon!</p><p>You know, when I was little I used to pretend that you weren’t my mother. You’re gay! I mean, I am, too. We’re both
@@ -87,6 +124,12 @@ export const testEvents: IEvent[] = [
     end: '2017-06-02T22:30:00Z',
     location: 'Whitefield School',
     tags: [ 'u', 'w', 'x'],
+    author: {
+      id: 'sarcher',
+      fname: 'Sterling',
+      lname: 'Archer',
+      avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
+    },
     body: `<p>You’re gay! I mean, I am, too. We’re both gay. Lana: Okay, that was a fluke. No, no, it’s Woodhouse! He’s all tied up
            somewhere, sc-scared and alone! And possibly dehydrated!. Lying is like 95% of what I do. You’re not my friend, you’re a
            Decepticon!</p><p>You know, when I was little I used to pretend that you weren’t my mother. You’re gay! I mean, I am, too. We’re both
@@ -100,6 +143,12 @@ export const testEvents: IEvent[] = [
     end: '2018-06-02T22:30:00Z',
     location: 'Whitefield School',
     tags: [ 'u', 'w', 'x'],
+    author: {
+      id: 'sarcher',
+      fname: 'Sterling',
+      lname: 'Archer',
+      avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
+    },
     body: `<p>You’re gay! I mean, I am, too. We’re both gay. Lana: Okay, that was a fluke. No, no, it’s Woodhouse! He’s all tied up
            somewhere, sc-scared and alone! And possibly dehydrated!. Lying is like 95% of what I do. You’re not my friend, you’re a
            Decepticon!</p><p>You know, when I was little I used to pretend that you weren’t my mother. You’re gay! I mean, I am, too. We’re both
@@ -113,6 +162,12 @@ export const testEvents: IEvent[] = [
     end: '2019-06-02T22:30:00Z',
     location: 'Whitefield School',
     tags: [ 'u', 'w', 'x'],
+    author: {
+      id: 'sarcher',
+      fname: 'Sterling',
+      lname: 'Archer',
+      avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
+    },
     body: `<p>You’re gay! I mean, I am, too. We’re both gay. Lana: Okay, that was a fluke. No, no, it’s Woodhouse! He’s all tied up
            somewhere, sc-scared and alone! And possibly dehydrated!. Lying is like 95% of what I do. You’re not my friend, you’re a
            Decepticon!</p><p>You know, when I was little I used to pretend that you weren’t my mother. You’re gay! I mean, I am, too. We’re both

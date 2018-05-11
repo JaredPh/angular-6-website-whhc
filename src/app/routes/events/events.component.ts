@@ -21,8 +21,6 @@ export class EventsComponent implements OnInit {
   public selectedEvent: string;
   public selectedTag: string;
 
-  public rows: IEvent[][];
-
   constructor(
     private eventsService: EventsService,
     private ngRedux: NgRedux<IAppState>,

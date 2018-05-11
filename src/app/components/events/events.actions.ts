@@ -25,7 +25,7 @@ export class EventsActions {
   const fetchedEvents: IEvent[] = this.action.events;
 
     let events: IEvent[] = _(fetchedEvents).union(this.state.events, 'slug').value();
-    events = events.sort((a, b) => b.start.localeCompare(a.start));
+    events = events.sort((a, b) => a.start.localeCompare(b.start));
 
     const tags: string[] = _.uniq(events.reduce((a, e) => [...a, ...e.tags], [])).sort((a, b) => a.localeCompare(b));
 

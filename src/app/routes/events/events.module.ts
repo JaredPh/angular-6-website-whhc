@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { MediaModule } from '../../components/media/media.module';
 
 import { SharedModule } from '../../components/shared/shared.module';
 
@@ -12,6 +13,7 @@ import { EventsModule } from '../../components/events/events.module';
   imports: [
     CommonModule,
     SharedModule,
+    MediaModule,
     EventsModule,
     EventsViewRoutingModule,
     ScrollToModule.forRoot(),
