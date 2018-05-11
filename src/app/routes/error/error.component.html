@@ -1,0 +1,20 @@
+<header class="hero is-fullheight" [ngStyle]="{'background-image': 'url(' + error.image.url + ')' }">
+  <div class="hero-body">
+    <div class="container" [ngClass]="'status-' + error.code">
+      <div class="columns">
+        <div class="column is-narrow">
+          <h1 class="title">{{ error.code }}</h1>
+          <h2 class="subtitle">{{ error.message }}</h2>
+
+          <a class="button is-primary is-fullwidth is-medium" routerLink="/">
+            <span class="icon">
+              <i class="fas fa-home"></i>
+            </span>
+            <span>Take me home</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
