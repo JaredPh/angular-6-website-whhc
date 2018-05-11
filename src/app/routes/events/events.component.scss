@@ -18,6 +18,8 @@ $event-detail-background-color: $whhc-black;
   left: $column-gap;
   right: $column-gap;
 
+//  margin-top: $column-gap;
+
   min-height: $event-detail-height;
 
   padding: $column-gap;
@@ -29,9 +31,12 @@ $event-detail-background-color: $whhc-black;
   }
 }
 
-.caret {
+.caret { display: none; }
+
+.selected .caret {
   display: block;
   margin: 0 auto;
+
   width: 0;
   height: 0;
 
@@ -44,13 +49,15 @@ dl {
   padding: 0;
   margin: $column-gap 0;
 }
+
 dt {
   float: left;
   display: inline-block;
-  min-width: 20%;
+  min-width: 5rem;
   padding: 0;
   margin: 0
 }
+
 dd {
   padding: 0;
   margin: 0

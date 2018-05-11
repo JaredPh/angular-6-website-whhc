@@ -17,8 +17,11 @@ export class EventsComponent implements OnInit {
   @select(s => s.news.pendingRequests > 0) loading: Observable<boolean>;
 
   public events: IEvent[];
+
   public selectedEvent: string;
   public selectedTag: string;
+
+  public rows: IEvent[][];
 
   constructor(
     private eventsService: EventsService,
@@ -31,9 +34,10 @@ export class EventsComponent implements OnInit {
     this.initPageLoader();
 
     this.route.params.subscribe( params => {
-      this.selectedEvent = params.slug;
-      this.selectedTag = params.tag;
       this.eventsService.loadEvents();
+
+      this.selectedTag = params.tag;
+      this.selectedEvent = params.slug;
 
       this.ngRedux
         .select(s => s.events.events)
@@ -45,15 +49,15 @@ export class EventsComponent implements OnInit {
     });
   }
 
-  public getEventLink(slug: string): string[] {
+  public getEventLink(event: IEvent): string[] {
     let url = ['/events'];
 
     if (this.selectedTag) {
       url = url.concat(['tags', this.selectedTag]);
     }
 
-    if (this.selectedEvent !== slug) {
-      url.push(slug);
+    if (event.slug !== this.selectedEvent) {
+      url.push(event.slug);
     }
 
     return url;

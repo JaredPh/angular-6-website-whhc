@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: 'tags/:tag', component: EventsComponent, data: { reuse: true }},
   { path: 'tags/:tag/:slug', component: EventsComponent, data: { reuse: true }},
   { path: 'tags', redirectTo: '' },
-  { path: ':slug', component: EventsComponent, data: { reuse: false }},
+  { path: ':slug', component: EventsComponent, data: { reuse: true }},
 ];
 
 @NgModule({
