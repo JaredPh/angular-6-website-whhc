@@ -8,19 +8,14 @@ $event-detail-background-color: $whhc-black;
   position: relative;
 }
 
-.selected {
-  margin-bottom: $event-detail-height;
-}
-
 .event-details {
   position: absolute;
 
   left: $column-gap;
   right: $column-gap;
 
-//  margin-top: $column-gap;
-
-  min-height: $event-detail-height;
+  max-height: $event-detail-height;
+  overflow: hidden;
 
   padding: $column-gap;
 
@@ -33,16 +28,20 @@ $event-detail-background-color: $whhc-black;
 
 .caret { display: none; }
 
-.selected .caret {
-  display: block;
-  margin: 0 auto;
+.selected {
+  margin-bottom: $event-detail-height;
 
-  width: 0;
-  height: 0;
+  .caret {
+    display: block;
+    margin: 0 auto;
 
-  border-style: solid;
-  border-width: 0 $column-gap $column-gap $column-gap;
-  border-color: transparent transparent $event-detail-background-color transparent;
+    width: 0;
+    height: 0;
+
+    border-style: solid;
+    border-width: 0 $column-gap $column-gap $column-gap;
+    border-color: transparent transparent $event-detail-background-color transparent;
+  }
 }
 
 dl {
