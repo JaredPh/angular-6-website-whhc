@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { NgRedux } from 'ng2-redux';
+import { NgRedux } from '@angular-redux/store';
 import { testEvents } from './events.data';
 import { IEvent } from './events.interfaces';
 import { IAppState } from '../../app.store';

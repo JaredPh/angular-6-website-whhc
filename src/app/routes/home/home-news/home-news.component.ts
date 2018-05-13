@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { select } from 'ng2-redux';
+import { select } from '@angular-redux/store';
 
 import { NewsService } from '../../../components/news/news.service';
 import { INews } from '../../../components/news/news.interfaces';

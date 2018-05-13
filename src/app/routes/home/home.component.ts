@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
 import { Observable } from 'rxjs/index';
-import { select } from 'ng2-redux';
+import { select } from '@angular-redux/store';
 
 @Component({
   templateUrl: './home.component.html',

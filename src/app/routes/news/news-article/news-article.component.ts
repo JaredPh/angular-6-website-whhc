@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgRedux, select } from 'ng2-redux';
+import { NgRedux, select } from '@angular-redux/store';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { NewsService } from '../../../components/news/news.service';
