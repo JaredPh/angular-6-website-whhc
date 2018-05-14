@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { select } from 'ng2-redux';
+import { select } from '@angular-redux/store';
 
 import { EventsService } from '../../../components/events/events.service';
 import { IEvent } from '../../../components/events/events.interfaces';

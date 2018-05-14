@@ -7,7 +7,9 @@ import { AppComponent } from './app.component';
 import { AppPreloader } from './app.preloader';
 import { AppRouteStrategy } from './app.route-strategy';
 
-import { NgRedux, NgReduxModule, DevToolsExtension } from 'ng2-redux';
+import { NgReduxRouterModule } from '@angular-redux/router';
+import { NgRedux, NgReduxModule, DevToolsExtension } from '@angular-redux/store';
+
 import { IAppState, INITIAL_STATE, rootReducer } from './app.store';
 import { SharedModule } from './components/shared/shared.module';
 import { PageLoaderService } from './components/shared/elements/page-loader/page-loader.service';
@@ -21,6 +23,7 @@ import { PageLoaderService } from './components/shared/elements/page-loader/page
     BrowserModule,
     AppRoutingModule,
     NgReduxModule,
+    NgReduxRouterModule,
     SharedModule,
   ],
   providers: [
