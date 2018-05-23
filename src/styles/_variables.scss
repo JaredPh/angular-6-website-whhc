@@ -1,20 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald|Titillium+Web');
-
-$font-main: 'Titillium Web', sans-serif;
-$font-title: 'Oswald', sans-serif;
-
-$whhc-blue: #59cbe8;
-$whhc-maroon: #651D32;
-$whhc-black: #2A2A29;;
-$white: #fefefe;
-
-$bg-grey: #efefef;
-
 $primary: $whhc-blue;
 $link: $primary;
 $dark: $whhc-black;
 
-$column-gap: 1vw;
+////$column-gap: 1vw;
 
 $navbar-item-color: $white;
 $navbar-background-color: $whhc-black;
@@ -26,17 +14,19 @@ $box-shadow: 0 2px 12px 0 rgba(0,0,0,0.20);
 $box-radius: 0;
 $box-padding: 1.25vw;
 
-$tooltip-background-color: $whhc-maroon;
-
-$section-padding: 3rem;
-
-$event-spacing: 2vw;
-$event-detail-height: 30vw;
-$event-detail-color: $white;
-$event-detail-background-color: $whhc-black;
-
-@import '_animations';
-@import '~bulma/sass/utilities/initial-variables';
-@import '~bulma/sass/utilities/functions';
-@import '~bulma/sass/utilities/derived-variables';
-@import 'mixins';
+//$tooltip-background-color: $whhc-maroon;
+//
+//$section-padding: 3rem;
+//
+//$event-spacing: 2vw;
+//$event-detail-height: 30vw;
+//$event-detail-color: $white;
+//$event-detail-background-color: $whhc-black;
+//
+//$font-size-15: 1.5vw;
+//
+//@import '_animations';
+//@import '~bulma/sass/utilities/initial-variables';
+//@import '~bulma/sass/utilities/functions';
+//@import '~bulma/sass/utilities/derived-variables';
+//@import 'mixins';

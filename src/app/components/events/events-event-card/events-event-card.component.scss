@@ -1,40 +1,40 @@
-@import '../../../../styles/variables';
-
-.box {
-  @include absolute-child;
-  @include on-hover-grow;
-
-  padding-top: 0;
-  padding-bottom: 100%;
-
-  cursor: pointer;
-
-  .thumb {
-    margin-top: 10%;
-    margin-bottom: 2.5%;
-    height: 52%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size:contain;
-  }
-
-  .description {
-    height: 35%;
-
-    .name {
-      text-transform: uppercase;
-      font-family: $font-title;
-      font-size: 1.2vw;
-      font-weight: 700;
-    }
-
-    .date {
-      @include date-text;
-    }
-
-    .location {
-      @extend .date;
-      font-style: oblique;
-    }
-  }
-}
+//@import '../../../../styles/variables';
+//
+//.box {
+//  @include absolute-child;
+//  @include on-hover-grow;
+//
+//  padding-top: 0;
+//  padding-bottom: 100%;
+//
+//  cursor: pointer;
+//
+//  .thumb {
+//    margin-top: 10%;
+//    margin-bottom: 2.5%;
+//    height: 52%;
+//    background-position: center center;
+//    background-repeat: no-repeat;
+//    background-size:contain;
+//  }
+//
+//  .description {
+//    height: 35%;
+//
+//    .name {
+//      text-transform: uppercase;
+//      font-family: $font-title;
+//      font-size: 1.2vw;
+//      font-weight: 700;
+//    }
+//
+//    .date {
+//      @include date-text;
+//    }
+//
+//    .location {
+//      @extend .date;
+//      font-style: oblique;
+//    }
+//  }
+//}

@@ -1,8 +1,11 @@
-<a class="box" [routerLink]="['/', 'news', article.slug]">
-  <div class="thumb" [ngStyle]="{'background-image': 'url(' + article.thumb.url + ')' }"></div>
-  <div class="description">
-    <h3 class="name">{{ article.heading }}</h3>
-    <p class="date">{{ article.date | dateToStr:'fuzzy' }}</p>
+<a class="whhc-new-basic-card box" [routerLink]="['/', 'news', article.slug]">
+  <div class="columns is-marginless">
+    <div class="column whhc-full-left thumb" [ngStyle]="{'background-image': 'url(' + article.thumb.url + ')' }"></div>
+
+    <div class="column description">
+      <h3 class="title is-6">{{ article.heading }}</h3>
+      <p class="subtitle is-6">{{ article.date | dateToStr:'fuzzy' }}</p>
+    </div>
   </div>
 </a>
 

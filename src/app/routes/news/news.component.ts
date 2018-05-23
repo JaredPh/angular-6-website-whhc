@@ -9,7 +9,6 @@ import { Observable } from 'rxjs/index';
 
 @Component({
   templateUrl: './news.component.html',
-  styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
 

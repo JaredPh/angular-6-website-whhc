@@ -9,7 +9,6 @@ import { PageLoaderService } from '../../../components/shared/elements/page-load
 
 @Component({
   templateUrl: './news-article.component.html',
-  styleUrls: ['./news-article.component.scss']
 })
 export class NewsArticleComponent implements OnInit {
 

@@ -4,7 +4,6 @@ import { IImage } from '../media.interfaces';
 @Component({
   selector: 'whhc-media-image-gallery',
   templateUrl: './media-image-gallery.component.html',
-  styleUrls: ['./media-image-gallery.component.scss'],
 })
 export class MediaImageGalleryComponent implements OnInit {
 
@@ -92,7 +91,7 @@ export class MediaImageGalleryComponent implements OnInit {
     const keys = {
       RIGHT_ARROW: 39,
       LEFT_ARROW: 37,
-      SPACE: 32,
+      // SPACE: 32,
       ESCAPE: 27,
     };
 

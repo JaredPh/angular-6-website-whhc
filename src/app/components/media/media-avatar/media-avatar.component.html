@@ -1,8 +1,9 @@
 <a
-  [routerLink]="['/', 'user', user.id]"
-  [class]="type"
+  class="whhc-avatar"
+  [ngClass]="type"
   [class.tooltip]="type === 'small'"
   [attr.data-tooltip]="user.fname + ' ' + user.lname"
+  [routerLink]="['/', 'user', user.id]"
 >
   <figure class="image is-64x64">
     <img [src]="user.avatar.url">

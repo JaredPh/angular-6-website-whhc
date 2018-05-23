@@ -1,20 +1,6 @@
 $easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.1);
 $easeOutQuint: cubic-bezier(0.23, 1, 0.32, 1);
 
-@keyframes bounceIn {
-  0%   {
-    width: 0%;
-  }
-  100% {
-    width:100%;
-  }
-}
-
-@keyframes bounceOut {
-  0%   { width: 100%; }
-  100% { width: 0%; }
-}
-
 @mixin on-hover-grow {
   &:hover {
     transform: scale(1.04);
@@ -22,14 +8,14 @@ $easeOutQuint: cubic-bezier(0.23, 1, 0.32, 1);
   }
 }
 
-@keyframes slideDown {
-  0%   { height: 0; }
-  100% { height: $event-detail-height; }
-}
-
-@mixin on-hover-lighten {
-  transition: background-color .6s ease;
-}
+//@keyframes slideDown {
+//  0%   { height: 0; }
+//  100% { height: $event-detail-height; }
+//}
+//
+//@mixin on-hover-lighten {
+//  transition: background-color .6s ease;
+//}
 
 @mixin on-hover-background-slide-in-right($bg-color) {
 
@@ -45,11 +31,11 @@ $easeOutQuint: cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   &:before {
-    animation: bounceOut .2s $easeOutQuint forwards;
+    animation: slideOutBounce .2s $easeOutQuint forwards;
   }
 
   &:hover:before {
-    animation: bounceIn .4s $easeOutBack forwards;
+    animation: slideInBounce .4s $easeOutBack forwards;
   }
 }
 
@@ -67,10 +53,24 @@ $easeOutQuint: cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   &:before {
-    animation: bounceOut .2s $easeOutQuint forwards;
+    animation: slideOutBounce .2s $easeOutQuint forwards;
   }
 
   &:hover:before {
-    animation: bounceIn .4s $easeOutBack forwards;
+    animation: slideInBounce .4s $easeOutBack forwards;
   }
+}
+
+@keyframes slideInBounce {
+  0%   {
+    width: 0%;
+  }
+  100% {
+    width:100%;
+  }
+}
+
+@keyframes slideOutBounce {
+  0%   { width: 100%; }
+  100% { width: 0%; }
 }
