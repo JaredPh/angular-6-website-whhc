@@ -62,9 +62,18 @@
 
 .whhc-full-left {
   // todo: make full top
-  margin-top: -$gap / 2;
-  margin-left: -$gap / 2 ;
-  margin-bottom: -$gap / 2;
+
+  @include touch {
+    //margin-top: -$column-gap;
+    //margin-left: -$column-gap;
+    //margin-bottom: -$column-gap;
+  }
+
+  @include desktop {
+    margin-top: -$gap / 2;
+    margin-left: -$gap / 2;
+    margin-bottom: -$gap / 2;
+  }
 }
 
 /* Routes */

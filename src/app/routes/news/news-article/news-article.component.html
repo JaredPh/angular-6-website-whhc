@@ -1,6 +1,6 @@
 <section class="section" *ngIf="article">
-  <div class="columns">
-    <div class="column is-8">
+  <div class="columns is-multiline">
+    <div class="column is-8-desktop is-12-touch">
 
       <article class="whhc-news whhc-main box">
         <header class="hero is-dark" [ngStyle]="{'background-image': 'url(' + article.background.url + ')' }">
@@ -27,7 +27,7 @@
     <div class="column">
       <div class="columns is-multiline is-sticky">
 
-        <div *ngFor="let similarArticle of similar" class="column is-12">
+        <div *ngFor="let similarArticle of similar" class="column is-12-desktop is-6-tablet">
           <whhc-news-basic-card [article]="similarArticle"></whhc-news-basic-card>
         </div>
 

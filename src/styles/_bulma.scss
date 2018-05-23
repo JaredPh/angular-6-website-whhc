@@ -2,6 +2,11 @@
 @import '~bulma-tooltip';
 @import '~bulma-pageloader/dist/bulma-pageloader.sass';
 
-//.box {
-//  box-shadow: $box-shadow !important;
-//}
+
+.box {
+  @include touch {
+    padding: 0;
+  }
+}
+
+// box-shadow: $box-shadow !important;
