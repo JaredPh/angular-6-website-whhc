@@ -6,7 +6,7 @@
   </div>
 </section>
 
-<div class="modal" [class.is-active]="modalIndex">
+<div class="modal" [class.is-active]="modalIndex" (swipeleft)="changeModalImage('prev')" (swiperight)="changeModalImage('next')">
   <div class="modal-background" (click)="hideModalImage()"></div>
   <div class="modal-content">
 

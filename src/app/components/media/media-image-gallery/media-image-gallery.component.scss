@@ -32,6 +32,9 @@
     }
 
     .modal-button {
+
+      @include touch { display: none; }
+
       $btn-size: 4rem;
 
       position: absolute;
