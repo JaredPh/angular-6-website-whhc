@@ -1,43 +1,45 @@
-//@import '../../../../../styles/variables';
-//
-//section {
-//  h3 {
-//    font-family: $font-title;
-//    font-size: $font-size-15;
-//  }
-//
-//  padding: $column-gap * 2 0;
-//
-//  .columns {
-//    padding-bottom: $column-gap;
-//  }
-//}
-//
-//// footer
-//.social, .copyright, .address {
-//  font-family: $font-title;
-//  font-size: $font-size-15;
-//  font-weight: 400;
-//  padding: $column-gap / 2 0;
-//}
-//
-//.social a {
-//  padding-left: 3.2vw;
-//
-//  background-position: left center;
-//  background-size: contain;
-//  background-repeat: no-repeat;
-//
-//  &:hover {
-//    color: $link !important;
-//  }
-//}
-//
-//
-//.copyright {
-//  padding-top: 1vw;
-//
-//  span {
-//    color: $whhc-blue;
-//  }
-//}
+.whhc-sponsors {
+  padding-top: $gap;
+  padding-bottom: $gap;
+
+  background: $white;
+
+  h2 {
+    font-family: $font-title;
+    font-weight: 400;
+  }
+}
+
+footer {
+  background: $whhc-black;
+
+  .social a, .address, .copyright {
+    color: $white;
+  }
+
+  .social, .copyright, .address {
+    font-family: $font-title;
+    font-weight: 400;
+    padding: $column-gap / 2 0;
+  }
+
+  .social a {
+    padding-left: 2rem;
+
+    background-position: left center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    &:hover {
+      color: $link !important;
+    }
+  }
+
+  .copyright {
+    padding-top: 0.75rem;
+
+    span {
+      color: $whhc-blue;
+    }
+  }
+}

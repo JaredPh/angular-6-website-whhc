@@ -9,6 +9,10 @@
 @import 'bulma';
 @import 'base-elements';
 
+body {
+  background: $bg-grey;
+}
+
 .whhc-main {
   padding: $gap;
 
@@ -81,6 +85,9 @@
 
   /* News */
   @import '../app/components/news/news-basic-card/news-basic-card.component';
+
+  /* Shared */
+  @import '../app/components/shared/elements/footer/footer.component.scss';
 
 .is-sticky {
   position: sticky;

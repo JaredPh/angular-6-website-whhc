@@ -4,9 +4,16 @@
 
 
 .box {
+   box-shadow: $box-shadow !important;
+
   @include touch {
     padding: 0;
   }
 }
 
-// box-shadow: $box-shadow !important;
+.is-48x48-mobile {
+  @include mobile {
+    height: 48px !important;
+    width: 48px !important;
+  }
+}
