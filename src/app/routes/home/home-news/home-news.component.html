@@ -8,7 +8,11 @@
     <whhc-news-featured-card [article]="(news | async)[0]"></whhc-news-featured-card>
   </div>
   <div class="column">
-    <whhc-news-basic-card *ngFor="let article of (news | async).slice(1,3)" [article]="article" ></whhc-news-basic-card>
+    <div class="columns is-multiline">
+      <div *ngFor="let article of (news | async).slice(1,3)" class="column is-12">
+        <whhc-news-basic-card [article]="article" ></whhc-news-basic-card>
+      </div>
+    </div>
   </div>
 </div>
 <div class="columns">

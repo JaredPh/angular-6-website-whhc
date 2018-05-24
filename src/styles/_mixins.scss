@@ -1,3 +1,13 @@
+@mixin article-feature {
+  padding: $gap / 2 0;
+
+  @include tablet {
+    float: right;
+    width: 50%;
+    padding: 0 0 $gap / 2 $gap / 2;
+  }
+}
+
 //@mixin absolute-child {
 //  position: relative;
 //
