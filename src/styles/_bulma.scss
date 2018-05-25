@@ -2,6 +2,16 @@
 @import '~bulma-tooltip';
 @import '~bulma-pageloader/dist/bulma-pageloader.sass';
 
+.title {
+  font-family: $font-title;
+  font-weight: 700;
+
+  h1 &, h2 & {
+    text-transform: uppercase;
+  }
+
+  .description & { text-transform: uppercase; }
+}
 
 .box {
    box-shadow: $box-shadow !important;

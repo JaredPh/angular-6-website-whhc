@@ -91,7 +91,7 @@ export class MediaImageGalleryComponent implements OnInit {
     const keys = {
       RIGHT_ARROW: 39,
       LEFT_ARROW: 37,
-      // SPACE: 32,
+      SPACE: 32,
       ESCAPE: 27,
     };
 
@@ -100,7 +100,7 @@ export class MediaImageGalleryComponent implements OnInit {
         case keys.LEFT_ARROW:
           this.changeModalImage('prev');
           break;
-        case keys.SPACE:
+        // case keys.SPACE:
         case keys.RIGHT_ARROW:
           this.changeModalImage('next');
           break;

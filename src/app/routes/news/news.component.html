@@ -1,5 +1,5 @@
 <section class="section">
-  <div class="columns">
+  <div class="columns is-desktop">
     <div class="sticky-side column">
       <div class="is-sticky">
         <h1 class="title">News</h1>
@@ -11,7 +11,7 @@
 
     </div>
 
-    <div class="column is-9">
+    <div class="column">
       <div class="columns is-multiline">
         <div *ngFor="let article of articles" class="column is-4">
           <whhc-news-list-card [article]="article"></whhc-news-list-card>

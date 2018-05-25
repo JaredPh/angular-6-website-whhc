@@ -1,4 +1,4 @@
-.whhc-new-basic-card {
+.whhc-news-basic-card {
 
   @include on-hover-grow;
 
@@ -6,9 +6,7 @@
     background-size: cover;
     background-position: center center;
 
-    //@include desktop {
-      padding-bottom:  1.61 * 50% / 2;
-    //}
+    padding-bottom:  1.61 * 50% / 2;
   }
 
   .description {

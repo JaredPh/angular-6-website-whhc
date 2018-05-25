@@ -11,7 +11,7 @@
           </div>
         </header>
 
-        <div *ngIf="article.tags.length > 0" class="whhc-tags has-text-centered">
+        <div *ngIf="article.tags.length > 0" class="tags has-text-centered">
           <whhc-tag *ngFor="let tag of article.tags" [tag]="tag" size="medium"></whhc-tag>
         </div>
 

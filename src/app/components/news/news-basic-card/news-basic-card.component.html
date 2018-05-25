@@ -1,10 +1,10 @@
-<a class="whhc-new-basic-card box" [routerLink]="['/', 'news', article.slug]">
+<a class="whhc-news-basic-card box" [routerLink]="['/', 'news', article.slug]">
   <div class="columns is-marginless is-mobile">
     <div class="column is-6-tablet is-6-mobile whhc-full-left thumb" [ngStyle]="{'background-image': 'url(' + article.thumb.url + ')' }"></div>
 
     <div class="column description">
       <h3 class="title is-6">{{ article.heading }}</h3>
-      <p class="subtitle is-6">{{ article.date | dateToStr:'fuzzy' }}</p>
+      <p class="subtitle is-7">{{ article.date | dateToStr:'fuzzy' }}</p>
     </div>
   </div>
 </a>
