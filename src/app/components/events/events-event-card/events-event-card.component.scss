@@ -1,15 +1,27 @@
-//@import '../../../../styles/variables';
-//
-//.box {
-//  @include absolute-child;
-//  @include on-hover-grow;
-//
-//  padding-top: 0;
-//  padding-bottom: 100%;
-//
-//  cursor: pointer;
-//
-//  .thumb {
+.whhc-event-card {
+  @include on-hover-grow;
+
+  position: relative;
+
+  cursor: pointer;
+
+  padding: 0 0 100% 0;
+
+  > div {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: 0;
+    right: 0;
+
+    padding: $column-gap;
+  }
+
+  .thumb .image {
+    display: inline-block;
+  }
 //    margin-top: 10%;
 //    margin-bottom: 2.5%;
 //    height: 52%;
@@ -37,4 +49,4 @@
 //      font-style: oblique;
 //    }
 //  }
-//}
+}

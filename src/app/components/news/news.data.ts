@@ -300,4 +300,68 @@ export const testNews: INews[] = [
     featuredVideo: '0PSHT7H6mIo',
     tags: ['summer', 'tournaments']
   },
+  {
+    slug: 'news-9',
+    heading: 'No Cyril, when they’re dead, they’re just hookers',
+    date: moment().subtract(1, 'month').utc().format(),
+    thumb: { url: '/assets/47.jpg', width: 3059, height: 2448 },
+    background: { url: '/assets/47.jpg', width: 3059, height: 2448 },
+    body: `<p>You’re gay! I mean, I am, too. We’re both gay. Lana: Okay, that was a fluke. No, no, it’s Woodhouse! He’s all tied up
+           somewhere, sc-scared and alone! And possibly dehydrated!. Lying is like 95% of what I do. You’re not my friend, you’re a
+           Decepticon! You know, when I was little I used to pretend that you weren’t my mother. You’re gay! I mean, I am, too. We’re both
+           gay. Cyril, I paid her, I get to carry her corpse. If you want breakfast you should try the diner; you’re obviously into greek.
+           Get it? 6I have to go, but if I find one dog hair when I come back I’ll rub sand into your dead little eyes. I also need you to
+           buy sand. I don’t know if they grade it, but … coarse. No Cyril, when they’re dead, they’re just hookers! Mine always said,
+           “Sterling, come in here and check me for lumps.” Holy shit, was that out loud? danger zone I’m not saying I invented the
+           turtleneck. But I was the first person to realize</p>`,
+    photos: [
+      { url: '/assets/47.jpg', width: 3059, height: 2448 },
+      { url: '/assets/48.jpg', width: 2616, height: 3488 },
+      { url: '/assets/49.jpg', width: 4256, height: 2832 },
+    ],
+    similar: [
+      'news-7',
+      'news-6',
+    ],
+    author: {
+      id: 'sarcher',
+      fname: 'Sterling',
+      lname: 'Archer',
+      avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
+    },
+    featuredVideo: '0PSHT7H6mIo',
+    tags: ['summer', 'tournaments']
+  },
+  {
+    slug: 'news-10',
+    heading: 'No Cyril, when they’re dead, they’re just hookers',
+    date: moment().subtract(1, 'month').utc().format(),
+    thumb: { url: '/assets/47.jpg', width: 3059, height: 2448 },
+    background: { url: '/assets/47.jpg', width: 3059, height: 2448 },
+    body: `<p>You’re gay! I mean, I am, too. We’re both gay. Lana: Okay, that was a fluke. No, no, it’s Woodhouse! He’s all tied up
+           somewhere, sc-scared and alone! And possibly dehydrated!. Lying is like 95% of what I do. You’re not my friend, you’re a
+           Decepticon! You know, when I was little I used to pretend that you weren’t my mother. You’re gay! I mean, I am, too. We’re both
+           gay. Cyril, I paid her, I get to carry her corpse. If you want breakfast you should try the diner; you’re obviously into greek.
+           Get it? 6I have to go, but if I find one dog hair when I come back I’ll rub sand into your dead little eyes. I also need you to
+           buy sand. I don’t know if they grade it, but … coarse. No Cyril, when they’re dead, they’re just hookers! Mine always said,
+           “Sterling, come in here and check me for lumps.” Holy shit, was that out loud? danger zone I’m not saying I invented the
+           turtleneck. But I was the first person to realize</p>`,
+    photos: [
+      { url: '/assets/47.jpg', width: 3059, height: 2448 },
+      { url: '/assets/48.jpg', width: 2616, height: 3488 },
+      { url: '/assets/49.jpg', width: 4256, height: 2832 },
+    ],
+    similar: [
+      'news-7',
+      'news-6',
+    ],
+    author: {
+      id: 'sarcher',
+      fname: 'Sterling',
+      lname: 'Archer',
+      avatar: { url: '/assets/u1.jpg', width: 96, height: 96 },
+    },
+    featuredVideo: '0PSHT7H6mIo',
+    tags: ['summer', 'tournaments']
+  },
 ];

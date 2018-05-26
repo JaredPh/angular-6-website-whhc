@@ -20,6 +20,54 @@ body {
   @at-root .tag { margin: 0 2px; }
 }
 
+.whhc-label {
+  padding-bottom: $gap / 2;
+
+  h2 {
+    position: relative;
+    display: inline-block;
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 0;
+      width: 4rem;
+      border-top: 2px solid $whhc-black;
+      top: 50%;
+      margin-top: -1px;
+      right: 100%;
+      margin-right: 0.5rem;
+    }
+  }
+
+  &.label-rotate {
+    padding-right: $gap;
+    flex-grow: unset;
+
+    h2 {
+      position: absolute;
+      transform: rotate(-90deg);
+      transform-origin: 3rem 1rem;
+
+      left: 0;
+      right: 0;
+
+      //top: 7rem;
+    }
+  }
+
+  &.label-right {
+    h2:after {
+      margin-right: 0;
+      right: auto;
+
+      left: 100%;
+      margin-left: 1rem;
+    }
+  }
+}
+
 .whhc-main {
   padding: $gap;
 
@@ -82,10 +130,16 @@ body {
 
 /* Routes */
 
+  /* Home */
+  @import '../app/routes/home/home-events/home-events.component';
+
   /* News */
   @import '../app/routes/news/news-article/news-article.component';
 
 /* Components */
+
+  /* Events */
+  @import '../app/components/events/events-event-card/events-event-card.component';
 
   /* Media */
   @import '../app/components/media/media-avatar/media-avatar.component';
