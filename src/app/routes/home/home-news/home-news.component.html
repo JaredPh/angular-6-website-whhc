@@ -15,6 +15,7 @@
     </div>
   </div>
 </div>
+
 <div class="columns is-multiline">
   <div class="column is-6" *ngFor="let article of (news | async).slice(3, 7)">
     <whhc-news-basic-card [article]="article"></whhc-news-basic-card>
