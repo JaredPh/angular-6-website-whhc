@@ -2,19 +2,19 @@
 @import '~bulma-tooltip';
 @import '~bulma-pageloader/dist/bulma-pageloader.sass';
 
+h1, h2, .description {
+  &, &.title {
+    text-transform: uppercase;
+  }
+}
+
 .title {
   font-family: $font-title;
   font-weight: 700;
-
-  h1 &, h2 & {
-    text-transform: uppercase;
-  }
-
-  .description & { text-transform: uppercase; }
 }
 
 .box {
-   box-shadow: $box-shadow !important;
+  box-shadow: $box-shadow !important;
 
   @include touch {
     padding: 0;

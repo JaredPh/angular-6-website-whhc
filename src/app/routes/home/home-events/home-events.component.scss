@@ -1,26 +1,36 @@
-//@import '../../../../styles/variables';
-//
-//.events {
-//  position: relative;
-//  z-index: 0;
-//
-//  padding-top: 0;
-//  padding-bottom: 0;
-//  margin-top: -$column-gap / 2;
-//
-//  &:before {
-//    content: '';
-//    position: absolute;
-//    display: block;
-//    background: $whhc-blue;
-//    top: 0;
-//    bottom: 0;
-//    left: 20%;
-//    right: 20%;
-//    z-index: -1;
-//  }
-//
-//  > div  {
-//    margin: $event-spacing 0;
-//  }
-//}
+.whhc-home-events {
+  margin-top: -$column-gap;
+
+  .events {
+    margin-top: $gap;
+    position: relative;
+    padding-top: $gap / 2;
+    padding-bottom: $gap / 2;
+
+    &:before {
+      content: '';
+      display: block;
+
+      position: absolute;
+
+      top: -$column-gap;
+      bottom: -$column-gap;
+
+      z-index: 1;
+
+      left: $gap;
+      right: $gap;
+
+      background: $whhc-blue;
+    }
+  }
+
+  .event {
+    position: relative;
+    z-index: 1;
+  }
+
+  .whhc-label h2 {
+    top: 6rem;
+  }
+}

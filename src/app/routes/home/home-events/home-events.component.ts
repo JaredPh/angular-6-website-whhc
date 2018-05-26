@@ -8,7 +8,6 @@ import { IEvent } from '../../../components/events/events.interfaces';
 @Component({
   selector: 'whhc-home-events',
   templateUrl: './home-events.component.html',
-  styleUrls: ['./home-events.component.scss']
 })
 export class HomeEventsComponent implements OnInit {
 

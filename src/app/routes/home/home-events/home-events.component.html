@@ -1,10 +1,14 @@
-<div class="columns">
-  <div class="column is-narrow whhc-label rotate left">
-    <span routerLink="/events">Events</span>
+<div class="whhc-home-events columns">
+
+  <div class="column whhc-label label-rotate">
+    <h2 class="title is-4" routerLink="/events">Events</h2>
   </div>
-  <div class="column is-9 events">
-    <div *ngFor="let event of (events | async).slice(0, 3)">
-      <whhc-event-card [event]="event" [routerLink]="['/events', event.slug]"></whhc-event-card>
+
+  <div class="column events">
+    <div class="columns is-multiline">
+      <div *ngFor="let event of (events | async).slice(0, 3)" class="column is-12 event">
+        <whhc-event-card [event]="event" [routerLink]="['/events', event.slug]"></whhc-event-card>
+      </div>
     </div>
   </div>
 </div>
