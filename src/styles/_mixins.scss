@@ -1,6 +1,8 @@
 @mixin article-feature-right {
   @include mobile {
     margin-bottom: $gap / 2;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @include tablet {

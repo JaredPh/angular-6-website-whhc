@@ -18,7 +18,7 @@
         <whhc-media-youtube *ngIf="article.featuredVideo" [code]="article.featuredVideo"></whhc-media-youtube>
         <figure *ngIf="article.featuredImage" class="featured image"><img [src]="article.featuredImage.url"></figure>
 
-        <div class="content is-small has-text-justified" [innerHtml]="article.body"></div>
+        <div class="content has-text-justified" [innerHtml]="article.body"></div>
 
         <whhc-media-image-gallery *ngIf="article.photos" [images]="article.photos"></whhc-media-image-gallery>
       </article>
