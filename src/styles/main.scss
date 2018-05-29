@@ -23,6 +23,10 @@ body {
 .whhc-label {
   padding-bottom: $gap / 2;
 
+  :focus {
+    outline: 0;
+  }
+
   h2 {
     position: relative;
     display: inline-block;
@@ -108,7 +112,11 @@ body {
   }
 
   .featured.image {
-    @include article-feature;
+    @include article-feature-right;
+  }
+
+  .featured.image.left {
+    @include article-feature-left;
   }
 }
 

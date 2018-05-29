@@ -16,7 +16,8 @@ export class EventsComponent implements OnInit {
   @select(['events', 'tags']) tags: Observable<string[]>;
   @select(s => s.news.pendingRequests > 0) loading: Observable<boolean>;
 
-  public events: IEvent[];
+  public future: IEvent[];
+  public past: IEvent[];
 
   public selectedEvent: string;
   public selectedTag: string;
@@ -38,27 +39,21 @@ export class EventsComponent implements OnInit {
       this.selectedEvent = params.slug;
 
       this.ngRedux
-        .select(s => s.events.events)
+        .select(s => s.events.future)
         .subscribe((events) => {
-          this.events = (this.selectedTag)
+          this.future = (this.selectedTag)
+            ? events.filter(e => e.tags.indexOf(this.selectedTag) >= 0)
+            : events;
+        });
+
+      this.ngRedux
+        .select(s => s.events.past)
+        .subscribe((events) => {
+          this.past = (this.selectedTag)
             ? events.filter(e => e.tags.indexOf(this.selectedTag) >= 0)
             : events;
         });
     });
-  }
-
-  public getEventLink(event: IEvent): string[] {
-    let url = ['/events'];
-
-    if (this.selectedTag) {
-      url = url.concat(['tags', this.selectedTag]);
-    }
-
-    if (event.slug !== this.selectedEvent) {
-      url.push(event.slug);
-    }
-
-    return url;
   }
 
   private initPageLoader() {

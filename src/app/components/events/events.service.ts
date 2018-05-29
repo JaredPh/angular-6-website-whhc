@@ -1,45 +1,42 @@
 import { Injectable } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
-import { testEvents } from './events.data';
-import { IEvent } from './events.interfaces';
 import { IAppState } from '../../app.store';
-import { of } from 'rxjs';
+
 import { eventsActions } from './events.actions';
+import { HttpService } from '../shared/services/http.service';
 
 @Injectable()
 export class EventsService {
 
   constructor(
     private redux: NgRedux<IAppState>,
+    private httpService: HttpService,
   ) {}
 
-  public loadLatestEvents(count: number): void {
-    this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_MANY_REQUEST });
+  public loadEvent(slug: string): void {
+    // TODO: make this proper when route exists
+    this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_ONE_REQUEST });
 
-    const events: IEvent[] = testEvents.sort((a, b) => a.start.localeCompare(b.start)).slice(0, count);
-
-    const httpResponse = of(events);
+    const httpResponse = this.httpService.get('/events');
 
     httpResponse.subscribe(
-      (data) => {
-        this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_MANY_SUCCESS, events: data });
+      (data: any) => {
+        this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_ONE_SUCCESS, events: data.results });
       },
       (error) => {
-        this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_MANY_ERROR, error });
+        this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_ONE_ERROR, error });
       },
     );
   }
 
-  public loadEvents(): void {
-    this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_MANY_REQUEST });
+  public loadEvents(options?: any): void {
+      this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_MANY_REQUEST });
 
-    const events: IEvent[] = testEvents;
-
-    const httpResponse = of(events);
+    const httpResponse = this.httpService.get('/events', options);
 
     httpResponse.subscribe(
-      (data) => {
-        this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_MANY_SUCCESS, events: data });
+      (data: any) => {
+        this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_MANY_SUCCESS, events: data.results });
       },
       (error) => {
         this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_MANY_ERROR, error });

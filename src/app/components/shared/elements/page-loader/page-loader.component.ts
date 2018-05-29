@@ -4,7 +4,6 @@ import {PageLoaderService} from './page-loader.service';
 @Component({
   selector: 'whhc-page-loader',
   templateUrl: './page-loader.component.html',
-  styleUrls: ['./page-loader.component.scss']
 })
 export class PageLoaderComponent implements OnInit {
 

@@ -2,6 +2,10 @@
 @import '~bulma-tooltip';
 @import '~bulma-pageloader/dist/bulma-pageloader.sass';
 
+.content ol, .content ul {
+  list-style-position: inside;
+}
+
 h1, h2, .description {
   &, &.title {
     text-transform: uppercase;
@@ -11,6 +15,10 @@ h1, h2, .description {
 .title {
   font-family: $font-title;
   font-weight: 700;
+}
+
+.subtitle + .subtitle {
+  margin-top: -1.25rem;
 }
 
 .box {

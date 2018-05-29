@@ -1,0 +1,37 @@
+<section class="section" *ngIf="event">
+  <div class="columns is-multiline">
+    <div class="column is-8-desktop is-12-touch">
+
+      <article class="whhc-event whhc-main box">
+        <header class="hero is-dark" [ngStyle]="{'background-image': 'url(' + event.background.url + ')' }">
+          <div class="hero-body has-text-centered">
+            <!--&lt;!&ndash;<whhc-media-avatar [user]="article.author" type="small"></whhc-media-avatar>&ndash;&gt;-->
+            <h1 class="title is-4">{{ event.heading }}</h1>
+            <p class="subtitle is-6">{{ event.start | dateToStr:'dddd, Do of MMMM YYYY' }}</p>
+          </div>
+        </header>
+
+        <div *ngIf="event.tags.length > 0" class="tags has-text-centered">
+          <whhc-tag *ngFor="let tag of event.tags" [tag]="tag" size="medium"></whhc-tag>
+        </div>
+
+        <figure *ngIf="event.thumb" class="featured image left is-128x128"><img [src]="event.thumb.url"></figure>
+
+        <div class="content is-small has-text-justified" [innerHtml]="event.body"></div>
+
+        <!--<whhc-media-image-gallery *ngIf="article.photos" [images]="article.photos"></whhc-media-image-gallery>-->
+      </article>
+    </div>
+
+    <div class="column">
+      <div class="columns is-multiline is-sticky is-mobile">
+
+        <div *ngFor="let similarEvent of similar" class="column is-6-desktop is-4-tablet is-6-mobile">
+          <whhc-event-card [event]="similarEvent"></whhc-event-card>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

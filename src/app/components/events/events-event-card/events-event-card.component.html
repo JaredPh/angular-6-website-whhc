@@ -1,15 +1,14 @@
-<div class="whhc-event-card box"><!-- [routerLink]="['/events', event.slug]"> -->
+<a class="whhc-event-card box" [routerLink]="['/', 'events', event.slug]">
   <div>
-    <!--<div class="thumb" [ngStyle]="{'background-image': 'url(' + event.thumb.url + ')' }"></div>-->
     <div class="thumb has-text-centered">
-      <figure class="image is-96x96">
+      <figure class="image">
         <img [src]="event.thumb.url">
       </figure>
     </div>
     <div class="description has-text-centered">
       <h3 class="title is-6">{{ event.heading }}</h3>
-      <p class="subtitle is-7">{{ event.location }}</p>
+      <p class="subtitle is-7">{{ event.location?.heading }}</p>
       <p class="subtitle is-7">{{ getDateRange(event) }}</p>
     </div>
   </div>
-</div>
+</a>

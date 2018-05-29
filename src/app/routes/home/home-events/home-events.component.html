@@ -7,7 +7,7 @@
   <div class="column events">
     <div class="columns is-multiline">
       <div *ngFor="let event of (events | async).slice(0, 3)" class="column is-12 event">
-        <whhc-event-card [event]="event" [routerLink]="['/events', event.slug]"></whhc-event-card>
+        <whhc-event-card [event]="event"></whhc-event-card>
       </div>
     </div>
   </div>

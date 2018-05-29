@@ -1,10 +1,19 @@
-@mixin article-feature {
-  padding: $gap / 2 0;
+@mixin article-feature-right {
+  @include mobile {
+    margin-bottom: $gap / 2;
+  }
 
   @include tablet {
     float: right;
-    width: 50%;
-    padding: 0 0 $gap / 2 $gap / 2;
+    max-width: 50%;
+    margin-left: $gap / 2;
+  }
+}
+
+@mixin article-feature-left {
+  @include tablet {
+    float: left;
+    margin-right: $gap / 2;
   }
 }
 
