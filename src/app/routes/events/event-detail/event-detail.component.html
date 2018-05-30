@@ -7,7 +7,10 @@
           <div class="hero-body has-text-centered">
             <!--&lt;!&ndash;<whhc-media-avatar [user]="article.author" type="small"></whhc-media-avatar>&ndash;&gt;-->
             <h1 class="title is-4">{{ event.heading }}</h1>
-            <p class="subtitle is-6">{{ event.start | dateToStr:'dddd, Do of MMMM YYYY' }}</p>
+            <p class="subtitle is-6">
+              {{ event.start | dateToStr:startDateFormat }}<ng-container *ngIf="endDateFormat">{{ event.end | dateToStr:endDateFormat }}</ng-container><br>
+              {{ event.start | dateToStr:'h:mma' }} - {{ event.end | dateToStr:'h:mma' }}<br>
+            </p>
           </div>
         </header>
 
