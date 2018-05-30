@@ -1,3 +1,4 @@
+// todo: move me!
 export class Location {
   id: string;
   heading: string;
@@ -10,6 +11,7 @@ export class Location {
   }
 }
 
+// todo: move me!
 export class Image {
   url: string;
   description: string;
@@ -24,6 +26,7 @@ export class Image {
   }
 }
 
+// todo: move me!
 export class User {
   id: string;
   fname: string;

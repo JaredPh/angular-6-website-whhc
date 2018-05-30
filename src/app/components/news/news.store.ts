@@ -1,8 +1,8 @@
-import { INews } from './news.interfaces';
+import { News } from './news.models';
 import { newsActions, NewsReducerActions } from './news.actions';
 
 export interface INewsState {
-  articles: INews[];
+  articles: News[];
   pendingRequests: number;
   error: boolean;
   tags: string[];
@@ -20,15 +20,6 @@ export function newsReducer(state: INewsState = INITIAL_NEWS_STATE, action): INe
   const actions = new NewsReducerActions(state, action);
 
   switch (action.type) {
-    case newsActions.NEWS_FETCH_TAGS_REQUEST:
-      return actions.tagsRequest();
-
-    case newsActions.NEWS_FETCH_TAGS_SUCCESS:
-      return actions.tagsSuccess();
-
-    case newsActions.NEWS_FETCH_TAGS_SUCCESS:
-      return actions.tagsError();
-
     case newsActions.NEWS_FETCH_ONE_REQUEST:
     case newsActions.NEWS_FETCH_MANY_REQUEST:
       return actions.newsRequest();

@@ -15,8 +15,7 @@
           <whhc-tag *ngFor="let tag of article.tags" [tag]="tag" size="medium"></whhc-tag>
         </div>
 
-        <whhc-media-youtube *ngIf="article.featuredVideo" [code]="article.featuredVideo"></whhc-media-youtube>
-        <figure *ngIf="article.featuredImage" class="featured image"><img [src]="article.featuredImage.url"></figure>
+        <whhc-media-youtube *ngIf="article.video" [code]="article.video"></whhc-media-youtube>
 
         <div class="content has-text-justified" [innerHtml]="article.body"></div>
 

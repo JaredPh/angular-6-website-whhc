@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { INews } from '../news.interfaces';
+import { News } from '../news.models';
 
 @Component({
   selector: 'whhc-news-list-card',
@@ -7,6 +7,6 @@ import { INews } from '../news.interfaces';
 })
 export class NewsListCardComponent {
 
-  @Input() article: INews;
+  @Input() article: News;
 
 }

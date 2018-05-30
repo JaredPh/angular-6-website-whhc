@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { NewsService } from '../../../components/news/news.service';
 import { IAppState } from '../../../app.store';
-import { INews } from '../../../components/news/news.interfaces';
+import { News } from '../../../components/news/news.models';
 import { PageLoaderService } from '../../../components/shared/elements/page-loader/page-loader.service';
 
 @Component({
@@ -14,8 +14,8 @@ export class NewsArticleComponent implements OnInit {
 
   @select(s => s.news.pendingRequests > 0) loading: Observable<boolean>;
 
-  public article: INews;
-  public similar: INews[];
+  public article: News;
+  public similar: News[];
 
   constructor(
     private route: ActivatedRoute,
@@ -34,11 +34,12 @@ export class NewsArticleComponent implements OnInit {
 
   private setArticle(slug: string): void {
     this.newsService.loadArticle(slug);
+
     this.redux
       .select(s => s.news.articles.find(a => a.slug === slug))
       .subscribe((article) => {
         this.article = article;
-        this.setSimilar(article.similar);
+        // this.setSimilar(article.similar);
       });
   }
 
