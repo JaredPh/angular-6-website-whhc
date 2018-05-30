@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MediaModule } from '../../components/media/media.module';
 
 import { SharedModule } from '../../components/shared/shared.module';
+import { TagsModule } from '../../components/tags/tags.module';
 
 import { EventsViewRoutingModule } from './events-routing.module';
 import { EventsComponent } from './events.component';
@@ -16,6 +17,7 @@ import { EventDetailComponent } from './event-detail/event-detail.component';
     MediaModule,
     EventsModule,
     EventsViewRoutingModule,
+    TagsModule,
   ],
   declarations: [
     EventsComponent,
