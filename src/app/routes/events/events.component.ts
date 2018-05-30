@@ -6,6 +6,7 @@ import { PageLoaderService } from '../../components/shared/elements/page-loader/
 import { Observable } from 'rxjs/index';
 import { Event} from '../../components/events/events.models';
 import { EventsService} from '../../components/events/events.service';
+import { TagsService } from '../../components/tags/tags.service';
 
 @Component({
   templateUrl: './events.component.html',
@@ -13,7 +14,7 @@ import { EventsService} from '../../components/events/events.service';
 })
 export class EventsComponent implements OnInit {
 
-  @select(['events', 'tags']) tags: Observable<string[]>;
+  @select(['tags', 'items']) tags: Observable<string[]>;
   @select(s => s.news.pendingRequests > 0) loading: Observable<boolean>;
 
   public future: Event[];
@@ -24,6 +25,7 @@ export class EventsComponent implements OnInit {
 
   constructor(
     private eventsService: EventsService,
+    private tagsService: TagsService,
     private ngRedux: NgRedux<IAppState>,
     private route: ActivatedRoute,
     private pageLoader: PageLoaderService,
@@ -31,6 +33,7 @@ export class EventsComponent implements OnInit {
 
   ngOnInit() {
     this.initPageLoader();
+    this.tagsService.loadTags();
 
     this.route.params.subscribe( params => {
       this.eventsService.loadEvents();

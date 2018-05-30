@@ -6,13 +6,14 @@ import { IAppState } from '../../app.store';
 import { ActivatedRoute } from '@angular/router';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
 import { Observable } from 'rxjs/index';
+import { TagsService } from '../../components/tags/tags.service';
 
 @Component({
   templateUrl: './news.component.html',
 })
 export class NewsComponent implements OnInit {
 
-  @select(['news', 'tags']) tags: Observable<string[]>;
+  @select(['tags', 'items']) tags: Observable<string[]>;
   @select(s => s.news.pendingRequests > 0) loading: Observable<boolean>;
 
   public articles: INews[];
@@ -20,6 +21,7 @@ export class NewsComponent implements OnInit {
 
   constructor(
     private newsService: NewsService,
+    private tagsService: TagsService,
     private ngRedux: NgRedux<IAppState>,
     private route: ActivatedRoute,
     private pageLoader: PageLoaderService,
@@ -28,7 +30,7 @@ export class NewsComponent implements OnInit {
   ngOnInit() {
     this.initPageLoader();
 
-    this.newsService.loadTags();
+    this.tagsService.loadTags();
 
     this.route.params.subscribe( params => {
       this.selectedTag = params.tag;

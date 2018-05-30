@@ -8,7 +8,7 @@
 //     start: '2017-05-17T15:00:00Z',
 //     end: '2017-05-21T12:00:00Z',
 //     location: 'Delft, Holland',
-//     tags: [ 'x', 'y', 'z'],
+//     items: [ 'x', 'y', 'z'],
 //     author: {
 //       id: 'sarcher',
 //       fname: 'Sterling',
@@ -27,7 +27,7 @@
 //     start: '2018-05-17T15:00:00Z',
 //     end: '2018-05-21T12:00:00Z',
 //     location: 'Delft, Holland',
-//     tags: [ 'x', 'y', 'z'],
+//     items: [ 'x', 'y', 'z'],
 //     author: {
 //       id: 'sarcher',
 //       fname: 'Sterling',
@@ -46,7 +46,7 @@
 //     start: '2019-05-17T15:00:00Z',
 //     end: '2019-05-21T12:00:00Z',
 //     location: 'Delft, Holland',
-//     tags: [ 'x', 'y', 'z'],
+//     items: [ 'x', 'y', 'z'],
 //     author: {
 //       id: 'sarcher',
 //       fname: 'Sterling',
@@ -66,7 +66,7 @@
 //     start: '2017-05-26T10:00:00Z',
 //     end: '2017-05-26T18:00:00Z',
 //     location: 'Honor Oak Park',
-//     tags: [ 'w', 'x', 'y'],
+//     items: [ 'w', 'x', 'y'],
 //     author: {
 //       id: 'sarcher',
 //       fname: 'Sterling',
@@ -85,7 +85,7 @@
 //     start: '2018-05-26T10:00:00Z',
 //     end: '2018-05-26T18:00:00Z',
 //     location: 'Honor Oak Park',
-//     tags: [ 'w', 'x', 'y'],
+//     items: [ 'w', 'x', 'y'],
 //     author: {
 //       id: 'sarcher',
 //       fname: 'Sterling',
@@ -104,7 +104,7 @@
 //     start: '2019-05-26T10:00:00Z',
 //     end: '2019-05-26T18:00:00Z',
 //     location: 'Honor Oak Park',
-//     tags: [ 'w', 'x', 'y'],
+//     items: [ 'w', 'x', 'y'],
 //     author: {
 //       id: 'sarcher',
 //       fname: 'Sterling',
@@ -123,7 +123,7 @@
 //     start: '2017-06-02T12:00:00Z',
 //     end: '2017-06-02T22:30:00Z',
 //     location: 'Whitefield School',
-//     tags: [ 'u', 'w', 'x'],
+//     items: [ 'u', 'w', 'x'],
 //     author: {
 //       id: 'sarcher',
 //       fname: 'Sterling',
@@ -142,7 +142,7 @@
 //     start: '2018-06-02T12:00:00Z',
 //     end: '2018-06-02T22:30:00Z',
 //     location: 'Whitefield School',
-//     tags: [ 'u', 'w', 'x'],
+//     items: [ 'u', 'w', 'x'],
 //     author: {
 //       id: 'sarcher',
 //       fname: 'Sterling',
@@ -161,7 +161,7 @@
 //     start: '2019-06-02T12:00:00Z',
 //     end: '2019-06-02T22:30:00Z',
 //     location: 'Whitefield School',
-//     tags: [ 'u', 'w', 'x'],
+//     items: [ 'u', 'w', 'x'],
 //     author: {
 //       id: 'sarcher',
 //       fname: 'Sterling',

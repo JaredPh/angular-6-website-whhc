@@ -42,12 +42,7 @@ export class EventsActions {
     const future: Event[] = events.filter(e => e.end >= now)
       .sort((a, b) => a.start.localeCompare(b.start));
 
-    const tags: string[] = _.uniq(
-      events.reduce((a, e) => [...a, ...e.tags], []))
-        .sort((a, b) => a.localeCompare(b)
-    );
-
-    return tassign(this.state, { past, future, tags, pendingRequests: this.state.pendingRequests - 1 });
+    return tassign(this.state, { past, future, pendingRequests: this.state.pendingRequests - 1 });
   }
 
   public eventsError() {

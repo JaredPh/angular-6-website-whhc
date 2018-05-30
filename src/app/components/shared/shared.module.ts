@@ -6,7 +6,6 @@ import { RouterModule} from '@angular/router';
 
 import { DatePipe } from './pipes/date/date.pipe';
 import { CapitalizePipe } from './pipes/capitalize/capitalize.pipe';
-import { TagComponent } from './elements/tag/tag.component';
 import { PageLoaderComponent } from './elements/page-loader/page-loader.component';
 import { FooterComponent } from './elements/footer/footer.component';
 import { HttpService } from './services/http.service';
@@ -22,7 +21,6 @@ import { HttpService } from './services/http.service';
     DatePipe,
     FooterComponent,
     PageLoaderComponent,
-    TagComponent,
   ],
   providers: [
     HttpService,
@@ -32,7 +30,6 @@ import { HttpService } from './services/http.service';
     DatePipe,
     FooterComponent,
     PageLoaderComponent,
-    TagComponent,
   ],
 })
 export class SharedModule {}
