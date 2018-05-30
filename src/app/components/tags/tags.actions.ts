@@ -20,7 +20,7 @@ export class TagsActions {
   }
 
   public tagsSuccess() {
-    return tassign(this.state, { tags: this.action.tags, pendingRequests: this.state.pendingRequests - 1 });
+    return tassign(this.state, { items: this.action.tags, pendingRequests: this.state.pendingRequests - 1 });
   }
 
   public tagsError() {

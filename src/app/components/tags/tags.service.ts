@@ -7,16 +7,17 @@ import { tagsActions } from './tags.actions';
 @Injectable()
 export class TagsService {
 
-  constructor(private redux: NgRedux<IAppState>,
-              private httpService: HttpService,) {
-  }
+  constructor(
+    private redux: NgRedux<IAppState>,
+    private httpService: HttpService,
+  ) {}
 
   public loadTags(): void {
-    this.redux.select(s => s.tags.items).subscribe((tags) => {
-      if (tags.length === 0) {
+    this.redux.select(s => s.tags.items).subscribe((stateTags) => {
+      if (stateTags.length === 0) {
         this.redux.dispatch({type: tagsActions.TAGS_FETCH_MANY_REQUEST});
 
-        const httpResponse = this.httpService.get('/items');
+        const httpResponse = this.httpService.get('/tags');
 
         httpResponse.subscribe(
           (data: any) => {
