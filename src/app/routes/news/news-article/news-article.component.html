@@ -1,29 +1,22 @@
 <section class="section" *ngIf="article">
-  <div class="columns">
-    <div class="column is-8">
-      <article class="box">
+  <div class="columns is-multiline">
+    <div class="column is-8-desktop is-12-touch">
+
+      <article class="whhc-news whhc-main box">
         <header class="hero is-dark" [ngStyle]="{'background-image': 'url(' + article.background.url + ')' }">
           <div class="hero-body has-text-centered">
             <whhc-media-avatar [user]="article.author" type="small"></whhc-media-avatar>
-            <h1 class="title">{{ article.heading }}</h1>
-            <p class="subtitle">{{ article.date | dateToStr:'dddd, Do of MMMM YYYY' }}</p>
+            <h1 class="title is-4">{{ article.heading }}</h1>
+            <p class="subtitle is-6">{{ article.date | dateToStr:'dddd, Do of MMMM YYYY' }}</p>
           </div>
         </header>
 
-        <div *ngIf="article.tags.length > 0" class="news-tags has-text-centered">
+        <div *ngIf="article.tags.length > 0" class="tags has-text-centered">
           <whhc-tag *ngFor="let tag of article.tags" [tag]="tag" size="medium"></whhc-tag>
         </div>
 
-        <!--<nav class="breadcrumb" aria-label="breadcrumbs">-->
-          <!--<ul>-->
-            <!--<li><a routerLink="/">Home</a></li>-->
-            <!--<li><a routerLink="../">News</a></li>-->
-            <!--<li class="is-active"><a routerLink="./">{{ article.heading }}</a></li>-->
-          <!--</ul>-->
-        <!--</nav>-->
-
-        <whhc-media-youtube *ngIf="article.featuredVideo" [code]="article.featuredVideo" align="right"></whhc-media-youtube>
-        <figure *ngIf="article.featuredImage"class="featured image"><img [src]="article.featuredImage.url"></figure>
+        <whhc-media-youtube *ngIf="article.featuredVideo" [code]="article.featuredVideo"></whhc-media-youtube>
+        <figure *ngIf="article.featuredImage" class="featured image"><img [src]="article.featuredImage.url"></figure>
 
         <div class="content has-text-justified" [innerHtml]="article.body"></div>
 
@@ -31,10 +24,15 @@
       </article>
     </div>
 
-    <div class="column sticky-side">
-      <div class="is-sticky">
-        <whhc-news-basic-card *ngFor="let similarArticle of similar" [article]="similarArticle"></whhc-news-basic-card>
+    <div class="column">
+      <div class="columns is-multiline is-sticky">
+
+        <div *ngFor="let similarArticle of similar" class="column is-12-desktop is-6-tablet">
+          <whhc-news-basic-card [article]="similarArticle"></whhc-news-basic-card>
+        </div>
+
       </div>
     </div>
+
   </div>
 </section>

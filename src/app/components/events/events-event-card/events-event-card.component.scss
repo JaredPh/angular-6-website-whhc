@@ -1,40 +1,53 @@
-@import '../../../../styles/variables';
-
-.box {
-  @include absolute-child;
+.whhc-event-card {
   @include on-hover-grow;
 
-  padding-top: 0;
-  padding-bottom: 100%;
+  position: relative;
 
   cursor: pointer;
 
-  .thumb {
-    margin-top: 10%;
-    margin-bottom: 2.5%;
-    height: 52%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size:contain;
+  padding: 0 0 100% 0;
+
+  > div {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: 0;
+    right: 0;
+
+    padding: $column-gap;
   }
 
-  .description {
-    height: 35%;
-
-    .name {
-      text-transform: uppercase;
-      font-family: $font-title;
-      font-size: 1.2vw;
-      font-weight: 700;
-    }
-
-    .date {
-      @include date-text;
-    }
-
-    .location {
-      @extend .date;
-      font-style: oblique;
-    }
+  .thumb .image {
+    display: inline-block;
+    width: calc(100% - 4rem);
   }
+//    margin-top: 10%;
+//    margin-bottom: 2.5%;
+//    height: 52%;
+//    background-position: center center;
+//    background-repeat: no-repeat;
+//    background-size:contain;
+//  }
+//
+//  .description {
+//    height: 35%;
+//
+//    .name {
+//      text-transform: uppercase;
+//      font-family: $font-title;
+//      font-size: 1.2vw;
+//      font-weight: 700;
+//    }
+//
+//    .date {
+//      @include date-text;
+//    }
+//
+//    .location {
+//      @extend .date;
+//      font-style: oblique;
+//    }
+//  }
 }

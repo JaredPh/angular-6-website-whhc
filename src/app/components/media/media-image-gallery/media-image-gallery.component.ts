@@ -4,7 +4,6 @@ import { IImage } from '../media.interfaces';
 @Component({
   selector: 'whhc-media-image-gallery',
   templateUrl: './media-image-gallery.component.html',
-  styleUrls: ['./media-image-gallery.component.scss'],
 })
 export class MediaImageGalleryComponent implements OnInit {
 
@@ -101,7 +100,7 @@ export class MediaImageGalleryComponent implements OnInit {
         case keys.LEFT_ARROW:
           this.changeModalImage('prev');
           break;
-        case keys.SPACE:
+        // case keys.SPACE:
         case keys.RIGHT_ARROW:
           this.changeModalImage('next');
           break;

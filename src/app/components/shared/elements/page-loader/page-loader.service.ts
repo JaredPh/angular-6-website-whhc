@@ -15,6 +15,8 @@ export class PageLoaderService {
   }
 
   public clear(): void {
-    this.emitter.next(null);
+    setTimeout(() => {
+      this.emitter.next(null);
+    }, 800);
   }
 }

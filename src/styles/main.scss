@@ -1,113 +1,265 @@
+@import 'colors';
+@import 'fonts';
+
 @import 'variables';
+@import 'mixins.scss';
+
+@import 'animations';
+
 @import 'bulma';
 @import 'base-elements';
 
-.sticky-side {
-  margin-top: -$column-gap * 2;
+body {
+  background: $bg-grey;
+}
 
-  div {
-    padding-top: $column-gap * 2;
+.tags {
+  padding-top: $gap / 2;
+  display: inherit;
+
+  @at-root .tag { margin: 0 2px; }
+}
+
+.whhc-label {
+  padding-bottom: $gap / 2;
+
+  :focus {
+    outline: 0;
+  }
+
+  h2 {
+    position: relative;
+    display: inline-block;
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 0;
+      width: 4rem;
+      border-top: 2px solid $whhc-black;
+      top: 50%;
+      margin-top: -1px;
+      right: 100%;
+      margin-right: 0.5rem;
+    }
+  }
+
+  &.label-rotate {
+    padding-right: $gap;
+    flex-grow: unset;
+
+    h2 {
+      position: absolute;
+      transform: rotate(-90deg);
+      transform-origin: 3rem 1rem;
+
+      left: 0;
+      right: 0;
+
+      //top: 7rem;
+    }
+  }
+
+  &.label-right {
+    h2:after {
+      margin-right: 0;
+      right: auto;
+
+      left: 100%;
+      margin-left: 1rem;
+    }
   }
 }
+
+.whhc-main {
+  padding: $gap;
+
+  .hero {
+    display: flex;
+    margin-top: -$gap;
+    margin-left: -$gap;
+    margin-right: -$gap;
+
+    align-items: center;
+    justify-content: center;
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    min-height: 20rem;
+
+    .hero-body {
+      flex-grow: 0;
+      width: 100%;
+      padding: 1rem 20%;
+      border-radius: 4px;
+      background: rgba($black, .6);
+    }
+  }
+
+  h1 {
+    text-transform: capitalize;
+  }
+
+  .avatar {
+    display: inline-block;
+
+    border-radius: 100%;
+    overflow: hidden;
+    border: 2px solid $white
+  }
+
+  .featured.image {
+    @include article-feature-right;
+  }
+
+  .featured.image.left {
+    @include article-feature-left;
+  }
+}
+
+.whhc-full-left {
+  @include desktop {
+    margin-top: -$gap / 2;
+    margin-left: -$gap / 2;
+    margin-bottom: -$gap / 2;
+  }
+}
+
+.whhc-full-top {
+  @include desktop {
+    margin-top: -$gap / 2;
+    margin-left: -$gap / 2;
+    margin-right: -$gap / 2;
+  }
+}
+
+/* Routes */
+
+  /* Home */
+  @import '../app/routes/home/home-events/home-events.component';
+
+  /* News */
+  @import '../app/routes/news/news-article/news-article.component';
+
+/* Components */
+
+  /* Events */
+  @import '../app/components/events/events-event-card/events-event-card.component';
+
+  /* Media */
+  @import '../app/components/media/media-avatar/media-avatar.component';
+  @import '../app/components/media/media-image-gallery/media-image-gallery.component';
+  @import '../app/components/media/media-youtube/media-youtube.component';
+
+  /* News */
+  @import '../app/components/news/news-basic-card/news-basic-card.component';
+  @import '../app/components/news/news-featured-card/news-featured-card.component';
+  @import '../app/components/news/news-list-card/news-list-card.component';
+
+  /* Shared */
+  @import '../app/components/shared/elements/footer/footer.component.scss';
 
 .is-sticky {
   position: sticky;
   top: $navbar-height;
 }
 
-.title {
-  font-family: $font-title;
-  font-weight: 400;
-}
-
-.name {
-  @include title-text;
-}
-
-.date {
-  @include date-text;
-}
-
-.navbar-brand .navbar-item {
-  @include on-hover-background-slide-in-right($whhc-maroon);
-}
-
-
-.whhc-label {
-  $label-height: 2vw;
-  $label-bar-height: 2px;
-  $label-bar-width: 4.5vw;
-  $label-bar-padding: 0.5vw;
-
-  user-select: none;
-  position: relative;
-
-  span {
-    position: relative;
-    font-size: $label-height * 0.8;
-    line-height: $label-height;
-    font-family: $font-title;
-    font-weight: 700;
-    text-transform: uppercase;
-
-    &[routerLink] {
-      cursor: pointer;
-    }
-  }
-
-  span:before {
-    content: '';
-
-    position: absolute;
-    display: block;
-
-    top: calc((#{$label-height} - #{$label-bar-height}) / 2 );
-
-    height: $label-bar-height;
-    width: $label-bar-width;
-
-    background-color: $whhc-black;
-  }
-
-  &.left {
-    margin-top: $event-spacing + $box-padding / 2;
-
-    span {
-      padding-left: $label-bar-width + $label-bar-padding;
-    }
-
-    span:before {
-      left: 0;
-    }
-  }
-
-  &.right {
-    margin-top: $event-spacing + $box-padding / 2;
-
-    span {
-      padding-right: $label-bar-width + $label-bar-padding;
-    }
-
-    span:before {
-      right: 0;
-      top: 50%;
-    }
-  }
-
-  &.rotate.left {
-    span {
-      top: -$column-gap;
-      position: absolute;
-      display: block;
-
-      right: $label-height;
-
-      transform: rotate(-90deg);
-      transform-origin: top right;
-    }
-  }
-}
-
-.content {
-  font-size: 1.25vw;
-}
+//.title {
+//  font-family: $font-title;
+//  font-weight: 400;
+//}
+//
+//.name {
+//  @include title-text;
+//}
+//
+//.date {
+//  @include date-text;
+//}
+//
+//.navbar-brand .navbar-item {
+//  @include on-hover-background-slide-in-right($whhc-maroon);
+//}
+//
+//
+//.whhc-label {
+//  $label-height: 2vw;
+//  $label-bar-height: 2px;
+//  $label-bar-width: 4.5vw;
+//  $label-bar-padding: 0.5vw;
+//
+//  user-select: none;
+//  position: relative;
+//
+//  span {
+//    position: relative;
+//    font-size: $label-height * 0.8;
+//    line-height: $label-height;
+//    font-family: $font-title;
+//    font-weight: 700;
+//    text-transform: uppercase;
+//
+//    &[routerLink] {
+//      cursor: pointer;
+//    }
+//  }
+//
+//  span:before {
+//    content: '';
+//
+//    position: absolute;
+//    display: block;
+//
+//    top: calc((#{$label-height} - #{$label-bar-height}) / 2 );
+//
+//    height: $label-bar-height;
+//    width: $label-bar-width;
+//
+//    background-color: $whhc-black;
+//  }
+//
+//  &.left {
+//    margin-top: $event-spacing + $box-padding / 2;
+//
+//    span {
+//      padding-left: $label-bar-width + $label-bar-padding;
+//    }
+//
+//    span:before {
+//      left: 0;
+//    }
+//  }
+//
+//  &.right {
+//    margin-top: $event-spacing + $box-padding / 2;
+//
+//    span {
+//      padding-right: $label-bar-width + $label-bar-padding;
+//    }
+//
+//    span:before {
+//      right: 0;
+//      top: 50%;
+//    }
+//  }
+//
+//  &.rotate.left {
+//    span {
+//      top: -$column-gap;
+//      position: absolute;
+//      display: block;
+//
+//      right: $label-height;
+//
+//      transform: rotate(-90deg);
+//      transform-origin: top right;
+//    }
+//  }
+//}
+//
+//.content {
+//  font-size: 1.25vw;
+//}

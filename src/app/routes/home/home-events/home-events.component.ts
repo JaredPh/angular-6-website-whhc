@@ -8,21 +8,16 @@ import { IEvent } from '../../../components/events/events.interfaces';
 @Component({
   selector: 'whhc-home-events',
   templateUrl: './home-events.component.html',
-  styleUrls: ['./home-events.component.scss']
 })
 export class HomeEventsComponent implements OnInit {
 
-  @select(['events', 'events']) events: Observable<IEvent[]>;
+  @select(['events', 'future']) events: Observable<IEvent[]>;
 
   constructor(
     private eventsService: EventsService,
   ) {}
 
   ngOnInit() {
-    this.events.subscribe(e => {
-      if (e.length === 0) {
-        this.eventsService.loadLatestEvents(3);
-      }
-    });
+    this.eventsService.loadEvents({ count: 3, future: true });
   }
 }

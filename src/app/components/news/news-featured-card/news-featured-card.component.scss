@@ -1,6 +1,4 @@
-@import '../../../../styles/variables';
-
-a {
+.whhc-news-featured-card {
   position: relative;
   padding-bottom: 95%;
   background-size: cover;
@@ -27,41 +25,19 @@ a {
       animation: featuredNewsSlideIn .4s ease forwards;
     }
   }
-}
 
-.description {
-  position: absolute;
-  z-index: 1;
+  .description {
+    position: absolute;
+    z-index: 1;
 
-  width: 50%;
-  height: 50%;
+    width: 50%;
+    height: 50%;
 
-  padding: $column-gap;
+    padding: $column-gap;
 
-  bottom: 0;
-  left: 15%;
+    bottom: 0;
+    left: 15%;
 
-  background: $white;
-}
-
-@keyframes featuredNewsSlideIn {
-  0%   {
-    top: -2vw;
-    left: -2vw;
-  }
-  100% {
-    top: 0;
-    left: 0;
-  }
-}
-
-@keyframes featuredNewsSlideOut {
-  0% {
-    top: 0;
-    left: 0;
-  }
-  100%   {
-    top: -2vw;
-    left: -2vw;
+    background: $white;
   }
 }

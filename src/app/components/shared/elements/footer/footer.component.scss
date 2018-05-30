@@ -1,43 +1,45 @@
-@import '../../../../../styles/variables';
+.whhc-sponsors {
+  padding-top: $gap;
+  padding-bottom: $gap;
 
-section {
-  h3 {
+  background: $white;
+
+  h2 {
     font-family: $font-title;
-    font-size: 1.6vw;
-  }
-
-  padding: $column-gap * 2 0;
-
-  .columns {
-    padding-bottom: $column-gap;
+    font-weight: 400;
   }
 }
 
-// footer
-.social, .copyright, .address {
-  font-family: $font-title;
-  font-size: 1.6vw;
-  font-weight: 400;
-  padding: $column-gap / 2 0;
-}
+footer {
+  background: $whhc-black;
 
-.social a {
-  padding-left: 3.2vw;
-
-  background-position: left center;
-  background-size: contain;
-  background-repeat: no-repeat;
-
-  &:hover {
-    color: $link !important;
+  .social a, .address, .copyright {
+    color: $white;
   }
-}
 
+  .social, .copyright, .address {
+    font-family: $font-title;
+    font-weight: 400;
+    padding: $column-gap / 2 0;
+  }
 
-.copyright {
-  padding-top: 1vw;
+  .social a {
+    padding-left: 2rem;
 
-  span {
-    color: $whhc-blue;
+    background-position: left center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    &:hover {
+      color: $link !important;
+    }
+  }
+
+  .copyright {
+    padding-top: 0.75rem;
+
+    span {
+      color: $whhc-blue;
+    }
   }
 }

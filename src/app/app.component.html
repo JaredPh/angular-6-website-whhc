@@ -1,21 +1,16 @@
 <whhc-page-loader></whhc-page-loader>
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
+  <div class="container">
+    <div class="navbar-brand">
 
-    <a class="navbar-item" routerLink="/">
-      <img src="/assets/site/brand.png" alt="West Hampstead Hockey Club">
-    </a>
+      <a class="navbar-item" routerLink="/">
+        <img src="/assets/site/brand.png" alt="West Hampstead Hockey Club">
+      </a>
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div class="navbar-end">
-    <a class="navbar-item" routerLink="/news">News</a>
+    </div>
   </div>
 </nav>
-<router-outlet></router-outlet>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
 <whhc-footer></whhc-footer>

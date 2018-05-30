@@ -1,15 +1,15 @@
-<section class="hero is-white">
+<section class="whhc-sponsors hero is-white">
   <div class="container">
     <div class="columns is-centered">
       <div class="column has-text-centered">
-        <h3>Sponsors, Friends, and Family</h3>
+        <h2 class="title is-5">Sponsors, Friends, and Family</h2>
       </div>
     </div>
-    <div class="columns is-centered">
+    <div class="columns is-centered is-mobile">
       <div *ngFor="let link of links" class="column is-narrow">
         <a [href]="link.url" target="_blank">
           <figure
-            class="image is-96x96 tooltip"
+            class="image is-96x96 is-48x48-mobile tooltip"
             [attr.data-tooltip]="link.label"
           >
             <img [src]="link.logo.url">
@@ -19,10 +19,11 @@
     </div>
   </div>
 </section>
-<footer class="hero is-dark">
-  <div class="hero-body container">
+
+<footer class="section is-dark">
+  <div class="container">
     <div class="columns">
-      <div class="column">
+      <div class="column is-6">
         <ul>
           <li *ngFor="let network of socialNetworks" class="social">
             <a
@@ -34,7 +35,7 @@
           </li>
         </ul>
       </div>
-      <div class="column has-text-right">
+      <div class="column is-6-mobile has-text-right-tablet has-text-left-mobile">
         <p class="address">
           West Hampstead Hockey Club<br>
           25 Lymington Road<br>

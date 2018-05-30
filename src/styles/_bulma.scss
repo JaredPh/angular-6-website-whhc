@@ -2,6 +2,36 @@
 @import '~bulma-tooltip';
 @import '~bulma-pageloader/dist/bulma-pageloader.sass';
 
+.content ol, .content ul {
+  list-style-position: inside;
+}
+
+h1, h2, .description {
+  &, &.title {
+    text-transform: uppercase;
+  }
+}
+
+.title {
+  font-family: $font-title;
+  font-weight: 700;
+}
+
+.subtitle + .subtitle {
+  margin-top: -1.25rem;
+}
+
 .box {
   box-shadow: $box-shadow !important;
+
+  @include touch {
+    padding: 0;
+  }
+}
+
+.is-48x48-mobile {
+  @include mobile {
+    height: 48px !important;
+    width: 48px !important;
+  }
 }

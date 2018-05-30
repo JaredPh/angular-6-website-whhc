@@ -4,12 +4,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'whhc-media-youtube',
   templateUrl: './media-youtube.component.html',
-  styleUrls: ['./media-youtube.component.scss']
 })
 export class MediaYoutubeComponent implements OnInit {
 
   @Input() code: string;
-  @Input() align: string;
 
   public url;
   constructor(

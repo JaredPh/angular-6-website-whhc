@@ -1,24 +1,45 @@
-@mixin absolute-child {
-  position: relative;
+@mixin article-feature-right {
+  @include mobile {
+    margin-bottom: $gap / 2;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-  > div {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  @include tablet {
+    float: right;
+    max-width: 50%;
+    margin-left: $gap / 2;
   }
 }
 
-@mixin title-text {
-  text-transform: uppercase;
-  font-family: $font-title;
-  font-size: 1.2vw;
-  font-weight: 700;
+@mixin article-feature-left {
+  @include tablet {
+    float: left;
+    margin-right: $gap / 2;
+  }
 }
 
-@mixin date-text {
-  font-family: $font-main;
-  margin-top: -0.1vw;
-  font-size: 1vw;
-}
+//@mixin absolute-child {
+//  position: relative;
+//
+//  > div {
+//    position: absolute;
+//    top: 0;
+//    bottom: 0;
+//    left: 0;
+//    right: 0;
+//  }
+//}
+//
+//@mixin title-text {
+//  text-transform: uppercase;
+//  font-family: $font-title;
+//  font-size: 1.2vw;
+//  font-weight: 700;
+//}
+//
+//@mixin date-text {
+//  font-family: $font-main;
+//  margin-top: -0.1vw;
+//  font-size: 1vw;
+//}

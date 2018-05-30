@@ -5,7 +5,6 @@ import * as moment from 'moment';
 @Component({
   selector: 'whhc-event-card',
   templateUrl: './events-event-card.component.html',
-  styleUrls: ['./events-event-card.component.scss']
 })
 export class EventsCardComponent {
 
@@ -22,7 +21,7 @@ export class EventsCardComponent {
       const sameMonth = moment(event.start).isSame(event.end, 'month');
 
       if (sameMonth) {
-        return `${moment(event.start).format('dddd Do')} - ${moment(event.end).format('Do MMMM YYYY')}`;
+        return `${moment(event.start).format('ddd Do')} - ${moment(event.end).format('Do MMMM YYYY')}`;
       } else {
         return `${moment(event.start).format('ddd, Do MMMM')} - ${moment(event.end).format('Do MMMM YYYY')}`;
       }

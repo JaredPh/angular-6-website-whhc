@@ -1,73 +1,77 @@
-@import '../../../../styles/variables';
+.whhc-img-gallery {
 
-section {
-  margin: 0 -$column-gap / 2;
+  margin: 0 -$gap / 2;
 
   div {
     display: flex;
     flex-direction: row;
     width: 100%;
 
-    @at-root figure {
+    figure {
       margin: $column-gap / 2;
       cursor: pointer;
     }
   }
-}
 
-.single {
-  div {
-    width: 60%;
-    margin-left: 20%;
-  }
-}
+  //.single {
+  //  div {
+  //    width: 60%;
+  //    margin-left: 20%;
+  //  }
+  //}
+  //
+  & + .modal {
+    .modal-content {
+      overflow: visible;
+      width: auto;
 
-.modal-content {
-  overflow: visible;
-  width: auto;
+      img {
+        max-width: 90vw;
+        max-height: 90vh;
+      }
+    }
 
-  img {
-    max-width: 90vw;
-    max-height: 90vh;
-  }
-}
+    .modal-button {
 
-.modal-button {
-  $btn-size: 4rem;
+      @include touch { display: none; }
 
-  position: absolute;
-  display: block;
-  user-select: none;
+      $btn-size: 4rem;
 
-  width: $btn-size;
-  height: $btn-size;
-  top: 50%;
+      position: absolute;
+      display: block;
+      user-select: none;
 
-  margin-top: -$btn-size / 2;
+      width: $btn-size;
+      height: $btn-size;
+      top: 50%;
 
-  line-height: $btn-size;
-  font-size: $btn-size / 2;
-  font-family: $font-title;
-  font-weight: 700;
+      margin-top: -$btn-size / 2;
 
-  text-align: center;
+      line-height: $btn-size;
+      font-size: $btn-size / 2;
+      font-family: $font-title;
+      font-weight: 700;
 
-  z-index: 41;
+      text-align: center;
 
-  background-color: $white;
-  color: $whhc-black;
+      z-index: 41;
 
-  &:hover {
-    color: white;
-  }
+      background-color: $white;
+      color: $whhc-black;
 
-  &.prev {
-    left:  -$btn-size;
-    @include on-hover-background-slide-in-left($whhc-maroon);
-  }
+      &:hover {
+        color: white;
+      }
 
-  &.next {
-    right: -$btn-size;
-    @include on-hover-background-slide-in-right($whhc-maroon);
+      &.prev {
+        left: -$btn-size;
+        @include on-hover-background-slide-in-left($whhc-maroon);
+      }
+
+      &.next {
+        right: -$btn-size;
+        @include on-hover-background-slide-in-right($whhc-maroon);
+      }
+    }
   }
 }
