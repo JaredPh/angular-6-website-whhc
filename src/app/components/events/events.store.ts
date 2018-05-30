@@ -6,7 +6,6 @@ export interface IEventsState {
   past: Event[];
   pendingRequests: number;
   error: boolean;
-  tags: string[];
 }
 
 export const INITIAL_EVENTS_STATE: IEventsState = {
@@ -14,7 +13,6 @@ export const INITIAL_EVENTS_STATE: IEventsState = {
   past: [],
   pendingRequests: 0,
   error: false,
-  tags: [],
 };
 
 export function eventsReducer(state: IEventsState = INITIAL_EVENTS_STATE, action): IEventsState {
