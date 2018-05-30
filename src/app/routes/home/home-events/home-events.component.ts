@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { select } from '@angular-redux/store';
 
 import { EventsService } from '../../../components/events/events.service';
-import { IEvent } from '../../../components/events/events.interfaces';
+import { Event } from '../../../components/events/events.models';
 
 @Component({
   selector: 'whhc-home-events',
@@ -11,7 +11,7 @@ import { IEvent } from '../../../components/events/events.interfaces';
 })
 export class HomeEventsComponent implements OnInit {
 
-  @select(['events', 'future']) events: Observable<IEvent[]>;
+  @select(['events', 'future']) events: Observable<Event[]>;
 
   constructor(
     private eventsService: EventsService,

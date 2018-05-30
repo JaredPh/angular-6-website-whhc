@@ -1,9 +1,9 @@
-import { IEvent } from './events.interfaces';
+import { Event } from './events.models';
 import { eventsActions, EventsActions } from './events.actions';
 
 export interface IEventsState {
-  future: IEvent[];
-  past: IEvent[];
+  future: Event[];
+  past: Event[];
   pendingRequests: number;
   error: boolean;
   tags: string[];

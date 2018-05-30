@@ -4,6 +4,7 @@ import { IAppState } from '../../app.store';
 
 import { eventsActions } from './events.actions';
 import { HttpService } from '../shared/services/http.service';
+import { Event } from './events.models';
 
 @Injectable()
 export class EventsService {
@@ -16,12 +17,13 @@ export class EventsService {
   public loadEvent(slug: string): void {
     // TODO: make this proper when route exists
     this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_ONE_REQUEST });
-
     const httpResponse = this.httpService.get(`/events/${slug}`);
 
     httpResponse.subscribe(
       (data: any) => {
-        this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_ONE_SUCCESS, events: data.results });
+        const events: Event[] = data.results.map(e => new Event(e));
+
+        this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_ONE_SUCCESS, events });
       },
       (error) => {
         this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_ONE_ERROR, error });
@@ -36,7 +38,8 @@ export class EventsService {
 
     httpResponse.subscribe(
       (data: any) => {
-        this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_MANY_SUCCESS, events: data.results });
+        const events: Event[] = data.results.map(e => new Event(e));
+        this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_MANY_SUCCESS, events });
       },
       (error) => {
         this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_MANY_ERROR, error });

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IEvent } from '../events.interfaces';
+import { Event } from '../events.models';
 import * as moment from 'moment';
 
 @Component({
@@ -8,9 +8,9 @@ import * as moment from 'moment';
 })
 export class EventsCardComponent {
 
-  @Input() event: IEvent;
+  @Input() event: Event;
 
-  public getDateRange(event: IEvent): string {
+  public getDateRange(event: Event): string {
     const sameDayLimit = moment(event.start).add(1, 'day').set('hour', 6).utc().format();
 
     const sameDay = event.end < sameDayLimit;
