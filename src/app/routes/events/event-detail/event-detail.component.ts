@@ -60,7 +60,7 @@ export class EventDetailComponent implements OnInit {
   }
 
   private setSimilar(slug: string): void {
-    this.eventsService.loadEvents(slug);
+    this.eventsService.loadEvents({ count: 6, future: true, exclude: slug });
 
     this.redux
       .select(s => s.events.future.filter(a => a.slug !== slug))

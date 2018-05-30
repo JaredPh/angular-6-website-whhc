@@ -17,7 +17,7 @@ export class EventsService {
     // TODO: make this proper when route exists
     this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_ONE_REQUEST });
 
-    const httpResponse = this.httpService.get('/events');
+    const httpResponse = this.httpService.get(`/events/${slug}`);
 
     httpResponse.subscribe(
       (data: any) => {
@@ -30,7 +30,7 @@ export class EventsService {
   }
 
   public loadEvents(options?: any): void {
-      this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_MANY_REQUEST });
+    this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_MANY_REQUEST });
 
     const httpResponse = this.httpService.get('/events', options);
 
