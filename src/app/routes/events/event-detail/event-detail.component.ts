@@ -4,7 +4,7 @@ import { EventsService } from '../../../components/events/events.service';
 import { PageLoaderService  } from '../../../components/shared/elements/page-loader/page-loader.service';
 import { IAppState } from '../../../app.store';
 import { NgRedux } from '@angular-redux/store';
-import { IEvent } from '../../../components/events/events.interfaces';
+import { Event } from '../../../components/events/events.models';
 import * as moment from 'moment';
 
 @Component({
@@ -13,8 +13,8 @@ import * as moment from 'moment';
 })
 export class EventDetailComponent implements OnInit {
 
-  public event: IEvent;
-  public similar: IEvent[];
+  public event: Event;
+  public similar: Event[];
 
   public startDateFormat: string;
   public endDateFormat: string;

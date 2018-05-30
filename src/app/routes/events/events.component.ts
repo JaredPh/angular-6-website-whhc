@@ -4,7 +4,7 @@ import { IAppState } from '../../app.store';
 import { ActivatedRoute } from '@angular/router';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
 import { Observable } from 'rxjs/index';
-import { IEvent} from '../../components/events/events.interfaces';
+import { Event} from '../../components/events/events.models';
 import { EventsService} from '../../components/events/events.service';
 
 @Component({
@@ -16,8 +16,8 @@ export class EventsComponent implements OnInit {
   @select(['events', 'tags']) tags: Observable<string[]>;
   @select(s => s.news.pendingRequests > 0) loading: Observable<boolean>;
 
-  public future: IEvent[];
-  public past: IEvent[];
+  public future: Event[];
+  public past: Event[];
 
   public selectedEvent: string;
   public selectedTag: string;

@@ -18,7 +18,6 @@ export class HttpService {
     }
 
     const url = `http://localhost:3000${route}${queryString}`;
-    console.log('url', url);
 
     return this.http.get(url);
   }
