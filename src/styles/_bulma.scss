@@ -2,6 +2,10 @@
 @import '~bulma-tooltip';
 @import '~bulma-pageloader/dist/bulma-pageloader.sass';
 
+pre {
+  font-family: inherit;
+}
+
 .content ol, .content ul {
   list-style-position: inside;
 }

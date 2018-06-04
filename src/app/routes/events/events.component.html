@@ -1,35 +1,37 @@
 <section class="section">
-  <div class="columns is-multiline is-mobile">
-    <div class="sticky-side column is-3-desktop is-12-touch">
-      <div class="is-sticky">
-        <h1 class="title">Events</h1>
+  <div class="container is-widescreen">
+    <div class="columns is-multiline is-mobile">
+      <div class="sticky-side column is-3-desktop is-12-touch">
+        <div class="is-sticky">
+          <h1 class="title">Events</h1>
 
-        <div class="has-text-centered">
-          <whhc-tag *ngFor="let tag of tags | async" [tag]="tag" [selected]="selectedTag"></whhc-tag>
+          <div class="has-text-centered">
+            <whhc-tag *ngFor="let tag of tags | async" [tag]="tag" [selected]="selectedTag"></whhc-tag>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="column">
+
+        <h2 *ngIf="future.length > 0" class="title is-6">Upcoming Events</h2>
+
+        <div class="columns is-multiline is-mobile">
+          <div *ngFor="let event of future  " class="column is-3-desktop is-4-tablet is-6-mobile">
+            <whhc-event-card [id]="event.slug" [event]="event"></whhc-event-card>
+          </div>
+        </div>
+
+        <h2 *ngIf="past.length > 0" class="title is-6">Past Events</h2>
+
+        <div class="columns is-multiline is-mobile">
+          <div *ngFor="let event of past" class="column is-3-desktop is-4-tablet is-6-mobile">
+            <whhc-event-card [id]="event.slug" [event]="event"></whhc-event-card>
+          </div>
         </div>
       </div>
 
     </div>
-
-    <div class="column">
-
-      <h2 *ngIf="future.length > 0" class="title is-6">Upcoming Events</h2>
-
-      <div class="columns is-multiline is-mobile">
-        <div *ngFor="let event of future  " class="column is-3-desktop is-4-tablet is-6-mobile">
-          <whhc-event-card [id]="event.slug" [event]="event"></whhc-event-card>
-        </div>
-      </div>
-
-      <h2 *ngIf="past.length > 0" class="title is-6">Past Events</h2>
-
-      <div class="columns is-multiline is-mobile">
-        <div *ngFor="let event of past" class="column is-3-desktop is-4-tablet is-6-mobile">
-          <whhc-event-card [id]="event.slug" [event]="event"></whhc-event-card>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 

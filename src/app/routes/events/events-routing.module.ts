@@ -5,9 +5,9 @@ import { EventDetailComponent } from './event-detail/event-detail.component';
 
 const routes: Routes = [
   { path: '', component: EventsComponent },
-  { path: 'items/:tag', component: EventsComponent, data: { reuse: true }},
+  { path: 'tags/:tag', component: EventsComponent, data: { reuse: true }},
   { path: 'tags', redirectTo: '' },
-  { path: ':slug', component: EventDetailComponent, data: { reuse: true }},
+  { path: ':slug', component: EventDetailComponent, data: { reuse: false }},
 ];
 
 @NgModule({

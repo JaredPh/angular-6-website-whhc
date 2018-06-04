@@ -1,38 +1,39 @@
 <section class="section" *ngIf="article">
-  <div class="columns is-multiline">
-    <div class="column is-8-desktop is-12-touch">
+  <div class="container is-widescreen">
+    <div class="columns is-multiline">
+      <div class="column is-8-desktop is-12-touch">
 
-      <article class="whhc-news whhc-main box">
-        <header class="hero is-dark" [ngStyle]="{'background-image': 'url(' + article.background.url + ')' }">
-          <div class="hero-body has-text-centered">
-            <whhc-media-avatar [user]="article.author" type="small"></whhc-media-avatar>
-            <h1 class="title is-4">{{ article.heading }}</h1>
-            <p class="subtitle is-6">{{ article.date | dateToStr:'dddd, Do of MMMM YYYY' }}</p>
+        <article class="whhc-news whhc-main box">
+          <header class="hero is-dark" [ngStyle]="{'background-image': 'url(' + article.background.url + ')' }">
+            <div class="hero-body has-text-centered">
+              <whhc-media-avatar [user]="article.author" type="small"></whhc-media-avatar>
+              <h1 class="title is-4">{{ article.heading }}</h1>
+              <p class="subtitle is-6">{{ article.date | dateToStr:'dddd, Do of MMMM YYYY' }}</p>
+            </div>
+          </header>
+
+          <div *ngIf="article.tags.length > 0" class="tags has-text-centered">
+            <whhc-tag *ngFor="let tag of article.tags" [tag]="tag" size="medium"></whhc-tag>
           </div>
-        </header>
 
-        <div *ngIf="article.tags.length > 0" class="tags has-text-centered">
-          <whhc-tag *ngFor="let tag of article.tags" [tag]="tag" size="medium"></whhc-tag>
-        </div>
+          <whhc-media-youtube *ngIf="article.video" [code]="article.video"></whhc-media-youtube>
 
-        <whhc-media-youtube *ngIf="article.featuredVideo" [code]="article.featuredVideo"></whhc-media-youtube>
-        <figure *ngIf="article.featuredImage" class="featured image"><img [src]="article.featuredImage.url"></figure>
+          <div class="content has-text-justified" [innerHtml]="article.body"></div>
 
-        <div class="content has-text-justified" [innerHtml]="article.body"></div>
-
-        <whhc-media-image-gallery *ngIf="article.photos" [images]="article.photos"></whhc-media-image-gallery>
-      </article>
-    </div>
-
-    <div class="column">
-      <div class="columns is-multiline is-sticky">
-
-        <div *ngFor="let similarArticle of similar" class="column is-12-desktop is-6-tablet">
-          <whhc-news-basic-card [article]="similarArticle"></whhc-news-basic-card>
-        </div>
-
+          <whhc-media-image-gallery *ngIf="article.photos" [images]="article.photos"></whhc-media-image-gallery>
+        </article>
       </div>
-    </div>
 
+      <div class="column">
+        <div class="columns is-multiline is-sticky">
+
+          <div *ngFor="let similarArticle of similar" class="column is-12-desktop is-6-tablet">
+            <whhc-news-basic-card [article]="similarArticle"></whhc-news-basic-card>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
