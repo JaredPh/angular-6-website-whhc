@@ -15,7 +15,7 @@ import { TagsService } from '../../components/tags/tags.service';
 export class EventsComponent implements OnInit {
 
   @select(['tags', 'items']) tags: Observable<string[]>;
-  @select(s => s.news.pendingRequests > 0) loading: Observable<boolean>;
+  @select(s => s.news.pendingRequests + s.tags.pendingRequests > 0) loading: Observable<boolean>;
 
   public future: Event[];
   public past: Event[];

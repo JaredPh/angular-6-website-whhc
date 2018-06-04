@@ -27,6 +27,17 @@ body {
 
   @at-root .tag { margin: 0 2px; }
 }
+.whhc-photos .is-sticky {
+  background-color: $bg-grey;
+
+  a {
+    color: $whhc-black;
+
+    &:hover {
+      color: $link;
+    }
+  }
+}
 
 .whhc-label {
   padding-bottom: $gap / 2;

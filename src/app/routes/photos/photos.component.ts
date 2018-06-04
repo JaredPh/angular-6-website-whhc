@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
 import { NgRedux, select } from '@angular-redux/store';
-import { NewsService } from '../../components/news/news.service';
-import { News } from '../../components/news/news.models';
-import { IAppState } from '../../app.store';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { IAppState } from '../../app.store';
+import { News } from '../../components/news/news.models';
+import { NewsService } from '../../components/news/news.service';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
-import { Observable } from 'rxjs/index';
 import { TagsService } from '../../components/tags/tags.service';
 
 @Component({
-  templateUrl: './news.component.html',
+  selector: 'whhc-photos',
+  templateUrl: './photos.component.html',
+  styleUrls: ['./photos.component.scss']
 })
-export class NewsComponent implements OnInit {
+export class PhotosComponent implements OnInit {
 
-  @select(['tags', 'items']) tags: Observable<string[]>;
+  @select(s => s.tags.items.filter(t => t !== 'photos')) tags: Observable<string[]>;
   @select(s => s.news.pendingRequests + s.tags.pendingRequests > 0) loading: Observable<boolean>;
 
   public articles: News[];
@@ -45,16 +47,15 @@ export class NewsComponent implements OnInit {
       this.ngRedux
         .select(s => s.news.articles)
         .subscribe((articles) => {
-          console.log('selected TAG', this.selectedTag);
           this.articles = (this.selectedTag)
-            ? articles.filter(a => a.tags.indexOf(this.selectedTag) >= 0)
-            : articles;
+            ? articles.filter(a => a.tags.indexOf(this.selectedTag) >= 0 && a.photos.length > 0)
+            : articles.filter(a => a.photos.length > 0);
         });
     });
   }
 
   private initPageLoader() {
-    const message = 'Loading Articles...';
+    const message = 'Loading Photos...';
 
     this.pageLoader.set(message);
 
