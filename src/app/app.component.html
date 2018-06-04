@@ -2,15 +2,27 @@
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="container is-widescreen">
     <div class="navbar-brand">
-
-      <a class="navbar-item" routerLink="/">
-        <img src="/assets/site/brand.png" alt="West Hampstead Hockey Club">
-      </a>
-
+      <div class="navbar-brand">
+        <a class="navbar-item" routerLink="/">
+          <img src="/assets/site/brand.png" alt="West Hampstead Hockey Club">
+        </a>
+      </div>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start">
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item">Join</a>
+        <a routerLink="/news" class="navbar-item">News</a>
+        <a routerLink="/events" class="navbar-item">Events</a>
+        <a routerLink="/photos" class="navbar-item">Photos</a>
+        <a class="navbar-item">Fixtures</a>
+        <a class="navbar-item">Oppositions</a>
+        <a class="navbar-item">Location</a>
+        <a class="navbar-item">Contact</a>
+      </div>
     </div>
   </div>
 </nav>
-<div class="container is-widescreen">
-  <router-outlet></router-outlet>
-</div>
+<router-outlet></router-outlet>
 <whhc-footer></whhc-footer>
