@@ -12,12 +12,14 @@
     width: 100%;
     height: 100%;
 
-    top: -2vw;
-    left: -2vw;
+    top: 0;
+    left: 0;
 
-    border: 0.75vw solid $whhc-blue;
+    @include desktop {
+      animation: featuredNewsSlideOut .2s ease forwards;
+    }
 
-    animation: featuredNewsSlideOut .2s ease forwards;
+    border: 0.5rem solid $whhc-blue;
   }
 
   &:hover {

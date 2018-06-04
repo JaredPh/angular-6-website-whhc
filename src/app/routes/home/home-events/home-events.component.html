@@ -1,12 +1,12 @@
-<div class="whhc-home-events columns">
+<div class="whhc-home-events columns is-multiline">
 
-  <div class="column whhc-label label-rotate">
+  <div class="column whhc-label label-rotate label-left is-12-tablet">
     <h2 class="title is-4" routerLink="/events">Events</h2>
   </div>
 
-  <div class="column events">
-    <div class="columns is-multiline">
-      <div *ngFor="let event of (events | async).slice(0, 3)" class="column is-12 event">
+  <div class="column events is-10-desktop">
+    <div class="columns is-multiline is-mobile">
+      <div *ngFor="let event of (events | async).slice(0, 3)" class="column is-12-desktop is-4-tablet is-6-mobile event">
         <whhc-event-card [event]="event"></whhc-event-card>
       </div>
     </div>

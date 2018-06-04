@@ -59,34 +59,40 @@ body {
       border-top: 2px solid $whhc-black;
       top: 50%;
       margin-top: -1px;
-      right: 100%;
-      margin-right: 0.5rem;
+
+      margin-right: 0;
+      margin-left: 1rem;
+      right: auto;
+      left: 100%;
     }
   }
 
   &.label-rotate {
-    padding-right: $gap;
-    flex-grow: unset;
+    @include desktop {
+      padding-right: $gap;
+      flex-grow: unset;
 
-    h2 {
-      position: absolute;
-      transform: rotate(-90deg);
-      transform-origin: 3rem 1rem;
+      h2 {
+        position: absolute;
+        transform: rotate(-90deg);
+        transform-origin: 2.3rem 3rem; //3rem 1rem;
 
-      left: 0;
-      right: 0;
+        left: 0;
+        right: 0;
 
-      //top: 7rem;
+        //top: 7rem;
+      }
     }
   }
 
-  &.label-right {
-    h2:after {
-      margin-right: 0;
-      right: auto;
-
-      left: 100%;
-      margin-left: 1rem;
+  &.label-left {
+    @include desktop {
+      h2:after {
+        margin-right: 0.5rem;
+        margin-left: 0rem;
+        right: 100%;
+        left: auto;
+      }
     }
   }
 }

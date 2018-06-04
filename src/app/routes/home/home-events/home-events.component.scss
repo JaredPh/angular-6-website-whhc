@@ -2,10 +2,18 @@
   margin-top: -$column-gap;
 
   .events {
-    margin-top: $gap;
     position: relative;
     padding-top: $gap / 2;
     padding-bottom: $gap / 2;
+
+    @include tablet {
+      margin-top: $gap / 2;
+      margin-bottom: $gap;
+    }
+
+    @include desktop {
+      margin-top: $gap;
+    }
 
     &:before {
       content: '';
@@ -31,6 +39,8 @@
   }
 
   .whhc-label h2 {
-    top: 6rem;
+    @include desktop {
+      top: 6rem;
+    }
   }
 }
