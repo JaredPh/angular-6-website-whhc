@@ -14,6 +14,7 @@ export class News {
 
   author: User;
 
+  similar: string[];
   tags: string[];
 
   constructor(data: any) {
@@ -32,6 +33,7 @@ export class News {
 
     this.author = new User(data.author);
 
+    this.similar = data.similar;
     this.tags = data.tags.map(t => t.name);
   }
 }

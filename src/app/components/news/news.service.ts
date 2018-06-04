@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { IAppState } from '../../app.store';
 import { NgRedux } from '@angular-redux/store';
+import { HttpService } from '../shared/services/http.service';
 import { News } from './news.models';
 import { newsActions } from './news.actions';
-import { of } from 'rxjs';
 import { testNews } from './news.data';
 
 export const tempNews: News[] = testNews;
@@ -13,11 +13,13 @@ export class NewsService {
 
   constructor(
     private redux: NgRedux<IAppState>,
+    private httpService: HttpService,
   ) {}
 
   public loadArticle(slug: string): void {
     this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_REQUEST});
-    const httpResponse = of({ results: tempNews });  // this.httpService.get(`/events/${slug}`);
+
+    const httpResponse = this.httpService.get('/news');
 
     httpResponse.subscribe(
       (data: any) => {
@@ -34,7 +36,7 @@ export class NewsService {
   public loadArticles(options?: any): void {
     this.redux.dispatch({ type: newsActions.NEWS_FETCH_MANY_REQUEST});
 
-    const httpResponse = of({ results: tempNews }); // this.httpService.get('/events', options);
+    const httpResponse = this.httpService.get('/news', options);
 
     httpResponse.subscribe(
       (data: any) => {

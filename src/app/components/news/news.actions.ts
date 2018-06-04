@@ -1,5 +1,6 @@
 import { tassign } from 'tassign';
 import * as _ from 'lodash';
+import { Event } from '../events/events.models';
 
 import { INewsState } from './news.store';
 import { News } from './news.models';
@@ -25,10 +26,14 @@ export class NewsReducerActions {
   }
 
   public newsSuccess() {
-    const fetchedArticles: News[] = (this.action.articles) ? this.action.articles : [this.action.article];
+    const fetchedArticles: News[] = this.action.articles;
 
-    let articles: News[] = _(fetchedArticles).union(this.state.articles, 'slug').value();
-    articles = articles.sort((a, b) => b.date.localeCompare(a.date));
+    const returnedSlugs = this.action.articles.map(a => a.slug);
+
+    const articles: News[] = [
+      ...this.action.articles,
+      ...this.state.articles.filter(a => returnedSlugs.indexOf(a.slug) < 0),
+    ].sort((a, b) => b.date.localeCompare(a.date));
 
     return tassign(this.state, { articles, pendingRequests: this.state.pendingRequests - 1 });
   }

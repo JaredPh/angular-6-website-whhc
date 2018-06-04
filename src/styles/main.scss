@@ -9,6 +9,14 @@
 @import 'bulma';
 @import 'base-elements';
 
+.home-hero {
+  height: calc(100vh - (#{$navbar-height} + #{3 * $gap}));
+  min-height: 26rem;
+  background-size: cover;
+  background-position: center center;
+  background-image: url(http://media.whhc.uk/a8b522cd-c49c-4336-b143-500ae28d04be.jpg);
+}
+
 body {
   background: $bg-grey;
 }

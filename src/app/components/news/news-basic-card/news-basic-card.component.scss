@@ -1,6 +1,12 @@
 .whhc-news-basic-card {
 
+  height: 100%;
+
   @include on-hover-grow;
+
+  .columns.is-marginless {
+    height: 100%;
+  }
 
   .thumb {
     background-size: cover;
@@ -10,8 +16,10 @@
   }
 
   .description {
-    padding-left: $gap;
-    padding-right: $gap;
+    //padding-left: $gap;
+    //padding-right: $gap;
   }
 
 }
+
+
