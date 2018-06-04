@@ -14,7 +14,6 @@ import { IAppState, INITIAL_STATE, rootReducer } from './app.store';
 import { SharedModule } from './components/shared/shared.module';
 import { PageLoaderService } from './components/shared/elements/page-loader/page-loader.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
