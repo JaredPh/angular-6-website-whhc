@@ -9,7 +9,7 @@ import { select } from '@angular-redux/store';
 })
 export class HomeComponent implements OnInit {
 
-  @select(s => s.news.pendingRequests + s.events.pendingRequests  > 0) loading: Observable<boolean>;
+  @select(s => s.news.pendingRequests + s.events.pendingRequests + s.tags.pendingRequests  > 0) loading: Observable<boolean>;
 
   constructor(
     private pageLoader: PageLoaderService,

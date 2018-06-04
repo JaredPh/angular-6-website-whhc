@@ -14,7 +14,7 @@ import { TagsService } from '../../components/tags/tags.service';
 export class NewsComponent implements OnInit {
 
   @select(['tags', 'items']) tags: Observable<string[]>;
-  @select(s => s.news.pendingRequests > 0) loading: Observable<boolean>;
+  @select(s => s.news.pendingRequests + s.tags.pendingRequests > 0) loading: Observable<boolean>;
 
   public articles: News[];
   public selectedTag: string;
@@ -35,6 +35,7 @@ export class NewsComponent implements OnInit {
     this.route.params.subscribe( params => {
       this.selectedTag = params.tag;
 
+      // Todo: implement by Tag
       if (this.selectedTag) {
         this.newsService.loadArticles();
       } else {
