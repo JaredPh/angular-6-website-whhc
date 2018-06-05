@@ -27,10 +27,10 @@ import { PageLoaderService } from './components/shared/elements/page-loader/page
   ],
   providers: [
     AppPreloader,
-    {
-      provide: RouteReuseStrategy,
-      useClass: AppRouteStrategy,
-    },
+    // {
+    //   provide: RouteReuseStrategy,
+    //   useClass: AppRouteStrategy,
+    // },
     PageLoaderService,
   ],
   bootstrap: [

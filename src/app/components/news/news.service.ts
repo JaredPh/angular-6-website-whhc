@@ -17,20 +17,24 @@ export class NewsService {
   ) {}
 
   public loadArticle(slug: string): void {
-    this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_REQUEST});
+    this.redux.select(s => s.news.articles).subscribe((stateArticles) => {
+      if (!stateArticles.find(a => a.slug === slug)) {
+        this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_REQUEST});
 
-    const httpResponse = this.httpService.get('/news');
+        const httpResponse = this.httpService.get(`/news/${slug}`);
 
-    httpResponse.subscribe(
-      (data: any) => {
-        const articles: News[] = data.results.map(n => new News(n));
+        httpResponse.subscribe(
+          (data: any) => {
+            const articles: News[] = data.results.map(n => new News(n));
 
-        this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_SUCCESS, articles });
-      },
-      (error) => {
-        this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_ERROR, error });
-      },
-    );
+            this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_SUCCESS, articles });
+          },
+          (error) => {
+            this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_ERROR, error });
+          },
+        );
+      }
+    });
   }
 
   public loadArticles(options?: any): void {

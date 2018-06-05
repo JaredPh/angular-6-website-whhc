@@ -26,8 +26,6 @@ export class NewsReducerActions {
   }
 
   public newsSuccess() {
-    const fetchedArticles: News[] = this.action.articles;
-
     const returnedSlugs = this.action.articles.map(a => a.slug);
 
     const articles: News[] = [

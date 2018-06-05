@@ -5,14 +5,12 @@ export interface INewsState {
   articles: News[];
   pendingRequests: number;
   error: boolean;
-  tags: string[];
 }
 
 export const INITIAL_NEWS_STATE: INewsState = {
   articles: [],
   pendingRequests: 0,
   error: false,
-  tags: [],
 };
 
 export function newsReducer(state: INewsState = INITIAL_NEWS_STATE, action): INewsState {

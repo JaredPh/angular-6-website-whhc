@@ -1,3 +1,13 @@
 .whhc-youtube {
   @include article-feature-right;
+
+  iframe {
+    @include desktop {
+      width: 32vw;
+      height: 18vw;
+      max-width: 560px;
+      max-height: 315px;
+    }
+  }
 }
+

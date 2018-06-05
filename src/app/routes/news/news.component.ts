@@ -25,27 +25,27 @@ export class NewsComponent implements OnInit {
     private ngRedux: NgRedux<IAppState>,
     private route: ActivatedRoute,
     private pageLoader: PageLoaderService,
-  ) {}
+  ) {
+    this.initPageLoader();
+  }
 
   ngOnInit() {
-    this.initPageLoader();
-
     this.tagsService.loadTags();
 
     this.route.params.subscribe( params => {
       this.selectedTag = params.tag;
 
-      // Todo: implement by Tag
+      const options: any = {};
+
       if (this.selectedTag) {
-        this.newsService.loadArticles();
-      } else {
-        this.newsService.loadArticles(20);
+        options.tag = this.selectedTag;
       }
+
+      this.newsService.loadArticles(options);
 
       this.ngRedux
         .select(s => s.news.articles)
         .subscribe((articles) => {
-          console.log('selected TAG', this.selectedTag);
           this.articles = (this.selectedTag)
             ? articles.filter(a => a.tags.indexOf(this.selectedTag) >= 0)
             : articles;

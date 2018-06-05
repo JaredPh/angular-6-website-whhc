@@ -18,7 +18,11 @@ export class HomeNewsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.newsService.loadArticles();
+    const options: any = {
+      count: 7,
+    };
+
+    this.newsService.loadArticles(options);
   }
 
 }

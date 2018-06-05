@@ -29,10 +29,11 @@ export class EventsComponent implements OnInit {
     private ngRedux: NgRedux<IAppState>,
     private route: ActivatedRoute,
     private pageLoader: PageLoaderService,
-  ) {}
+  ) {
+    this.initPageLoader();
+  }
 
   ngOnInit() {
-    this.initPageLoader();
     this.tagsService.loadTags();
 
     this.route.params.subscribe( params => {

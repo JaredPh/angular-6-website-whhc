@@ -18,6 +18,6 @@ export class HomeEventsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.eventsService.loadEvents({ count: 3, future: true });
+    this.eventsService.loadEvents({ count: 4, future: true });
   }
 }

@@ -15,7 +15,7 @@ import { TagsService } from '../../components/tags/tags.service';
 })
 export class PhotosComponent implements OnInit {
 
-  @select(s => s.tags.items.filter(t => t !== 'photos')) tags: Observable<string[]>;
+  @select(s => s.tags.items) tags: Observable<string[]>;
   @select(s => s.news.pendingRequests + s.tags.pendingRequests > 0) loading: Observable<boolean>;
 
   public articles: News[];
@@ -27,22 +27,25 @@ export class PhotosComponent implements OnInit {
     private ngRedux: NgRedux<IAppState>,
     private route: ActivatedRoute,
     private pageLoader: PageLoaderService,
-  ) {}
+  ) {
+    this.initPageLoader();
+  }
 
   ngOnInit() {
-    this.initPageLoader();
-
     this.tagsService.loadTags();
 
     this.route.params.subscribe( params => {
       this.selectedTag = params.tag;
 
-      // Todo: implement by Tag
+      const options: any = {
+        photos: true,
+      };
+
       if (this.selectedTag) {
-        this.newsService.loadArticles();
-      } else {
-        this.newsService.loadArticles(20);
+        options.tag = this.selectedTag;
       }
+
+      this.newsService.loadArticles(options);
 
       this.ngRedux
         .select(s => s.news.articles)

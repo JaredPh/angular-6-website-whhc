@@ -24,11 +24,11 @@ export class EventDetailComponent implements OnInit {
     private eventsService: EventsService,
     private redux: NgRedux<IAppState>,
     private pageLoader: PageLoaderService,
-  ) {}
+  ) {
+    this.initPageLoader();
+  }
 
   ngOnInit() {
-    this.initPageLoader();
-
     this.route.params.subscribe( params => {
       this.setEvent(params.slug);
       this.setSimilar(params.slug);

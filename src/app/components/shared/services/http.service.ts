@@ -12,7 +12,7 @@ export class HttpService {
 
     let queryString = '';
 
-    if (options) {
+    if (options && Object.keys(options).length > 0) {
       queryString = Object.keys(options).reduce((str, key) => `${str}&${key}=${options[key].toString()}`, '');
       queryString = `?${queryString.substr(1)}`;
     }

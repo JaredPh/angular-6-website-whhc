@@ -15,20 +15,23 @@ export class EventsService {
   ) {}
 
   public loadEvent(slug: string): void {
-    // TODO: make this proper when route exists
-    this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_ONE_REQUEST });
-    const httpResponse = this.httpService.get(`/events/${slug}`);
+    this.redux.select(s => [...s.events.future, ...s.events.past]).subscribe((stateEvents) => {
+      if (!stateEvents.find(e => e.slug === slug)) {
+        this.redux.dispatch({type: eventsActions.EVENTS_FETCH_ONE_REQUEST});
+        const httpResponse = this.httpService.get(`/events/${slug}`);
 
-    httpResponse.subscribe(
-      (data: any) => {
-        const events: Event[] = data.results.map(e => new Event(e));
+        httpResponse.subscribe(
+          (data: any) => {
+            const events: Event[] = data.results.map(e => new Event(e));
 
-        this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_ONE_SUCCESS, events });
-      },
-      (error) => {
-        this.redux.dispatch({ type: eventsActions.EVENTS_FETCH_ONE_ERROR, error });
-      },
-    );
+            this.redux.dispatch({type: eventsActions.EVENTS_FETCH_ONE_SUCCESS, events});
+          },
+          (error) => {
+            this.redux.dispatch({type: eventsActions.EVENTS_FETCH_ONE_ERROR, error});
+          },
+        );
+      }
+    });
   }
 
   public loadEvents(options?: any): void {

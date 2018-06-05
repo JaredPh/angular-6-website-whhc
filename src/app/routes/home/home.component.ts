@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
 import { Observable } from 'rxjs/index';
 import { select } from '@angular-redux/store';
@@ -7,15 +7,13 @@ import { select } from '@angular-redux/store';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   @select(s => s.news.pendingRequests + s.events.pendingRequests + s.tags.pendingRequests  > 0) loading: Observable<boolean>;
 
   constructor(
     private pageLoader: PageLoaderService,
-  ) {}
-
-  ngOnInit() {
+  ) {
     this.initPageLoader();
   }
 

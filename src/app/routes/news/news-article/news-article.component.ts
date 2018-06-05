@@ -22,11 +22,11 @@ export class NewsArticleComponent implements OnInit {
     private newsService: NewsService,
     private redux: NgRedux<IAppState>,
     private pageLoader: PageLoaderService,
-  ) {}
+  ) {
+    this.initPageLoader();
+  }
 
   ngOnInit() {
-    this.initPageLoader();
-
     this.route.params.subscribe( params => {
       this.setArticle(params.slug);
     });
@@ -41,7 +41,7 @@ export class NewsArticleComponent implements OnInit {
         this.article = article;
 
         if (article) {
-          this.setSimilar(article.similar);
+          // this.setSimilar(article.similar);
         }
       });
   }

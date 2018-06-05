@@ -6,7 +6,7 @@
 
   <div class="column events is-10-desktop">
     <div class="columns is-multiline is-mobile">
-      <div *ngFor="let event of (events | async).slice(0, 3)" class="column is-12-desktop is-4-tablet is-6-mobile event">
+      <div *ngFor="let event of (events | async).slice(0, 4); let i = index" class="column is-12-desktop is-4-tablet is-6-mobile event" [class.is-hidden-tablet]="i == 3">
         <whhc-event-card [event]="event"></whhc-event-card>
       </div>
     </div>
