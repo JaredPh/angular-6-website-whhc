@@ -35,19 +35,18 @@ export class NewsArticleComponent implements OnInit {
   private setArticle(slug: string): void {
     this.newsService.loadArticle(slug);
 
-    this.redux
-      .select(s => s.news.articles.find(a => a.slug === slug))
+    this.redux.select(s => s.news.articles.find(a => a.slug === slug))
       .subscribe((article) => {
         this.article = article;
 
         if (article) {
-          // this.setSimilar(article.similar);
+          this.setSimilar(article.similar);
         }
       });
   }
 
   private setSimilar(slugs: string[]): void {
-    // this.newsService.loadArticles(slugs);
+    this.newsService.loadArticles({ include: slugs });
 
     this.redux
       .select(s => s.news.articles.filter(a => slugs.indexOf(a.slug) >= 0))
