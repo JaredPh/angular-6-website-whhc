@@ -1,5 +1,6 @@
 import { Injectable, isDevMode } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../environments/environment';
 
 @Injectable()
 export class HttpService {
@@ -17,7 +18,7 @@ export class HttpService {
       queryString = `?${queryString.substr(1)}`;
     }
 
-    const url = `http://localhost:3000${route}${queryString}`;
+    const url = `${environment.apiAddress}${route}${queryString}`;
 
     if (isDevMode()) {
       console.log('HttpService', 'GET:', url);

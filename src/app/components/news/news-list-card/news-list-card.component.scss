@@ -1,4 +1,5 @@
 .whhc-news-list-card {
+  @include on-hover-grow;
   height: 100%;
 
   .thumb {

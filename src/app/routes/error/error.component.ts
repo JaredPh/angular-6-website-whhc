@@ -13,17 +13,17 @@ const errors: IError[] = [
   {
     code: '401',
     message: 'Not authorised...',
-    image: { url: '/assets/401.jpg' },
+    image: { url: '/assets/images/errors/401.jpg' },
   },
   {
     code: '404',
     message: 'Something went wrong...',
-    image: { url: '/assets/404.jpg' },
+    image: { url: '/assets/images/errors/404.jpg' },
   },
   {
     code: '500',
     message: 'Internal error...',
-    image: { url: '/assets/500.jpg' },
+    image: { url: '/assets/images/errors/500.jpg' },
   },
 ];
 
