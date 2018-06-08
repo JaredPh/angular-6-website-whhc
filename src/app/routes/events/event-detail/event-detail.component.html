@@ -19,9 +19,17 @@
             <whhc-tag *ngFor="let tag of event.tags" [tag]="tag" size="medium"></whhc-tag>
           </div>
 
-          <figure *ngIf="event.thumb" class="featured image left is-128x128"><img [src]="event.thumb.url"></figure>
+          <div class="columns">
+            <div class="column is-3 has-text-centered">
+              <figure *ngIf="event.thumb" class="event-image image is-128x128"><img [src]="event.thumb.url"></figure>
+            </div>
 
-          <div class="content has-text-justified" [innerHtml]="event.body"></div>
+            <div class="column">
+              <div class="content" [innerHtml]="event.body"></div>
+            </div>
+          </div>
+
+          <whhc-media-location *ngIf="event.location" [location]="event.location" [start]="event.start"></whhc-media-location>
         </article>
       </div>
 

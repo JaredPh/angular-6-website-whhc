@@ -11,6 +11,9 @@ export const eventsActions = {
   EVENTS_FETCH_ONE_REQUEST: 'EVENTS_FETCH_ONE_REQUEST',
   EVENTS_FETCH_ONE_SUCCESS: 'EVENTS_FETCH_ONE_SUCCESS',
   EVENTS_FETCH_ONE_ERROR: 'EVENTS_FETCH_ONE_SUCCESS',
+  EVENTS_FETCH_LOCATION_REQUEST: 'EVENTS_FETCH_LOCATION_REQUEST',
+  EVENTS_FETCH_LOCATION_SUCCESS: 'EVENTS_FETCH_LOCATION_SUCCESS',
+  EVENTS_FETCH_LOCATION_ERROR: 'EVENTS_FETCH_LOCATION_ERROR',
 };
 
 export class EventsActions {
@@ -30,19 +33,14 @@ export class EventsActions {
 
     const events: Event[] = [
       ...this.action.events,
-      ...this.state.past.filter(e => returnedSlugs.indexOf(e.slug) < 0),
-      ...this.state.future.filter(e => returnedSlugs.indexOf(e.slug) < 0),
-    ];
+      ...this.state.events.filter(e => returnedSlugs.indexOf(e.slug) < 0),
+    ].sort((a, b) => a.start.localeCompare(b.start));
 
-    const now = new Date().toJSON();
+    return tassign(this.state, { events, pendingRequests: this.state.pendingRequests - 1 });
+  }
 
-    const past: Event[] = events.filter(e => e.end < now)
-      .sort((b, a) => a.start.localeCompare(b.start));
+  public eventsLocationSuccess() {
 
-    const future: Event[] = events.filter(e => e.end >= now)
-      .sort((a, b) => a.start.localeCompare(b.start));
-
-    return tassign(this.state, { past, future, pendingRequests: this.state.pendingRequests - 1 });
   }
 
   public eventsError() {

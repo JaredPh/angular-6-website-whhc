@@ -169,6 +169,9 @@ body {
   /* News */
   @import '../app/routes/news/news-article/news-article.component';
 
+  /* Events */
+  @import '../app/routes/events/event-detail/event-detail.component';
+
 /* Components */
 
   /* Events */
@@ -178,6 +181,7 @@ body {
   @import '../app/components/media/media-avatar/media-avatar.component';
   @import '../app/components/media/media-image-gallery/media-image-gallery.component';
   @import '../app/components/media/media-youtube/media-youtube.component';
+  @import '../app/components/media/media-location/media-location.component';
 
   /* News */
   @import '../app/components/news/news-basic-card/news-basic-card.component';

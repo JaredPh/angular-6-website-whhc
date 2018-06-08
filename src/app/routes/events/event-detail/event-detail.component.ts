@@ -31,18 +31,18 @@ export class EventDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe( params => {
       this.setEvent(params.slug);
-      this.setSimilar(params.slug);
     });
   }
 
 
   private setEvent(slug: string): void {
     this.eventsService.loadEvent(slug);
+    this.eventsService.loadEvents({ count: 6, future: true, exclude: slug });
 
     this.redux
-      .select(s => [...s.events.future, ...s.events.past].find(a => a.slug === slug))
-      .subscribe((event) => {
-        this.event = event;
+      .select(s => s.events.events)
+      .subscribe((events) => {
+        const event = events.find(a => a.slug === slug);
 
         if (event) {
           if (moment(event.start).isSame(event.end, 'day')) {
@@ -55,17 +55,14 @@ export class EventDetailComponent implements OnInit {
             this.startDateFormat = 'dddd, Do of MMMM';
             this.endDateFormat = ' - Do of MMMM YYYY h:mma';
           }
+
+          this.event = event;
+
+          this.similar = events
+            .slice(0, 7)
+            .filter(a => a.slug !== slug)
+            .slice(0, 6);
         }
-      });
-  }
-
-  private setSimilar(slug: string): void {
-    this.eventsService.loadEvents({ count: 6, future: true, exclude: slug });
-
-    this.redux
-      .select(s => s.events.future.filter(a => a.slug !== slug))
-      .subscribe((events) => {
-        this.similar = events.slice(0, 6);
       });
   }
 
