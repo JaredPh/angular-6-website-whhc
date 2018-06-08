@@ -15,7 +15,7 @@ import { TagsService } from '../../components/tags/tags.service';
 export class EventsComponent implements OnInit {
 
   @select(['tags', 'items']) tags: Observable<string[]>;
-  @select(s => s.news.pendingRequests + s.tags.pendingRequests > 0) loading: Observable<boolean>;
+  @select(s => s.events.pendingRequests + s.tags.pendingRequests > 0) loading: Observable<boolean>;
 
   public future: Event[];
   public past: Event[];
@@ -37,25 +37,36 @@ export class EventsComponent implements OnInit {
     this.tagsService.loadTags();
 
     this.route.params.subscribe( params => {
-      this.eventsService.loadEvents();
-
       this.selectedTag = params.tag;
       this.selectedEvent = params.slug;
 
-      this.ngRedux
-        .select(s => s.events.future)
-        .subscribe((events) => {
-          this.future = (this.selectedTag)
-            ? events.filter(e => e.tags.indexOf(this.selectedTag) >= 0)
-            : events;
-        });
+      const options: any = {};
+
+      if (this.selectedTag) {
+        options.tag = this.selectedTag;
+      }
+
+      this.eventsService.loadEvents(options);
 
       this.ngRedux
-        .select(s => s.events.past)
-        .subscribe((events) => {
-          this.past = (this.selectedTag)
-            ? events.filter(e => e.tags.indexOf(this.selectedTag) >= 0)
-            : events;
+        .select(s => s.events.events)
+        .subscribe((e) => {
+          const now = new Date().toJSON();
+
+          const events = e.reduce((obj, item) => {
+            if (!this.selectedTag || item.tags.indexOf(this.selectedTag) >= 0) {
+              if (item.end > now) {
+                obj.future.push(item);
+              } else {
+                obj.past.push(item);
+              }
+            }
+
+            return obj;
+          }, { past: [], future: []});
+
+          this.future = events.future;
+          this.past = events.past.reverse();
         });
     });
   }

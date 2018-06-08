@@ -13,25 +13,30 @@ export class NewsService {
     private httpService: HttpService,
   ) {}
 
-  public loadArticle(slug: string): void {
-    this.redux.select(s => s.news.articles).subscribe((stateArticles) => {
-      if (!stateArticles.find(a => a.slug === slug)) {
-        this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_REQUEST});
-
-        const httpResponse = this.httpService.get(`/news/${slug}`);
-
-        httpResponse.subscribe(
-          (data: any) => {
-            const articles: News[] = data.results.map(n => new News(n));
-
-            this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_SUCCESS, articles });
-          },
-          (error) => {
-            this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_ERROR, error });
-          },
-        );
-      }
+  public async loadArticle(slug: string): Promise<void> {
+    const slugIndexPromise: Promise<number> = new Promise((resolve) => {
+      this.redux.select(s => s.news.articles.findIndex(n => n.slug === slug))
+        .subscribe(s => resolve(s));
     });
+
+    const existsInState = ((await slugIndexPromise) >= 0);
+
+    if (!existsInState) {
+      this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_REQUEST});
+
+      const httpResponse = this.httpService.get(`/news/${slug}`);
+
+      httpResponse.subscribe(
+        (data: any) => {
+          const articles: News[] = data.results.map(n => new News(n));
+
+          this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_SUCCESS, articles });
+        },
+        (error) => {
+          this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_ERROR, error });
+        },
+      );
+    }
   }
 
   public async loadArticles(options?: any): Promise<void> {
@@ -61,6 +66,7 @@ export class NewsService {
         this.redux.dispatch({type: newsActions.NEWS_FETCH_MANY_SUCCESS, articles});
       },
       (error) => {
+        this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_ERROR, error });
       },
     );
   }
