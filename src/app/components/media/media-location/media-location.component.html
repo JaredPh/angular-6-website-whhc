@@ -11,7 +11,7 @@
       <div *ngIf="transport" class="transport column is-12-tablet has-text-right">
         <p *ngIf="transport.driving">
           <i class="icon-image icon-distance"></i>
-          {{ transport.driving.distance }} miles
+          {{ transport.driving.distance }} {{ (transport.driving.distance !== 1) ? 'miles' : 'mile' }}
         </p>
 
         <p *ngIf="transport.driving?.traffic > 0">
