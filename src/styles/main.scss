@@ -188,6 +188,9 @@ body {
   @import '../app/components/news/news-featured-card/news-featured-card.component';
   @import '../app/components/news/news-list-card/news-list-card.component';
 
+  /* Tags */
+  @import '../app/components/tags/tag/tag.component.scss';
+
   /* Shared */
   @import '../app/components/shared/elements/footer/footer.component.scss';
 
