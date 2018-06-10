@@ -1,5 +1,3 @@
-//@import '../../../../../styles/variables';
-//
-//.tag {
-//  margin: 0.25rem;
-//}
+.tag:not(.is-medium) {
+  margin-bottom: .4rem;
+}

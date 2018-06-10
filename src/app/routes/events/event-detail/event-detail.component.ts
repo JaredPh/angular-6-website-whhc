@@ -34,7 +34,6 @@ export class EventDetailComponent implements OnInit {
     });
   }
 
-
   private setEvent(slug: string): void {
     this.eventsService.loadEvent(slug);
     this.eventsService.loadEvents({ count: 6, future: true, exclude: slug });
@@ -58,9 +57,10 @@ export class EventDetailComponent implements OnInit {
 
           this.event = event;
 
+          const now = moment();
+
           this.similar = events
-            .slice(0, 7)
-            .filter(a => a.slug !== slug)
+            .filter(a => moment(a.end).diff(now) > 0 && a.slug !== slug)
             .slice(0, 6);
         }
       });
