@@ -1,5 +1,5 @@
 <a class="whhc-news-list-card box" [routerLink]="['/', 'news', article.slug]">
-  <div class="whhc-full-top thumb" [ngStyle]="{'background-image': 'url(' + article.thumb.url + ')' }"></div>
+  <div class="whhc-full-top thumb" [ngStyle]="{'background-image': 'url(' + article.thumb.url + '?size=card)' }"></div>
 
   <div class="description">
     <h3 class="title is-6">{{ article.heading }}</h3>
