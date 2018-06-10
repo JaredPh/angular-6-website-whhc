@@ -1,28 +1,30 @@
 <div *ngIf="location.map" class="whhc-location columns">
-  <div class="column is-3 has-text-right">
-    <p><strong>{{ location.heading }}</strong></p>
-    <p *ngFor="let addressLine of location.address.split(',')">{{ addressLine }},</p>
-    <p><small><a [href]="location.map.url" target="_blank">View on Google Maps</a></small></p>
+  <div class="column is-3">
+    <div class="columns is-multiline is-mobile">
 
-    <br>
+      <div class="column is-12-tablet has-text-right-tablet">
+        <p><strong>{{ location.heading }}</strong></p>
+        <p *ngFor="let addressLine of location.address.split(',')">{{ addressLine }},</p>
+        <p><small><a [href]="location.map.url" target="_blank">View on Google Maps</a></small></p>
+      </div>
 
-    <div *ngIf="transport" class="transport">
+      <div *ngIf="transport" class="transport column is-12-tablet has-text-right">
+        <p *ngIf="transport.driving">
+          <i class="icon-image icon-distance"></i>
+          {{ transport.driving.distance }} miles
+        </p>
 
-      <p *ngIf="transport.driving">
-        <i class="icon-image icon-distance"></i>
-        {{ transport.driving.distance }} miles
-      </p>
+        <p *ngIf="transport.driving?.traffic > 0">
+          <i class="icon-image icon-driving"></i>
+          {{ transport.driving.time | timeToStr }}
+          <small *ngIf="transport.driving.traffic > 59" class="traffic">+{{ transport.driving.traffic | timeToStr  }} traffic</small>
+        </p>
 
-      <p *ngIf="transport.driving?.traffic > 0">
-        <i class="icon-image icon-driving"></i>
-        {{ transport.driving.time | timeToStr }}
-        <small *ngIf="transport.driving.traffic > 59" class="traffic">+{{ transport.driving.traffic | timeToStr  }} traffic</small>
-      </p>
-
-      <p *ngIf="transport.transit">
-        <i class="icon-image icon-transit"></i>
-        {{ transport.transit.time | timeToStr }}
-      </p>
+        <p *ngIf="transport.transit">
+          <i class="icon-image icon-transit"></i>
+          {{ transport.transit.time | timeToStr }}
+        </p>
+      </div>
 
     </div>
   </div>
