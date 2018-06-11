@@ -11,6 +11,8 @@
   <div class="modal-content">
 
     <img *ngIf="modalIndex" [src]="rows[modalIndex.rowIndex][modalIndex.columnIndex].url">
+    <img *ngIf="modalPrevIndex" class="preload" [src]="rows[modalPrevIndex.rowIndex][modalPrevIndex.columnIndex].url">
+    <img *ngIf="modalNextIndex" class="preload" [src]="rows[modalNextIndex.rowIndex][modalNextIndex.columnIndex].url">
 
     <a *ngIf="images.length > 1" class="modal-button prev" (click)="changeModalImage('prev')">&#8678;</a>
     <a *ngIf="images.length > 1" class="modal-button next" (click)="changeModalImage('next')">&#8680;</a>
