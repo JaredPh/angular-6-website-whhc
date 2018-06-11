@@ -1,7 +1,7 @@
 <section class="whhc-img-gallery" [class.single]="images.length === 1">
   <div *ngFor="let row of rows; let rowIndex = index">
     <figure *ngFor="let img of row; let colIndex = index" [ngStyle]="{ flex: img.width }" (click)="showModalImage(rowIndex, colIndex)">
-      <img class="d" [src]="img.url">
+      <img class="d" [src]="img.url+'?size=small'">
     </figure>
   </div>
 </section>

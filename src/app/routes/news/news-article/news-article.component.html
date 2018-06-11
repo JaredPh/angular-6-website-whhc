@@ -4,7 +4,7 @@
       <div class="column is-8-desktop is-12-touch">
 
         <article class="whhc-news whhc-main box">
-          <header class="hero is-dark" [ngStyle]="{'background-image': 'url(' + article.background.url + ')' }">
+          <header class="hero is-dark" [ngStyle]="{'background-image': 'url(' + article.background.url + '?size=feature)' }">
             <div class="hero-body has-text-centered">
               <whhc-media-avatar [user]="article.author" type="small"></whhc-media-avatar>
               <h1 class="title is-4">{{ article.heading }}</h1>
