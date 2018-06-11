@@ -1,3 +1,4 @@
+import { getIn } from '@angular-redux/store/lib/src/utils/get-in';
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { IImage } from '../media.interfaces';
 
@@ -10,6 +11,8 @@ export class MediaImageGalleryComponent implements OnInit {
   @Input() images: IImage[];
 
   public modalIndex: { rowIndex: number; columnIndex: number};
+  public modalPrevIndex: { rowIndex: number; columnIndex: number};
+  public modalNextIndex: { rowIndex: number; columnIndex: number};
 
   public rows: { url: string, width: number }[][];
 
@@ -56,6 +59,8 @@ export class MediaImageGalleryComponent implements OnInit {
   /* modal methods */
   public showModalImage(rowIndex: number, columnIndex: number): void {
     this.modalIndex = { rowIndex, columnIndex};
+    this.modalPrevIndex = this.getIndex('prev', this.modalIndex);
+    this.modalNextIndex = this.getIndex('next', this.modalIndex);
   }
 
   public hideModalImage(): void {
@@ -63,18 +68,23 @@ export class MediaImageGalleryComponent implements OnInit {
   }
 
   public changeModalImage(action: 'next' | 'prev') {
+    this.modalIndex = this.getIndex(action, this.modalIndex);
+    this.modalPrevIndex = this.getIndex('prev', this.modalIndex);
+    this.modalNextIndex = this.getIndex('next', this.modalIndex);
+  }
 
+  private getIndex(action: 'next' | 'prev', index: {rowIndex, columnIndex}): {rowIndex, columnIndex} {
     let columnIndex: number;
-    let rowIndex: number = this.modalIndex.rowIndex;
+    let rowIndex: number = index.rowIndex;
 
     if (action === 'next') {
-      columnIndex = (this.modalIndex.columnIndex + 1) % this.rows[this.modalIndex.rowIndex].length;
+      columnIndex = (index.columnIndex + 1) % this.rows[index.rowIndex].length;
 
       if (columnIndex === 0) {
         rowIndex = (rowIndex + 1) % this.rows.length;
       }
     } else {
-      columnIndex = this.modalIndex.columnIndex - 1;
+      columnIndex = index.columnIndex - 1;
 
       if (columnIndex < 0) {
         rowIndex = (this.rows.length + rowIndex - 1) % this.rows.length;
@@ -82,7 +92,7 @@ export class MediaImageGalleryComponent implements OnInit {
       }
     }
 
-    this.modalIndex = {rowIndex, columnIndex};
+    return {rowIndex, columnIndex};
   }
 
   @HostListener('window:keyup', ['$event'])

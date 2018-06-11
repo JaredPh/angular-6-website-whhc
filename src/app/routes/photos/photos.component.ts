@@ -66,7 +66,9 @@ export class PhotosComponent implements OnInit {
       if (isLoading) {
         this.pageLoader.set(message);
       } else {
-        this.pageLoader.clear();
+        setTimeout(() => {
+          this.pageLoader.clear();
+        }, 1500);
       }
     });
   }
