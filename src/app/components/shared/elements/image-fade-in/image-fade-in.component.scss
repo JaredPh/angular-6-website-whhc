@@ -1,0 +1,8 @@
+img.fade-in {
+  transition: opacity 1s;
+  opacity: 0;
+}
+
+img.fade-in.ng-lazyloaded {
+  opacity: 1;
+}

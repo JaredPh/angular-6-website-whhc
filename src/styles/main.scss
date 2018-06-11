@@ -195,10 +195,11 @@ body {
   @import '../app/components/news/news-list-card/news-list-card.component';
 
   /* Tags */
-  @import '../app/components/tags/tag/tag.component.scss';
+  @import '../app/components/tags/tag/tag.component';
 
   /* Shared */
-  @import '../app/components/shared/elements/footer/footer.component.scss';
+  @import '../app/components/shared/elements/footer/footer.component';
+  @import '../app/components/shared/elements/image-fade-in/image-fade-in.component.scss';
 
 .is-sticky {
   position: sticky;

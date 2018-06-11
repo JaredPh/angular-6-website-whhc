@@ -1,7 +1,7 @@
 <section class="whhc-img-gallery" [class.single]="images.length === 1">
   <div *ngFor="let row of rows; let rowIndex = index">
     <figure *ngFor="let img of row; let colIndex = index" [ngStyle]="{ flex: img.width }" (click)="showModalImage(rowIndex, colIndex)">
-      <img class="d" [src]="img.url+'?size=small'">
+      <whhc-image-fade-in [image]="img.url+'?size=small'"></whhc-image-fade-in>
     </figure>
   </div>
 </section>
@@ -20,3 +20,4 @@
   </div>
   <button class="modal-close is-large" aria-label="close" (click)="hideModalImage()"></button>
 </div>
+
