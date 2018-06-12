@@ -1,6 +1,7 @@
 export interface IImage {
-  alt?: string;
-  height?: number;
+  description: string;
+  height: number;
   url: string;
-  width?: number;
+  width: number;
+  ratio?: number;
 }

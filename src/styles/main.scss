@@ -169,6 +169,8 @@ body {
 
 /* Routes */
 
+  @import '../app/app.component';
+
   /* Home */
   @import '../app/routes/home/home-events/home-events.component';
 

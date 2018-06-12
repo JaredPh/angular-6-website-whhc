@@ -4,15 +4,22 @@
     <div class="navbar-brand">
       <div class="navbar-brand">
         <a class="navbar-item" routerLink="/">
-          <img src="/assets/images/logo.png" alt="West Hampstead Hockey Club">
+          <img class="is-hidden-touch" src="/assets/images/logo.png" alt="West Hampstead Hockey Club">
+          <img class="is-hidden-desktop" src="/assets/images/logo-mobile.png" alt="West Hampstead Hockey Club">
         </a>
+      </div>
+
+      <div class="navbar-burger" [class.is-active]="navActive" (click)="navClick()" role="button" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
       </div>
     </div>
 
-    <div class="navbar-menu">
+    <div class="navbar-menu" [class.is-active]="navActive">
       <div class="navbar-start">
       </div>
-      <div class="navbar-end">
+      <div class="navbar-end has-text-centered-touch">
         <!--<a class="navbar-item">Join</a>-->
         <a routerLink="/news" class="navbar-item">News</a>
         <a routerLink="/events" class="navbar-item">Events</a>

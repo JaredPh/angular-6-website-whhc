@@ -12,23 +12,21 @@
   margin: 0 -$gap / 2;
 
   div {
-    display: flex;
+    @include tablet {
+      display: flex;
+    }
+
     flex-direction: row;
     width: 100%;
 
     figure {
       margin: $column-gap / 2;
       cursor: pointer;
+
+      //width: 100%;
     }
   }
 
-  //.single {
-  //  div {
-  //    width: 60%;
-  //    margin-left: 20%;
-  //  }
-  //}
-  //
   & + .modal {
     .modal-content {
       overflow: visible;

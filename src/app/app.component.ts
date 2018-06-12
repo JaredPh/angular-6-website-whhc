@@ -1,19 +1,17 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { PageLoaderService } from './components/shared/elements/page-loader/page-loader.service';
 
 @Component({
   selector: 'whhc-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
 
-  public loading = true;
+  public navActive = false;
 
   constructor(
     private router: Router,
-    private pageLoader: PageLoaderService,
   ) {}
 
   ngAfterViewInit() {
@@ -25,6 +23,12 @@ export class AppComponent implements AfterViewInit {
         }
 
         window.scrollTo(0, 0);
+
+        this.navActive = false;
       });
+  }
+
+  public navClick() {
+    this.navActive = !this.navActive;
   }
 }

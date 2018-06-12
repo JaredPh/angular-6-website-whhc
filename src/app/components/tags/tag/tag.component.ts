@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'whhc-tag',
   templateUrl: './tag.component.html',
-  styleUrls: ['./tag.component.scss']
 })
 export class TagComponent implements OnInit {
 

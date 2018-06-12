@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { IImage } from '../../../media/media.interfaces';
 
 @Component({
   selector: 'whhc-image-fade-in',
@@ -6,5 +7,6 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImageFadeInComponent {
-  @Input() image: string;
+  @Input() image: IImage;
+  @Input() size?: string;
 }
