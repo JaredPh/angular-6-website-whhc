@@ -13,6 +13,8 @@ import { NgRedux, NgReduxModule, DevToolsExtension } from '@angular-redux/store'
 import { IAppState, INITIAL_STATE, rootReducer } from './app.store';
 import { SharedModule } from './components/shared/shared.module';
 import { PageLoaderService } from './components/shared/elements/page-loader/page-loader.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { PageLoaderService } from './components/shared/elements/page-loader/page
     NgReduxModule,
     NgReduxRouterModule,
     SharedModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     AppPreloader,
