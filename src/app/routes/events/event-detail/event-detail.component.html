@@ -25,7 +25,7 @@
             </div>
 
             <div class="column">
-              <div class="content" [innerHtml]="event.body"></div>
+              <div class="content" [innerHtml]="event.body | safeHtml" whhcWYSIWYG></div>
             </div>
           </div>
 

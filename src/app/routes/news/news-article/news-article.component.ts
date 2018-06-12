@@ -46,13 +46,15 @@ export class NewsArticleComponent implements OnInit {
   }
 
   private setSimilar(slugs: string[]): void {
-    this.newsService.loadArticles({ include: slugs });
+    if (slugs) {
+      this.newsService.loadArticles({include: slugs});
 
-    this.redux
-      .select(s => s.news.articles.filter(a => slugs.indexOf(a.slug) >= 0))
-      .subscribe((articles) => {
-        this.similar = articles;
-      });
+      this.redux
+        .select(s => s.news.articles.filter(a => slugs.indexOf(a.slug) >= 0))
+        .subscribe((articles) => {
+          this.similar = articles;
+        });
+    }
   }
 
   private initPageLoader() {

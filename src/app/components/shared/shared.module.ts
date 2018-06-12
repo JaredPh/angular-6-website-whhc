@@ -4,9 +4,9 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule} from '@angular/router';
 
-import { CapitalizePipe } from './pipes/capitalize/capitalize.pipe';
-import { DatePipe } from './pipes/date/date.pipe';
-import { TimePipe } from './pipes/time/time.pipe';
+import { CapitalizePipe } from './pipes/capitalize.pipe';
+import { DatePipe } from './pipes/date.pipe';
+import { TimePipe } from './pipes/time.pipe';
 
 import { PageLoaderComponent } from './elements/page-loader/page-loader.component';
 import { FooterComponent } from './elements/footer/footer.component';
@@ -15,6 +15,20 @@ import { ImageFadeInComponent } from './elements/image-fade-in/image-fade-in.com
 
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { NavbarComponent } from './elements/navbar/navbar.component';
+import { WysiwygRoutesDirective } from './directives/wysiwyg-routes.directive';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+
+const exportedDeclarations = [
+  CapitalizePipe,
+  DatePipe,
+  SafeHtmlPipe,
+  TimePipe,
+  FooterComponent,
+  PageLoaderComponent,
+  ImageFadeInComponent,
+  NavbarComponent,
+  WysiwygRoutesDirective,
+];
 
 @NgModule({
   imports: [
@@ -24,25 +38,13 @@ import { NavbarComponent } from './elements/navbar/navbar.component';
     LazyLoadImageModule,
   ],
   declarations: [
-    CapitalizePipe,
-    DatePipe,
-    TimePipe,
-    FooterComponent,
-    PageLoaderComponent,
-    ImageFadeInComponent,
-    NavbarComponent,
+    ...exportedDeclarations,
   ],
   providers: [
     HttpService,
   ],
   exports: [
-    CapitalizePipe,
-    DatePipe,
-    TimePipe,
-    FooterComponent,
-    PageLoaderComponent,
-    ImageFadeInComponent,
-    NavbarComponent,
+    ...exportedDeclarations,
   ],
 })
 export class SharedModule {}
