@@ -8,8 +8,6 @@ import { PageLoaderService } from './components/shared/elements/page-loader/page
 })
 export class AppComponent implements AfterViewInit {
 
-  public navActive = false;
-
   constructor(
     private router: Router,
   ) {}
@@ -23,12 +21,6 @@ export class AppComponent implements AfterViewInit {
         }
 
         window.scrollTo(0, 0);
-
-        this.navActive = false;
       });
-  }
-
-  public navClick() {
-    this.navActive = !this.navActive;
   }
 }
