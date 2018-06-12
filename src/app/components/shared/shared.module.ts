@@ -14,6 +14,7 @@ import { HttpService } from './services/http.service';
 import { ImageFadeInComponent } from './elements/image-fade-in/image-fade-in.component';
 
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { NavbarComponent } from './elements/navbar/navbar.component';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
     FooterComponent,
     PageLoaderComponent,
     ImageFadeInComponent,
+    NavbarComponent,
   ],
   providers: [
     HttpService,
@@ -40,6 +42,7 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
     FooterComponent,
     PageLoaderComponent,
     ImageFadeInComponent,
+    NavbarComponent,
   ],
 })
 export class SharedModule {}

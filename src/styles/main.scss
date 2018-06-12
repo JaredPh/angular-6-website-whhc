@@ -202,6 +202,7 @@ body {
   /* Shared */
   @import '../app/components/shared/elements/footer/footer.component';
   @import '../app/components/shared/elements/image-fade-in/image-fade-in.component.scss';
+  @import '../app/components/shared/elements/navbar/navbar.component';
 
 .is-sticky {
   position: sticky;
