@@ -19,8 +19,8 @@ export class MediaImageGalleryComponent implements OnInit {
   ngOnInit() {
     this.rows = this.chunk(this.images).map(row => row.map(i => {
       return {
-        url: i.url,
-        width: (i.width / i.height),
+        ...i,
+        ratio: (i.width / i.height),
       };
     }));
   }

@@ -21,7 +21,7 @@
 
           <div class="columns">
             <div class="column is-3 has-text-centered">
-              <figure *ngIf="event.thumb" class="event-image image is-128x128"><img [src]="event.thumb.url"></figure>
+              <figure *ngIf="event.thumb" class="event-image image is-128x128"><img [src]="event.thumb.url" [alt]="event.thumb.description"></figure>
             </div>
 
             <div class="column">

@@ -1,1 +1,1 @@
-<img class="fade-in" [lazyLoad]="image">
+<img class="fade-in" [lazyLoad]="image.url+((size) ? '?size='+size : '')" [alt]="image.description">

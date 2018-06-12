@@ -1,7 +1,7 @@
 <section class="whhc-img-gallery" [class.single]="images.length === 1">
   <div *ngFor="let row of rows; let rowIndex = index">
-    <figure *ngFor="let img of row; let colIndex = index" [ngStyle]="{ flex: img.width }" (click)="showModalImage(rowIndex, colIndex)">
-      <whhc-image-fade-in [image]="img.url+'?size=small'"></whhc-image-fade-in>
+    <figure *ngFor="let img of row; let colIndex = index" [ngStyle]="{ flex: img.ratio }" (click)="showModalImage(rowIndex, colIndex)">
+      <whhc-image-fade-in [image]="img" size="small"></whhc-image-fade-in>
     </figure>
   </div>
 </section>
@@ -10,11 +10,11 @@
   <div class="modal-background" (click)="hideModalImage()"></div>
   <div class="modal-content">
 
-    <img *ngIf="modalIndex" [src]="rows[modalIndex.rowIndex][modalIndex.columnIndex].url">
-    <img *ngIf="modalPrevIndex" class="preload" [src]="rows[modalPrevIndex.rowIndex][modalPrevIndex.columnIndex].url">
-    <img *ngIf="modalNextIndex" class="preload" [src]="rows[modalNextIndex.rowIndex][modalNextIndex.columnIndex].url">
+    <img *ngIf="modalIndex" [src]="rows[modalIndex.rowIndex][modalIndex.columnIndex].url" [alt]="rows[modalIndex.rowIndex][modalIndex.columnIndex].description">
+    <img *ngIf="modalPrevIndex" class="preload" [src]="rows[modalPrevIndex.rowIndex][modalPrevIndex.columnIndex].url" [alt]="rows[modalPrevIndex.rowIndex][modalPrevIndex.columnIndex].url.description">
+    <img *ngIf="modalNextIndex" class="preload" [src]="rows[modalNextIndex.rowIndex][modalNextIndex.columnIndex].url" [alt]="rows[modalNextIndex.rowIndex][modalNextIndex.columnIndex].url.description">
 
-    <a *ngIf="images.length > 1" class="modal-button prev" (click)="changeModalImage('prev')">&#8678;</a>
+    <a *ngIf="images.length > 1" class="modal-button prev" (click)="changeModalImage('prev')" >&#8678;</a>
     <a *ngIf="images.length > 1" class="modal-button next" (click)="changeModalImage('next')">&#8680;</a>
 
   </div>
