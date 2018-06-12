@@ -18,7 +18,7 @@
 
           <whhc-media-youtube *ngIf="article.video" [code]="article.video"></whhc-media-youtube>
 
-          <div class="content has-text-justified" [innerHtml]="article.body"></div>
+          <div class="content has-text-justified" [innerHtml]="article.body | safeHtml" whhcWYSIWYG></div>
 
           <whhc-media-image-gallery *ngIf="article.photos" [images]="article.photos"></whhc-media-image-gallery>
         </article>
