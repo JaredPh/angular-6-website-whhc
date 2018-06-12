@@ -13,16 +13,19 @@ export class WysiwygRoutesDirective {
 
   @HostListener('click', ['$event'])
   public onClick(event) {
-    const externalLink = /^(http|mailto).*/i;
+    const externalLink = /^http.*/i;
+    const internalLink = /^\/.*/;
     const destination = event.target.getAttribute('href');
 
-    event.preventDefault();
-
     if (event.target.tagName === 'A') {
-      if (!externalLink.test(destination)) {
-        this.router.navigate([destination]);
-      } else {
-        window.open(destination, '_blank');
+      if (externalLink.test(destination) || internalLink.test(destination)) {
+        event.preventDefault();
+
+        if (externalLink.test(destination)) {
+          window.open(destination, (/^(http).*/i) ? '_blank' : '');
+        } else {
+          this.router.navigate([destination]);
+        }
       }
     }
   }
