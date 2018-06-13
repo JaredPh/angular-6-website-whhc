@@ -1,0 +1,5 @@
+.whhc-photos .is-sticky {
+  @include mobile {
+    z-index: 1;
+  }
+}

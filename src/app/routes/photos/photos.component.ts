@@ -11,7 +11,6 @@ import { TagsService } from '../../components/tags/tags.service';
 @Component({
   selector: 'whhc-photos',
   templateUrl: './photos.component.html',
-  styleUrls: ['./photos.component.scss']
 })
 export class PhotosComponent implements OnInit {
 
