@@ -21,6 +21,10 @@ import { EventsGuard } from './events.guard';
     EventsViewRoutingModule,
     TagsModule,
   ],
+  providers: [
+    EventsGuard,
+    EventDetailGuard,
+  ],
   declarations: [
     EventsComponent,
     EventDetailComponent,
