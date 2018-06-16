@@ -9,6 +9,8 @@ import { SharedModule } from '../../components/shared/shared.module';
 
 import { NewsArticleComponent } from './news-article/news-article.component';
 import { NewsComponent } from './news.component';
+import { NewsGuard } from './news.guard';
+import { NewsArticleGuard } from './news-article/news-article.guard';
 
 @NgModule({
   imports: [
@@ -18,6 +20,10 @@ import { NewsComponent } from './news.component';
     NewsRoutingModule,
     SharedModule,
     TagsModule,
+  ],
+  providers: [
+    NewsGuard,
+    NewsArticleGuard,
   ],
   declarations: [
     NewsArticleComponent,

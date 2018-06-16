@@ -25,23 +25,17 @@ export class NewsComponent implements OnInit {
     private ngRedux: NgRedux<IAppState>,
     private route: ActivatedRoute,
     private pageLoader: PageLoaderService,
-  ) {
-    this.initPageLoader();
-  }
+  ) {}
 
   ngOnInit() {
-    this.tagsService.loadTags();
+    this.loading.subscribe((isLoading) => {
+      if (isLoading) {
+        this.pageLoader.clear();
+      }
+    });
 
     this.route.params.subscribe( params => {
       this.selectedTag = params.tag;
-
-      const options: any = {};
-
-      if (this.selectedTag) {
-        options.tag = this.selectedTag;
-      }
-
-      this.newsService.loadArticles(options);
 
       this.ngRedux
         .select(s => s.news.articles)
@@ -50,20 +44,6 @@ export class NewsComponent implements OnInit {
             ? articles.filter(a => a.tags.indexOf(this.selectedTag) >= 0)
             : articles;
         });
-    });
-  }
-
-  private initPageLoader() {
-    const message = 'Loading Articles...';
-
-    this.pageLoader.set(message);
-
-    this.loading.subscribe((isLoading) => {
-      if (isLoading) {
-        this.pageLoader.set(message);
-      } else {
-        this.pageLoader.clear();
-      }
     });
   }
 }
