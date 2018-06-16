@@ -14,7 +14,6 @@ import { TagsService } from '../../components/tags/tags.service';
 export class NewsComponent implements OnInit {
 
   @select(s => s.tags) tags: Observable<string[]>;
-  @select(s => s.requests.pending > 0) loading: Observable<boolean>;
 
   public articles: News[];
   public selectedTag: string;
@@ -28,11 +27,7 @@ export class NewsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.loading.subscribe((isLoading) => {
-      if (isLoading) {
-        this.pageLoader.clear();
-      }
-    });
+    this.pageLoader.clear();
 
     this.route.params.subscribe( params => {
       this.selectedTag = params.tag;

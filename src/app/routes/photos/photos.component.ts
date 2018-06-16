@@ -16,7 +16,6 @@ import { TagsService } from '../../components/tags/tags.service';
 export class PhotosComponent implements OnInit {
 
   @select(s => s.tags) tags: Observable<string[]>;
-  @select(s => s.news.pendingRequests + s.tags.pendingRequests > 0) loading: Observable<boolean>;
 
   public articles: News[];
   public selectedTag: string;

@@ -32,14 +32,8 @@ export class PagesComponent implements OnInit {
   }
 
   private initPageLoader() {
-    const message = 'Loading Page...';
-
-    this.pageLoader.set(message);
-
     this.loading.subscribe((isLoading) => {
-      if (isLoading) {
-        this.pageLoader.set(message);
-      } else {
+      if (!isLoading) {
         this.pageLoader.clear();
       }
     });
