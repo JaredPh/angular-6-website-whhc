@@ -29,24 +29,18 @@ export class EventsComponent implements OnInit {
     private ngRedux: NgRedux<IAppState>,
     private route: ActivatedRoute,
     private pageLoader: PageLoaderService,
-  ) {
-    this.initPageLoader();
-  }
+  ) {}
 
   ngOnInit() {
-    this.tagsService.loadTags();
+    this.loading.subscribe((isLoading) => {
+      if (isLoading) {
+        this.pageLoader.clear();
+      }
+    });
 
     this.route.params.subscribe( params => {
       this.selectedTag = params.tag;
       this.selectedEvent = params.slug;
-
-      const options: any = {};
-
-      if (this.selectedTag) {
-        options.tag = this.selectedTag;
-      }
-
-      this.eventsService.loadEvents(options);
 
       this.ngRedux
         .select(s => s.events.events)
@@ -68,20 +62,6 @@ export class EventsComponent implements OnInit {
           this.future = events.future;
           this.past = events.past.reverse();
         });
-    });
-  }
-
-  private initPageLoader() {
-    const message = 'Loading Events...';
-
-    this.pageLoader.set(message);
-
-    this.loading.subscribe((isLoading) => {
-      if (isLoading) {
-        this.pageLoader.set(message);
-      } else {
-        this.pageLoader.clear();
-      }
     });
   }
 }

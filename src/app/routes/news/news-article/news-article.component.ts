@@ -22,19 +22,17 @@ export class NewsArticleComponent implements OnInit {
     private newsService: NewsService,
     private redux: NgRedux<IAppState>,
     private pageLoader: PageLoaderService,
-  ) {
-    this.initPageLoader();
-  }
+  ) {}
 
   ngOnInit() {
+    this.pageLoader.clear();
+
     this.route.params.subscribe( params => {
       this.setArticle(params.slug);
     });
   }
 
   private setArticle(slug: string): void {
-    this.newsService.loadArticle(slug);
-
     this.redux.select(s => s.news.articles.find(a => a.slug === slug))
       .subscribe((article) => {
         this.article = article;
@@ -55,19 +53,5 @@ export class NewsArticleComponent implements OnInit {
           this.similar = articles;
         });
     }
-  }
-
-  private initPageLoader() {
-    const message = 'Loading Article...';
-
-    this.pageLoader.set(message);
-
-    this.loading.subscribe((isLoading) => {
-      if (isLoading) {
-        this.pageLoader.set(message);
-      } else {
-        this.pageLoader.clear();
-      }
-    });
   }
 }
