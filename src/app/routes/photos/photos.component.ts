@@ -15,7 +15,7 @@ import { TagsService } from '../../components/tags/tags.service';
 })
 export class PhotosComponent implements OnInit {
 
-  @select(s => s.tags.items) tags: Observable<string[]>;
+  @select(s => s.tags) tags: Observable<string[]>;
   @select(s => s.news.pendingRequests + s.tags.pendingRequests > 0) loading: Observable<boolean>;
 
   public articles: News[];
@@ -48,7 +48,7 @@ export class PhotosComponent implements OnInit {
       this.newsService.loadArticles(options);
 
       this.ngRedux
-        .select(s => s.news.articles)
+        .select(s => s.news)
         .subscribe((articles) => {
           this.articles = (this.selectedTag)
             ? articles.filter(a => a.tags.indexOf(this.selectedTag) >= 0 && a.photos.length > 0)
