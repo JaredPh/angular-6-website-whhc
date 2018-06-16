@@ -6,6 +6,6 @@ export class AppRouteStrategy {
   public shouldAttach(route: ActivatedRouteSnapshot): boolean { return false; }
   public retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle { return null; }
   public shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean {
-    return (future.data.reuse === true);
+    return (future.data.reuse === false);
   }
 }
