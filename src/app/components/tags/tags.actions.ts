@@ -1,7 +1,3 @@
-import { tassign } from 'tassign';
-
-import { ITagsState } from './tags.store';
-
 export const tagsActions = {
   TAGS_FETCH_MANY_REQUEST: 'TAGS_FETCH_MANY_REQUEST',
   TAGS_FETCH_MANY_SUCCESS: 'TAGS_FETCH_MANY_SUCCESS',
@@ -11,19 +7,11 @@ export const tagsActions = {
 export class TagsActions {
 
   constructor(
-    private state: ITagsState,
+    private state: string[],
     private action: any,
   ) {}
 
-  public tagsRequest() {
-    return tassign(this.state, { pendingRequests: this.state.pendingRequests + 1 });
-  }
-
   public tagsSuccess() {
-    return tassign(this.state, { items: this.action.tags, pendingRequests: this.state.pendingRequests - 1 });
-  }
-
-  public tagsError() {
-    return tassign(this.state, { pendingRequests: this.state.pendingRequests - 1, error: true });
+    return this.action.tags;
   }
 }
