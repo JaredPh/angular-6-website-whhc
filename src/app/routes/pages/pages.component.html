@@ -1,1 +1,47 @@
-<p>{{ msg }}</p>
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline is-mobile">
+      <div class="sticky-side column is-3-desktop is-12-touch">
+        <div class="is-sticky">
+          <h1 class="title">
+            <a [routerLink]="nav.path">
+              {{ nav.heading }}
+            </a>
+          </h1>
+
+          <aside class="menu">
+            <ul class="menu-list">
+              <li *ngFor="let page of nav.children">
+
+                <a [routerLink]="page.path" [class.is-active]="page.path === currentPath">
+                  {{ page.heading }}
+                </a>
+
+                <ul *ngIf="page.children.length > 0">
+                  <li *ngFor="let page of page.children">
+
+                    <a [routerLink]="page.path" [class.is-active]="page.path === currentPath">
+                      {{ page.heading }}
+                    </a>
+
+                  </li>
+                </ul>
+
+              </li>
+            </ul>
+          </aside>
+
+        </div>
+
+      </div>
+
+      <div class="column">
+        <div class="columns is-multiline">
+          <div class="column">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

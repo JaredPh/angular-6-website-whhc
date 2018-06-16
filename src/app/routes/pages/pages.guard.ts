@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IAppState } from '../../app.store';
+import { pagesActions } from '../../components/pages/pages.actions';
 import { PageTree } from '../../components/pages/pages.models';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
 
@@ -31,6 +32,7 @@ export class PagesGuard implements CanActivate {
 
         const findSegmentMatch = (pt, i) => pt.find((z) => z.slug === urlSegments[i].path);
 
+        let topMatch: PageTree;
         let currentIndex = 0;
         let currentMatch: PageTree;
         let currentTrees: PageTree[] = pageTrees;
@@ -40,6 +42,10 @@ export class PagesGuard implements CanActivate {
 
           if (currentMatch) {
             currentTrees = currentMatch.children;
+
+            if (currentIndex === 0) {
+              this.redux.dispatch({ type: pagesActions.PAGE_TREES_SET_CURRENT, tree: currentMatch });
+            }
           }
 
           currentIndex += 1;

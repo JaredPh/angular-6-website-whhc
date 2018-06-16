@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IAppState } from '../../app.store';
+import { PageTree } from '../../components/pages/pages.models';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class PagesComponent implements OnInit {
 
   @select(s => s.requests.pending > 0) loading: Observable<boolean>;
 
-  public msg?: string;
+  public nav: PageTree;
+  public currentPath: string;
 
   constructor(
     private redux: NgRedux<IAppState>,
@@ -21,21 +23,14 @@ export class PagesComponent implements OnInit {
     private router: Router,
     private pageLoader: PageLoaderService,
   ) {
-    this.initPageLoader();
+    this.pageLoader.clear();
   }
 
   ngOnInit() {
-    this.route.params.subscribe((params) =>  {
-      const url = params.slug;
-          this.msg = `found ${url}`;
-    });
-  }
+    this.currentPath = this.router.url;
 
-  private initPageLoader() {
-    this.loading.subscribe((isLoading) => {
-      if (!isLoading) {
-        this.pageLoader.clear();
-      }
-    });
+    this.redux
+      .select(s => s.pages.currentTree)
+      .subscribe(tree => this.nav = tree);
   }
 }
