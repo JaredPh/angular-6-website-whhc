@@ -14,8 +14,8 @@ import { TagsService } from '../../components/tags/tags.service';
 })
 export class EventsComponent implements OnInit {
 
-  @select(['tags', 'items']) tags: Observable<string[]>;
-  @select(s => s.events.pendingRequests + s.tags.pendingRequests > 0) loading: Observable<boolean>;
+  @select(s => s.tags) tags: Observable<string[]>;
+  @select(s => s.requests.pending > 0) loading: Observable<boolean>;
 
   public future: Event[];
   public past: Event[];
@@ -43,7 +43,7 @@ export class EventsComponent implements OnInit {
       this.selectedEvent = params.slug;
 
       this.ngRedux
-        .select(s => s.events.events)
+        .select(s => s.events)
         .subscribe((e) => {
           const now = new Date().toJSON();
 

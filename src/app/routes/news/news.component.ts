@@ -13,8 +13,8 @@ import { TagsService } from '../../components/tags/tags.service';
 })
 export class NewsComponent implements OnInit {
 
-  @select(['tags', 'items']) tags: Observable<string[]>;
-  @select(s => s.news.pendingRequests + s.tags.pendingRequests > 0) loading: Observable<boolean>;
+  @select(s => s.tags) tags: Observable<string[]>;
+  @select(s => s.requests.pending > 0) loading: Observable<boolean>;
 
   public articles: News[];
   public selectedTag: string;
@@ -38,7 +38,7 @@ export class NewsComponent implements OnInit {
       this.selectedTag = params.tag;
 
       this.ngRedux
-        .select(s => s.news.articles)
+        .select(s => s.news)
         .subscribe((articles) => {
           this.articles = (this.selectedTag)
             ? articles.filter(a => a.tags.indexOf(this.selectedTag) >= 0)

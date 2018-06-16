@@ -38,7 +38,7 @@ export class EventDetailComponent implements OnInit {
     this.eventsService.loadEvents({ count: 6, future: true, exclude: slug });
 
     this.redux
-      .select(s => s.events.events)
+      .select(s => s.events)
       .subscribe((events) => {
         const event = events.find(a => a.slug === slug);
 

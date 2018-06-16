@@ -33,7 +33,7 @@ export class NewsArticleComponent implements OnInit {
   }
 
   private setArticle(slug: string): void {
-    this.redux.select(s => s.news.articles.find(a => a.slug === slug))
+    this.redux.select(s => s.news.find(a => a.slug === slug))
       .subscribe((article) => {
         this.article = article;
 
@@ -48,7 +48,7 @@ export class NewsArticleComponent implements OnInit {
       this.newsService.loadArticles({include: slugs});
 
       this.redux
-        .select(s => s.news.articles.filter(a => slugs.indexOf(a.slug) >= 0))
+        .select(s => s.news.filter(a => slugs.indexOf(a.slug) >= 0))
         .subscribe((articles) => {
           this.similar = articles;
         });
