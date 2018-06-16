@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule} from '@angular/router';
+import { PagesModule } from '../pages/pages.module';
 
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { DatePipe } from './pipes/date.pipe';
@@ -36,6 +37,7 @@ const exportedDeclarations = [
     HttpClientModule,
     RouterModule,
     LazyLoadImageModule,
+    PagesModule,
   ],
   declarations: [
     ...exportedDeclarations,
