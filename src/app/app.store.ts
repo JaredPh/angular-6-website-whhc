@@ -4,6 +4,7 @@ import { Event } from './components/events/events.models';
 import { News } from './components/news/news.models';
 import { eventsReducer, INITIAL_EVENTS_STATE } from './components/events/events.store';
 import { newsReducer, INITIAL_NEWS_STATE } from './components/news/news.store';
+import { pagesReducer, INITIAL_PAGES_STATE, IPagesState } from './components/pages/pages.store';
 import { tagsReducer, INITIAL_TAGS_STATE } from './components/tags/tags.store';
 
 export interface IRequestState {
@@ -33,6 +34,7 @@ export interface IAppState {
   events: Event[];
   news: News[];
   tags: string[];
+  pages: IPagesState;
   requests: IRequestState;
 }
 
@@ -40,6 +42,7 @@ export const INITIAL_STATE: IAppState = {
   events: INITIAL_EVENTS_STATE,
   news: INITIAL_NEWS_STATE,
   tags: INITIAL_TAGS_STATE,
+  pages: INITIAL_PAGES_STATE,
   requests: INITIAL_REQUEST_STATE,
 };
 
@@ -47,5 +50,6 @@ export const rootReducer = combineReducers({
   events: eventsReducer,
   news: newsReducer,
   tags: tagsReducer,
+  pages: pagesReducer,
   requests: requestsReducer,
 });
