@@ -1,3 +1,11 @@
 .navbar-item {
   font-family: $font-title;
 }
+
+.navbar-menu, .navbar-burger {
+  &.is-active {
+    @include touch {
+      background: $whhc-maroon;
+    }
+  }
+}

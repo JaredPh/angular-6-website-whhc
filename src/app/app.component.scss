@@ -1,7 +1,0 @@
-.navbar-menu, .navbar-burger {
-  &.is-active {
-    @include mobile {
-      background: $whhc-maroon;
-    }
-  }
-}
