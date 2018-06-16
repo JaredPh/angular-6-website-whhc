@@ -15,7 +15,7 @@ export class NewsService {
 
   public async loadArticle(slug: string): Promise<void> {
     const slugIndexPromise: Promise<number> = new Promise((resolve) => {
-      this.redux.select(s => s.news.articles.findIndex(n => n.slug === slug))
+      this.redux.select(s => s.news.findIndex(n => n.slug === slug))
         .subscribe(s => resolve(s));
     });
 
@@ -42,7 +42,7 @@ export class NewsService {
   public async loadArticles(options?: any): Promise<void> {
     if (options && options.include) {
       const slugsPromise: Promise<string[]> = new Promise((resolve) => {
-        this.redux.select(s => s.news.articles.map(n => n.slug)).subscribe(s => resolve(s));
+        this.redux.select(s => s.news.map(n => n.slug)).subscribe(s => resolve(s));
       });
 
       const slugs = await slugsPromise;

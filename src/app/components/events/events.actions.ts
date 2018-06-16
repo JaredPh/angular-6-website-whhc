@@ -1,7 +1,3 @@
-import { tassign } from 'tassign';
-import * as _ from 'lodash';
-
-import { IEventsState } from './events.store';
 import { Event } from './events.models';
 
 export const eventsActions = {
@@ -19,13 +15,9 @@ export const eventsActions = {
 export class EventsActions {
 
   constructor(
-    private state: IEventsState,
+    private state: Event[],
     private action: any,
   ) {}
-
-  public eventsRequest() {
-    return tassign(this.state, { pendingRequests: this.state.pendingRequests + 1 });
-  }
 
   public eventsSuccess() {
 
@@ -33,17 +25,9 @@ export class EventsActions {
 
     const events: Event[] = [
       ...this.action.events,
-      ...this.state.events.filter(e => returnedSlugs.indexOf(e.slug) < 0),
+      ...this.state.filter(e => returnedSlugs.indexOf(e.slug) < 0),
     ].sort((a, b) => a.start.localeCompare(b.start));
 
-    return tassign(this.state, { events, pendingRequests: this.state.pendingRequests - 1 });
-  }
-
-  public eventsLocationSuccess() {
-
-  }
-
-  public eventsError() {
-    return tassign(this.state, { pendingRequests: this.state.pendingRequests - 1, error: true });
+    return events;
   }
 }
