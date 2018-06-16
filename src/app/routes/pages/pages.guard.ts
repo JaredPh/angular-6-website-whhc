@@ -13,6 +13,7 @@ export class PagesGuard implements CanActivate {
     private redux: NgRedux<IAppState>,
     private route: ActivatedRoute,
     private router: Router,
+    private pageLoader: PageLoaderService,
   ) {}
 
   canActivate(
@@ -20,6 +21,8 @@ export class PagesGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     return new Promise(resolve => {
+      this.pageLoader.set('Loading page...');
+
       const urlSegments = next.url;
 
       const url = `/${urlSegments.map(s => s.path).join('/')}`;
