@@ -9,6 +9,14 @@
 @import 'bulma';
 @import 'base-elements';
 
+.fade-in {
+  min-height: 150px;
+
+  &.ng-lazyloaded {
+    min-height: 0;
+  }
+}
+
 .home-hero {
   height: 0;
   padding-bottom: 50%;
