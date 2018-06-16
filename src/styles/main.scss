@@ -206,7 +206,7 @@ body {
   /* News */
   @import '../app/components/news/news-basic-card/news-basic-card.component';
   @import '../app/components/news/news-featured-card/news-featured-card.component';
-  @import '../app/components/news/news-list-card/news-list-card.component';
+  @import '../app/routes/news/news-list-card/news-list-card.component';
 
   /* Tags */
   @import '../app/components/tags/tag/tag.component';
