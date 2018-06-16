@@ -24,18 +24,17 @@ export class EventDetailComponent implements OnInit {
     private eventsService: EventsService,
     private redux: NgRedux<IAppState>,
     private pageLoader: PageLoaderService,
-  ) {
-    this.initPageLoader();
-  }
+  ) {}
 
   ngOnInit() {
+    this.pageLoader.clear();
+
     this.route.params.subscribe( params => {
       this.setEvent(params.slug);
     });
   }
 
   private setEvent(slug: string): void {
-    this.eventsService.loadEvent(slug);
     this.eventsService.loadEvents({ count: 6, future: true, exclude: slug });
 
     this.redux
@@ -64,13 +63,5 @@ export class EventDetailComponent implements OnInit {
             .slice(0, 6);
         }
       });
-  }
-
-  private initPageLoader() {
-    const message = 'Loading Event...';
-
-    this.pageLoader.set(message);
-
-    this.pageLoader.clear();
   }
 }
