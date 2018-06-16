@@ -16,6 +16,11 @@ const errors: IError[] = [
     image: { url: '/assets/images/errors/401.jpg', description: 'player failing to put a penalty stroke past a keeper', width: 1200, height: 769 },
   },
   {
+    code: '403',
+    message: 'Something went wrong...',
+    image: { url: '/assets/images/errors/401.jpg', description: 'player failing to put a penalty stroke past a keeper', width: 1200, height: 769 },
+  },
+  {
     code: '404',
     message: 'Something went wrong...',
     image: { url: '/assets/images/errors/404.jpg', description: 'broken hockey ball', width: 1200, height: 900 },
