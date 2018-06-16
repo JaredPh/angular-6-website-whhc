@@ -1,11 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PhotosComponent } from './photos.component';
+import { PhotosGuard } from './photos.guard';
 
 const routes: Routes = [
-  { path: '', component: PhotosComponent },
-  { path: 'tags/:tag', component: PhotosComponent, data: { reuse: false }},
-  { path: 'tags', redirectTo: '' },
+  {
+    path: '',
+    component: PhotosComponent,
+    canActivate: [PhotosGuard],
+  },
+  {
+    path: 'tags/:tag',
+    component: PhotosComponent,
+    canActivate: [PhotosGuard],
+    data: { reuse: false },
+  },
+  {
+    path: 'tags',
+    redirectTo: '',
+  },
 ];
 
 @NgModule({

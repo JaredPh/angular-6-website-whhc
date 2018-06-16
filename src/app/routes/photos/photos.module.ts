@@ -8,6 +8,7 @@ import { TagsModule } from '../../components/tags/tags.module';
 
 import { PhotosRoutingModule } from './photos-routing.module';
 import { PhotosComponent } from './photos.component';
+import { PhotosGuard } from './photos.guard';
 
 @NgModule({
   imports: [
@@ -18,6 +19,9 @@ import { PhotosComponent } from './photos.component';
     RouterModule,
     SharedModule,
     TagsModule,
+  ],
+  providers: [
+    PhotosGuard,
   ],
   declarations: [PhotosComponent]
 })

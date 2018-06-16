@@ -27,25 +27,13 @@ export class PhotosComponent implements OnInit {
     private ngRedux: NgRedux<IAppState>,
     private route: ActivatedRoute,
     private pageLoader: PageLoaderService,
-  ) {
-    this.initPageLoader();
-  }
+  ) {}
 
   ngOnInit() {
-    this.tagsService.loadTags();
+    this.pageLoader.clear();
 
     this.route.params.subscribe( params => {
       this.selectedTag = params.tag;
-
-      const options: any = {
-        photos: true,
-      };
-
-      if (this.selectedTag) {
-        options.tag = this.selectedTag;
-      }
-
-      this.newsService.loadArticles(options);
 
       this.ngRedux
         .select(s => s.news)
@@ -54,22 +42,6 @@ export class PhotosComponent implements OnInit {
             ? articles.filter(a => a.tags.indexOf(this.selectedTag) >= 0 && a.photos.length > 0)
             : articles.filter(a => a.photos.length > 0);
         });
-    });
-  }
-
-  private initPageLoader() {
-    const message = 'Loading Photos...';
-
-    this.pageLoader.set(message);
-
-    this.loading.subscribe((isLoading) => {
-      if (isLoading) {
-        this.pageLoader.set(message);
-      } else {
-        setTimeout(() => {
-          this.pageLoader.clear();
-        }, 1500);
-      }
     });
   }
 }
