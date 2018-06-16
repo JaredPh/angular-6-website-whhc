@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MediaModule } from '../../components/media/media.module';
 import { NewsModule } from '../../components/news/news.module';
 import { TagsModule } from '../../components/tags/tags.module';
+import { NewsListCardComponent } from './news-list-card/news-list-card.component';
 import { NewsRoutingModule } from './news-routing.module';
 import { SharedModule } from '../../components/shared/shared.module';
 
@@ -26,8 +27,9 @@ import { NewsArticleGuard } from './news-article/news-article.guard';
     NewsArticleGuard,
   ],
   declarations: [
-    NewsArticleComponent,
     NewsComponent,
+    NewsArticleComponent,
+    NewsListCardComponent,
   ],
 })
 export class NewsViewModule { }
