@@ -11,7 +11,7 @@ import { News } from '../../../components/news/news.models';
 })
 export class HomeNewsComponent implements OnInit {
 
-  @select(['news', 'articles']) news: Observable<News[]>;
+  @select(s => s.news) news: Observable<News[]>;
 
   constructor(
     private newsService: NewsService,
