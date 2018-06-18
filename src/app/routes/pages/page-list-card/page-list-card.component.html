@@ -1,0 +1,13 @@
+<div class="whhc-list-card whhc-page-card box">
+  <a [routerLink]="'./'+page.slug">
+    <div class="whhc-full-top thumb" [ngStyle]="{'background-image': 'url(' + page.banner.url + ')' }"></div>
+
+    <div class="description">
+      <h3 class="title is-6 has-text-centered">{{ page.heading }}</h3>
+    </div>
+    <p class="has-text-centered">
+      <a [routerLink]="'./'+page.slug" class="button is-primary is-rounded is-small">View</a>
+    </p>
+  </a>
+</div>
+

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { IAppState } from '../../app.store';
 import { pagesActions } from '../../components/pages/pages.actions';
 import { PageTree } from '../../components/pages/pages.models';
+import { PagesService } from '../../components/pages/pages.service';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
 
 @Injectable()
@@ -15,6 +16,7 @@ export class PagesGuard implements CanActivate {
     private route: ActivatedRoute,
     private router: Router,
     private pageLoader: PageLoaderService,
+    private pagesService: PagesService,
   ) {}
 
   canActivate(
@@ -32,7 +34,6 @@ export class PagesGuard implements CanActivate {
 
         const findSegmentMatch = (pt, i) => pt.find((z) => z.slug === urlSegments[i].path);
 
-        let topMatch: PageTree;
         let currentIndex = 0;
         let currentMatch: PageTree;
         let currentTrees: PageTree[] = pageTrees;
@@ -52,6 +53,7 @@ export class PagesGuard implements CanActivate {
         }
 
         if (currentMatch) {
+          this.pagesService.loadPage(currentMatch.slug);
           resolve(true);
         } else {
           this.router.navigateByUrl('/error/404');

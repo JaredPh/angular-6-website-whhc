@@ -13,17 +13,16 @@
             <ul class="menu-list">
               <li *ngFor="let page of nav.children">
 
-                <a [routerLink]="page.path" [class.is-active]="page.path === currentPath">
+                <a [routerLink]="page.path" [class.is-active]="page.path === path">
                   {{ page.heading }}
                 </a>
 
                 <ul *ngIf="page.children.length > 0">
                   <li *ngFor="let page of page.children">
 
-                    <a [routerLink]="page.path" [class.is-active]="page.path === currentPath">
+                    <a [routerLink]="page.path" [class.is-active]="page.path === path">
                       {{ page.heading }}
                     </a>
-
                   </li>
                 </ul>
 
@@ -32,16 +31,31 @@
           </aside>
 
         </div>
-
       </div>
 
-      <div class="column">
-        <div class="columns is-multiline">
-          <div class="column">
-          </div>
-        </div>
-      </div>
+      <div *ngIf="page" class="column">
+        <section class="whhc-main box">
+            <h1 class="title">{{ page.heading }}</h1>
 
+            <figure class="banner">
+              <img [src]="page.banner.url+'?size=banner'" [alt]="page.banner.description">
+            </figure>
+
+            <div class="content">
+              <div [innerHtml]="page.body | safeHtml" whhcWYSIWYG></div>
+            </div>
+
+            <whhc-media-location *ngIf="page.type === 'location'" [location]="page.reference"></whhc-media-location>
+
+            <ng-container *ngIf="page.type === 'landing'">
+              <div class="columns is-multiline is-centered">
+                <div *ngFor="let child of page.reference" class="column is-4">
+                  <whhc-page-list-card [page]="child"></whhc-page-list-card>
+                </div>
+              </div>
+            </ng-container>
+        </section>
+      </div>
     </div>
   </div>
 </section>
