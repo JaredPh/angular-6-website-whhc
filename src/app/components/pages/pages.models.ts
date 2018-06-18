@@ -1,14 +1,15 @@
-import { _switch } from 'rxjs-compat/operator/switch';
 import { Location } from '../events/events.models';
 import { IImage } from '../media/media.interfaces';
 
 export class PageTree {
+  id: number;
   slug: string;
   path: string;
   heading: string;
   children?: PageTree[];
 
   constructor(data) {
+    this.id = data.id;
     this.slug = data.slug;
     this.heading = data.heading;
     this.path = data.path;
@@ -20,11 +21,13 @@ export class PageTree {
 }
 
 export class PageSummary {
+  id: number;
   slug: string;
   heading: string;
   banner: IImage;
 
   constructor(data) {
+    this.id = data.id;
     this.slug = data.slug;
     this.heading = data.heading;
     this.banner = data.banner;

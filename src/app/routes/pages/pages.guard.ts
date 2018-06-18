@@ -53,7 +53,7 @@ export class PagesGuard implements CanActivate {
         }
 
         if (currentMatch) {
-          this.pagesService.loadPage(currentMatch.slug);
+          this.pagesService.loadPage(currentMatch.id);
           resolve(true);
         } else {
           this.router.navigateByUrl('/error/404');

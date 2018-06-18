@@ -1,7 +1,6 @@
 import { NgRedux } from '@angular-redux/store';
 import { Injectable } from '@angular/core';
 import { IAppState } from '../../app.store';
-import { News } from '../news/news.models';
 import { HttpService } from '../shared/services/http.service';
 import { pagesActions } from './pages.actions';
 import { Page, PageTree } from './pages.models';
@@ -14,10 +13,10 @@ export class PagesService {
     private httpService: HttpService,
   ) {}
 
-  public async loadPage(slug: string): Promise<void> {
+  public async loadPage(id: number): Promise<void> {
     const pageExistsPromise: Promise<boolean> = new Promise((resolve) => {
       this.redux
-        .select(s => s.pages.pages.find(p => p.slug === slug))
+        .select(s => s.pages.pages.find(p => p.id === id))
         .subscribe(page => {
           if (page) {
             resolve(true);
@@ -32,7 +31,7 @@ export class PagesService {
     if (!existsInState) {
       this.redux.dispatch({ type: pagesActions.PAGE_FETCH_REQUEST });
 
-      const httpResponse = this.httpService.get(`/pages/${slug}`);
+      const httpResponse = this.httpService.get(`/pages/${id}`);
 
       httpResponse.subscribe(
         (data: any) => {
