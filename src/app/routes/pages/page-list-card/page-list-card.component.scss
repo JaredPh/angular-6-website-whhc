@@ -1,5 +1,19 @@
 .whhc-page-card {
+  .thumb-wrap {
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+    .thumb {
+      @include mobile {
+        height: 100%
+      }
+      margin-bottom: 0
+  }
+
   .description {
-    margin-bottom: $gap / 2;
+    @include desktop {
+      margin-bottom: $gap / 2;
+    }
   }
 }

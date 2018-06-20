@@ -1,13 +1,19 @@
 <div class="whhc-list-card whhc-page-card box">
   <a [routerLink]="'./'+page.slug">
-    <div class="whhc-full-top thumb" [ngStyle]="{'background-image': 'url(' + page.banner.url + ')' }"></div>
+    <div class="columns is-mobile is-multiline is-marginless">
+      <div class="column is-12-tablet thumb-wrap">
+        <div class="whhc-full-top thumb" [ngStyle]="{'background-image': 'url(' + page.banner.url + ')' }"></div>
+      </div>
 
-    <div class="description">
-      <h3 class="title is-6 has-text-centered">{{ page.heading }}</h3>
+      <div class="column is-12-tablet">
+        <div class="description">
+          <h3 class="title is-6 has-text-centered">{{ page.heading }}</h3>
+        </div>
+        <p class="has-text-centered">
+          <a [routerLink]="'./'+page.slug" class="button is-primary is-rounded is-small">View</a>
+        </p>
+      </div>
     </div>
-    <p class="has-text-centered">
-      <a [routerLink]="'./'+page.slug" class="button is-primary is-rounded is-small">View</a>
-    </p>
   </a>
 </div>
 

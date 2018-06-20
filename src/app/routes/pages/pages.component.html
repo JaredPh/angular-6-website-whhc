@@ -1,7 +1,7 @@
 <section class="section">
   <div class="container">
     <div class="columns is-multiline is-mobile">
-      <div class="sticky-side column is-3-desktop is-12-touch">
+      <div class="sticky-side column is-3-desktop is-12-touch is-hidden-touch">
         <div class="is-sticky">
           <h1 class="title">
             <a [routerLink]="nav.path">
@@ -38,7 +38,7 @@
             <h1 class="title">{{ page.heading }}</h1>
 
             <figure class="banner">
-              <img [src]="page.banner.url+'?size=banner'" [alt]="page.banner.description">
+              <whhc-image-fade-in [image]="page.banner" size="banner"></whhc-image-fade-in>
             </figure>
 
             <div class="content">
@@ -48,7 +48,7 @@
             <whhc-media-location *ngIf="page.type === 'location'" [location]="page.reference"></whhc-media-location>
 
             <ng-container *ngIf="page.type === 'landing'">
-              <div class="columns is-multiline is-centered">
+              <div class="columns is-multiline">
                 <div *ngFor="let child of page.reference" class="column is-4">
                   <whhc-page-list-card [page]="child"></whhc-page-list-card>
                 </div>
