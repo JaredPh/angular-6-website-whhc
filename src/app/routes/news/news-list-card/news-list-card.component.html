@@ -1,0 +1,15 @@
+<div class="whhc-list-card whhc-news-card box">
+  <a [routerLink]="['/', 'news', article.slug]">
+    <div class="whhc-full-top thumb" [ngStyle]="{'background-image': 'url(' + article.thumb.url + '?size=card)' }"></div>
+
+    <div class="description">
+      <h3 class="title is-6">{{ article.heading }}</h3>
+      <p class="subtitle is-7">{{ article.date | dateToStr:'fuzzy' }}</p>
+    </div>
+  </a>
+
+  <div *ngIf="article.tags.length > 0" class="tags has-text-centered">
+    <whhc-tag *ngFor="let tag of article.tags" [tag]="tag"></whhc-tag>
+  </div>
+</div>
+

@@ -1,7 +1,0 @@
-<a *ngIf="article" class="whhc-news-featured-card box" [routerLink]="['/','news', article.slug]" [ngStyle]="{'background-image': 'url(' + article.thumb.url + '?square)' }">
-  <div class="description">
-    <h3 class="title is-6">{{ article.heading }}</h3>
-    <p class="subtitle is-7">{{ article.date | dateToStr:'fuzzy' }}</p>
-  </div>
-</a>
-

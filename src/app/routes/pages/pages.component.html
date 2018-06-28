@@ -1,0 +1,66 @@
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline is-mobile">
+      <div class="sticky-side column is-3-desktop is-12-touch is-hidden-touch">
+        <div class="is-sticky">
+          <h1 class="title">
+            <a [routerLink]="nav.path">
+              {{ nav.heading }}
+            </a>
+          </h1>
+
+          <aside class="menu">
+            <ul class="menu-list">
+              <li *ngFor="let page of nav.children">
+
+                <a [routerLink]="page.path" [class.is-active]="page.path === path">
+                  {{ page.heading }}
+                </a>
+
+                <ul *ngIf="path.indexOf(page.path) === 0 && page.children.length > 0">
+                  <li *ngFor="let page of page.children">
+
+                    <a [routerLink]="page.path" [class.is-active]="page.path === path">
+                      {{ page.heading }}
+                    </a>
+                  </li>
+                </ul>
+
+              </li>
+            </ul>
+          </aside>
+
+        </div>
+      </div>
+
+      <div *ngIf="page" class="column">
+        <section class="whhc-main box">
+            <h1 class="title">{{ page.heading }}</h1>
+
+            <figure class="banner">
+              <whhc-image-fade-in [image]="page.banner" size="banner"></whhc-image-fade-in>
+            </figure>
+
+            <div class="content">
+              <div [innerHtml]="page.body | safeHtml" whhcWYSIWYG></div>
+            </div>
+
+            <whhc-media-location *ngIf="page.type === 'location'" [location]="page.reference"></whhc-media-location>
+
+            <ng-container *ngIf="page.type === 'landing'">
+              <div class="columns is-multiline">
+                <div *ngFor="let child of page.reference" class="column is-4">
+                  <whhc-page-list-card [page]="child"></whhc-page-list-card>
+                </div>
+              </div>
+            </ng-container>
+
+
+            <ng-container *ngIf="page.type === 'contacts'">
+              <whhc-pages-contacts></whhc-pages-contacts>
+            </ng-container>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>

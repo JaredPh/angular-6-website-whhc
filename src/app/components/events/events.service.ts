@@ -16,7 +16,7 @@ export class EventsService {
 
   public async loadEvent(slug: string): Promise<void> {
     const slugIndexPromise: Promise<number> = new Promise((resolve) => {
-      this.redux.select(s => s.events.events.findIndex(e => e.slug === slug))
+      this.redux.select(s => s.events.findIndex(e => e.slug === slug))
         .subscribe(s => resolve(s));
     });
 

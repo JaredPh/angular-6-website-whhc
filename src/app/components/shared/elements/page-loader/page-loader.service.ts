@@ -21,6 +21,7 @@ export class PageLoaderService {
 
   public clear(): void {
     setTimeout(() => {
+      window.scrollTo(0, 0);
       this.emitter.next(null);
     }, 1000);
   }

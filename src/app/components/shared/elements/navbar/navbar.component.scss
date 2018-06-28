@@ -2,44 +2,6 @@
   font-family: $font-title;
 }
 
-.navbar-burger {
-  $h: 4px;
-
-  span {
-    color: $white;
-    height: $h;
-    width: 32px;
-
-    left: calc(50% - 16px);
-
-    &:nth-child(1) {
-      top: calc(50% - #{2 * $h + $h});
-    }
-
-    &:nth-child(2) {
-      top: calc(50% - #{0.5  * $h});
-    }
-
-    &:nth-child(3) {
-      top: calc(50% + #{2 * $h});
-    }
-  }
-
-  &.is-active {
-    span {
-      &:nth-child(1) {
-        -webkit-transform: translateY(2.5 * $h) rotate(45deg);
-        transform: translateY(2.5 * $h) rotate(45deg);
-      }
-
-      &:nth-child(3) {
-        -webkit-transform: translateY(-2.5 * $h) rotate(-45deg);
-        transform: translateY(-2.5 * $h) rotate(-45deg);
-      }
-    }
-  }
-}
-
 .navbar-menu, .navbar-burger {
   &.is-active {
     @include touch {
@@ -47,4 +9,3 @@
     }
   }
 }
-

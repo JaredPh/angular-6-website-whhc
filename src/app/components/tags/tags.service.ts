@@ -13,7 +13,7 @@ export class TagsService {
   ) {}
 
   public loadTags(): void {
-    this.redux.select(s => s.tags.items).subscribe((stateTags) => {
+    this.redux.select(s => s.tags).subscribe((stateTags) => {
       if (stateTags.length === 0) {
         this.redux.dispatch({type: tagsActions.TAGS_FETCH_MANY_REQUEST});
 

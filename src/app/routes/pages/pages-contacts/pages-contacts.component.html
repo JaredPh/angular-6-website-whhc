@@ -1,0 +1,14 @@
+<article *ngFor="let contact of contacts" class="media">
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <img [src]="contact.image">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <h3 class="is-marginless">{{ contact.role }}</h3>
+      <p>{{ contact.name }}<br>
+      <a [href]="'mailto:'+contact.email">{{ contact.email }}</a></p>
+    </div>
+  </div>
+</article>

@@ -11,7 +11,7 @@ import { Event } from '../../../components/events/events.models';
 })
 export class HomeEventsComponent implements OnInit {
 
-  @select(s => s.events.events.filter(e => e.end > new Date().toJSON())) events: Observable<Event[]>;
+  @select(s => s.events.filter(e => e.end > new Date().toJSON())) events: Observable<Event[]>;
 
   constructor(
     private eventsService: EventsService,

@@ -14,8 +14,8 @@ import { TagsService } from '../../components/tags/tags.service';
 })
 export class EventsComponent implements OnInit {
 
-  @select(['tags', 'items']) tags: Observable<string[]>;
-  @select(s => s.events.pendingRequests + s.tags.pendingRequests > 0) loading: Observable<boolean>;
+  @select(s => s.tags) tags: Observable<string[]>;
+  @select(s => s.requests.pending > 0) loading: Observable<boolean>;
 
   public future: Event[];
   public past: Event[];
@@ -29,27 +29,21 @@ export class EventsComponent implements OnInit {
     private ngRedux: NgRedux<IAppState>,
     private route: ActivatedRoute,
     private pageLoader: PageLoaderService,
-  ) {
-    this.initPageLoader();
-  }
+  ) {}
 
   ngOnInit() {
-    this.tagsService.loadTags();
+    this.loading.subscribe((isLoading) => {
+      if (isLoading) {
+        this.pageLoader.clear();
+      }
+    });
 
     this.route.params.subscribe( params => {
       this.selectedTag = params.tag;
       this.selectedEvent = params.slug;
 
-      const options: any = {};
-
-      if (this.selectedTag) {
-        options.tag = this.selectedTag;
-      }
-
-      this.eventsService.loadEvents(options);
-
       this.ngRedux
-        .select(s => s.events.events)
+        .select(s => s.events)
         .subscribe((e) => {
           const now = new Date().toJSON();
 
@@ -68,20 +62,6 @@ export class EventsComponent implements OnInit {
           this.future = events.future;
           this.past = events.past.reverse();
         });
-    });
-  }
-
-  private initPageLoader() {
-    const message = 'Loading Events...';
-
-    this.pageLoader.set(message);
-
-    this.loading.subscribe((isLoading) => {
-      if (isLoading) {
-        this.pageLoader.set(message);
-      } else {
-        this.pageLoader.clear();
-      }
     });
   }
 }

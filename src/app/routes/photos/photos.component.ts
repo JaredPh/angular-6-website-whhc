@@ -14,8 +14,7 @@ import { TagsService } from '../../components/tags/tags.service';
 })
 export class PhotosComponent implements OnInit {
 
-  @select(s => s.tags.items) tags: Observable<string[]>;
-  @select(s => s.news.pendingRequests + s.tags.pendingRequests > 0) loading: Observable<boolean>;
+  @select(s => s.tags) tags: Observable<string[]>;
 
   public articles: News[];
   public selectedTag: string;
@@ -26,49 +25,21 @@ export class PhotosComponent implements OnInit {
     private ngRedux: NgRedux<IAppState>,
     private route: ActivatedRoute,
     private pageLoader: PageLoaderService,
-  ) {
-    this.initPageLoader();
-  }
+  ) {}
 
   ngOnInit() {
-    this.tagsService.loadTags();
+    this.pageLoader.clear();
 
     this.route.params.subscribe( params => {
       this.selectedTag = params.tag;
 
-      const options: any = {
-        photos: true,
-      };
-
-      if (this.selectedTag) {
-        options.tag = this.selectedTag;
-      }
-
-      this.newsService.loadArticles(options);
-
       this.ngRedux
-        .select(s => s.news.articles)
+        .select(s => s.news)
         .subscribe((articles) => {
           this.articles = (this.selectedTag)
             ? articles.filter(a => a.tags.indexOf(this.selectedTag) >= 0 && a.photos.length > 0)
             : articles.filter(a => a.photos.length > 0);
         });
-    });
-  }
-
-  private initPageLoader() {
-    const message = 'Loading Photos...';
-
-    this.pageLoader.set(message);
-
-    this.loading.subscribe((isLoading) => {
-      if (isLoading) {
-        this.pageLoader.set(message);
-      } else {
-        setTimeout(() => {
-          this.pageLoader.clear();
-        }, 1500);
-      }
     });
   }
 }

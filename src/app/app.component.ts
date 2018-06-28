@@ -19,8 +19,6 @@ export class AppComponent implements AfterViewInit {
           (<any>window).ga('set', 'page', event.urlAfterRedirects);
           (<any>window).ga('send', 'pageview');
         }
-
-        window.scrollTo(0, 0);
       });
   }
 }
