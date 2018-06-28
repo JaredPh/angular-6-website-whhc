@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { IAppState } from '../../app.store';
 import { HttpService } from '../shared/services/http.service';
 import { pagesActions } from './pages.actions';
-import { PageTree } from './pages.models';
+import { Page, PageTree } from './pages.models';
 
 @Injectable()
 export class PagesService {
@@ -12,6 +12,39 @@ export class PagesService {
     private redux: NgRedux<IAppState>,
     private httpService: HttpService,
   ) {}
+
+  public async loadPage(id: number): Promise<void> {
+    const pageExistsPromise: Promise<boolean> = new Promise((resolve) => {
+      this.redux
+        .select(s => s.pages.pages.find(p => p.id === id))
+        .subscribe(page => {
+          if (page) {
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+        });
+    });
+
+    const existsInState = await pageExistsPromise;
+
+    if (!existsInState) {
+      this.redux.dispatch({ type: pagesActions.PAGE_FETCH_REQUEST });
+
+      const httpResponse = this.httpService.get(`/pages/${id}`);
+
+      httpResponse.subscribe(
+        (data: any) => {
+          const pages: Page[] = data.results.map(p => new Page(p));
+
+          this.redux.dispatch({ type: pagesActions.PAGE_FETCH_SUCCESS, pages });
+        },
+        (error) => {
+          this.redux.dispatch({ type: pagesActions.PAGE_FETCH_ERROR, error });
+        },
+      );
+    }
+  }
 
   public async loadPages(): Promise<void> {
     const treesExistsPromise: Promise<boolean> = new Promise((resolve) => {

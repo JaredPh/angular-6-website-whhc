@@ -19,14 +19,9 @@
       <div class="navbar-start">
       </div>
       <div *ngIf="clubInfoNav" class="navbar-end">
-        <!--<a class="navbar-item">Join</a>-->
         <a routerLink="/news" class="navbar-item">News</a>
         <a routerLink="/events" class="navbar-item">Events</a>
         <a routerLink="/photos" class="navbar-item">Photos</a>
-        <!--<a class="navbar-item">Fixtures</a>-->
-        <!--<a class="navbar-item">Oppositions</a>-->
-        <!--<a class="navbar-item">Location</a>-->
-        <!--<a class="navbar-item">Contact</a>-->
 
         <ng-container *ngIf="clubInfoNav.children.length > 0; else basicLink">
           <div class="navbar-item has-dropdown is-hoverable">

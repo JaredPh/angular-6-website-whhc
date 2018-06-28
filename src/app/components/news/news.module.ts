@@ -6,12 +6,10 @@ import { TagsModule } from '../tags/tags.module';
 
 import { NewsService } from './news.service';
 import { NewsBasicCardComponent } from './news-basic-card/news-basic-card.component';
-import { NewsFeaturedCardComponent } from './news-featured-card/news-featured-card.component';
 
 @NgModule({
   declarations: [
     NewsBasicCardComponent,
-    NewsFeaturedCardComponent,
   ],
   imports: [
     CommonModule,
@@ -24,7 +22,6 @@ import { NewsFeaturedCardComponent } from './news-featured-card/news-featured-ca
   ],
   exports: [
     NewsBasicCardComponent,
-    NewsFeaturedCardComponent,
   ],
 })
 export class NewsModule { }

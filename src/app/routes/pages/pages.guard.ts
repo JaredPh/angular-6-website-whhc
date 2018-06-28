@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IAppState } from '../../app.store';
+import { pagesActions } from '../../components/pages/pages.actions';
 import { PageTree } from '../../components/pages/pages.models';
+import { PagesService } from '../../components/pages/pages.service';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
 
 @Injectable()
@@ -14,6 +16,7 @@ export class PagesGuard implements CanActivate {
     private route: ActivatedRoute,
     private router: Router,
     private pageLoader: PageLoaderService,
+    private pagesService: PagesService,
   ) {}
 
   canActivate(
@@ -40,12 +43,17 @@ export class PagesGuard implements CanActivate {
 
           if (currentMatch) {
             currentTrees = currentMatch.children;
+
+            if (currentIndex === 0) {
+              this.redux.dispatch({ type: pagesActions.PAGE_TREES_SET_CURRENT, tree: currentMatch });
+            }
           }
 
           currentIndex += 1;
         }
 
         if (currentMatch) {
+          this.pagesService.loadPage(currentMatch.id);
           resolve(true);
         } else {
           this.router.navigateByUrl('/error/404');

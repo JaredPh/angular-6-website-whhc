@@ -1,5 +1,5 @@
-@mixin img-icon($name) {
-  &.icon-#{$name} { background-image: url('/assets/icons/uv/#{$name}.png'); }
+@mixin img-icon($name, $dir: 'uv') {
+  &.icon-#{$name} { background-image: url('/assets/icons/#{$dir}/#{$name}.png'); }
 }
 
 .icon-image {
@@ -7,11 +7,16 @@
   background-size: contain;
   background-position: left center;
   padding-left: 1.2rem;
-  margin: 0 0.5rem;
+  margin: 0 0.2rem;
 
   @include img-icon('distance');
   @include img-icon('driving');
   @include img-icon('transit');
+
+  @include img-icon('tube', 'custom');
+  @include img-icon('overground', 'custom');
+  @include img-icon('rail', 'custom');
+  @include img-icon('citymapper', 'custom');
 }
 
 .whhc-location .transport .traffic {

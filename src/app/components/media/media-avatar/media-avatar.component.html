@@ -1,4 +1,4 @@
-<a
+<!-- <a
   class="whhc-avatar"
   [ngClass]="type"
   [class.tooltip]="type === 'small'"
@@ -8,4 +8,15 @@
   <figure class="image is-64x64">
     <img [src]="user.avatar.url+'?size=avatar'" [alt]="user.avatar.description" >
   </figure>
-</a>
+</a> -->
+<p
+  class="whhc-avatar"
+  [ngClass]="type"
+  [class.tooltip]="type === 'small'"
+  [attr.data-tooltip]="user.fname + ' ' + user.lname"
+  [routerLink]="['/', 'user', user.id]"
+>
+  <figure class="image is-64x64">
+    <img [src]="user.avatar.url+'?size=avatar'" [alt]="user.avatar.description" >
+  </figure>
+</p>
