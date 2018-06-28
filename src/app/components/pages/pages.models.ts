@@ -7,12 +7,14 @@ export class PageTree {
   path: string;
   heading: string;
   children?: PageTree[];
+  type: string;
 
   constructor(data) {
     this.id = data.id;
     this.slug = data.slug;
     this.heading = data.heading;
     this.path = data.path;
+    this.type = data.type;
 
     if (data.children) {
       this.children = data.children.map(c => new PageTree(c));

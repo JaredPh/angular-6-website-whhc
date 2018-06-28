@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { IImage } from '../../../media/media.interfaces';
 
 interface ILink {
   id: string;
   label: string;
-  logo: IImage;
+  logo: string;
   url: string;
 }
 
@@ -16,34 +15,34 @@ export class FooterComponent {
 
   public links: ILink[] = [
     {
-      id: 'studio-society',
-      label: 'Studio Society',
-      logo: { url: '/assets/images/sponsors/site-studio.jpg', width: 200, height: 200, description: 'studio society logo' },
-      url: 'https://studio-society.com/',
-    },
-    {
       id: 'alan-day',
       label: 'Alan Day VW',
-      logo: { url: '/assets/images/sponsors/alan-day-vw.png', width: 200, height: 200, description: 'alan day vw logo' },
-      url: 'https://www.alandayvw.co.uk/',
+      logo: 'https://media.whhc.uk/bcad33b7-ee47-41de-bd0f-9bd45ba5eaab.png',
+      url: '/club-info/sponsors-friends-and-family/alan-day-vw',
     },
     {
-      id: 'one-bourbon-tavern',
-      label: 'One Bourbon Tavern',
-      logo: { url: '/assets/images/sponsors/one-bourbon-tavern.jpg', width: 200, height: 200, description: 'one bourbon tavern logo' },
-      url: 'http://www.onebourbon.co.uk/',
+      id: 'studio-society',
+      label: 'Studio Society',
+      logo: 'https://media.whhc.uk/7d2fd1bc-786c-4a99-ba74-3589d782ba1f.png',
+      url: '/club-info/sponsors-friends-and-family/studio-society',
+    },
+    {
+      id: 'porkys',
+      label: 'Porky\'s BBQ',
+      logo: 'https://media.whhc.uk/91801982-b224-4450-8990-bdecb18a2b59.png',
+      url: '/club-info/sponsors-friends-and-family/porkys-west-hampstead',
     },
     {
       id: 'cumberland-tennis',
       label: 'Cumberland Lawn Tennis Club',
-      logo: { url: '/assets/images/sponsors/cltc.png', width: 200, height: 200, description: 'cumberland lawn tennis club logo' },
-      url: 'https://www.cltc-hcc.com/',
+      logo: 'https://media.whhc.uk/f8fad495-06ae-4f14-92e8-f646bacb9989.png',
+      url: '/club-info/sponsors-friends-and-family/cumberland-lawn-tennis-club',
     },
     {
       id: 'hampstead-cricket',
       label: 'Hampstead Cricket Club',
-      logo: { url: '/assets/images/sponsors/hcc.png', width: 200, height: 200, description: 'hampstead cricket club logo' },
-      url: 'https://www.cltc-hcc.com/cricket/',
+      logo: 'https://media.whhc.uk/c2425534-052c-46a2-927c-712600d7758c.png',
+      url: '/club-info/sponsors-friends-and-family/hampstead-cricket-club',
     },
   ];
 
@@ -51,26 +50,26 @@ export class FooterComponent {
     {
       id: 'instagram',
       label: '/westhampsteadhockeyclub',
-      logo: { url: '/assets/icons/social/instagram.png', width: 150, height: 150, description: 'instagram logo' },
+      logo: '/assets/icons/social/instagram.png',
       url: 'https://www.instagram.com/westhampsteadhockeyclub',
     },
     {
       id: 'facebook',
       label: '/west.hampstead.hockey.club',
-      logo: { url: '/assets/icons/social/facebook.png', width: 150, height: 150, description: 'facebook logo' },
+      logo: '/assets/icons/social/facebook.png',
       url: 'https://www.facebook.com/west.hampstead.hockey.club',
     },
     {
       id: 'twitter',
       label: '/WHHCUK',
-      logo: { url: '/assets/icons/social/twitter.png', width: 150, height: 150, description: 'twitter logo' },
+      logo: '/assets/icons/social/twitter.png',
       url: 'https://twitter.com/WHHCUK',
     },
-    {
-      id: 'youtube',
-      label: '/WHHC',
-      logo: { url: '/assets/icons/social/youtube.png', width: 150, height: 150, description: 'youtube logo' },
-      url: 'https://www.youtube.com/EnglandHockeyTV',
-    },
+    // {
+    //   id: 'youtube',
+    //   label: '/WHHC',
+    //   logo: '/assets/icons/social/youtube.png',
+    //   url: 'https://www.youtube.com/EnglandHockeyTV',
+    // },
   ];
 }

@@ -7,12 +7,12 @@
     </div>
     <div class="columns is-centered is-mobile">
       <div *ngFor="let link of links" class="column is-narrow">
-        <a [href]="link.url" target="_blank" [name]="link.label">
+        <a [routerLink]="link.url" [name]="link.label">
           <figure
             class="image is-96x96 is-48x48-mobile tooltip"
             [attr.data-tooltip]="link.label"
           >
-            <img [src]="link.logo.url" [alt]="link.logo.description">
+            <img [src]="link.logo" [alt]="link.label">
           </figure>
         </a>
       </div>
@@ -28,7 +28,7 @@
           <li *ngFor="let network of socialNetworks" class="social">
             <a
               [href]="network.url" target="_blank"
-              [ngStyle]="{'background-image': 'url(' + network.logo.url + ')' }"
+              [ngStyle]="{'background-image': 'url(' + network.logo + ')' }"
             >
               {{ network.label }}
             </a>
