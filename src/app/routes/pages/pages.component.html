@@ -54,6 +54,11 @@
                 </div>
               </div>
             </ng-container>
+
+
+            <ng-container *ngIf="page.type === 'contacts'">
+              <whhc-pages-contacts></whhc-pages-contacts>
+            </ng-container>
         </section>
       </div>
     </div>

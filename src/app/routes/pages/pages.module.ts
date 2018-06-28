@@ -7,6 +7,7 @@ import { PageListCardComponent } from './page-list-card/page-list-card.component
 import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
 import { PagesGuard } from './pages.guard';
+import { PagesContactsComponent } from './pages-contacts/pages-contacts.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { PagesGuard } from './pages.guard';
   declarations: [
     PagesComponent,
     PageListCardComponent,
+    PagesContactsComponent,
   ]
 })
 export class PagesViewModule {}

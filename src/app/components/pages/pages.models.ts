@@ -38,7 +38,7 @@ export class PageSummary {
 
 export class Page extends PageSummary {
   body: string;
-  type: 'custom' | 'location' | 'landing';
+  type: 'custom' | 'location' | 'landing' | 'contacts';
   reference?: any;
 
   constructor(data) {
