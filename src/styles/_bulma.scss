@@ -39,3 +39,13 @@ h1, h2, .description {
     width: 48px !important;
   }
 }
+
+.columns.is-reverse-touch {
+  @include touch {
+    flex-direction: column-reverse;
+    display: flex;
+    & > .column {
+      width: 100%;
+    }
+  }
+}
