@@ -1,10 +1,10 @@
-<header class="hero is-fullheight" [ngStyle]="{'background-image': 'url(' + error.image.url + ')' }">
+<header class="error hero is-fullheight">
   <div class="hero-body">
-    <div class="container" [ngClass]="'status-' + error.code">
+    <div class="container">
       <div class="columns">
-        <div class="column is-narrow">
-          <h1 class="title">{{ error.code }}</h1>
-          <h2 class="subtitle">{{ error.message }}</h2>
+        <div class="column is-4 is-offset-8">
+          <h1 class="title">Something went Wrong</h1>
+          <p class="subtitle is-6">Chances are it's nothing serious, a dodgy connection of bad url. If you keep getting this error please let us know <a href="mailto:admin@whhc.uk">admin@whhc.uk</a></p>
 
           <a class="button is-primary is-fullwidth is-medium" routerLink="/">
             <span class="icon">
