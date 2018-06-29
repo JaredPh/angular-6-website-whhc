@@ -24,6 +24,7 @@
     "@angular/http": "6.0.4",
     "@angular/platform-browser": "6.0.4",
     "@angular/platform-browser-dynamic": "6.0.4",
+    "@angular/pwa": "^0.6.8",
     "@angular/router": "6.0.4",
     "bulma": "^0.6.2",
     "bulma-checkradio": "^1.0.1",
@@ -38,7 +39,8 @@
     "rxjs-compat": "^6.1.0",
     "tassign": "^1.0.0",
     "time-ago": "^0.2.1",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "@angular/service-worker": "6.0.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.0",

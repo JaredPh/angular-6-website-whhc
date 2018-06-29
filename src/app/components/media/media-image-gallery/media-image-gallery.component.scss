@@ -23,7 +23,22 @@
       margin: $column-gap / 2;
       cursor: pointer;
 
-      //width: 100%;
+      @include tablet {
+        padding-bottom: 0 !important;
+      }
+
+      @include mobile {
+        height: 0;
+        position: relative;
+      }
+
+      img {
+        width: 100%;
+        @include mobile {
+          position: absolute;
+          z-index: 0;
+        }
+      }
     }
   }
 
