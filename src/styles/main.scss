@@ -252,6 +252,9 @@ body {
   @import '../app/routes/pages/pages.component';
   @import '../app/routes/pages/page-list-card/page-list-card.component';
 
+  /* Errors */
+  @import '../app/routes/error/error.component.scss';
+
 /* Components */
 
   /* Events */

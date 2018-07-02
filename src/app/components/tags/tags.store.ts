@@ -10,10 +10,6 @@ export function tagsReducer(state: string[] = INITIAL_TAGS_STATE, action): strin
   switch (action.type) {
     case tagsActions.TAGS_FETCH_MANY_SUCCESS:
       return actions.tagsSuccess();
-
-    // case tagsActions.TAGS_FETCH_MANY_REQUEST:
-    // case tagsActions.TAGS_FETCH_MANY_ERROR:
-    //   return state;
   }
 
   return state;

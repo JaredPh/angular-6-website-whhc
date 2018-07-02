@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   apiAddress: 'http://localhost:3000',
-  mapApiKey: 'AIzaSyB5yV1QqO2at1823hqRNlS9uBlv15LyqIQ',
+  // apiAddress: 'https://test.whhc.uk',
 };

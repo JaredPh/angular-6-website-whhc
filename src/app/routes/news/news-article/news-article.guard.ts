@@ -37,6 +37,15 @@ export class NewsArticleGuard implements CanActivate {
             this.newsService.loadArticle(slug);
           }
       });
+
+      this.redux
+        .select(s => s.requests.status)
+        .subscribe((status) => {
+          if (status) {
+            this.router.navigate(['/', 'error', status]);
+            resolve(false);
+          }
+        });
     });
   }
 }

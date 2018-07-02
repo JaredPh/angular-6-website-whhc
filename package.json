@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "aws-sync": "aws s3 sync dist s3://dev.whhc.uk --delete",
     "ng": "ng",
     "start": "ng serve",
+    "deploy": "npm run build && npm run aws-sync",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
