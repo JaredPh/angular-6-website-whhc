@@ -33,7 +33,7 @@ export class NewsService {
           this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_SUCCESS, articles });
         },
         (error) => {
-          this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_ERROR, error });
+          this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_ERROR, status: error.status});
         },
       );
     }
@@ -66,7 +66,7 @@ export class NewsService {
         this.redux.dispatch({type: newsActions.NEWS_FETCH_MANY_SUCCESS, articles});
       },
       (error) => {
-        this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_ERROR, error });
+        this.redux.dispatch({ type: newsActions.NEWS_FETCH_ONE_ERROR, status: error.status});
       },
     );
   }

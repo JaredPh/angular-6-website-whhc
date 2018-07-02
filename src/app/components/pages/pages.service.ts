@@ -59,7 +59,6 @@ export class PagesService {
 
     if (!existsInState) {
       this.redux.dispatch({ type: pagesActions.PAGE_TREES_FETCH_REQUEST });
-
       const httpResponse = this.httpService.get(`/pages`);
 
       httpResponse.subscribe(
@@ -68,7 +67,7 @@ export class PagesService {
           this.redux.dispatch({ type: pagesActions.PAGE_TREES_FETCH_SUCCESS, trees });
         },
         (error) => {
-          this.redux.dispatch({ type: pagesActions.PAGE_TREES_FETCH_ERROR, error });
+          this.redux.dispatch({ type: pagesActions.PAGE_TREES_FETCH_ERROR, status: error.status});
         },
       );
     }

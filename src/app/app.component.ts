@@ -1,6 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { NavigationEnd, NavigationStart, Router } from '@angular/router';
-import { PageLoaderService } from './components/shared/elements/page-loader/page-loader.service';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'whhc-root',

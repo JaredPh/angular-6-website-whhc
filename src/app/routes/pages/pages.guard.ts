@@ -31,33 +31,35 @@ export class PagesGuard implements CanActivate {
       const url = `/${urlSegments.map(s => s.path).join('/')}`;
 
       this.redux.select(s => s.pages.trees).subscribe((pageTrees) => {
+        if (pageTrees && pageTrees.length > 0) {
+          const findSegmentMatch = (pt, i) => pt.find((z) => z.slug === urlSegments[i].path);
 
-        const findSegmentMatch = (pt, i) => pt.find((z) => z.slug === urlSegments[i].path);
+          let currentIndex = 0;
+          let currentMatch: PageTree;
+          let currentTrees: PageTree[] = pageTrees;
 
-        let currentIndex = 0;
-        let currentMatch: PageTree;
-        let currentTrees: PageTree[] = pageTrees;
+          while ((currentMatch && currentMatch.path !== url) || currentIndex === 0) {
 
-        while ((currentMatch && currentMatch.path !== url) || currentIndex === 0) {
-          currentMatch = findSegmentMatch(currentTrees, currentIndex);
+            currentMatch = findSegmentMatch(currentTrees, currentIndex);
 
-          if (currentMatch) {
-            currentTrees = currentMatch.children;
+            if (currentMatch) {
+              currentTrees = currentMatch.children;
 
-            if (currentIndex === 0) {
-              this.redux.dispatch({ type: pagesActions.PAGE_TREES_SET_CURRENT, tree: currentMatch });
+              if (currentIndex === 0) {
+                this.redux.dispatch({type: pagesActions.PAGE_TREES_SET_CURRENT, tree: currentMatch});
+              }
             }
+
+            currentIndex += 1;
           }
 
-          currentIndex += 1;
-        }
-
-        if (currentMatch) {
-          this.pagesService.loadPage(currentMatch.id);
-          resolve(true);
-        } else {
-          this.router.navigateByUrl('/error/404');
-          resolve(false);
+          if (currentMatch) {
+            this.pagesService.loadPage(currentMatch.id);
+            resolve(true);
+          } else {
+            this.router.navigateByUrl('/error/404');
+            resolve(false);
+          }
         }
       });
     });

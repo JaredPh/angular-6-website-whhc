@@ -27,17 +27,17 @@
         padding-bottom: 0 !important;
       }
 
-      @include mobile {
-        height: 0;
-        position: relative;
-      }
+      //@include mobile {
+      //  min-height: 0;
+      //  position: relative;
+      //}
 
       img {
         width: 100%;
-        @include mobile {
-          position: absolute;
-          z-index: 0;
-        }
+        //@include mobile {
+        //  position: absolute;
+        //  z-index: 0;
+        //}
       }
     }
   }
