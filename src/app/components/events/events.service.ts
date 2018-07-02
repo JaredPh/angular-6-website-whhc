@@ -4,7 +4,7 @@ import { IAppState } from '../../app.store';
 
 import { eventsActions } from './events.actions';
 import { HttpService } from '../shared/services/http.service';
-import { Event, Location } from './events.models';
+import { Event } from './events.models';
 
 @Injectable()
 export class EventsService {
@@ -33,7 +33,7 @@ export class EventsService {
           this.redux.dispatch({type: eventsActions.EVENTS_FETCH_ONE_SUCCESS, events});
         },
         (error) => {
-          this.redux.dispatch({type: eventsActions.EVENTS_FETCH_ONE_ERROR, error});
+          this.redux.dispatch({type: eventsActions.EVENTS_FETCH_ONE_ERROR, status: error.status});
         },
       );
     }
@@ -51,24 +51,6 @@ export class EventsService {
       },
       (error) => {
         this.redux.dispatch({type: eventsActions.EVENTS_FETCH_MANY_ERROR, error});
-      },
-    );
-  }
-
-  public async loadEventLocation(event: Event): Promise<void> {
-    this.redux.dispatch({type: eventsActions.EVENTS_FETCH_LOCATION_REQUEST});
-    const httpResponse = this.httpService.get(`/locations/${event.location.id}`);
-
-    httpResponse.subscribe(
-      (data: any) => {
-        event.location = new Location(data.results[0]);
-
-        const events = [ event ];
-
-        this.redux.dispatch({type: eventsActions.EVENTS_FETCH_LOCATION_SUCCESS, events});
-      },
-      (error) => {
-        this.redux.dispatch({type: eventsActions.EVENTS_FETCH_LOCATION_ERROR, error});
       },
     );
   }

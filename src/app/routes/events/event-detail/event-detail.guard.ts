@@ -28,13 +28,20 @@ export class EventDetailGuard implements CanActivate {
 
       this.redux
         .select(s => s.events.find(n => n.slug === slug))
-        .subscribe((article) => {
-          if (article) {
-            setTimeout(() => {
-              resolve(true);
-            }, 400);
+        .subscribe((event) => {
+          if (event) {
+            resolve(true);
           } else {
             this.newsService.loadEvent(slug);
+          }
+        });
+
+      this.redux
+        .select(s => s.requests.status)
+        .subscribe((status) => {
+          if (status) {
+            this.router.navigate(['/', 'error', status]);
+            resolve(false);
           }
         });
     });

@@ -25,7 +25,7 @@ export class TagsService {
             this.redux.dispatch({type: tagsActions.TAGS_FETCH_MANY_SUCCESS, tags});
           },
           (error) => {
-            this.redux.dispatch({type: tagsActions.TAGS_FETCH_MANY_ERROR, error});
+            this.redux.dispatch({type: tagsActions.TAGS_FETCH_MANY_ERROR, status: error.status});
           },
         );
       }
