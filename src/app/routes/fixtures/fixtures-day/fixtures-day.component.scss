@@ -1,0 +1,20 @@
+.whhc-fixtures-day {
+
+  header .column {
+    background: $whhc-black;
+    border-bottom: 0.5rem solid $whhc-blue;
+
+    .title {
+      color: $white;
+    }
+  }
+  margin-bottom: $gap;
+
+  .box {
+    padding: 0;
+  }
+
+  .club-badge {
+    padding-bottom: 0;
+  }
+}

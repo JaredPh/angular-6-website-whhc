@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 import { tassign } from 'tassign';
 import { Event } from './components/events/events.models';
+import { Fixture } from './components/fixtures/fixtures.models';
 import { News } from './components/news/news.models';
+import { fixturesReducer, INITIAL_FIXTURES_STATE } from './components/fixtures/fixtures.store';
 import { eventsReducer, INITIAL_EVENTS_STATE } from './components/events/events.store';
 import { newsReducer, INITIAL_NEWS_STATE } from './components/news/news.store';
 import { pagesReducer, INITIAL_PAGES_STATE, IPagesState } from './components/pages/pages.store';
@@ -36,6 +38,7 @@ export function requestsReducer(state: IRequestState = INITIAL_REQUEST_STATE, ac
 
 export interface IAppState {
   events: Event[];
+  fixtures: Fixture[];
   news: News[];
   tags: string[];
   pages: IPagesState;
@@ -44,6 +47,7 @@ export interface IAppState {
 
 export const INITIAL_STATE: IAppState = {
   events: INITIAL_EVENTS_STATE,
+  fixtures: INITIAL_FIXTURES_STATE,
   news: INITIAL_NEWS_STATE,
   tags: INITIAL_TAGS_STATE,
   pages: INITIAL_PAGES_STATE,
@@ -52,6 +56,7 @@ export const INITIAL_STATE: IAppState = {
 
 export const rootReducer = combineReducers({
   events: eventsReducer,
+  fixtures: fixturesReducer,
   news: newsReducer,
   tags: tagsReducer,
   pages: pagesReducer,

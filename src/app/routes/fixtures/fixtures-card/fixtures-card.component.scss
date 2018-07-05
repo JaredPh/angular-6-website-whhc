@@ -1,0 +1,37 @@
+whhc-fixtures-card {
+  .column {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .fixture-heading {
+    .whhc-team {
+      font-weight: bold;
+    }
+  }
+
+  .score {
+    padding: 0.25rem;
+    background: $border;
+    font-weight: bold;
+    min-width: 3rem;
+    display: inline-block;
+
+    border-bottom: 0.25rem solid;
+    border-color: $white;
+
+    &.result:not(.intra-club) {
+      &.win {
+        border-bottom-color: $green;
+      }
+      &.draw {
+        border-bottom-color: $yellow;
+      }
+      &.lose {
+        border-bottom-color: $red;
+      }
+    }
+  }
+}

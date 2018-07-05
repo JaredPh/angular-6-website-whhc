@@ -9,6 +9,32 @@
 @import 'bulma';
 @import 'base-elements';
 
+.whhc-fixtures-day {
+
+  .row {
+    background: $white;
+    border: 1px solid $border;
+    border-bottom: none;
+
+    &:last-child {
+      border-bottom: 1px solid $border;
+    }
+  }
+
+   whhc-fixtures-card {
+     margin-bottom: -1px;
+     border-bottom: 1px solid $border;
+
+     &:nth-child(odd) {
+       border-right: 1px solid $border;
+       border-left: 1px solid $border;
+     }
+   }
+}
+
+
+
+
 .whhc-list-card {
   @include on-hover-grow;
   height: 100%;
@@ -247,6 +273,10 @@ body {
 
   /* Events */
   @import '../app/routes/events/event-detail/event-detail.component';
+
+  /* Fixtures */
+  @import '../app/routes/fixtures/fixtures-day/fixtures-day.component.scss';
+  @import '../app/routes/fixtures/fixtures-card/fixtures-card.component.scss';
 
   /* Pages */
   @import '../app/routes/pages/pages.component';
