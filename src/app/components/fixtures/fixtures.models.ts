@@ -74,6 +74,13 @@ export class FixturesDay {
       return Object.keys(homeFixturesByTime).map((time) => homeFixturesByTime[time]);
     })();
 
-    this.away = fixturesByLocation.away;
+    if (fixturesByLocation.away) {
+      this.away = fixturesByLocation.away
+        .sort((a, b) => {
+          const sortStr = (str) => `${str.charAt(1)}${str.charAt(0)}`;
+
+          sortStr(a.awayTeam.short).localeCompare(sortStr(b.awayTeam.short));
+        }); 
+    }
   }
 }
