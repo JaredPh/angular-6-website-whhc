@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
 import { ClubsModule } from '../../components/clubs/clubs.module';
 import { FixturesModule } from '../../components/fixtures/fixtures.module';
 
@@ -16,7 +15,6 @@ import { FixturesDayComponent } from './fixtures-day/fixtures-day.component';
   imports: [
     CommonModule,
     SharedModule,
-    ReactiveFormsModule,
     ClubsModule,
     FixturesModule,
     FixturesViewRoutingModule,

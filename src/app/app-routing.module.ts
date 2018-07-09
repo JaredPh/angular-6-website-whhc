@@ -5,6 +5,7 @@ import { AppPreloader } from './app.preloader';
 const routes: Routes = [
   { path: 'events', loadChildren: './routes/events/events.module#EventsViewModule' },
   { path: 'fixtures', loadChildren: './routes/fixtures/fixtures.module#FixturesViewModule' },
+  { path: 'results', loadChildren: './routes/fixtures/fixtures.module#FixturesViewModule' },
   { path: 'news', loadChildren: './routes/news/news.module#FixturesViewModule' },
   { path: 'photos', loadChildren: './routes/photos/photos.module#PhotosViewModule' },
   { path: 'error', loadChildren: './routes/error/error.module#ErrorViewModule' },

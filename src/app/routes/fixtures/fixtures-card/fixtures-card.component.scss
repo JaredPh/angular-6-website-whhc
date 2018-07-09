@@ -21,17 +21,27 @@ whhc-fixtures-card {
 
     border-bottom: 0.25rem solid;
     border-color: $white;
+  }
+}
 
-    &.result:not(.intra-club) {
-      &.win {
-        border-bottom-color: $green;
-      }
-      &.draw {
-        border-bottom-color: $yellow;
-      }
-      &.lose {
-        border-bottom-color: $red;
-      }
-    }
+.score.result:not(.intra-club).draw {
+  border-bottom-color: $yellow;
+}
+
+.home .score.result:not(.intra-club) {
+  &.win {
+    border-bottom-color: $green;
+  }
+  &.lose {
+    border-bottom-color: $red;
+  }
+}
+
+.away .score.result:not(.intra-club) {
+  &.win {
+    border-bottom-color: $red;
+  }
+  &.lose {
+    border-bottom-color: $green;
   }
 }

@@ -40,3 +40,9 @@
     }}
   </span>
 </p>
+<p *ngIf="fixture.homeTeam.club.id !== 1" class="time is-size-7 has-text-centered">
+  <ng-container *ngIf="fixture.time; else tbc">
+    {{ fixture.date + 'T' + fixture.time | dateToStr:'h:mma' }}
+  </ng-container>
+  <ng-template #tbc>TBC</ng-template>
+</p>

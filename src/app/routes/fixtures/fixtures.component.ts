@@ -1,6 +1,5 @@
 import { NgRedux, select } from '@angular-redux/store';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs';
 import { IAppState } from '../../app.store';
@@ -9,6 +8,7 @@ import { ClubsService } from '../../components/clubs/clubs.service';
 import { Fixture, FixturesDay, Team } from '../../components/fixtures/fixtures.models';
 import { FixturesService } from '../../components/fixtures/fixtures.service';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
+import { Router } from '@angular/router';
 
 export interface LocationFilter {
   home: boolean;
@@ -22,12 +22,16 @@ export class FixturesComponent implements OnInit {
 
   @select(s => s.requests.pending > 0) loading: Observable<boolean>;
 
+  public type: 'fixtures' | 'results';
+
   public teams: Team[];
   public clubs: Club[];
   public location: LocationFilter = {
     home: true,
     away: true,
   };
+
+  public oppo = 0;
 
   public rawFixtures: Fixture[];
   public fixtures: FixturesDay[] = [];
@@ -37,11 +41,13 @@ export class FixturesComponent implements OnInit {
     private fixturesService: FixturesService,
     private clubsService: ClubsService,
     private pageLoader: PageLoaderService,
-  ) {}
+    private router: Router,
+  ) {
+    this.type = this.router.url.substr(1);
+  }
 
   ngOnInit() {
     this.pageLoader.clear(); // todo: move to guard
-
 
     this.redux.select(s => s.clubs).subscribe((clubs) => {
       if (clubs.length > 0) {
@@ -58,10 +64,11 @@ export class FixturesComponent implements OnInit {
       }
     });
 
+
     this.redux.select(s => s.fixtures).subscribe((fixtures) => {
       if (fixtures.length > 0) {
         this.rawFixtures = fixtures;
-        this.filterTeams();
+        this.filterFixtures();
       } else {
         this.fixturesService.loadFixtures();
       }
@@ -97,16 +104,27 @@ export class FixturesComponent implements OnInit {
 
     this.location = { home, away };
 
-    this.filterTeams();
+    this.filterFixtures();
   }
 
   public toggleSection(section: string): void {
     const result = !this.sectionChecked(section);
-    this.teams
-      .filter(t => t.type === section)
-      .forEach(t => t.show = result);
+    const all = this.teams.reduce((c, e) => c && e.show, true);
 
-    this.filterTeams();
+    if (all) {
+      event.preventDefault();
+      this.teams
+        .forEach(t => {
+          console.log(t.name, t.type, section, t.type === section);
+          t.show = t.type === section;
+        });
+    } else {
+      this.teams
+        .filter(t => t.type === section)
+        .forEach(t => t.show = result);
+    }
+
+    this.filterFixtures();
   }
 
   public toggleTeam(id: number, event: MouseEvent): void {
@@ -122,20 +140,38 @@ export class FixturesComponent implements OnInit {
       this.teams[index].show = !(this.teams[index].show);
     }
 
-    this.filterTeams();
+    this.filterFixtures();
   }
 
-  private filterTeams() {
+  public setOppo(event) {
+    this.oppo = +event.target.value;
+
+    this.filterFixtures();
+  }
+
+  private filterFixtures() {
     const teams = this.teams.reduce((c, e) => (e.show) ? [...c, e.id ] : c, []);
 
+    const fixtureFilter = (f: Fixture): boolean =>
+      (this.type === 'fixtures')
+        ? f.status === 'pending'
+        : f.status !== 'pending';
+
+    const teamFilter = (f: Fixture): boolean =>
+      (teams.indexOf(f.homeTeam.id)  >= 0 || teams.indexOf(f.awayTeam.id)  >= 0);
+
+    const oppoFilter = (f: Fixture): boolean =>
+      (this.oppo === 0 || this.oppo === f.homeTeam.club.id || this.oppo === f.awayTeam.club.id);
+
+    const locationFilter = (f: Fixture): boolean =>
+      (f.homeTeam.club.id === 1 && this.location.home) || (f.homeTeam.club.id !== 1 && this.location.away);
+
     const fixtures = this.rawFixtures
-      .filter(f => (
-        (f.homeTeam.club.id === 1 && this.location.home) ||
-        (f.homeTeam.club.id !== 1 && this.location.away)
-      ))
-      .filter(f => (teams.indexOf(f.homeTeam.id)  >= 0 || teams.indexOf(f.awayTeam.id)  >= 0));
+      .filter(f => fixtureFilter(f) && oppoFilter(f) && teamFilter(f) && locationFilter(f));
 
     const obj = _.groupBy(fixtures, 'date');
-    this.fixtures = Object.keys(obj).map(date => new FixturesDay(obj[date]));
+    this.fixtures = Object.keys(obj).map(date => new FixturesDay(obj[date])).sort((a, b) =>
+      (this.type === 'fixtures') ? a.date.localeCompare(b.date) : b.date.localeCompare(a.date)
+    );
   }
 }

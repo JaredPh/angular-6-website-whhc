@@ -5,7 +5,7 @@
     </div>
   </header>
 
-  <div *ngFor="let time of day.home" class="columns row">
+  <div *ngFor="let time of day.home" class="columns row home">
     <div class="column has-text-centered title is-size-6">
       <ng-container *ngIf="time[0].time; else tbc">{{ time[0].date + 'T' + time[0].time | dateToStr:'h:mma' }}</ng-container>
       <ng-template #tbc>TBC</ng-template>
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div *ngIf="day.away" class="columns row">
+  <div *ngIf="day.away" class="columns row away">
     <div class="column has-text-centered title is-size-6">
       Away
     </div>
