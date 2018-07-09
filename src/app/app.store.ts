@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
 import { tassign } from 'tassign';
+
+import { Club } from './components/clubs/clubs.models';
 import { Event } from './components/events/events.models';
 import { Fixture } from './components/fixtures/fixtures.models';
 import { News } from './components/news/news.models';
+
+import { clubsReducer, INITIAL_CLUBS_STATE } from './components/clubs/clubs.store';
 import { fixturesReducer, INITIAL_FIXTURES_STATE } from './components/fixtures/fixtures.store';
 import { eventsReducer, INITIAL_EVENTS_STATE } from './components/events/events.store';
 import { newsReducer, INITIAL_NEWS_STATE } from './components/news/news.store';
@@ -37,6 +41,7 @@ export function requestsReducer(state: IRequestState = INITIAL_REQUEST_STATE, ac
 }
 
 export interface IAppState {
+  clubs: Club[];
   events: Event[];
   fixtures: Fixture[];
   news: News[];
@@ -46,6 +51,7 @@ export interface IAppState {
 }
 
 export const INITIAL_STATE: IAppState = {
+  clubs: INITIAL_CLUBS_STATE,
   events: INITIAL_EVENTS_STATE,
   fixtures: INITIAL_FIXTURES_STATE,
   news: INITIAL_NEWS_STATE,
@@ -55,6 +61,7 @@ export const INITIAL_STATE: IAppState = {
 };
 
 export const rootReducer = combineReducers({
+  clubs: clubsReducer,
   events: eventsReducer,
   fixtures: fixturesReducer,
   news: newsReducer,

@@ -1,19 +1,6 @@
 import * as _ from 'lodash';
-import { Image, Location } from '../events/events.models';
-
-export class Club { // todo: move
-  id: number;
-  short: string;
-  name: string;
-  logo: Image;
-
-  constructor(data: any) {
-    this.id = data.id;
-    this.short = data.short;
-    this.name = data.name;
-    this.logo = new Image(data.logo);
-  }
-}
+import { Club } from '../clubs/clubs.models';
+import { Location } from '../events/events.models';
 
 export class Team { // todo: move
   id: number;
@@ -21,6 +8,7 @@ export class Team { // todo: move
   name: string;
   type: string;
   club: Club;
+  show?: boolean;
 
   constructor(data: any) {
     this.id = data.id;
@@ -80,7 +68,7 @@ export class FixturesDay {
           const sortStr = (str) => `${str.charAt(1)}${str.charAt(0)}`;
 
           sortStr(a.awayTeam.short).localeCompare(sortStr(b.awayTeam.short));
-        }); 
+        });
     }
   }
 }

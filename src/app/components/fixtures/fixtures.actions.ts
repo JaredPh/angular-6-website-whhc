@@ -9,7 +9,7 @@ export const fixturesActions = {
   FIXTURES_FETCH_ONE_SUCCESS:  'FIXTURES_FETCH_ONE_SUCCESS',
 };
 
-export class FixturesReducerActions {
+export class FixturesActions {
 
   constructor(
     private state: Fixture[],

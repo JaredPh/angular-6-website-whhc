@@ -1,6 +1,12 @@
 @import "~bulma";
 @import '~bulma-tooltip';
-@import '~bulma-pageloader/dist/bulma-pageloader.sass';
+@import '~bulma-pageloader/dist/bulma-pageloader';
+@import '~bulma-checkradio/dist/bulma-checkradio';
+
+.is-checkradio + label:before {
+  background: $white !important;
+  border: 0.1rem solid #dbdbdb !important;
+}
 
 pre {
   font-family: inherit;

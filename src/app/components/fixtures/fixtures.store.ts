@@ -1,11 +1,11 @@
 import { Fixture } from './fixtures.models';
-import { fixturesActions, FixturesReducerActions } from './fixtures.actions';
+import { fixturesActions, FixturesActions } from './fixtures.actions';
 
 export const INITIAL_FIXTURES_STATE: Fixture[] = [];
 
 export function fixturesReducer(state: Fixture[] = INITIAL_FIXTURES_STATE, action): Fixture[] {
 
-  const actions = new FixturesReducerActions(state, action);
+  const actions = new FixturesActions(state, action);
 
   switch (action.type) {
 

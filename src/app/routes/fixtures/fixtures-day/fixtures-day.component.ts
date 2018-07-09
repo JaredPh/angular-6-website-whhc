@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FixturesDay } from '../../../components/fixtures/fixtures.models';
+import { LocationFilter } from '../fixtures.component';
 
 @Component({
   selector: 'whhc-fixtures-day',

@@ -9,6 +9,10 @@
 @import 'bulma';
 @import 'base-elements';
 
+.filter {
+  margin-bottom: $column-gap;
+}
+
 .whhc-fixtures-day {
 
   .row {
