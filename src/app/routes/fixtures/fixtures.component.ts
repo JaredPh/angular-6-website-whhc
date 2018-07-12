@@ -20,6 +20,7 @@ export class FixturesComponent implements OnInit {
 
   @select(s => s.requests.pending > 0) loading: Observable<boolean>;
 
+  public showMobileFilterFlag: boolean;
   public type: string; // 'fixtures' | 'results'
 
   public teams: Team[];
@@ -164,5 +165,13 @@ export class FixturesComponent implements OnInit {
     this.fixtures = Object.keys(obj).map(date => new FixturesDay(obj[date])).sort((a, b) =>
       (this.type === 'fixtures') ? a.date.localeCompare(b.date) : b.date.localeCompare(a.date)
     );
+  }
+
+  public toggleFilter(flag?: boolean): void {
+    if (typeof flag === 'boolean') {
+      this.showMobileFilterFlag = flag;
+    } else {
+      this.showMobileFilterFlag = !this.showMobileFilterFlag;
+    }
   }
 }

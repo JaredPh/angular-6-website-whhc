@@ -3,6 +3,10 @@
 @import '~bulma-pageloader/dist/bulma-pageloader';
 @import '~bulma-checkradio/dist/bulma-checkradio';
 
+.image {
+  position: static;
+}
+
 .is-checkradio + label:before {
   background: $white !important;
   border: 0.1rem solid #dbdbdb !important;
