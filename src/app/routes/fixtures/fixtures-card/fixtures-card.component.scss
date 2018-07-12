@@ -45,3 +45,12 @@ whhc-fixtures-card {
     border-bottom-color: $green;
   }
 }
+
+.title-wrap {
+  @include mobile {
+    background: $whhc-maroon;
+    .title {
+      color: white !important;
+    }
+  }
+}

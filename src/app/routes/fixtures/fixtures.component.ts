@@ -4,9 +4,7 @@ import * as _ from 'lodash';
 import { Observable } from 'rxjs';
 import { IAppState } from '../../app.store';
 import { Club } from '../../components/clubs/clubs.models';
-import { ClubsService } from '../../components/clubs/clubs.service';
 import { Fixture, FixturesDay, Team } from '../../components/fixtures/fixtures.models';
-import { FixturesService } from '../../components/fixtures/fixtures.service';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
 import { Router } from '@angular/router';
 
@@ -22,7 +20,7 @@ export class FixturesComponent implements OnInit {
 
   @select(s => s.requests.pending > 0) loading: Observable<boolean>;
 
-  public type: 'fixtures' | 'results';
+  public type: string; // 'fixtures' | 'results'
 
   public teams: Team[];
   public clubs: Club[];
@@ -38,8 +36,6 @@ export class FixturesComponent implements OnInit {
 
   constructor(
     private redux: NgRedux<IAppState>,
-    private fixturesService: FixturesService,
-    private clubsService: ClubsService,
     private pageLoader: PageLoaderService,
     private router: Router,
   ) {
@@ -47,8 +43,6 @@ export class FixturesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pageLoader.clear(); // todo: move to guard
-
     this.redux.select(s => s.clubs).subscribe((clubs) => {
       if (clubs.length > 0) {
         const club = clubs.find(c => c.id === 1);
@@ -59,18 +53,14 @@ export class FixturesComponent implements OnInit {
         this.clubs = clubs
           .filter(c => c.id !== 1)
           .sort((a, b) => a.name.localeCompare(b.name));
-      } else {
-        this.clubsService.loadClubs();
       }
     });
 
-
-    this.redux.select(s => s.fixtures).subscribe((fixtures) => {
+    this.redux.select(s => s.fixtures.filter(f =>
+      (this.type === 'fixtures') ? f.status === 'pending' : f.status !== 'pending')).subscribe((fixtures) => {
       if (fixtures.length > 0) {
         this.rawFixtures = fixtures;
         this.filterFixtures();
-      } else {
-        this.fixturesService.loadFixtures();
       }
     });
   }
@@ -150,12 +140,13 @@ export class FixturesComponent implements OnInit {
   }
 
   private filterFixtures() {
-    const teams = this.teams.reduce((c, e) => (e.show) ? [...c, e.id ] : c, []);
+    this.loading.subscribe(state => {
+      if (state === false) {
+        this.pageLoader.clear();
+      }
+    });
 
-    const fixtureFilter = (f: Fixture): boolean =>
-      (this.type === 'fixtures')
-        ? f.status === 'pending'
-        : f.status !== 'pending';
+    const teams = this.teams.reduce((c, e) => (e.show) ? [...c, e.id ] : c, []);
 
     const teamFilter = (f: Fixture): boolean =>
       (teams.indexOf(f.homeTeam.id)  >= 0 || teams.indexOf(f.awayTeam.id)  >= 0);
@@ -167,7 +158,7 @@ export class FixturesComponent implements OnInit {
       (f.homeTeam.club.id === 1 && this.location.home) || (f.homeTeam.club.id !== 1 && this.location.away);
 
     const fixtures = this.rawFixtures
-      .filter(f => fixtureFilter(f) && oppoFilter(f) && teamFilter(f) && locationFilter(f));
+      .filter(f => oppoFilter(f) && teamFilter(f) && locationFilter(f));
 
     const obj = _.groupBy(fixtures, 'date');
     this.fixtures = Object.keys(obj).map(date => new FixturesDay(obj[date])).sort((a, b) =>

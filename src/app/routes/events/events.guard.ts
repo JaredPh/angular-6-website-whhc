@@ -1,6 +1,6 @@
 import { NgRedux } from '@angular-redux/store';
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute, Router } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { IAppState } from '../../app.store';
 import { EventsService } from '../../components/events/events.service';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
@@ -11,7 +11,6 @@ export class EventsGuard implements CanActivate {
 
   constructor(
     private redux: NgRedux<IAppState>,
-    private route: ActivatedRoute,
     private router: Router,
     private eventsService: EventsService,
     private tagsService: TagsService,

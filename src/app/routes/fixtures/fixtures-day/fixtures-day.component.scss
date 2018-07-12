@@ -17,4 +17,35 @@
   .club-badge {
     padding-bottom: 0;
   }
+
+  .row {
+    background: $white;
+
+    @include tablet {
+      border: 1px solid $border;
+      border-bottom: none;
+
+      &:last-child {
+        border-bottom: 1px solid $border;
+      }
+    }
+  }
+
+  whhc-fixtures-card {
+    @include tablet {
+      margin-bottom: -1px;
+      border-bottom: 1px solid $border;
+
+      &:nth-child(odd) {
+        border-right: 1px solid $border;
+        border-left: 1px solid $border;
+      }
+    }
+
+    @include mobile {
+      border-right: 1px solid $border;
+      border-left: 1px solid $border;
+      border-bottom: 1px solid $border;
+    }
+  }
 }
