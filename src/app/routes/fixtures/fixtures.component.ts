@@ -105,10 +105,7 @@ export class FixturesComponent implements OnInit {
     if (all) {
       event.preventDefault();
       this.teams
-        .forEach(t => {
-          console.log(t.name, t.type, section, t.type === section);
-          t.show = t.type === section;
-        });
+        .forEach(t => t.show = t.type === section);
     } else {
       this.teams
         .filter(t => t.type === section)
