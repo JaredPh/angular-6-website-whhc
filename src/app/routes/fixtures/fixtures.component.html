@@ -1,0 +1,101 @@
+<section class="section fixtures">
+  <div class="container">
+    <div class="columns is-multiline is-mobile">
+      <div class="sticky-side column is-3-desktop is-12-touch">
+        <div class="is-sticky">
+          <h1 class="title">{{ type | capitalize }}</h1>
+
+          <div class="mask is-hidden-desktop" (click)="toggleFilter()"></div>
+          <div class="filters" [class.show]="showMobileFilterFlag">
+
+            <a class="delete is-medium is-hidden-desktop" (click)="toggleFilter(false)"></a>
+
+            <a class="button is-medium is-hidden-desktop" (click)="toggleFilter()">
+              <span class="icon">
+                <i class="fas fa-filter fa-lg"></i>
+              </span>
+            </a>
+
+            <div class="filter">
+              <h4 class="title is-size-6 is-uppercase">Location</h4>
+              <div class="columns is-mobile is-gapless">
+                <div *ngFor="let location of ['all', 'home', 'away']" class="column is-one-third">
+                  <div class="field">
+                    <input
+                      class="is-checkradio"
+                      [id]="'location-' + location"
+                      type="radio"
+                      name="location"
+                      [checked]="locationChecked(location)"
+                      (click)="toggleLocation(location)"
+                    >
+                    <label [for]="'location-' + location">{{ location | capitalize }}</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="teams" class="filter">
+              <h4 class="title is-size-6 is-uppercase">Teams</h4>
+
+              <div class="columns is-mobile is-gapless">
+                <div *ngFor="let section of ['ladies', 'mens']" class="column is-one-third">
+                  <div class="field">
+                    <input
+                      class="is-checkradio"
+                      [id]="'section-' + section"
+                      type="checkbox"
+                      name="section"
+                      [checked]="sectionChecked(section)"
+                      (click)="toggleSection(section)"
+                    >
+                    <label [for]="'section-' + section">{{ section | capitalize }}</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="columns is-mobile is-gapless">
+
+                <div class="column" *ngFor="let chunk of [[0,6], [6, 10], [10, 14]]">
+                  <div *ngFor="let team of teams?.slice(chunk[0],chunk[1])" class="field">
+                    <input
+                      class="is-checkradio"
+                      [id]="'team-'+team.short"
+                      type="checkbox"
+                      name="teams"
+                      [checked]="team.show"
+                      (click)="toggleTeam(team.id, $event)"
+                    >
+                    <label [for]="'team-'+team.short">{{ team.short }}</label>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="filter">
+              <h4 class="title is-size-6 is-uppercase">Opposition Club</h4>
+
+              <div class="select is-fullwidth">
+                <select
+                  (change)="setOppo($event)"
+                >
+                  <option value="0">All</option>
+                  <option *ngFor="let club of clubs" [value]="club.id">{{ club.name}}</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="column">
+        <whhc-fixtures-day *ngFor="let day of fixtures" [day]="day"></whhc-fixtures-day>
+      </div>
+
+    </div>
+  </div>
+</section>

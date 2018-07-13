@@ -57,7 +57,7 @@ export class MediaImageGalleryComponent implements OnInit {
   }
 
   /* modal methods */
-  public showModalImage(rowIndex: number, columnIndex: number): void {
+  public  showModalImage(rowIndex: number, columnIndex: number): void {
     this.modalIndex = { rowIndex, columnIndex};
     this.modalPrevIndex = this.getIndex('prev', this.modalIndex);
     this.modalNextIndex = this.getIndex('next', this.modalIndex);

@@ -21,7 +21,7 @@ export class HttpService {
     const url = `${environment.apiAddress}${route}${queryString}`;
 
     if (isDevMode()) {
-      console.log('HttpService', 'GET:', { url });
+      console.log('HttpService', 'GET:', url);
     }
 
     return this.http.get(url);

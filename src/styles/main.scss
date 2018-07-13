@@ -248,6 +248,9 @@ body {
   /* Events */
   @import '../app/routes/events/event-detail/event-detail.component';
 
+  /* Fixtures */
+  @import '../app/routes/fixtures/fixtures.component';
+
   /* Pages */
   @import '../app/routes/pages/pages.component';
   @import '../app/routes/pages/page-list-card/page-list-card.component';

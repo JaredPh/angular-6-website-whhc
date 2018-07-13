@@ -1,0 +1,32 @@
+<div class="whhc-fixtures-day">
+  <header class="columns">
+    <div class="column">
+      <h3 class="title is-size-6 has-text-centered-mobile">{{ day.date | dateToStr:'dddd Do of MMMM YYYY' }}</h3>
+    </div>
+  </header>
+
+  <div *ngFor="let time of day.home" class="columns row home">
+    <div class="column has-text-centered title-wrap">
+      <h4 class="title is-size-6">
+        <ng-container *ngIf="time[0].time; else tbc">{{ time[0].date + 'T' + time[0].time | dateToStr:'h:mma' }}</ng-container>
+        <ng-template #tbc>TBC</ng-template>
+      </h4>
+    </div>
+    <div class="column is-10">
+      <div class="columns is-multiline">
+        <whhc-fixtures-card *ngFor="let fixture of time" class="column is-6" [fixture]="fixture"></whhc-fixtures-card>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="day.away" class="columns row away">
+    <div class="column has-text-centered title-wrap">
+      <h4 class="title is-size-6">Away</h4>
+    </div>
+    <div class="column is-10">
+      <div class="columns is-multiline">
+        <whhc-fixtures-card *ngFor="let fixture of day.away" class="column is-6" [fixture]="fixture"></whhc-fixtures-card>
+      </div>
+    </div>
+  </div>
+</div>
