@@ -18,6 +18,7 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { NavbarComponent } from './elements/navbar/navbar.component';
 import { WysiwygRoutesDirective } from './directives/wysiwyg-routes.directive';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { SEOService } from './services/seo.service';
 
 const exportedDeclarations = [
   CapitalizePipe,
@@ -44,6 +45,7 @@ const exportedDeclarations = [
   ],
   providers: [
     HttpService,
+    SEOService,
   ],
   exports: [
     ...exportedDeclarations,

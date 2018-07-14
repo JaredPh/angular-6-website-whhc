@@ -1,0 +1,184 @@
+.section.fixtures {
+
+  .mask {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    top: 6rem;
+    bottom: 0;
+    z-index: 3;
+  }
+
+  a.delete {
+    position: absolute;
+    top: $column-gap;
+    right: $column-gap;
+  }
+
+  a.button {
+    position: absolute;
+    left: -44px;
+    top: $gap;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-right-width: 0px;
+    user-select: none;
+  }
+
+  @include touch {
+    > .columns > .column {
+
+      position: relative;
+
+      &:nth-child(1) {
+        z-index: 1;
+      }
+      &:nth-child(2) {
+        z-index: 0;
+      }
+    }
+
+    .filters {
+      position: fixed;
+      z-index: 3;
+      background: white;
+      width: calc(100% - 45px);
+      left: 100%;
+      padding: 32px;
+      top: 6rem;
+      border: 1px solid $border;
+      border-bottom-left-radius: 3px;
+      transition: left 0.3s ease-out;
+
+      &.show {
+        left: 45px;
+        transition: left 0.5s ease-in-out;
+
+        &:before {
+          content: '';
+          display: block;
+          position: relative;
+          background: pink;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          top: 6rem;
+          z-index: 2;
+        }
+      }
+    }
+  }
+}
+
+.filter {
+  margin-bottom: $column-gap;
+}
+
+.whhc-fixtures-day {
+
+  header .column {
+    background: $whhc-black;
+    border-bottom: 0.5rem solid $whhc-blue;
+
+    .title {
+      color: $white;
+    }
+  }
+  margin-bottom: $gap;
+
+  .box {
+    padding: 0;
+  }
+
+  .club-badge {
+    padding-bottom: 0;
+  }
+
+  .row {
+    background: $white;
+
+    @include tablet {
+      border: 1px solid $border;
+      border-bottom: none;
+
+      &:last-child {
+        border-bottom: 1px solid $border;
+      }
+    }
+  }
+
+  whhc-fixtures-card {
+    @include tablet {
+      margin-bottom: -1px;
+      border-bottom: 1px solid $border;
+
+      &:nth-child(odd) {
+        border-right: 1px solid $border;
+        border-left: 1px solid $border;
+      }
+    }
+
+    @include mobile {
+      border-right: 1px solid $border;
+      border-left: 1px solid $border;
+      border-bottom: 1px solid $border;
+    }
+  }
+}
+
+whhc-fixtures-card {
+  .column {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .fixture-heading {
+    .whhc-team {
+      font-weight: bold;
+    }
+  }
+
+  .score {
+    padding: 0.25rem;
+    background: $border;
+    font-weight: bold;
+    min-width: 3rem;
+    display: inline-block;
+
+    border-bottom: 0.25rem solid;
+    border-color: $white;
+  }
+}
+
+.score.result:not(.intra-club).draw {
+  border-bottom-color: $yellow;
+}
+
+.home .score.result:not(.intra-club) {
+  &.win {
+    border-bottom-color: $green;
+  }
+  &.lose {
+    border-bottom-color: $red;
+  }
+}
+
+.away .score.result:not(.intra-club) {
+  &.win {
+    border-bottom-color: $red;
+  }
+  &.lose {
+    border-bottom-color: $green;
+  }
+}
+
+.title-wrap {
+  @include mobile {
+    background: $whhc-maroon;
+    .title {
+      color: white !important;
+    }
+  }
+}

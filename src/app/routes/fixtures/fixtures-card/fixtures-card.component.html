@@ -1,0 +1,48 @@
+<div class="columns is-centered is-marginless is-mobile">
+  <div class="column is-narrow">
+    <figure class="image is-56x56">
+      <img [src]="fixture.homeTeam.club.logo.url">
+    </figure>
+  </div>
+  <div class="column is-narrow">
+    <p
+      class="score has-text-centered"
+      [ngClass]="fixture.status"
+      [class.win]="fixture.homeScore > fixture.awayScore"
+      [class.draw]="fixture.homeScore === fixture.awayScore"
+      [class.lose]="fixture.homeScore < fixture.awayScore"
+      [class.intra-club]="fixture.homeTeam.club.id === 1 && fixture.awayTeam.club.id === 1"
+    >
+      {{ fixture.homeScore }} - {{ fixture.awayScore }}
+    </p>
+  </div>
+  <div class="column is-narrow">
+    <figure class="image is-56x56">
+      <img [src]="fixture.awayTeam.club.logo.url">
+    </figure>
+  </div>
+</div>
+
+<p class="fixture-heading has-text-centered">
+  <span [class.whhc-team]="fixture.homeTeam.club.id === 1">
+    {{
+        (fixture.homeTeam.club.id === 1)
+          ? fixture.homeTeam.short
+          : fixture.homeTeam.club.name + ' ' + fixture.homeTeam.short
+    }}
+  </span>
+  <small>vs</small>
+  <span [class.whhc-team]="fixture.awayTeam.club.id === 1">
+    {{
+        (fixture.awayTeam.club.id === 1)
+          ? fixture.awayTeam.short
+          : fixture.awayTeam.club.name + ' ' + fixture.awayTeam.short
+    }}
+  </span>
+</p>
+<p *ngIf="fixture.homeTeam.club.id !== 1" class="time is-size-7 has-text-centered">
+  <ng-container *ngIf="fixture.time; else tbc">
+    {{ fixture.date + 'T' + fixture.time | dateToStr:'h:mma' }}
+  </ng-container>
+  <ng-template #tbc>TBC</ng-template>
+</p>

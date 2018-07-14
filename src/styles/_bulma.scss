@@ -1,6 +1,16 @@
 @import "~bulma";
 @import '~bulma-tooltip';
-@import '~bulma-pageloader/dist/bulma-pageloader.sass';
+@import '~bulma-pageloader/dist/bulma-pageloader';
+@import '~bulma-checkradio/dist/bulma-checkradio';
+
+.image {
+  position: static;
+}
+
+.is-checkradio + label:before {
+  background: $white !important;
+  border: 0.1rem solid #dbdbdb !important;
+}
 
 pre {
   font-family: inherit;
@@ -38,6 +48,11 @@ h1, h2, .description {
     height: 48px !important;
     width: 48px !important;
   }
+}
+
+.is-56x56 {
+  height: 56px;
+  width: 56px;
 }
 
 .navbar-burger {
