@@ -3,6 +3,7 @@ import 'reflect-metadata';
 import {enableProdMode} from '@angular/core';
 import {ngExpressEngine} from '@nguniversal/express-engine';
 import {provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
+import * as prerender from 'prerender-node';
 
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
@@ -19,6 +20,7 @@ app.use(compression());
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(prerender).set('prerenderToken', '2mTrbJ6yuAsuKQwjjU8i');
 
 // const DIST_FOLDER = join(process.cwd(), 'dist');
 
