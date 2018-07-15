@@ -1,0 +1,12 @@
+{
+  "universal": {
+    "skipInstall": false,
+    "directory": ".",
+    "project": "whhc-site"
+  },
+  "pwa": {
+    "directory": ".",
+    "skipInstall": true,
+    "project": "whhc-site"
+  }
+}
