@@ -1,4 +1,3 @@
-import { getIn } from '@angular-redux/store/lib/src/utils/get-in';
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { IImage } from '../media.interfaces';
 

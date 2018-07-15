@@ -1,3 +1,5 @@
+import { NgtUniversalModule } from '@ng-toolkit/universal';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, isDevMode } from '@angular/core';
 import { RouteReuseStrategy } from '@angular/router';
@@ -21,7 +23,8 @@ import { environment } from '../environments/environment';
     AppComponent,
   ],
   imports: [
-    BrowserModule,
+    CommonModule,
+    NgtUniversalModule,
     AppRoutingModule,
     NgReduxModule,
     NgReduxRouterModule,
@@ -35,9 +38,6 @@ import { environment } from '../environments/environment';
       useClass: AppRouteStrategy,
     },
     PageLoaderService,
-  ],
-  bootstrap: [
-    AppComponent,
   ],
 })
 export class AppModule {
