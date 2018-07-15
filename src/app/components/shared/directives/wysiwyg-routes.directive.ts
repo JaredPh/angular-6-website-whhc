@@ -23,7 +23,7 @@ export class WysiwygRoutesDirective {
         event.preventDefault();
 
         if (externalLink.test(destination)) {
-            window.open(destination, (/^(http).*/i) ? '_blank' : '');
+            this.window.open(destination, (/^(http).*/i) ? '_blank' : '');
         } else {
           this.router.navigate([destination]);
         }
