@@ -13,9 +13,8 @@ before_install:
 - npm install -g snyk
 install:
 - npm install
-#script:
-#- npm run test
-#- npm run codacy
+script:
+- npm run test
 cache:
   directories:
   - node_modules
