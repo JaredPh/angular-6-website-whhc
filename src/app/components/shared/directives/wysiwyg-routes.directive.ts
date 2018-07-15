@@ -1,5 +1,6 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, HostListener, Inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { WINDOW } from '@ng-toolkit/universal';
 
 @Directive({
   selector: '[whhcWYSIWYG]'
@@ -7,8 +8,8 @@ import { Router } from '@angular/router';
 export class WysiwygRoutesDirective {
 
   constructor(
-    private el: ElementRef,
     private router: Router,
+    @Inject(WINDOW) private window: Window
   ) {}
 
   @HostListener('click', ['$event'])
@@ -22,7 +23,7 @@ export class WysiwygRoutesDirective {
         event.preventDefault();
 
         if (externalLink.test(destination)) {
-          window.open(destination, (/^(http).*/i) ? '_blank' : '');
+            window.open(destination, (/^(http).*/i) ? '_blank' : '');
         } else {
           this.router.navigate([destination]);
         }
