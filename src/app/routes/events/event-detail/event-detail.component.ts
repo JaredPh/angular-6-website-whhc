@@ -6,6 +6,7 @@ import { IAppState } from '../../../app.store';
 import { NgRedux } from '@angular-redux/store';
 import { Event } from '../../../components/events/events.models';
 import * as moment from 'moment';
+import { SEOService } from '../../../components/shared/services/seo.service';
 
 @Component({
   selector: 'whhc-event-detail',
@@ -24,6 +25,7 @@ export class EventDetailComponent implements OnInit {
     private eventsService: EventsService,
     private redux: NgRedux<IAppState>,
     private pageLoader: PageLoaderService,
+    private seoService: SEOService,
   ) {}
 
   ngOnInit() {
@@ -39,7 +41,7 @@ export class EventDetailComponent implements OnInit {
 
     this.redux
       .select(s => s.events)
-      .subscribe((events) => {
+      .subscribe((events: Event[]) => {
         const event = events.find(a => a.slug === slug);
 
         if (event) {
@@ -55,6 +57,12 @@ export class EventDetailComponent implements OnInit {
           }
 
           this.event = event;
+
+          this.seoService.setPageTags({
+            title: this.event.heading,
+            description: this.event.description,
+            image: this.event.thumb.url,
+          });
 
           const now = moment();
 

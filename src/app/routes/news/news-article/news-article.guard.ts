@@ -10,7 +10,6 @@ export class NewsArticleGuard implements CanActivate {
 
   constructor(
     private redux: NgRedux<IAppState>,
-    private route: ActivatedRoute,
     private router: Router,
     private newsService: NewsService,
     private pageLoader: PageLoaderService,
