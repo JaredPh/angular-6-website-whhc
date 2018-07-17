@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppPreloader } from './app.preloader';
 
 const routes: Routes = [
+  { path: 'auth', loadChildren: './routes/auth/auth.module#AuthModule' },
   { path: 'events', loadChildren: './routes/events/events.module#EventsViewModule' },
   { path: 'fixtures', loadChildren: './routes/fixtures/fixtures.module#FixturesViewModule' },
   { path: 'results', loadChildren: './routes/fixtures/fixtures.module#FixturesViewModule' },

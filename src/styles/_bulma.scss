@@ -3,6 +3,10 @@
 @import '~bulma-pageloader/dist/bulma-pageloader';
 @import '~bulma-checkradio/dist/bulma-checkradio';
 
+.hero.is-fullheight {
+  min-height: calc(100vh - 6rem);
+}
+
 .image {
   position: static;
 }

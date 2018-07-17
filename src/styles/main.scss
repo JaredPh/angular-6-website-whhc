@@ -239,6 +239,9 @@ body {
 
   @import '../app/app.component';
 
+  /* Auth */
+  @import '../app/routes/auth/auth-login/auth-login.component.scss';
+
   /* Home */
   @import '../app/routes/home/home-events/home-events.component';
 
