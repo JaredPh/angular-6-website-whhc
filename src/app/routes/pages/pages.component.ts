@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 import { Location } from '../../components/events/events.models';
 import { IAppState } from '../../app.store';
 import { Page, PageTree } from '../../components/pages/pages.models';
-import { PagesService } from '../../components/pages/pages.service';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
+import { SEOService } from '../../components/shared/services/seo.service';
 
 @Component({
   selector: 'whhc-pages',
@@ -25,8 +25,8 @@ export class PagesComponent implements OnInit {
     private redux: NgRedux<IAppState>,
     private route: ActivatedRoute,
     private router: Router,
-    private pagesService: PagesService,
     private pageLoader: PageLoaderService,
+    private seoService: SEOService,
   ) {
     this.pageLoader.clear();
   }
@@ -45,6 +45,13 @@ export class PagesComponent implements OnInit {
         .select(s => s.pages.pages.find(p => p.slug === slug))
         .subscribe((page) => {
           this.page = page;
+
+          if (page) {
+            this.seoService.setPageTags({
+              title: this.page.heading,
+              description: this.page.description,
+            });
+          }
         });
     });
   }

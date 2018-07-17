@@ -8,6 +8,9 @@ const routes: Routes = [
     path: '',
     component: PhotosComponent,
     canActivate: [PhotosGuard],
+    data: {
+
+    }
   },
   {
     path: 'tags/:tag',
