@@ -38,12 +38,14 @@ export class PageSummary {
 
 export class Page extends PageSummary {
   body: string;
+  description: string;
   type: 'custom' | 'location' | 'landing' | 'contacts';
   reference?: any;
 
   constructor(data) {
     super(data);
     this.body = data.body;
+    this.description = data.description;
     this.type = data.type;
 
     switch (data.type) {

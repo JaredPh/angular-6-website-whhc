@@ -4,9 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IAppState } from '../../app.store';
 import { News } from '../../components/news/news.models';
-import { NewsService } from '../../components/news/news.service';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
-import { TagsService } from '../../components/tags/tags.service';
+import { SEOService } from '../../components/shared/services/seo.service';
 
 @Component({
   selector: 'whhc-photos',
@@ -20,12 +19,16 @@ export class PhotosComponent implements OnInit {
   public selectedTag: string;
 
   constructor(
-    private newsService: NewsService,
-    private tagsService: TagsService,
     private ngRedux: NgRedux<IAppState>,
     private route: ActivatedRoute,
     private pageLoader: PageLoaderService,
-  ) {}
+    private seoService: SEOService,
+  ) {
+    this.seoService.setPageTags({
+      title: 'Photos',
+      description: 'The latest photos of West Hampstead members on and off the pitch.',
+    });
+  }
 
   ngOnInit() {
     this.pageLoader.clear();
