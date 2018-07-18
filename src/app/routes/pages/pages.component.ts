@@ -47,7 +47,7 @@ export class PagesComponent implements OnInit {
           this.page = page;
 
           if (page) {
-            this.seoService.setPageTags({
+            this.seoService.setTags({
               title: this.page.heading,
               description: this.page.description,
             });

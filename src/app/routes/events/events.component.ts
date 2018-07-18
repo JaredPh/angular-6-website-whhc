@@ -30,7 +30,7 @@ export class EventsComponent implements OnInit {
     private pageLoader: PageLoaderService,
     private seoService: SEOService,
   ) {
-    this.seoService.setPageTags({
+    this.seoService.setTags({
       title: 'Events',
       description: 'Find out what\'s on, socials, tours and more...',
     });
