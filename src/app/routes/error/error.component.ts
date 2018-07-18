@@ -23,7 +23,7 @@ export class ErrorComponent implements OnInit {
       .subscribe((data: { errorCode: string}) => {
         this.pageLoader.clear();
 
-        this.seoService.setPageTags({
+        this.seoService.setTags({
           title: 'Error',
           description: 'Something went wrong',
         });

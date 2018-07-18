@@ -58,7 +58,7 @@ export class EventDetailComponent implements OnInit {
 
           this.event = event;
 
-          this.seoService.setPageTags({
+          this.seoService.setTags({
             title: this.event.heading,
             description: this.event.description,
             image: this.event.thumb.url,

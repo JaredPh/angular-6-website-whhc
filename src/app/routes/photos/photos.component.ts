@@ -24,7 +24,7 @@ export class PhotosComponent implements OnInit {
     private pageLoader: PageLoaderService,
     private seoService: SEOService,
   ) {
-    this.seoService.setPageTags({
+    this.seoService.setTags({
       title: 'Photos',
       description: 'The latest photos of West Hampstead members on and off the pitch.',
     });

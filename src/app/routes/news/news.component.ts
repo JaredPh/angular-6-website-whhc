@@ -23,7 +23,7 @@ export class NewsComponent implements OnInit {
     private pageLoader: PageLoaderService,
     private seoService: SEOService,
   ) {
-    this.seoService.setPageTags({
+    this.seoService.setTags({
       title: 'News',
       description: 'Find out what\'s happening around the club as well as the whole hockey community',
     });

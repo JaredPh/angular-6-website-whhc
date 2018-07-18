@@ -37,7 +37,7 @@ export class NewsArticleComponent implements OnInit {
       .subscribe((article: News) => {
         this.article = article;
 
-        this.seoService.setPageTags({
+        this.seoService.setTags({
           title: this.article.heading,
           description: this.article.description,
           image: this.article.thumb.url,
