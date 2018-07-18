@@ -16,7 +16,7 @@ export class HomeComponent {
     private pageLoader: PageLoaderService,
     private seoService: SEOService,
   ) {
-    this.seoService.setPageTags({
+    this.seoService.setTags({
       title: 'Home',
       description: 'London\'s first choice for hockey!',
     });

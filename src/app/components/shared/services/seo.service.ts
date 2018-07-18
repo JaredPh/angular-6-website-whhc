@@ -12,7 +12,7 @@ export class SEOService {
     @Inject(DOCUMENT) private document,
   ) {}
 
-  public setPageTags(data: any) {
+  public setTags(data: any) {
     this.clearTags();
 
     const defaults = {
@@ -25,12 +25,12 @@ export class SEOService {
       }
     });
 
-    this.setTitle(data);
+    this.setPageTags(data);
     this.setOpenGraphTags(data);
     this.setTwitterTags(data);
   }
 
-  private setTitle(data: any): void {
+  private setPageTags(data: any): void {
     const title: HTMLLinkElement = this.document.getElementsByTagName('title')[0];
 
     const siteName = 'West Hampstead Hockey Club';
@@ -43,6 +43,10 @@ export class SEOService {
     if (data.description) {
       this.setTag({ name: 'description', content: data.description });
     }
+
+    const status = (data.status) ? data.status : 200;
+    console.log('status', status);
+    this.setTag({ name: 'prerender-status-code', content: status });
   }
 
   private setOpenGraphTags(data: any): void {

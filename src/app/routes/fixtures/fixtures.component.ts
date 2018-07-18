@@ -44,7 +44,7 @@ export class FixturesComponent implements OnInit {
   ) {
     this.type = this.router.url.substr(1);
 
-    this.seoService.setPageTags({
+    this.seoService.setTags({
       title: `${this.type.charAt(0).toUpperCase()}${this.type.substring(1)}`,
       description: (this.type === 'fixtures')
         ? 'Upcoming West Hampstead Games'
