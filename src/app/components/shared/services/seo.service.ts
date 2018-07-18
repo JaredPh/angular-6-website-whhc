@@ -43,6 +43,10 @@ export class SEOService {
     if (data.description) {
       this.setTag({ name: 'description', content: data.description });
     }
+
+    const status = (data.status) ? data.status : 200;
+    console.log('status', status);
+    this.setTag({ name: 'prerender-status-code', content: status });
   }
 
   private setOpenGraphTags(data: any): void {

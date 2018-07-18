@@ -26,6 +26,7 @@ export class ErrorComponent implements OnInit {
         this.seoService.setTags({
           title: 'Error',
           description: 'Something went wrong',
+          status: data.errorCode,
         });
       });
 
