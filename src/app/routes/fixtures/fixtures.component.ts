@@ -7,6 +7,7 @@ import { Club } from '../../components/clubs/clubs.models';
 import { Fixture, FixturesDay, Team } from '../../components/fixtures/fixtures.models';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
 import { Router } from '@angular/router';
+import { SEOService } from '../../components/shared/services/seo.service';
 
 export interface LocationFilter {
   home: boolean;
@@ -39,8 +40,16 @@ export class FixturesComponent implements OnInit {
     private redux: NgRedux<IAppState>,
     private pageLoader: PageLoaderService,
     private router: Router,
+    private seoService: SEOService,
   ) {
     this.type = this.router.url.substr(1);
+
+    this.seoService.setTags({
+      title: `${this.type.charAt(0).toUpperCase()}${this.type.substring(1)}`,
+      description: (this.type === 'fixtures')
+        ? 'Upcoming West Hampstead Games'
+        : 'Recent results for West Hampstead Teams',
+    });
   }
 
   ngOnInit() {

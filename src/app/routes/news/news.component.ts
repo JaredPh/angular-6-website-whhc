@@ -5,6 +5,7 @@ import { IAppState } from '../../app.store';
 import { ActivatedRoute } from '@angular/router';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
 import { Observable } from 'rxjs/index';
+import { SEOService } from '../../components/shared/services/seo.service';
 
 @Component({
   templateUrl: './news.component.html',
@@ -17,10 +18,16 @@ export class NewsComponent implements OnInit {
   public selectedTag: string;
 
   constructor(
-    private ngRedux: NgRedux<IAppState>,
+    private redux: NgRedux<IAppState>,
     private route: ActivatedRoute,
     private pageLoader: PageLoaderService,
-  ) {}
+    private seoService: SEOService,
+  ) {
+    this.seoService.setTags({
+      title: 'News',
+      description: 'Find out what\'s happening around the club as well as the whole hockey community',
+    });
+  }
 
   ngOnInit() {
     this.pageLoader.clear();
@@ -28,7 +35,7 @@ export class NewsComponent implements OnInit {
     this.route.params.subscribe( params => {
       this.selectedTag = params.tag;
 
-      this.ngRedux
+      this.redux
         .select(s => s.news)
         .subscribe((articles) => {
           this.articles = (this.selectedTag)

@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/index';
 import { Event} from '../../components/events/events.models';
 import { EventsService} from '../../components/events/events.service';
 import { TagsService } from '../../components/tags/tags.service';
+import { SEOService } from '../../components/shared/services/seo.service';
 
 @Component({
   templateUrl: './events.component.html',
@@ -24,12 +25,16 @@ export class EventsComponent implements OnInit {
   public selectedTag: string;
 
   constructor(
-    private eventsService: EventsService,
-    private tagsService: TagsService,
-    private ngRedux: NgRedux<IAppState>,
+    private redux: NgRedux<IAppState>,
     private route: ActivatedRoute,
     private pageLoader: PageLoaderService,
-  ) {}
+    private seoService: SEOService,
+  ) {
+    this.seoService.setTags({
+      title: 'Events',
+      description: 'Find out what\'s on, socials, tours and more...',
+    });
+  }
 
   ngOnInit() {
     this.loading.subscribe((isLoading) => {
@@ -42,7 +47,7 @@ export class EventsComponent implements OnInit {
       this.selectedTag = params.tag;
       this.selectedEvent = params.slug;
 
-      this.ngRedux
+      this.redux
         .select(s => s.events)
         .subscribe((e) => {
           const now = new Date().toJSON();

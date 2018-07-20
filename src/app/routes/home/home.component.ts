@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
 import { Observable } from 'rxjs/index';
 import { select } from '@angular-redux/store';
+import { SEOService } from '../../components/shared/services/seo.service';
 
 @Component({
   templateUrl: './home.component.html',
@@ -13,7 +14,13 @@ export class HomeComponent {
 
   constructor(
     private pageLoader: PageLoaderService,
+    private seoService: SEOService,
   ) {
+    this.seoService.setTags({
+      title: 'Home',
+      description: 'London\'s first choice for hockey!',
+    });
+
     this.initPageLoader();
   }
 

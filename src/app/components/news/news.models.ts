@@ -2,6 +2,7 @@ import { Image, User } from '../events/events.models';
 
 export class News {
   slug: string;
+  description: string;
   heading: string;
   body: string;
   date: string;
@@ -20,6 +21,7 @@ export class News {
   constructor(data: any) {
     this.slug = data.slug;
     this.heading = data.heading;
+    this.description = data.description;
     this.body = data.body;
     this.date = data.date;
 

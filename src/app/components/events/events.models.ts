@@ -58,6 +58,7 @@ export class User {
 export class Event {
   slug: string;
   heading: string;
+  description: string;
   body: string;
 
   start: string;
@@ -74,6 +75,7 @@ export class Event {
   constructor(data: any) {
     this.slug = data.slug;
     this.heading = data.heading;
+    this.description = data.description;
     this.body = data.body;
 
     this.start = data.start;
