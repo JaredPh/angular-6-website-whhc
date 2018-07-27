@@ -240,26 +240,26 @@ body {
   @import '../app/app.component';
 
   /* Auth */
-  @import '../app/routes/auth/auth-login/auth-login.component.scss';
+  @import '../app/routes/public/auth/auth-login/auth-login.component.scss';
 
   /* Home */
-  @import '../app/routes/home/home-events/home-events.component';
+  @import '../app/routes/public/home/home-events/home-events.component';
 
   /* News */
-  @import '../app/routes/news/news-article/news-article.component';
+  @import '../app/routes/public/news/news-article/news-article.component';
 
   /* Events */
-  @import '../app/routes/events/event-detail/event-detail.component';
+  @import '../app/routes/public/events/event-detail/event-detail.component';
 
   /* Fixtures */
-  @import '../app/routes/fixtures/fixtures.component';
+  @import '../app/routes/public/fixtures/fixtures.component';
 
   /* Pages */
-  @import '../app/routes/pages/pages.component';
-  @import '../app/routes/pages/page-list-card/page-list-card.component';
+  @import '../app/routes/public/pages/pages.component';
+  @import '../app/routes/public/pages/page-list-card/page-list-card.component';
 
   /* Errors */
-  @import '../app/routes/error/error.component.scss';
+  @import '../app/routes/public/error/error.component.scss';
 
 /* Components */
 
@@ -274,8 +274,8 @@ body {
 
   /* News */
   @import '../app/components/news/news-basic-card/news-basic-card.component';
-  @import '../app/routes/home/home-news/home-news-featured-card/home-news-featured-card.component';
-  @import '../app/routes/news/news-list-card/news-list-card.component';
+  @import '../app/routes/public/home/home-news/home-news-featured-card/home-news-featured-card.component';
+  @import '../app/routes/public/news/news-list-card/news-list-card.component';
 
   /* Tags */
   @import '../app/components/tags/tag/tag.component';
