@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { News } from '../../../../components/news/news.models';
+import { News } from '../../../../components/shared/models/news.models';
 
 @Component({
   selector: 'whhc-news-featured-card',

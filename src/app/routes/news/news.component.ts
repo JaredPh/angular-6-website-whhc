@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgRedux, select } from '@angular-redux/store';
-import { News } from '../../components/news/news.models';
+import { News } from '../../components/shared/models/news.models';
 import { IAppState } from '../../app.store';
 import { ActivatedRoute } from '@angular/router';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';

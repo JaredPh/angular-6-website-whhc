@@ -2,7 +2,7 @@ import { NgRedux } from '@angular-redux/store';
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { IAppState } from '../../../../app.store';
-import { PageTree } from '../../../pages/pages.models';
+import { PageTree } from '../../models/pages.models';
 import { PagesService } from '../../../pages/pages.service';
 
 @Component({

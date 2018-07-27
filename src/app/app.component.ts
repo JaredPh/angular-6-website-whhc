@@ -1,15 +1,21 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { AuthService } from './components/auth/auth.service';
 
 @Component({
   selector: 'whhc-root',
   templateUrl: './app.component.html',
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit, AfterViewInit {
 
   constructor(
     private router: Router,
+    private authService: AuthService,
   ) {}
+
+  async ngOnInit() {
+    await this.authService.isAuthenticated();
+  }
 
   ngAfterViewInit() {
     this.router.events

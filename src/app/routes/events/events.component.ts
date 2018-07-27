@@ -4,7 +4,7 @@ import { IAppState } from '../../app.store';
 import { ActivatedRoute } from '@angular/router';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
 import { Observable } from 'rxjs/index';
-import { Event} from '../../components/events/events.models';
+import { Event} from '../../components/shared/models/events.models';
 import { EventsService} from '../../components/events/events.service';
 import { TagsService } from '../../components/tags/tags.service';
 import { SEOService } from '../../components/shared/services/seo.service';

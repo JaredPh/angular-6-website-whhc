@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { select } from '@angular-redux/store';
 
 import { NewsService } from '../../../components/news/news.service';
-import { News } from '../../../components/news/news.models';
+import { News } from '../../../components/shared/models/news.models';
 
 @Component({
   selector: 'whhc-home-news',

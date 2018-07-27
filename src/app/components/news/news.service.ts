@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { IAppState } from '../../app.store';
 import { NgRedux } from '@angular-redux/store';
 import { HttpService } from '../shared/services/http.service';
-import { News } from './news.models';
+import { News } from '../shared/models/news.models';
 import { newsActions } from './news.actions';
 
 @Injectable()

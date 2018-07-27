@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
 import { tassign } from 'tassign';
 
-import { Club } from './components/clubs/clubs.models';
-import { Event } from './components/events/events.models';
+import { Club } from './components/shared/models/clubs.models';
+import { Event } from './components/shared/models/events.models';
 import { Fixture } from './components/fixtures/fixtures.models';
-import { News } from './components/news/news.models';
+import { News } from './components/shared/models/news.models';
 
+import { authReducer, IAuthState, INITIAL_AUTH_STATE } from './components/auth/auth.store';
 import { clubsReducer, INITIAL_CLUBS_STATE } from './components/clubs/clubs.store';
 import { fixturesReducer, INITIAL_FIXTURES_STATE } from './components/fixtures/fixtures.store';
 import { eventsReducer, INITIAL_EVENTS_STATE } from './components/events/events.store';
@@ -41,6 +42,7 @@ export function requestsReducer(state: IRequestState = INITIAL_REQUEST_STATE, ac
 }
 
 export interface IAppState {
+  auth: IAuthState;
   clubs: Club[];
   events: Event[];
   fixtures: Fixture[];
@@ -51,6 +53,7 @@ export interface IAppState {
 }
 
 export const INITIAL_STATE: IAppState = {
+  auth: INITIAL_AUTH_STATE,
   clubs: INITIAL_CLUBS_STATE,
   events: INITIAL_EVENTS_STATE,
   fixtures: INITIAL_FIXTURES_STATE,
@@ -61,6 +64,7 @@ export const INITIAL_STATE: IAppState = {
 };
 
 export const rootReducer = combineReducers({
+  auth: authReducer,
   clubs: clubsReducer,
   events: eventsReducer,
   fixtures: fixturesReducer,

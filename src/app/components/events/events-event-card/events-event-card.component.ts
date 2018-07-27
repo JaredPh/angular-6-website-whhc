@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Event } from '../events.models';
+import { Event } from '../../shared/models/events.models';
 import * as moment from 'moment';
 
 @Component({

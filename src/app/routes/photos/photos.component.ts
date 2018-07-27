@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IAppState } from '../../app.store';
-import { News } from '../../components/news/news.models';
+import { News } from '../../components/shared/models/news.models';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
 import { SEOService } from '../../components/shared/services/seo.service';
 

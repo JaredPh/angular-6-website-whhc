@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { select } from '@angular-redux/store';
 
 import { EventsService } from '../../../components/events/events.service';
-import { Event } from '../../../components/events/events.models';
+import { Event } from '../../../components/shared/models/events.models';
 
 @Component({
   selector: 'whhc-home-events',

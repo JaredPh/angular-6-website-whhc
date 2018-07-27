@@ -1,5 +1,5 @@
 import { clubsActions, ClubsActions } from './clubs.actions';
-import { Club } from './clubs.models';
+import { Club } from '../shared/models/clubs.models';
 
 export const INITIAL_CLUBS_STATE: Club[] = [];
 

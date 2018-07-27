@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PageSummary } from '../../../components/pages/pages.models';
+import { PageSummary } from '../../../components/shared/models/pages.models';
 
 @Component({
   selector: 'whhc-page-list-card',

@@ -2,9 +2,9 @@ import { NgRedux, select } from '@angular-redux/store';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Location } from '../../components/events/events.models';
+import { Location } from '../../components/shared/models/locations.models';
 import { IAppState } from '../../app.store';
-import { Page, PageTree } from '../../components/pages/pages.models';
+import { Page, PageTree } from '../../components/shared/models/pages.models';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
 import { SEOService } from '../../components/shared/services/seo.service';
 

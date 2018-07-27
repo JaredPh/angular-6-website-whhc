@@ -1,4 +1,5 @@
-import { Image, User } from '../events/events.models';
+import { Image} from './images.models';
+import { Member } from '../../members/members.models';
 
 export class News {
   slug: string;
@@ -13,7 +14,7 @@ export class News {
 
   video?: string = null;
 
-  author: User;
+  author: Member;
 
   similar: string[];
   tags: string[];
@@ -33,7 +34,7 @@ export class News {
       this.video = data.video;
     }
 
-    this.author = new User(data.author);
+    this.author = new Member(data.author);
 
     this.similar = data.similar;
     this.tags = data.tags.map(t => t.name);

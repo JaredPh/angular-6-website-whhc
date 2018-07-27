@@ -4,7 +4,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRout
 import { Observable } from 'rxjs';
 import { IAppState } from '../../app.store';
 import { pagesActions } from '../../components/pages/pages.actions';
-import { PageTree } from '../../components/pages/pages.models';
+import { PageTree } from '../../components/shared/models/pages.models';
 import { PagesService } from '../../components/pages/pages.service';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
 

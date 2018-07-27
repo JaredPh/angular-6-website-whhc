@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { Location } from '../../events/events.models';
+import { Location } from '../../shared/models/locations.models';
 import * as moment from 'moment';
 import { HttpService } from '../../shared/services/http.service';
 

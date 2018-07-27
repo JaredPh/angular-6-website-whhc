@@ -1,4 +1,4 @@
-import { Event } from './events.models';
+import { Event } from '../shared/models/events.models';
 
 export const eventsActions = {
   EVENTS_FETCH_MANY_REQUEST: 'EVENTS_FETCH_MANY_REQUEST',

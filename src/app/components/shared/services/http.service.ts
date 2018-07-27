@@ -1,29 +1,35 @@
-import { Injectable, isDevMode } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
+import { NgRedux } from '@angular-redux/store';
+import { IAppState } from '../../../app.store';
 
 @Injectable()
 export class HttpService {
 
+  private token: string;
+
   constructor(
+    private redux: NgRedux<IAppState>,
     private http: HttpClient,
-  ) {}
+  ) {
+    this.redux.select(s => s.auth.token).subscribe(token => this.token = token);
+  }
 
-  get(route: string, options?: any) {
+  get(route: string, params: any = {}) {
+    const url = `${environment.apiAddress}${route}`;
 
-    let queryString = '';
+    const options = {
+      params,
+      headers: {
+        Authorization: null,
+      },
+    };
 
-    if (options && Object.keys(options).length > 0) {
-      queryString = Object.keys(options).reduce((str, key) => `${str}&${key}=${options[key].toString()}`, '');
-      queryString = `?${queryString.substr(1)}`;
+    if (this.token) {
+      options.headers.Authorization = `Bearer ${this.token}`;
     }
 
-    const url = `${environment.apiAddress}${route}${queryString}`;
-
-    if (isDevMode()) {
-      console.log('HttpService', 'GET:', url);
-    }
-
-    return this.http.get(url);
+    return this.http.get(url, options);
   }
 }

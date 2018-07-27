@@ -3,6 +3,13 @@
 @import '~bulma-pageloader/dist/bulma-pageloader';
 @import '~bulma-checkradio/dist/bulma-checkradio';
 
+input.input.ng-invalid:not(:focus) {
+  &.ng-dirty,
+  &.ng-touched {
+    @extend .input.is-danger;
+  }
+}
+
 .hero.is-fullheight {
   min-height: calc(100vh - 6rem);
 }
@@ -106,3 +113,4 @@ h1, h2, .description {
     }
   }
 }
+

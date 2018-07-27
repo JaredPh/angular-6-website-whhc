@@ -1,4 +1,4 @@
-import { Event } from './events.models';
+import { Event } from '../shared/models/events.models';
 import { eventsActions, EventsActions } from './events.actions';
 
 export const INITIAL_EVENTS_STATE: Event[] = [];

@@ -1,6 +1,6 @@
 import { tassign } from 'tassign';
-import { News } from '../news/news.models';
-import { Page } from './pages.models';
+import { News } from '../shared/models/news.models';
+import { Page } from '../shared/models/pages.models';
 
 import { IPagesState } from './pages.store';
 

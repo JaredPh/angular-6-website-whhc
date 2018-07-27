@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { IAppState } from '../../app.store';
 import { HttpService } from '../shared/services/http.service';
 import { pagesActions } from './pages.actions';
-import { Page, PageTree } from './pages.models';
+import { Page, PageTree } from '../shared/models/pages.models';
 
 @Injectable()
 export class PagesService {

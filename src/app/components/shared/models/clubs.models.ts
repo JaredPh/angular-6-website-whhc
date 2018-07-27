@@ -1,5 +1,5 @@
-import { Image } from '../events/events.models';
-import { Team } from '../fixtures/fixtures.models';
+import { Image } from './images.models';
+import { Team } from '../../fixtures/fixtures.models';
 
 export class Club {
   id: number;

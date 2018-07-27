@@ -45,7 +45,6 @@ export class SEOService {
     }
 
     const status = (data.status) ? data.status : 200;
-    console.log('status', status);
     this.setTag({ name: 'prerender-status-code', content: status });
   }
 

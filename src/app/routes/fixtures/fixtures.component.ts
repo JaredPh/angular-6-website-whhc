@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs';
 import { IAppState } from '../../app.store';
-import { Club } from '../../components/clubs/clubs.models';
+import { Club } from '../../components/shared/models/clubs.models';
 import { Fixture, FixturesDay, Team } from '../../components/fixtures/fixtures.models';
 import { PageLoaderService } from '../../components/shared/elements/page-loader/page-loader.service';
 import { Router } from '@angular/router';

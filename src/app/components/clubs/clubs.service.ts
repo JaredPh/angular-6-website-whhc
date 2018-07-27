@@ -3,7 +3,7 @@ import { IAppState } from '../../app.store';
 import { NgRedux } from '@angular-redux/store';
 import { HttpService } from '../shared/services/http.service';
 import { clubsActions } from './clubs.actions';
-import { Club } from './clubs.models';
+import { Club } from '../shared/models/clubs.models';
 
 @Injectable()
 export class ClubsService {

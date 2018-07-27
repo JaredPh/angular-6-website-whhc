@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
-import { Club } from '../clubs/clubs.models';
-import { Location } from '../events/events.models';
+import { Club } from '../shared/models/clubs.models';
+import { Location } from '../shared/models/locations.models';
 
 export class Team { // todo: move
   id: number;

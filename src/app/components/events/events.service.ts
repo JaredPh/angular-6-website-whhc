@@ -4,7 +4,7 @@ import { IAppState } from '../../app.store';
 
 import { eventsActions } from './events.actions';
 import { HttpService } from '../shared/services/http.service';
-import { Event } from './events.models';
+import { Event } from '../shared/models/events.models';
 
 @Injectable()
 export class EventsService {

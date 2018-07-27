@@ -4,7 +4,7 @@ import { EventsService } from '../../../components/events/events.service';
 import { PageLoaderService  } from '../../../components/shared/elements/page-loader/page-loader.service';
 import { IAppState } from '../../../app.store';
 import { NgRedux } from '@angular-redux/store';
-import { Event } from '../../../components/events/events.models';
+import { Event } from '../../../components/shared/models/events.models';
 import * as moment from 'moment';
 import { SEOService } from '../../../components/shared/services/seo.service';
 

@@ -8,20 +8,55 @@
           <figure class="avatar image is-96x96">
             <img src="https://media.whhc.uk/0df32bd7-bf6f-4a04-b2b0-d8ed21c2cfad.png?size=thumb">
           </figure>
-          <form>
-            <div class="field">
-              <div class="control">
-                <input class="input is-large" type="email" placeholder="Your Email" autofocus="">
+          <form [formGroup]="loginForm" (submit)="sendForm($event)">
+
+            <div *ngIf="errorType" class="message is-danger">
+              <div class="message-body" [ngSwitch]="errorType">
+                <span *ngSwitchCase="'InvalidParameterException'">Invalid email or password, please check your details and try again.</span>
+                <span *ngSwitchCase="'UserNotFoundException'">We could not find a member using this email and password.</span>
+                <span *ngSwitchDefault>Something went wrong, please check your connection</span>
               </div>
             </div>
 
             <div class="field">
               <div class="control">
-                <input class="input is-large" type="password" placeholder="Your Password">
+                <input
+                  formControlName="Email"
+                  class="input is-large"
+                  type="email"
+                  placeholder="Your Email"
+                  autofocus
+                  autocomplete="username"
+                >
+                <p class="help">
+                  <span
+                    *ngIf="(loginForm.controls.Email.dirty || loginForm.controls.Email.touched) && !loginForm.controls.Email.valid"
+                    class="has-text-danger">Please enter a valid email</span>
+                  &nbsp;
+                </p>
               </div>
             </div>
 
-            <button class="button is-block is-primary is-large is-fullwidth">Login</button>
+            <div class="field">
+              <div class="control">
+                <input
+                  formControlName="Password"
+                  controlName="Password"
+                  class="input is-large"
+                  type="password"
+                  placeholder="Your Password"
+                  autocomplete="current-password"
+                >
+                <p class="help">
+                  <span
+                    *ngIf="(loginForm.controls.Password.dirty || loginForm.controls.Password.touched) && !loginForm.controls.Password.valid"
+                    class="has-text-danger">Please enter your password</span>
+                  &nbsp;
+                </p>
+              </div>
+            </div>
+
+            <button class="button is-block is-primary is-large is-fullwidth" type="submit">Login</button>
           </form>
         </div>
         <p class="has-text-grey">

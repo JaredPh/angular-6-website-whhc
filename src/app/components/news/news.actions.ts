@@ -1,4 +1,4 @@
-import { News } from './news.models';
+import { News } from '../shared/models/news.models';
 
 export const newsActions = {
   NEWS_FETCH_MANY_ERROR:   'NEWS_FETCH_MANY_ERROR',

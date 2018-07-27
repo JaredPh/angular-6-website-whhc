@@ -1,5 +1,5 @@
 import { PagesReducerActions, pagesActions } from './pages.actions';
-import { Page, PageTree } from './pages.models';
+import { Page, PageTree } from '../shared/models/pages.models';
 
 export interface IPagesState {
   trees: PageTree[];

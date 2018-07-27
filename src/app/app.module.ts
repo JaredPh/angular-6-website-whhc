@@ -15,6 +15,7 @@ import { SharedModule } from './components/shared/shared.module';
 import { PageLoaderService } from './components/shared/elements/page-loader/page-loader.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AuthModule } from './components/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { environment } from '../environments/environment';
     NgReduxRouterModule,
     SharedModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    AuthModule,
   ],
   providers: [
     AppPreloader,

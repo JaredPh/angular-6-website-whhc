@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppPreloader } from './app.preloader';
 
 const routes: Routes = [
-  { path: 'auth', loadChildren: './routes/auth/auth.module#AuthModule' },
+  { path: 'login', loadChildren: './routes/auth/auth.module#AuthViewModule' },
+  { path: 'reset-password', loadChildren: './routes/auth/auth.module#AuthViewModule' },
   { path: 'events', loadChildren: './routes/events/events.module#EventsViewModule' },
   { path: 'fixtures', loadChildren: './routes/fixtures/fixtures.module#FixturesViewModule' },
   { path: 'results', loadChildren: './routes/fixtures/fixtures.module#FixturesViewModule' },
+  { path: 'members', loadChildren: './routes/members/members.module#MembersViewModule' },
   { path: 'news', loadChildren: './routes/news/news.module#NewsViewModule' },
   { path: 'photos', loadChildren: './routes/photos/photos.module#PhotosViewModule' },
   { path: 'error', loadChildren: './routes/error/error.module#ErrorViewModule' },

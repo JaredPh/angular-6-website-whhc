@@ -19,6 +19,7 @@ import { NavbarComponent } from './elements/navbar/navbar.component';
 import { WysiwygRoutesDirective } from './directives/wysiwyg-routes.directive';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { SEOService } from './services/seo.service';
+import { AuthModule } from '../auth/auth.module';
 
 const exportedDeclarations = [
   CapitalizePipe,
@@ -39,6 +40,7 @@ const exportedDeclarations = [
     RouterModule,
     LazyLoadImageModule,
     PagesModule,
+    AuthModule,
   ],
   declarations: [
     ...exportedDeclarations,

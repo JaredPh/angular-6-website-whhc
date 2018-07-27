@@ -1,5 +1,5 @@
-import { Location } from '../events/events.models';
-import { IImage } from '../media/media.interfaces';
+import { Location } from './locations.models';
+import { IImage } from '../../media/media.interfaces';
 
 export class PageTree {
   id: number;

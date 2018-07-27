@@ -1,5 +1,5 @@
 import { Fixture } from '../fixtures/fixtures.models';
-import { Club } from './clubs.models';
+import { Club } from '../shared/models/clubs.models';
 
 export const clubsActions = {
   CLUBS_FETCH_MANY_REQUEST: 'CLUBS_FETCH_MANY_REQUEST',
