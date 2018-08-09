@@ -19,30 +19,34 @@
       <div class="navbar-start">
       </div>
       <div *ngIf="clubInfoNav" class="navbar-end">
+
+        <div class="navbar-item">
+          <div class="field">
+            <p class="control">
+              <a  routerLink="/club-info/join" class="button is-dark is-inverted is-outlined">Join</a>
+            </p>
+          </div>
+        </div>
+
         <a routerLink="/news" class="navbar-item">News</a>
         <a routerLink="/events" class="navbar-item">Events</a>
-        <!--<a routerLink="/fixtures" class="navbar-item">Fixtures</a>-->
+        <a routerLink="/fixtures" class="navbar-item">Fixtures</a>
         <a routerLink="/results" class="navbar-item">Results</a>
         <a routerLink="/photos" class="navbar-item">Photos</a>
 
-        <ng-container *ngIf="clubInfoNav.children.length > 0; else basicLink">
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link" [routerLink]="clubInfoNav.path">
-              {{ clubInfoNav.heading }}
+
+        <div class="navbar-item has-dropdown is-hoverable" *ngIf="clubInfoNav.children.length">
+          <a class="navbar-link" [routerLink]="clubInfoNav.path">
+            {{ clubInfoNav.heading }}
+          </a>
+
+          <div class="navbar-dropdown is-boxed is-right is-hidden-touch">
+            <a *ngFor="let child of clubInfoNav.children" class="navbar-item" [routerLink]="child.path">
+                {{ child.heading }}
             </a>
-
-            <div class="navbar-dropdown is-boxed is-right is-hidden-touch">
-              <a *ngFor="let child of clubInfoNav.children" class="navbar-item" [routerLink]="child.path">
-                  {{ child.heading }}
-              </a>
-            </div>
-
           </div>
-        </ng-container>
 
-        <ng-template #basicLink>
-          <a [href]="clubInfoNav.path" class="navbar-item">{{ clubInfoNav.heading }}</a>
-        </ng-template>
+        </div>
 
       </div>
     </div>

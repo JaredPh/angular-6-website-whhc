@@ -1,6 +1,7 @@
 import { NgRedux, select } from '@angular-redux/store';
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
+import * as moment from 'moment';
 import { Observable } from 'rxjs';
 import { IAppState } from '../../app.store';
 import { Club } from '../../components/clubs/clubs.models';
@@ -24,7 +25,7 @@ export class FixturesComponent implements OnInit {
   public showMobileFilterFlag: boolean;
   public type: string; // 'fixtures' | 'results'
 
-  public teams: Team[];
+  public teams: Team[] = [];
   public clubs: Club[];
   public location: LocationFilter = {
     home: true,
@@ -66,13 +67,17 @@ export class FixturesComponent implements OnInit {
       }
     });
 
-    this.redux.select(s => s.fixtures.filter(f =>
-      (this.type === 'fixtures') ? f.status === 'pending' : f.status !== 'pending')).subscribe((fixtures) => {
-      if (fixtures.length > 0) {
-        this.rawFixtures = fixtures;
-        this.filterFixtures();
-      }
-    });
+    this.redux
+      .select(s => s.fixtures)
+      .subscribe((fixtures) => {
+        if (fixtures.length > 0) {
+          this.rawFixtures = fixtures.filter(f => (this.type === 'fixtures')
+            ? moment(f.date).endOf('day').isAfter()
+            : moment(f.date).startOf('day').isBefore()
+          );
+          this.filterFixtures();
+        }
+      });
   }
 
   public locationChecked(location: string): boolean {
