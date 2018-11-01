@@ -26,4 +26,15 @@ export class HttpService {
 
     return this.http.get(url);
   }
+
+  post(route: string, body: any) {
+
+    const url = `${environment.apiAddress}${route}`;
+
+    if (isDevMode()) {
+      console.log('HttpService', 'POST:', url);
+    }
+
+    return this.http.post(url, body);
+  }
 }

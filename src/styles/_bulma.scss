@@ -3,6 +3,13 @@
 @import '~bulma-pageloader/dist/bulma-pageloader';
 @import '~bulma-checkradio/dist/bulma-checkradio';
 
+.is-disabled {
+  @extend [disabled];
+}
+.hero.is-fullheight {
+  min-height: calc(100vh - #{$navbar-height});
+}
+
 .image {
   position: static;
 }

@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   apiAddress: 'http://localhost:3000',
-  // apiAddress: 'https://test.whhc.uk',
+  // apiAddress: 'https://api.whhc.uk',
 };

@@ -1,0 +1,278 @@
+<form id="about-form" [formGroup]="form">
+
+  <section class="hero is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+
+          <div class="column is-6">
+            <h1 class="title">About You</h1>
+
+            <div class="field">
+              <label class="label">First Name</label>
+              <div class="control">
+                <input
+                  [formControl]="aboutFnameCtrl"
+                  class="input is-large"
+                  type="text"
+                >
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Last Name</label>
+              <div class="control">
+                <input
+                  [formControl]="aboutLnameCtrl"
+                  class="input is-large"
+                  type="text"
+                >
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Email Address</label>
+              <div class="control">
+                <input
+                  [formControl]="aboutEmailCtrl"
+                  class="input is-large"
+                  type="text"
+                >
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Mobile Number</label>
+              <div class="control">
+                <input
+                  [formControl]="aboutPhoneCtrl"
+                  class="input is-large"
+                  type="text"
+                >
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control has-text-right">
+                <a
+                  [hidden]="flags.about"
+                  class="button is-primary is-large"
+                  [class.is-disabled]="!form.controls.about.valid"
+                  (click)="checkSectionIscomplete('about')"
+                >OK</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="membership-form" *ngIf="form.controls.about.valid || flags.about" class="hero is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+
+          <div class="column is-6">
+
+            <h1 class="title">Your Membership</h1>
+
+            <div class="field options">
+              <label class="label">Are you a new or existing member?</label>
+
+              <div class="columns is-mobile is-multiline">
+                <div class="column is-6" *ngFor="let opt of options.status">
+                  <div class="control has-text-right">
+                    <a
+                      class="button is-primary is-large is-fullwidth is-option"
+                      [class.is-outlined]="opt.code != membershipStatusCtrl.value"
+                      (click)="setOption('membership', 'status', opt.code)"
+                    >{{ opt.label }} Member</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="field options">
+              <label class="label">Which type of membership are you purchasing?</label>
+
+              <div class="columns is-mobile is-multiline">
+                <div class="column is-6" *ngFor="let opt of options.type">
+                  <div class="control has-text-right">
+                    <a
+                      class="button is-primary is-large is-fullwidth is-option"
+                      [class.is-outlined]="opt.code != membershipTypeCtrl.value"
+                      (click)="setOption('membership', 'type', opt.code)"
+                    >{{ opt.label }}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="existing-form" *ngIf="form.controls.membership.valid" class="hero is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+
+          <div class="column is-6">
+
+            <h1 class="title">Your Team</h1>
+
+            <div class="field options">
+
+              <label class="label">Ladies</label>
+              <div class="columns is-mobile is-multiline">
+                <div class="column is-3-tablet is-4-mobile" *ngFor="let opt of options.teams.ladies">
+                  <div class="control has-text-right">
+                    <a
+                      class="button is-primary is-large is-fullwidth is-option"
+                      [class.is-outlined]="opt.code != existingTeamCtrl.value"
+                      (click)="setOption('existing', 'team', opt.code)"
+                    >{{ opt.label }}</a>
+                  </div>
+                </div>
+              </div>
+
+              <label class="label">Mens</label>
+              <div class="columns is-mobile is-multiline">
+                <div class="column is-3-tablet is-4-mobile" *ngFor="let opt of options.teams.mens">
+                  <div class="control has-text-right">
+                    <a
+                      class="button is-primary is-large is-fullwidth is-option"
+                      [class.is-outlined]="opt.code != existingTeamCtrl.value"
+                      (click)="setOption('existing', 'team', opt.code)"
+                    >{{ opt.label }}</a>
+                  </div>
+                </div>
+              </div>
+
+              <label class="label">Other</label>
+              <div class="columns is-mobile is-multiline">
+                <div class="column is-3-tablet is-6-mobile" *ngFor="let opt of options.teams.other">
+                  <div class="control has-text-right">
+                    <a
+                      class="button is-primary is-large is-fullwidth is-option"
+                      [class.is-outlined]="opt.code != existingTeamCtrl.value"
+                      (click)="setOption('existing', 'team', opt.code)"
+                    >{{ opt.label }}</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="installments-form" *ngIf="form.controls.existing.valid" class="hero is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+
+          <div class="column is-6">
+
+            <h1 class="title">Installment Options</h1>
+
+            <div class="field options">
+              <label class="label">How many installments?</label>
+
+              <div class="columns is-mobile is-multiline">
+                <div
+                  class="column is-6"
+                  *ngFor="let opt of options.installments.slice(0, (existingTeamCtrl.value == 'U' || existingTeamCtrl.value == 'X') ? 1 : 2)"
+                >
+                  <div class="control has-text-right">
+                    <a
+                      class="button is-primary is-large is-fullwidth is-option"
+                      [class.is-outlined]="opt.code != installmentsCountCtrl.value"
+                      (click)="setOption('installments', 'installments', opt.code)"
+                    >{{ opt.label }}</a>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="confirmation-form" *ngIf="form.controls.installments.valid" class="hero is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+
+          <div class="column is-6">
+
+            <h1 class="title">Review</h1>
+
+            <div class="columns is-multiline">
+              <div class="column is-12">
+                <h2 class="title is-size-6">Name</h2>
+                <p class="subtitle is-size-5">
+                  {{ form.value.about.fname }} {{ form.value.about.lname }}
+                </p>
+              </div>
+            </div>
+
+            <div class="columns is-multiline">
+              <div class="column is-12">
+                <h2 class="title is-size-6">Email</h2>
+                <p class="subtitle is-size-5">
+                  {{ form.value.about.email }}
+                </p>
+              </div>
+            </div>
+
+            <div class="columns is-multiline">
+              <div class="column is-12">
+                <h2 class="title is-size-6">Membership Type</h2>
+                <p class="subtitle is-size-5">
+                  {{ getMembershipType() }}
+                </p>
+              </div>
+            </div>
+
+            <div class="columns is-multiline">
+              <div class="column is-12">
+                <h2 class="title is-size-6">Payment Info</h2>
+                <p class="subtitle is-size-5" *ngIf="installments?.length == 1; else two">
+                  1 Payment of £{{ installments[0] }}.00
+
+                </p>
+                <ng-template #two>
+                  1st Payment of £{{ installments[0] }}.00 due now<br>
+                  2nd Payment of £{{ installments[1] }}.00 due on the 1st of February 2019
+                </ng-template>
+              </div>
+            </div>
+
+            <div class="columns is-multiline">
+              <div class="column is-12">
+                <h2 class="title is-size-6">Payment Method</h2>
+                <p class="subtitle is-size-5">
+                  {{ (installments?.length == 1) ? 'Bank Transfer (BACS)' : 'Direct Debit' }}
+                </p>
+              </div>
+            </div>
+
+            <a class="button is-primary is-large is-fullwidth" (click)="submitForm()">Confirm</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>

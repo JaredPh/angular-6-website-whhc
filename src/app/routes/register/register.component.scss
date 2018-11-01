@@ -1,0 +1,18 @@
+.is-option {
+  height: 6rem;
+  white-space: normal;
+  line-height: 1.8rem;
+}
+
+.field.options:not(:last-child) {
+  margin-bottom: 2rem; // TODO: add var
+}
+
+.button.is-primary.is-outlined {
+  background: white;
+
+  &:hover, &:focus {
+    background: #59cbe8;
+    color: white; // TODO: param
+  }
+}

@@ -1,0 +1,21 @@
+<section class="hero is-fullheight is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+
+        <div class="column is-6">
+
+          <h2 class="title is-size-4">Thank you</h2>
+          <p class="subtitle is-size-4" *ngIf="installments?.length != 2; else two">
+            We have sent an email to you with all of the details about how to make your payment.
+          </p>
+
+          <ng-template #two>
+            Thank you for setting up your direct debit, we have sent an email to you with all of the details about your payments.
+          </ng-template>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
